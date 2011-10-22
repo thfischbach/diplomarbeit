@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Sat Oct 22 20:33:40 CEST 2011
+builderNum=6
+outputDir=bin
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=main.tex
+outputFile=Diplomarbeit_Thomas_Fischbach.pdf
+langSpell=de
+markDer=true
+srcDir=src
