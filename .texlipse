@@ -1,6 +1,6 @@
 #TeXlipse project settings
-#Mon Oct 24 22:16:27 CEST 2011
-builderNum=2
+#Mon Oct 24 22:31:34 CEST 2011
+builderNum=6
 outputDir=bin/
 makeIndSty=
 bibrefDir=
