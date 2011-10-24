@@ -1,7 +1,7 @@
 #TeXlipse project settings
-#Sat Oct 22 20:33:40 CEST 2011
-builderNum=6
-outputDir=bin
+#Mon Oct 24 22:16:27 CEST 2011
+builderNum=2
+outputDir=bin/
 makeIndSty=
 bibrefDir=
 outputFormat=pdf
@@ -10,4 +10,4 @@ mainTexFile=main.tex
 outputFile=Diplomarbeit_Thomas_Fischbach.pdf
 langSpell=de
 markDer=true
-srcDir=src
+srcDir=src/
