@@ -1,7 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \pagestyle{plain}
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -20,10 +19,15 @@
 \usepackage{listings}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
+%\usepackage[style=authortitle-icomp]{biblatex}
+%\usepackage[babel,german=quotes]{csquotes}
+\usepackage[numbers,square]{natbib}
 
- 
+
 
 \begin{document}
+
+
 \title{\vspace{30mm} \bf{Titel}}
 \author{Thomas Fischbach}
 \date{\today}
@@ -34,25 +38,28 @@
   
   
   
-\tableofcontents  
+\tableofcontents
   
 \newpage
   
 \section{Einleitung}
-\include{einleitung.tex}
+\include{einleitung}
 \section{Theoretische Grundlagen}
-\include{theoretische_grundlagen.tex}
+\include{theoretische_grundlagen}
 \section{Experimenteller Aufbau}
-\include{experimenteller_aufbau.tex}
+\include{experimenteller_aufbau}
 \section{Ergebnisse und Diskussion}
-\include{ergebnisse_und_diskussion.tex}
+\include{ergebnisse_und_diskussion}
 \section{Zusammenfassung und Ausblick}
-\include{zusammenfassung_und_ausblick.tex}
-\section{Anhang}
-\include{anhang.tex}
-\section{Referenzen}
-\include{referenzen.tex}
+\include{zusammenfassung_und_ausblick}
+%\section{Anhang}
+%\include{anhang}
+%\section{Referenzen}
+%\include{referenzen}
 \section{Danksagung}
-\include{danksagung.tex}
-  
+\include{danksagung}
+\bibliographystyle{alpha}
+\bibliography{lit}
+%\printbibliography
+
 \end{document}

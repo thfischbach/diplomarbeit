@@ -1,0 +1,13 @@
+Fermis Goldene Regel:
+ - http://de.wikipedia.org/wiki/Fermis_Goldene_Regel
+ - http://www.quantum.physik.uni-mainz.de/de/lectures/2008/ws0809_quantenoptik/Blatt1.pdf (Herleitungs-Aufgabe)
+ - Rauschenbeutel/Kuhr Skript
+
+
+Linienprofil:
+ - Dipl. Sebastian Raeder
+ - Diss. Wilfried Nörtershäuser
+ - Diss. Philipp Schumann
+ - Demtröder 3
+ - Demtröder Laser-Spektroskopie
+ - Bahaa Saleh, Grundlagen der Photonik
