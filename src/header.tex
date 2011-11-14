@@ -1,23 +1,45 @@
-% ***********************************************************
-% ******************* HEADER ************************
-% ***********************************************************
-\documentclass[a4paper,12pt]{article}
-\pagestyle{plain}
+\documentclass[a4paper,12pt,titlepage]{book}
+
+
+% **************************************************
+% ******************* Usepackages ******************
+% **************************************************
+
+%\pagestyle{plain}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amsfonts}
-\usepackage{bbm}
+%\usepackage{amsfonts}
+%\usepackage{bbm}
+\usepackage{float} %Bilder Positionierung
 \usepackage{amsmath} % AMS Math Package
 \usepackage{amsthm} % Theorem Formatting
 \usepackage{amssymb} % Math symbols such as \mathbb
+\usepackage{mathtools} %tools formathematical typesetting, based on amsmath
+\usepackage{units} %zum Anzeigen der Einheiten
+\usepackage{nicefrac} %schöne Brüche in Zeile, in units inkludiert?!
+\usepackage{braket} %BraKet-Notation
+\usepackage{fix-cm}  %erlaubt schriftgröße beliebig zu verändern
+\usepackage{icomma} %keine Lehrzeichen bei Fließkommazahlen
+\usepackage{colortbl} %Tabellen einfaerben
+\usepackage{booktabs} %"'schöne"' Tabellen ?
+\usepackage{arydshln} %kein Darstellungsfehler in Tabelle
+\usepackage{subfigure} %teilt figures, 2Bilder nebeneinander möglich
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black, pdfsubject={Diplomarbeit: Aufbau und Charakterisierung einer interferometrischen Frequenzstabilisierung für Diodenlaser}, pdfproducer={Thomas Fischbach},
+pdfcreator={Thomas Fischbach},
+pdfauthor={Thomas Fischbach},
+plainpages=false,
+pdfstartview=Fit,
+pdfpagelayout=TwoPageRight]{hyperref} %interne Verlinkung / Metadaten
+\usepackage[font=footnotesize,
+labelfont=bf,
+%margin=18pt,
+%textfont=sl,
+%labelsep=endash,
+%tableposition=top
+]{caption}
+\usepackage{tikz} %zum Zeichnen von grafiken
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
 
-\hoffset=-1in   % Korrektur des idiotischen Standard-Offsets
-\voffset=-1in   % Korrektur des idiotischen Standard-Offsets
-\topmargin=1cm
-\textheight=24cm
-\oddsidemargin=3cm
-\textwidth=15cm 
-\frenchspacing
 \usepackage{palatino}
 \usepackage{listings}
 \usepackage[T1]{fontenc}
@@ -28,55 +50,52 @@
 
 \usepackage{graphicx} % Allows for eps images
 \usepackage{multicol} % Allows for multiple columns
-%\usepackage[dvips,letterpaper,margin=0.75in,bottom=0.5in]{geometry}
- % Sets margins and page size
-%\pagestyle{empty} % Removes page numbers
 
-% \makeatletter % Need for anything that contains an @ command 
-% \renewcommand{\maketitle} % Redefine maketitle to conserve space
-% { \begingroup \vskip 10pt \begin{center} \large {\bf \@title}
-% 	\vskip 10pt \large \@author \hskip 20pt \@date \end{center}
-%   \vskip 10pt \endgroup \setcounter{footnote}{0} }
-% \makeatother % End of region containing @ commands
 
-\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
-% \DeclareMathOperator{\Sample}{Sample}
-\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
-\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
-\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} 
-% for vectors of Greek letters
-\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
-\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
-\newcommand{\avg}[1]{\left< #1 \right>} % for average
-\let\underdot=\d % rename builtin command \d{} to \underdot{}
-\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
-\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
-% for partial derivatives
-\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
-% for double partial derivatives
-\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
- \right)_{#3}} % for thermodynamic partial derivatives
-\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
-\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
-\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
- \left. #2 \vphantom{#1} \right>} % for Dirac brackets
-\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
- #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
-\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
-\let\divsymb=\div % rename builtin command \div to \divsymb
-\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
-\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
-\let\baraccent=\= % rename builtin command \= to \baraccent
-\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
-\newtheorem{prop}{Proposition}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{lem}[thm]{Lemma}
-\theoremstyle{definition}
-\newtheorem{dfn}{Definition}
-\theoremstyle{remark}
-\newtheorem*{rmk}{Remark}
 
-% ***********************************************************
-% ********************** END HEADER *************************
-% ***********************************************************
+% **************************************************
+% ******************* Seitenformatierung ***********
+% **************************************************
+% DINA4 210x297mm   1in=25,4mm
+
+\setlength{\hoffset}{-15mm}            %ca -42mmm ist am linken Rand
+\setlength{\voffset}{-5mm}
+\setlength{\topmargin}{10mm}
+\setlength{\textwidth}{140mm}
+\setlength{\textheight}{240mm}
+\setlength{\marginparwidth}{0mm}
+\setlength{\marginparsep}{0mm}
+\setlength{\topmargin}{0mm}
+
+\setlength{\oddsidemargin}{30mm}
+
+\frenchspacing %Disabled extra-Leerzeichen nach Satzende
+
+\captionsetup{font=footnotesize,format=plain,indention=0.5cm,labelfont=bf}
+
+
+% **************************************************
+% ******************* Dokumentdaten ****************
+% **************************************************
+
+\title{Aufbau und Charakterisierung einer interferometrischen Frequenzstabilisierung für Diodenlaser}
+\author{Diplomarbeit\\von\\Thomas Fischbach}
+\date{\today}
+
+
+% **************************************************
+% ******************* New Commands *****************
+% **************************************************
+
+\newcommand{\VS}{\vspace{5mm}}
+\newcommand{\VNI}{\vspace{5mm} \noindent}
+\newcommand{\cm}{\mbox{cm}^{-1}}
+
+\newcommand{\tikzgrid}{\draw[thick] (-5,0) -- (5,0);
+                \draw[thick] (-3,2) -- (3,2);
+                \draw[thick] (-3,-2) -- (3,-2);
+                \draw[thick] (0,-5) -- (0,5);
+                \draw[thick] (2,-3) -- (2,3);
+                \draw[thick] (-2,-3) -- (-2,3);}
+               
+\newcommand{\graph}{11.0cm}
