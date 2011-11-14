@@ -1,6 +1,6 @@
 Im folgenden Kapitel sollen die wichtigsten physikalischen Grundlagen für das
-Verständnis der in dieser Arbeit behandelten Thematik erklärt werden. Dabei werden die
-Kenntnisse über den Aufbau des Atoms, die quantisierten Lösungen der
+Verständnis der in dieser Arbeit behandelten Thematik erklärt werden. Dabei
+werden die Kenntnisse über den Aufbau des Atoms, die quantisierten Lösungen der
 Schrödinger- bzw. Diracgleichung, die dabei auftretenden Drehimpulskopplungen
 und die daraus resultierenden Energieaufspaltungen der Atome als vorhanden
 vorausgesetzt. Diesbezüglich sei auf einschlägige Lehrbücher wie
@@ -28,11 +28,66 @@ Atom-Spektroskopie eine wichtige Rolle spielt.
 \subsection{Übergangsraten}\label{subsec:uebergangsraten}
 Befindet sich ein Atom in einem Lichtfeld können Absorptions- und
 Emmissions-Prozesse beobachtet werden. Im ersten Fall absorbiert das Atom ein
-Photon einer bestimmten Mode aus dem Lichtfeld. Dabei wird das Atom von einem
-Zustand ($$\bra{\Psi}$$) in einen entsprechend der Photonenenergie
-$$\hbar\omega$$ energetisch höher gelegenen Zustand überführt. Analog kann ein Atom ein Photon in das Lichtfeld
-emittieren. Die Zustandsänderung des Atoms folgt dann entspechend von einem
-Zustand in ein energetisch niedriger gelegenen Zustand.\\
+Photon einer bestimmten Mode mit der Energie $\hbar\omega_L$ aus dem Lichtfeld.
+Dabei wird das Atom von einem Zustand in einen entsprechend der Photonenenergie
+energetisch höher gelegenen Zustand überführt:
+\begin{equation}\label{eq:uebergang}
+	E_f-E_i=\hbar\omega_L \, .
+\end{equation}
+Dabei ist zu beachten, dass gebundene Zustände immer quantisiert sind, also
+nicht kontinuierlich im Energiespektrum verteilt sind. Analog kann ein Atom ein
+Photon in das Lichtfeld emittieren. Die Zustandsänderung des Atoms folgt dann entsprechend von einem Zustand in ein energetisch niedriger gelegenen
+Zustand.\\
+Grundlegend beschreibt \textit{Fermis goldene Regel} die
+Übergangswahrscheinlichkeit von einem Zustand $\Psi_i$ in einen beliebigen
+Zustand $\Psi_f$. Diese kann halbklassisch störungstheoretisch hergeleitet
+werden. Dabei betrachtet man das externe Lichtfeld als Störung $\OPH'(t)$
+zusätzlich zum zeitunabhängigen Hamilton-Operator $\OPH_0$.
+\begin{equation}\label{eq:hamilton_stoerung}
+	\OPH(t)=\OPH_0+\OPH'(t)
+	\quad\text{mit}\quad
+	\OPH'(t)=\E_0 \mathrm{e}^{\mathrm{i}(\vk\cdot\vr-\omega_L t)}\approx\E_0
+	\mathrm{e}^{-\mathrm{i}\omega_L t}
+\end{equation}
+Hierbei wurde die berechtigte Annahme gemacht, dass das Atom in Relation zur
+Wellenlänge des Lichtfelds sehr klein ist und es somit am Ort des Atoms nur
+verschwindend geringe örtliche Änderungen der Amplitude des Lichtfelds gibt
+($\vk\cdot\vr\ll 1$, Atom am Ort $\vr=0$). Diese Näherung nennt man
+\textit{Dipolnäherung}. Nun setzt man mit der zeitabhängigen Schrödingergleichung an und entwickelt
+$\Psi(t)$ in die stationären Eigenzustände $\Psi_n$ des Atoms:
+\begin{equation}\label{eq:sgl_stoerung_01}
+	\mathrm{i}\hbar\pfrac{}{t}\ket{\Psi(t)}=\OPH(t)\ket{\Psi(t)}\,,
+	\quad
+	\ket{\Psi(t)}=\sum_n{c_n(t)\mathrm{e}^{-\frac{\mathrm{i}}{\hbar} E_n
+	t}\ket{\Psi_n}}\,.
+\end{equation}
+Führt man die Zeitableitung aus und projeziert beide Seiten der Gleichung auf
+einen beliebigen Zustand $\Psi_k$, findet man
+\begin{equation}\label{eq:sgl_stoerung_02}
+	\dot
+	c_k(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nk}}\bra{\Psi_k}\OPH'(t)\ket{\Psi_n}}
+	\quad\text{mit}\quad
+	\omega_{nk}=\frac{E_k-E_n}{\hbar}\,.
+\end{equation}
+Nimmt man nun an, dass die Störung klein ist, das Atom also vornehmlich im
+Ausgangs-Zustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$), verkürzt
+sich die Summe in Gleichung \ref{eq:sgl_stoerung_02} auf einen Summanden mit $n=i$.
+Für die Übergangswahrscheinlichkeit ergibt sich mit Gleichung \ref{eq:hamilton_stoerung} nach
+zeitlicher Integration des Koeffizienten des Endzustandes $\dot c_f(t)$
+\begin{eqnarray}\label{eq:uebergangs_wkt}
+	\begin{split}
+		P_{i\to f}(t,\Delta\omega) &= \abs{\int_0^t{\dot c_f(t')\dd t'}}^2\\
+		& =
+		\frac{1}{\hbar^2}\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\cdot\frac{\sin^2{\left(\frac{\Delta\omega}{2}t\right)}}{\left(\frac{\Delta\omega}{2}\right)^2}\\
+		&\text{mit}\quad\Delta\omega=\omega_L-\omega_{fi}\,,\quad\omega_{fi}=-\omega_{if}\,.
+	\end{split}
+\end{eqnarray}
+Für die totale Übergangsrate gilt dann nach genügend langer Zeit
+\begin{equation}\label{eq:uebergangs_rate}
+	\Gamma_{i\to f} =
+	\lim_{t\to\infty}{\left(\fracd{}{t}{\left(\int_{-\infty}^{\infty}{P_{i\to
+	f}(t)\rho(\omega_L)}\dd\omega\right)}\right)}\,.
+\end{equation}
 
 
 \subsection{Auswahlregeln}\label{subsec:auswahlregeln}

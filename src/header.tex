@@ -8,16 +8,17 @@
 %\pagestyle{plain}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-%\usepackage{amsfonts}
-%\usepackage{bbm}
 \usepackage{float} %Bilder Positionierung
 \usepackage{amsmath} % AMS Math Package
 \usepackage{amsthm} % Theorem Formatting
 \usepackage{amssymb} % Math symbols such as \mathbb
 \usepackage{mathtools} %tools formathematical typesetting, based on amsmath
-\usepackage{units} %zum Anzeigen der Einheiten
+\usepackage{dsfont}
+\usepackage{trsym}
+\usepackage{pifont}
+%\usepackage{units} %zum Anzeigen der Einheiten
 \usepackage{nicefrac} %schöne Brüche in Zeile, in units inkludiert?!
-\usepackage{braket} %BraKet-Notation
+%\usepackage{braket} %BraKet-Notation
 \usepackage{fix-cm}  %erlaubt schriftgröße beliebig zu verändern
 \usepackage{icomma} %keine Lehrzeichen bei Fließkommazahlen
 \usepackage{colortbl} %Tabellen einfaerben
@@ -99,3 +100,4 @@ labelfont=bf,
                 \draw[thick] (-2,-3) -- (-2,3);}
                
 \newcommand{\graph}{11.0cm}
+\input{jkcommands}

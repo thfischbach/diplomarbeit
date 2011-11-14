@@ -1,3 +1,7 @@
+Latex:
+ - http://de.wikipedia.org/wiki/Hilfe:TeX
+ - http://www.jkrieger.de/tools/latex/jkcommandstex.html (some new commands)
+
 Fermis Goldene Regel:
  - http://de.wikipedia.org/wiki/Fermis_Goldene_Regel
  - http://www.quantum.physik.uni-mainz.de/de/lectures/2008/ws0809_quantenoptik/Blatt1.pdf (Herleitungs-Aufgabe)
