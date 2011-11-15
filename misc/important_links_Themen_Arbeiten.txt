@@ -6,6 +6,7 @@ Fermis Goldene Regel:
  - http://de.wikipedia.org/wiki/Fermis_Goldene_Regel
  - http://www.quantum.physik.uni-mainz.de/de/lectures/2008/ws0809_quantenoptik/Blatt1.pdf (Herleitungs-Aufgabe)
  - Rauschenbeutel/Kuhr Skript
+ - http://www.google.de/url?sa=t&rct=j&q=fermi%20golden%20rule&source=web&cd=4&sqi=2&ved=0CDwQFjAD&url=http%3A%2F%2Fwww.mit.edu%2F~tokmakof%2FTDQMS%2FNotes%2F2.5.%2520Fermi%2527s%2520Golden%2520Rule%25203-2-07.pdf&ei=dTPCTouDOov1-gagp4mBDg&usg=AFQjCNHyjFEakkJk3znaFMf5o6lUO4VtBA&sig2=zjqt81EfuPNWa3e5EjCh3A&cad=rja
 
 
 Linienprofil:

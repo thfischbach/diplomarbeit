@@ -20,9 +20,10 @@ atomaren Übergänge und deren Linienprofil eingegangen werden, da dieses bei de
 Atom-Spektroskopie eine wichtige Rolle spielt.
 
 
-%$$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
-%$$W_{ki}=\frac{\pie^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
-%$$B_{ki}=\frac{2}{3}\frac{\pi^2e^2}{\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2$$
+$$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
+$$W_{ki}=\frac{\pi e^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
+$$B_{ki}=\frac{2}{3}\frac{\pi^2e^2}{\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2$$
+$$\vec{M}_{ik}=e\langle\psi_i\rvert\vec{r}\lvert\psi_k\rangle$$
 
 
 \subsection{Übergangsraten}\label{subsec:uebergangsraten}
@@ -39,55 +40,111 @@ nicht kontinuierlich im Energiespektrum verteilt sind. Analog kann ein Atom ein
 Photon in das Lichtfeld emittieren. Die Zustandsänderung des Atoms folgt dann entsprechend von einem Zustand in ein energetisch niedriger gelegenen
 Zustand.\\
 Grundlegend beschreibt \textit{Fermis goldene Regel} die
-Übergangswahrscheinlichkeit von einem Zustand $\Psi_i$ in einen beliebigen
+Übergangsrate von einem Zustand $\Psi_i$ in einen beliebigen
 Zustand $\Psi_f$. Diese kann halbklassisch störungstheoretisch hergeleitet
-werden. Dabei betrachtet man das externe Lichtfeld als Störung $\OPH'(t)$
-zusätzlich zum zeitunabhängigen Hamilton-Operator $\OPH_0$.
-\begin{equation}\label{eq:hamilton_stoerung}
+werden.  Dabei betrachtet man das externe Lichtfeld als Störung
+zusätzlich zum zeitunabhängigen Hamilton-Operator $\OPH_0$:
+\begin{equation}\label{eq:hamilton}
 	\OPH(t)=\OPH_0+\OPH'(t)
-	\quad\text{mit}\quad
-	\OPH'(t)=\E_0 \mathrm{e}^{\mathrm{i}(\vk\cdot\vr-\omega_L t)}\approx\E_0
-	\mathrm{e}^{-\mathrm{i}\omega_L t}
 \end{equation}
-Hierbei wurde die berechtigte Annahme gemacht, dass das Atom in Relation zur
-Wellenlänge des Lichtfelds sehr klein ist und es somit am Ort des Atoms nur
-verschwindend geringe örtliche Änderungen der Amplitude des Lichtfelds gibt
+mit dem Wechselwirkungsoperator
+\begin{equation}\label{eq:ww}
+	\begin{split}
+		\OPH'(t) &= -E_0\vec{\epsilon}\cdot\OPv{d}\cos{(\vk\cdot\vr-\omega_L t)}\\
+		&=
+		-\OPH'\left(\mathrm{e}^{\mathrm{i}(\vk\cdot\vr-\omega_L
+		t)}+\mathrm{e}^{-\mathrm{i}(\vk\cdot\vr-\omega_L t)}\right)\\
+		&\text{mit}\quad
+		\OPH'=\frac{1}{2}E_0\vec{\epsilon}\cdot\OPv{d}\,.
+	\end{split}
+\end{equation}
+Hierbei ist $E_0$ die Amplitude und $\vec{\epsilon}$ der
+Polarisierungsvektor des Lichtfelds. $\OPv{d} = e\OPv{r}$ ist der Dipoloperator. 
+Zusätzlich kann man die Annahme machen, dass das Atom in Relation zur
+Wellenlänge des Lichtfelds sehr klein ist und es somit am Ort des Atoms nur verschwindend geringe örtliche Änderungen der Amplitude des Lichtfelds gibt
 ($\vk\cdot\vr\ll 1$, Atom am Ort $\vr=0$). Diese Näherung nennt man
-\textit{Dipolnäherung}. Nun setzt man mit der zeitabhängigen Schrödingergleichung an und entwickelt
-$\Psi(t)$ in die stationären Eigenzustände $\Psi_n$ des Atoms:
+\textit{Dipolnäherung}. Dabei wird die Entwicklung des Ortsteils der
+Exponentialfunktionen in erster Ordnung 1. Nun setzt man mit der zeitabhängigen
+Schrödingergleichung an und entwickelt $\Psi(t)$ in die stationären Eigenzustände $\Psi_n$ des Atoms:
 \begin{equation}\label{eq:sgl_stoerung_01}
 	\mathrm{i}\hbar\pfrac{}{t}\ket{\Psi(t)}=\OPH(t)\ket{\Psi(t)}\,,
 	\quad
 	\ket{\Psi(t)}=\sum_n{c_n(t)\mathrm{e}^{-\frac{\mathrm{i}}{\hbar} E_n
 	t}\ket{\Psi_n}}\,.
 \end{equation}
-Führt man die Zeitableitung aus und projeziert beide Seiten der Gleichung auf
+Führt man die Zeitableitung aus und projiziert beide Seiten der Gleichung auf
 einen beliebigen Zustand $\Psi_k$, findet man
 \begin{equation}\label{eq:sgl_stoerung_02}
 	\dot
-	c_k(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nk}}\bra{\Psi_k}\OPH'(t)\ket{\Psi_n}}
+	c_k(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nk}t}\bra{\Psi_k}\OPH'(t)\ket{\Psi_n}}
 	\quad\text{mit}\quad
-	\omega_{nk}=\frac{E_k-E_n}{\hbar}\,.
+	\omega_{nk}=\frac{E_n-E_k}{\hbar}\,.
 \end{equation}
 Nimmt man nun an, dass die Störung klein ist, das Atom also vornehmlich im
 Ausgangs-Zustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$), verkürzt
-sich die Summe in Gleichung \ref{eq:sgl_stoerung_02} auf einen Summanden mit $n=i$.
-Für die Übergangswahrscheinlichkeit ergibt sich mit Gleichung \ref{eq:hamilton_stoerung} nach
-zeitlicher Integration des Koeffizienten des Endzustandes $\dot c_f(t)$
-\begin{eqnarray}\label{eq:uebergangs_wkt}
+sich die Summe in Gleichung \eqref{eq:sgl_stoerung_02} auf einen Summanden mit
+$n=i$. $c_f(t)$ folgt aus zeitlicher Integration von $\dot c_f(t)$ mit
+Gleichung \eqref{eq:ww}:
+\begin{equation}\label{eq:koeff_cf}
 	\begin{split}
-		P_{i\to f}(t,\Delta\omega) &= \abs{\int_0^t{\dot c_f(t')\dd t'}}^2\\
+		c_f(t) &= \int_0^t{\dot c_f(t')\dd t'}\\
+		&=
+		-\frac{\mathrm{i}}{\hbar}\bra{\Psi_f}\OPH'\ket{\Psi_i}\left[\frac{\mathrm{e}^{\mathrm{i}(\omega_L-\omega_{if})t}-1}{\mathrm{i}(\omega_L-\omega_{if})}+\frac{\mathrm{e}^{\mathrm{i}(\omega_L-\omega_{fi})t}-1}{\mathrm{i}(\omega_L-\omega_{fi})}\right]\\
+		&\text{mit}\quad
+		\omega_{fi}=-\omega_{if}
+	\end{split}
+\end{equation}
+
+Zu beachten ist hierbei, dass $\omega_{if}$ im Falle der Absorption negativ ist
+und somit der erste Bruch gegenüber dem zweitem Bruch in
+Gleichung \eqref{eq:koeff_cf} im nahresonenten Fall
+($\omega_{fi}\approx\omega_L$) verschwindend gering ist und vernachlässigt werden kann. Im Falle der Emission ist $\omega_{if}$ positiv und die Niveaus tauschen
+die Rollen.\\
+Für die Übergangswahrscheinlichkeit ergibt sich
+\begin{equation}\label{eq:uebergangs_wkt}
+	\begin{split}
+		P_{i\to f}(t,\Delta\omega) &= \abs{c_f(t)}^2\\
 		& =
 		\frac{1}{\hbar^2}\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\cdot\frac{\sin^2{\left(\frac{\Delta\omega}{2}t\right)}}{\left(\frac{\Delta\omega}{2}\right)^2}\\
-		&\text{mit}\quad\Delta\omega=\omega_L-\omega_{fi}\,,\quad\omega_{fi}=-\omega_{if}\,.
+		&\text{mit}\quad
+		\Delta\omega=\omega_L-\omega_{fi}\,.
 	\end{split}
-\end{eqnarray}
-Für die totale Übergangsrate gilt dann nach genügend langer Zeit
-\begin{equation}\label{eq:uebergangs_rate}
-	\Gamma_{i\to f} =
-	\lim_{t\to\infty}{\left(\fracd{}{t}{\left(\int_{-\infty}^{\infty}{P_{i\to
-	f}(t)\rho(\omega_L)}\dd\omega\right)}\right)}\,.
 \end{equation}
+Für die totale Übergangswahrscheinlichkeit gilt dann mit Gleichung
+\eqref{eq:uebergangs_wkt}
+\begin{equation}\label{eq:uebergangs_wkt_total}
+	\begin{split}
+		P_{i\to f}(t)
+		&= \int_{-\infty}^{\infty}{P_{i\to f}(t,\Delta\omega)\rho(E_f)}\dd E_f\\
+		&\approx \rho(E_f)\int_{-\infty}^{\infty}{P_{i\to f}(t,\Delta\omega)}\dd E_f\\
+		&= \hbar\rho(E_f)\int_{-\infty}^{\infty}{P_{i\to
+		f}(t,\Delta\omega)}\dd(\Delta\omega)\\
+		&= \frac{2\pi t}{\hbar}\rho(E_f)\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\,.
+	\end{split}
+\end{equation}
+Hierbei wurde die Energieniveaudichte $\rho(E_f)=\fracd{n}{E_f}$ eingeführt. Sie
+beschreibt die Verteilung der Energieniveaus der Endzustände $E_f$. Betrachtet
+man diskrete Zustände, gibt $\rho(E_f)$ den Entartungsgrad dieser wieder.  Mit
+der Annahme, dass sich $\rho(E_f)$ gegenüber $P_{i\to f}(t,\Delta\omega)$ nur langsam ändert, kann $\rho(E_f)$ in Gleichung \eqref{eq:uebergangs_wkt_total}
+als hinreichend konstant angenommen und aus dem Integral gezogen werden.
+Weiterhin wurde die Substitution $\dd E_f=\hbar\dd(\Delta\omega)$ vorgenommen. Für die
+totale Übergangsrate folgt dann mit Gleichung \eqref{eq:uebergangs_wkt_total}
+für genügend große Zeiten Fermis goldene Regel:
+\begin{equation}\label{eq:uebergangs_rate_total}
+	\begin{split}
+		\Gamma_{i\to f}
+		&= \lim_{t\to\infty}{\left(\fracd{}{t}{P_{i\to f}(t)}\right)}\\
+		&= \frac{2\pi}{\hbar}\rho(E_f)\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\,.
+	\end{split}
+\end{equation}
+% $\bra{\Psi_f}\OPH'\ket{\Psi_i} =
+% E_0\vec{\epsilon}\cdot e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ enthält das sog.
+% \textit{Dipolmatrixelement} $e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ für die Zustände
+% $\Psi_i$ und $\Psi_f$. Es gibt an, ob ein Zustand im Rahmen der Dipolnäherung erlaubt oder verboten ist.
+% Dazu sei auf Kapitel \ref{subsec:auswahlregeln} verwiesen.\par
+
+
+
 
 
 \subsection{Auswahlregeln}\label{subsec:auswahlregeln}
