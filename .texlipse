@@ -1,6 +1,5 @@
-<<<<<<< .mine
 #TeXlipse project settings
-#Mon Nov 14 12:51:09 CET 2011
+#Tue Nov 15 23:40:52 CET 2011
 builderNum=2
 outputDir=bin/
 makeIndSty=
@@ -12,18 +11,3 @@ outputFile=Diplomarbeit_Thomas_Fischbach.pdf
 langSpell=de
 markDer=true
 srcDir=src/
-=======
-#TeXlipse project settings
-#Tue Nov 08 15:15:03 CET 2011
-builderNum=2
-outputDir=bin/
-makeIndSty=
-bibrefDir=
-outputFormat=pdf
-tempDir=tmp
-mainTexFile=main.tex
-outputFile=Diplomarbeit_Thomas_Fischbach.pdf
-langSpell=de
-markDer=true
-srcDir=src/
->>>>>>> .r10

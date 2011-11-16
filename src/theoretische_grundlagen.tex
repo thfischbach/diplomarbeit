@@ -16,19 +16,19 @@ Halbleiterlasern und deren Rolle in diesem Projekt wiedergeben.
 
 Essenziell wichtig für die Resonanz-Ionisation ist das Verständnis der atomaren
 Wechselwirkung mit einem Lichtfeld. Im Folgenden soll insbesondere auf die
-atomaren Übergänge und deren Linienprofil eingegangen werden, da dieses bei der
+atomaren Übergänge und deren Linienprofil eingegangen werden, da dies bei der
 Atom-Spektroskopie eine wichtige Rolle spielt.
 
 
-$$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
-$$W_{ki}=\frac{\pi e^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
-$$B_{ki}=\frac{2}{3}\frac{\pi^2e^2}{\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2$$
-$$\vec{M}_{ik}=e\langle\psi_i\rvert\vec{r}\lvert\psi_k\rangle$$
+% $$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
+% $$W_{ki}=\frac{\pi e^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
+% $$B_{ki}=\frac{2}{3}\frac{\pi^2e^2}{\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2$$
+% $$\vec{M}_{ik}=e\langle\psi_i\rvert\vec{r}\lvert\psi_k\rangle$$
 
 
 \subsection{Übergangsraten}\label{subsec:uebergangsraten}
 Befindet sich ein Atom in einem Lichtfeld können Absorptions- und
-Emmissions-Prozesse beobachtet werden. Im ersten Fall absorbiert das Atom ein
+Emissions-Prozesse beobachtet werden. Im ersten Fall absorbiert das Atom ein
 Photon einer bestimmten Mode mit der Energie $\hbar\omega_L$ aus dem Lichtfeld.
 Dabei wird das Atom von einem Zustand in einen entsprechend der Photonenenergie
 energetisch höher gelegenen Zustand überführt:
@@ -40,9 +40,9 @@ nicht kontinuierlich im Energiespektrum verteilt sind. Analog kann ein Atom ein
 Photon in das Lichtfeld emittieren. Die Zustandsänderung des Atoms folgt dann entsprechend von einem Zustand in ein energetisch niedriger gelegenen
 Zustand.\\
 Grundlegend beschreibt \textit{Fermis goldene Regel} die
-Übergangsrate von einem Zustand $\Psi_i$ in einen beliebigen
-Zustand $\Psi_f$. Diese kann halbklassisch störungstheoretisch hergeleitet
-werden.  Dabei betrachtet man das externe Lichtfeld als Störung
+Übergangsrate von einem Zustand $\Psi_i$ (i: \textit{initial}) in einen
+beliebigen Zustand $\Psi_f$ (f: \textit{final}). Diese kann halbklassisch
+störungstheoretisch hergeleitet werden.  Dabei betrachtet man das externe Lichtfeld als Störung
 zusätzlich zum zeitunabhängigen Hamilton-Operator $\OPH_0$:
 \begin{equation}\label{eq:hamilton}
 	\OPH(t)=\OPH_0+\OPH'(t)
@@ -61,11 +61,12 @@ mit dem Wechselwirkungsoperator
 Hierbei ist $E_0$ die Amplitude und $\vec{\epsilon}$ der
 Polarisierungsvektor des Lichtfelds. $\OPv{d} = e\OPv{r}$ ist der Dipoloperator. 
 Zusätzlich kann man die Annahme machen, dass das Atom in Relation zur
-Wellenlänge des Lichtfelds sehr klein ist und es somit am Ort des Atoms nur verschwindend geringe örtliche Änderungen der Amplitude des Lichtfelds gibt
+Wellenlänge des Lichtfelds sehr klein ist und es somit am Ort des Atoms nur
+verschwindend geringe örtliche Änderungen der Amplitude des Lichtfelds erfährt
 ($\vk\cdot\vr\ll 1$, Atom am Ort $\vr=0$). Diese Näherung nennt man
-\textit{Dipolnäherung}. Dabei wird die Entwicklung des Ortsteils der
-Exponentialfunktionen in erster Ordnung 1. Nun setzt man mit der zeitabhängigen
-Schrödingergleichung an und entwickelt $\Psi(t)$ in die stationären Eigenzustände $\Psi_n$ des Atoms:
+\textit{Dipolnäherung}. Dadurch folgt für die Entwicklung des
+Ortsteils der Exponentialfunktionen in erster Ordnung
+$\mathrm{e}^{\pm\mathrm{i}\vk\cdot\vr}\approx1$. Nun setzt man mit der zeitabhängigen Schrödingergleichung an und entwickelt $\Psi(t)$ in die stationären Eigenzustände $\Psi_n$ des Atoms:
 \begin{equation}\label{eq:sgl_stoerung_01}
 	\mathrm{i}\hbar\pfrac{}{t}\ket{\Psi(t)}=\OPH(t)\ket{\Psi(t)}\,,
 	\quad
@@ -73,33 +74,36 @@ Schrödingergleichung an und entwickelt $\Psi(t)$ in die stationären Eigenzust�
 	t}\ket{\Psi_n}}\,.
 \end{equation}
 Führt man die Zeitableitung aus und projiziert beide Seiten der Gleichung auf
-einen beliebigen Zustand $\Psi_k$, findet man
+einen beliebigen Zustand $\Psi_f$, findet man
 \begin{equation}\label{eq:sgl_stoerung_02}
 	\dot
-	c_k(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nk}t}\bra{\Psi_k}\OPH'(t)\ket{\Psi_n}}
+	c_f(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nf}t}\bra{\Psi_f}\OPH'(t)\ket{\Psi_n}}
 	\quad\text{mit}\quad
-	\omega_{nk}=\frac{E_n-E_k}{\hbar}\,.
+	\omega_{nf}=\frac{E_n-E_f}{\hbar}\,.
 \end{equation}
 Nimmt man nun an, dass die Störung klein ist, das Atom also vornehmlich im
-Ausgangs-Zustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$), verkürzt
-sich die Summe in Gleichung \eqref{eq:sgl_stoerung_02} auf einen Summanden mit
-$n=i$. $c_f(t)$ folgt aus zeitlicher Integration von $\dot c_f(t)$ mit
+Ausgangs-Zustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$, $c_{n\neq
+i}\approx0$), verkürzt sich die Summe in Gleichung \eqref{eq:sgl_stoerung_02}
+auf einen Summanden mit $n=i\neq f$. $c_f(t)$ folgt aus zeitlicher Integration von $\dot c_f(t)$ mit
 Gleichung \eqref{eq:ww}:
 \begin{equation}\label{eq:koeff_cf}
 	\begin{split}
 		c_f(t) &= \int_0^t{\dot c_f(t')\dd t'}\\
 		&=
-		-\frac{\mathrm{i}}{\hbar}\bra{\Psi_f}\OPH'\ket{\Psi_i}\left[\frac{\mathrm{e}^{\mathrm{i}(\omega_L-\omega_{if})t}-1}{\mathrm{i}(\omega_L-\omega_{if})}+\frac{\mathrm{e}^{\mathrm{i}(\omega_L-\omega_{fi})t}-1}{\mathrm{i}(\omega_L-\omega_{fi})}\right]\\
+		-\frac{\mathrm{i}}{\hbar}\bra{\Psi_f}\OPH'\ket{\Psi_i}\left[\frac{\mathrm{e}^{\mathrm{i}(\omega_{fi}-\omega_L)t}-1}{\mathrm{i}(\omega_{fi}-\omega_L)}+\frac{\mathrm{e}^{\mathrm{i}(\omega_{fi}+\omega_L)t}-1}{\mathrm{i}(\omega_{fi}+\omega_L)}\right]\\
 		&\text{mit}\quad
 		\omega_{fi}=-\omega_{if}
 	\end{split}
 \end{equation}
-
-Zu beachten ist hierbei, dass $\omega_{if}$ im Falle der Absorption negativ ist
-und somit der erste Bruch gegenüber dem zweitem Bruch in
-Gleichung \eqref{eq:koeff_cf} im nahresonenten Fall
-($\omega_{fi}\approx\omega_L$) verschwindend gering ist und vernachlässigt werden kann. Im Falle der Emission ist $\omega_{if}$ positiv und die Niveaus tauschen
-die Rollen.\\
+Zu beachten ist hierbei, dass im Falle der Absorption der Nenner des zweiten
+Bruchs in Gleichung \eqref{eq:koeff_cf} im nahresonenten Fall
+($\omega_{fi}\approx\omega_L$) in der Größenordnung $2\omega_{fi}\approx
+\unit{10^{15}}{s^{-1}}$ (bei optischen Übergängen) liegt. Somit wird der
+zweite Bruch verschwindend gering gegenüber dem ersten und kann vernachlässigt
+werden. Im Falle der Emission betrachtet man Übergänge vom energetisch höheren
+Niveau zum energetisch niedrigeren Niveau. Dabei gilt
+($\omega_{if}\approx\omega_L$), wodurch der erste Bruch vernachlässigt werden
+kann. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.\\
 Für die Übergangswahrscheinlichkeit ergibt sich
 \begin{equation}\label{eq:uebergangs_wkt}
 	\begin{split}
@@ -115,21 +119,20 @@ Für die totale Übergangswahrscheinlichkeit gilt dann mit Gleichung
 \begin{equation}\label{eq:uebergangs_wkt_total}
 	\begin{split}
 		P_{i\to f}(t)
-		&= \int_{-\infty}^{\infty}{P_{i\to f}(t,\Delta\omega)\rho(E_f)}\dd E_f\\
-		&\approx \rho(E_f)\int_{-\infty}^{\infty}{P_{i\to f}(t,\Delta\omega)}\dd E_f\\
+		&= \int{P_{i\to f}(t,\Delta\omega)\rho(E_f)}\dd E_f\\
+		&\approx \rho(E_f)\int{P_{i\to f}(t,\Delta\omega)}\dd E_f\\
 		&= \hbar\rho(E_f)\int_{-\infty}^{\infty}{P_{i\to
 		f}(t,\Delta\omega)}\dd(\Delta\omega)\\
 		&= \frac{2\pi t}{\hbar}\rho(E_f)\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\,.
 	\end{split}
 \end{equation}
 Hierbei wurde die Energieniveaudichte $\rho(E_f)=\fracd{n}{E_f}$ eingeführt. Sie
-beschreibt die Verteilung der Energieniveaus der Endzustände $E_f$. Betrachtet
-man diskrete Zustände, gibt $\rho(E_f)$ den Entartungsgrad dieser wieder.  Mit
+beschreibt die Verteilung der Energieniveaus der Endzustände $E_f$. Mit
 der Annahme, dass sich $\rho(E_f)$ gegenüber $P_{i\to f}(t,\Delta\omega)$ nur langsam ändert, kann $\rho(E_f)$ in Gleichung \eqref{eq:uebergangs_wkt_total}
 als hinreichend konstant angenommen und aus dem Integral gezogen werden.
 Weiterhin wurde die Substitution $\dd E_f=\hbar\dd(\Delta\omega)$ vorgenommen. Für die
 totale Übergangsrate folgt dann mit Gleichung \eqref{eq:uebergangs_wkt_total}
-für genügend große Zeiten Fermis goldene Regel:
+für genügend große Zeiten ($t\gg\frac{1}{\omega_{fi}}$) Fermis goldene Regel:
 \begin{equation}\label{eq:uebergangs_rate_total}
 	\begin{split}
 		\Gamma_{i\to f}
