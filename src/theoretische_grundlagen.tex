@@ -149,22 +149,23 @@ für genügend große Zeiten ($t\gg\frac{1}{\omega_{fi}}$) Fermis goldene Regel:
 		\end{split}
 	}
 \end{equation}
+
 $\bra{\Psi_f}\OPH'\ket{\Psi_i} =
 \frac{1}{2}E_0\vec{\epsilon}\cdot e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ enthält
-das sog. \textit{Übergangsdipolmatrixelement} $e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ für die Zustände
+das sog. \textit{Dipolmatrixelement} $e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ für die Zustände
 $\Psi_i$ und $\Psi_f$. Es gibt an, ob ein Übergang im Rahmen der Dipolnäherung
 erlaubt oder verboten ist. Dazu sei auf Kapitel \ref{subsec:auswahlregeln} verwiesen.
 
 \subsubsection{Einsteinkoeffizienten}\label{subsubsec:einsteinkoeffizienten}
 Bisher wurden Absorption und Emission nur allgemein behandelt. Bei der Emission
-muss man allerdings zwischen der induzierten und der spontanen Emission
-unterscheiden. Die induzierte Emission findet nur mit vorhandenem
-elektromagnetischen Feld statt, während bei der spontanen Emission das Atom spontan in einen
-energetisch niedrigeren Zustand fällt und ein Photon der entsprechenden Mode
-emittiert (auch ohne Feld).\\
-In einem elektromagnetischen Feld mit spektraler Energiedichte
-$w(\nu)=n(\nu)h\nu$, bei der $n(\nu)=\pfrac{n}{\nu}$ die
-spektrale Photonendichte ist, sind im stationären Gleichgewicht die
+muss man allerdings zwischen der \textit{induzierten} und der \textit{spontanen
+Emission} unterscheiden. Die induzierte Emission findet nur mit vorhandenem
+elektromagnetischen Feld statt. Es wird ein Photon der entsprechenden Mode aus
+dem elektromagnetischen Feld benutzt, um eine Emission zu induzieren und ein
+weiteres Photon in das Feld zu emittieren. Bei der spontanen Emission hingegen
+fällt das Atom spontan in einen energetisch niedrigeren Zustand und ein
+Photon der entsprechenden Mode wird emittiert (auch ohne Feld).\\ In einem
+elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei der $n(\nu)=\pfrac{n}{\nu}$ die spektrale Photonendichte ist, sind im stationären Gleichgewicht die
 Besetzungszahlen $N_i$ des höheren Niveaus und $N_k$ des niedrigeren Niveaus zeitlich konstant. In der Ratengleichung
 \begin{equation}\label{eq:raten_gleichung}
 	A_{ik}N_i+B_{ik}w(\nu)N_i=B_{ki}w(\nu)N_k
@@ -235,7 +236,7 @@ zeitlich mittlere abgestrahlte Leistung von $N_i$ Atomen
 	\mean{P}_t = \frac{1}{3}N_i\frac{\omega_{ik}^4}{\pi\epsilon_0
 	c^3}\abs{\OPv{d}_{ik}}^2
 \end{equation}
-mit dem bereits erwähnte Übergangsdipolmatrixelement
+mit dem bereits erwähnte Dipolmatrixelement
 $\OPv{d}_{ik}=e\bra{\Psi_i}\OPv{r}\ket{\Psi_k}$. Definiert man den
 Einsteinkoeffizienten der spontanen Emission $A_{ik}$ als Wahrscheinlichkeit pro
 Sekunde, dass ein Atom spontan von $\ket{\Psi_i}$ in $\ket{\Psi_k}$ übergeht,
@@ -280,13 +281,74 @@ Ein Vergleich mit Gl. \eqref{eq:einsteinkoeff_wkten_ik} liefert
 		B_{ki} = \frac{2\pi^2}{3h^2\epsilon_0}\abs{\OPv{d}_{ki}}^2
 	}\,.
 \end{equation}
-Diese Relation ist konsistent mit den in Gl.
+Das Ergebnis ist konsistent mit den in Gl.
 \eqref{eq:einsteinkoeff_relationen} beschriebenen Relationen der
 Einsteinkoeffizienten.
 
 \subsection{Auswahlregeln}\label{subsec:auswahlregeln}
+Damit ein Übergang im Rahmen der Dipolnäherung \textit{erlaubt} ist, darf das
+Dipolmatrixelement nicht verschwinden:
+\begin{equation}\label{eq:dipolmatrixelement}
+	e\bra{\Psi_i}\OPv{r}\ket{\Psi_k}\neq0
+\end{equation}
+\textit{Verbotene} Übergänge können allerdings bei Betrachtung von
+Matrixelementen höherer Ordnung sehr wohl erlaubt sein, sind jedoch sehr stark
+unterdrückt. Welche Übergänge nun erlaubt und welche verboten sind, hängt von
+der Konfiguration bzw. den Quantenzahlen der beiden Zustände ab:
+\begin{equation}\label{eq:dipolmatrixelement_quantenzahlen}
+	\bra{n_i,L_i,S_i,m_{L_i}, m_{S_i}}\OPv{r}\ket{n_k,L_k,S_k,m_{L_k}, m_{S_k}}
+\end{equation}
+Vorrausgesetzt wird, dass die l-l- und s-s-Kopplungen der einzelnen Elektronen
+untereinander im Atom stark gegenüber der l-s-Kopplung sind (LS-Kopplung stark).
+Dies ist bei schweren Atom nicht mehr gegeben. Dort dominieren die einzelnen
+l-s-Kopplungen. (jj-Kopplung stark)\\
+Da im Gesamtsystem die Drehimpulserhaltung
+gelten muss, gilt für $\Delta L =\pm1$. Bei Absorption eines Photons wird aus dem elektromagnetischen Feld ein Photon (Boson, Spin 1) mit dem Drehimpuls vom Betrag 1 entnommen, was durch den Drehimpuls des Atoms wieder kompensiert werden muss. Analog verhält es sich bei der Emission. $\Delta L =\pm1$ kann auch mit die erforderliche unterschiedlichen Parität der Zustände begründet werden ($\OPP\ket{\psi}=(-1)^L\ket{\psi}$). Der
+Ortsoperator hat ungerade Parität. Insgesamt muss sich bei der Berechnung des Matrixelements eine gerade Funktion ergeben, damit dieses von 0
+verschieden ist. Dies ist nur mit unterschiedlicher Parität beider Zustände
+möglich $(-1)^{L_i}\neq(-1)^{L_k}$, was für
+ungerade $\Delta L$ gilt. Die Begrenzung auf $\pm1$ ist durch den Spin 1 des
+Photons begründet. Die Änderung der Projektion des Drehimpulses auf die Quantisierungsachse ist mit der
+Polarisation des Photons verknüpft. Bei der Absorption von zirkular
+polarisiertem Licht, das sich senkrecht zur Quantisierungsachse ausbreitet, ist
+der Photonen-Drehimpuls +1 für $\sigma^+$-Polarisation und -1 für
+$\sigma^-$-Polarisation. Linearpolarisiertes Licht ist eine Kombination aus
+$\sigma^+$- und $\sigma^-$-polarisiertem Licht. Die Projektion des Drehimpulses
+ändert sich in diesem Fall nicht. Es gilt also $\Delta m_L = 0, \pm1$.
+Die Spinwellenfunktion wird bei Dipolübergängen nicht beeinflusst. Daher gilt
+$\Delta S=0$. Weiterhin gilt für $\vJ=\vL+\vS$ die Änderung $\Delta J=0,\pm1$.
+$\Delta J=0$ rührt daher, dass die Änderung $\Delta L=\pm1$ durch die entgegengesetzte
+Änderung $\Delta m_S=\mp1$ kompensiert wird, was allerdings für
+$J=0\leftrightarrow0$ nicht gelten kann. Für die Kopplung an den Kernspin gilt
+analoge Überlegung: $\Delta F = 0, \pm1$ außer bei $F=0\leftrightarrow0$. In
+Tabelle \ref{tab:auswahlregeln} sind alle Auswahlregeln noch einmal
+aufgelistet.
 
-%\subsubsection{Einstein-Koeffizienten}\label{subsec:einstein-koeffizienten}
+\begin{table}
+	\begin{tabular}{p{0.15\textwidth}p{0.37\textwidth}p{0.37\textwidth}}
+
+		\toprule
+		Regel & Ursache & Einschränkungen \\
+		\midrule[1px]
+		\hline
+		$\Delta L = \pm1$ & Parität / Gesamtdrehimpulserhaltung & in LS-Kopplung \\
+		$\Delta m_L = 0, \pm1$ & Polarisation / Drehimpuls des Photons & \\
+		$\Delta S = 0$ & em. Feld koppelt nicht an Spin & gilt nicht mehr für schwere
+		Atome mit jj-Kopplung \\
+		$\Delta m_S = 0, \pm1$ & Spinorientierung & \\
+		$\Delta J = 0, \pm1$ & Spin-Drehimpuls-Kombinationen & mit Ausnahme von
+		$J=0\leftrightarrow0$
+		\\
+		$\Delta F = 0, \pm1$ & Kernspin-J-Kombinationen & mit Ausnahme von
+		$F=0\leftrightarrow0$
+		\\
+		\bottomrule[1px]
+	\end{tabular}
+	\caption{Auswahlregeln, deren Ursache und Einschränkungen}
+	\label{tab:auswahlregeln}
+\end{table}
+
+
 
 \subsection{Linienprofil}\label{sec:linienprofil}
 
