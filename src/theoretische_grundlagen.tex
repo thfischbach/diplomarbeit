@@ -12,7 +12,7 @@ kurz RIS, in Bezug auf die Resonanz-Ionisation von Uran-Isotopen erklärt
 werden. Kapitel \ref{sec:diodenlaser} soll das Funktionsprinzip von
 Halbleiterlasern und deren Rolle in diesem Projekt wiedergeben.
 
-\section{Lich-Atom-Wechselwirkung}\label{sec:licht-atom-wechselwirkung}
+\section{Licht-Atom-Wechselwirkung}\label{sec:licht-atom-wechselwirkung}
 Essenziell wichtig für die Resonanz-Ionisation ist das Verständnis der atomaren
 Wechselwirkung mit einem elektromagnetischen Feld. Im Folgenden soll insbesondere auf die
 atomaren Übergänge und deren Linienprofil eingegangen werden, da dies bei der
@@ -110,8 +110,8 @@ zweite Bruch verschwindend gering gegenüber dem ersten und kann vernachlässigt
 werden. Im Falle der Emission betrachtet man Übergänge vom energetisch höheren
 Niveau zum energetisch niedrigeren Niveau. Dabei gilt
 ($\omega_{if}\approx\omega_L$), wodurch der erste Bruch vernachlässigt werden
-kann. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.\\
-Für die Übergangswahrscheinlichkeit ergibt sich
+kann. Diese Näherung wird auch \textit{Rotating-Wave-Approximation} (kurz RWA)
+genannt. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.\\ Für die Übergangswahrscheinlichkeit ergibt sich
 \begin{equation}\label{eq:uebergangs_wkt}
 	\begin{split}
 		P_{i\to f}(t,\Delta\omega) &= \abs{c_f(t)}^2\\
@@ -134,12 +134,14 @@ Für die totale Übergangswahrscheinlichkeit gilt dann mit Gl.
 	\end{split}
 \end{equation}
 Hierbei wurde die Energieniveaudichte $\rho(E_f)=\fracd{n}{E_f}$ eingeführt. Sie
-beschreibt die Verteilung der Energieniveaus der Endzustände $E_f$. Mit
-der Annahme, dass sich $\rho(E_f)$ gegenüber $P_{i\to f}(t,\Delta\omega)$ nur langsam ändert, kann $\rho(E_f)$ in Gl. \eqref{eq:uebergangs_wkt_total}
-als hinreichend konstant angenommen und aus dem Integral gezogen werden.
-Weiterhin wurde die Substitution $\dd E_f=\hbar\dd(\Delta\omega)$ vorgenommen. Für die
+beschreibt die Verteilung der Energieniveaus der Endzustände $E_f$. Mit anderen
+Worten: Man nimmt nicht mehr ein diskretes Endniveau an, sondern eine Kontinuum
+von Endzuständen. Mit der Annahme, dass sich $\rho(E_f)$ gegenüber $P_{i\to
+f}(t,\Delta\omega)$ nur langsam ändert, kann $\rho(E_f)$ in Gl. \eqref{eq:uebergangs_wkt_total} als hinreichend konstant angenommen und aus dem Integral gezogen werden. Weiterhin wurde die Substitution $\dd E_f=\hbar\dd(\Delta\omega)$ vorgenommen. Für die
 totale Übergangsrate folgt dann mit Gl. \eqref{eq:uebergangs_wkt_total}
-für genügend große Zeiten ($t\gg\frac{1}{\omega_{fi}}$) Fermis goldene Regel:
+für genügend große Zeiten ($t\to\infty\stackrel{\wedge}{=}
+t\gg\frac{1}{\omega_{fi}}$) Fermis
+goldene Regel:
 \begin{equation}\label{eq:uebergangs_rate_total}
 	\boxed{
 		\begin{split}
@@ -149,12 +151,14 @@ für genügend große Zeiten ($t\gg\frac{1}{\omega_{fi}}$) Fermis goldene Regel:
 		\end{split}
 	}
 \end{equation}
-
 $\bra{\Psi_f}\OPH'\ket{\Psi_i} =
 \frac{1}{2}E_0\vec{\epsilon}\cdot e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ enthält
 das sog. \textit{Dipolmatrixelement} $e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ für die Zustände
 $\Psi_i$ und $\Psi_f$. Es gibt an, ob ein Übergang im Rahmen der Dipolnäherung
-erlaubt oder verboten ist. Dazu sei auf Kapitel \ref{subsec:auswahlregeln} verwiesen.
+erlaubt oder verboten ist. Dazu sei auf Kapitel \ref{subsec:auswahlregeln}
+verwiesen. Man erkennt zum einen, dass die Übergangsrate proportional zum
+Betragsquadrat des Matrixelements ist und es zum anderen logischerweise keinen
+Übergang zu nicht existenten Niveaus gibt ($\rho(E_f)=0$). 
 
 \subsubsection{Einsteinkoeffizienten}\label{subsubsec:einsteinkoeffizienten}
 Bisher wurden Absorption und Emission nur allgemein behandelt. Bei der Emission
@@ -165,8 +169,10 @@ dem elektromagnetischen Feld benutzt, um eine Emission zu induzieren und ein
 weiteres Photon in das Feld zu emittieren. Bei der spontanen Emission hingegen
 fällt das Atom spontan in einen energetisch niedrigeren Zustand und ein
 Photon der entsprechenden Mode wird emittiert (auch ohne Feld).\\ In einem
-elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei der $n(\nu)=\pfrac{n}{\nu}$ die spektrale Photonendichte ist, sind im stationären Gleichgewicht die
-Besetzungszahlen $N_i$ des höheren Niveaus und $N_k$ des niedrigeren Niveaus zeitlich konstant. In der Ratengleichung
+elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei
+der $n(\nu)=\pfrac{n}{\nu}$ die spektrale Photonendichte (also Photonendichte
+pro Mode) ist, sind im stationären Gleichgewicht die Besetzungszahlen $N_i$ des
+höheren Niveaus und $N_k$ des niedrigeren Niveaus zeitlich konstant. In der Ratengleichung
 \begin{equation}\label{eq:raten_gleichung}
 	A_{ik}N_i+B_{ik}w(\nu)N_i=B_{ki}w(\nu)N_k
 \end{equation}
@@ -223,9 +229,7 @@ durch, findet man folgende Beziehungen der Einsteinkoeffizienten:
 		A_{ik}=\frac{8\pi h\nu^3}{c^3}B_{ik}\,.
 	\end{equation}
 \end{subequations}
-%**blabla_01
-blabla01
-%blabla_01**
+**blabla01**
 \par
 Im Folgenden sollen die Einsteinkoeffizienten berechnet werden.
 Zur Berechnung des Koeffizienten der spontanen Emissionswahrscheinlichkeit
@@ -298,10 +302,10 @@ der Konfiguration bzw. den Quantenzahlen der beiden Zustände ab:
 \begin{equation}\label{eq:dipolmatrixelement_quantenzahlen}
 	\bra{n_i,L_i,S_i,m_{L_i}, m_{S_i}}\OPv{r}\ket{n_k,L_k,S_k,m_{L_k}, m_{S_k}}
 \end{equation}
-Vorrausgesetzt wird, dass die l-l- und s-s-Kopplungen der einzelnen Elektronen
+Vorausgesetzt wird, dass die l-l- und s-s-Kopplungen der einzelnen Elektronen
 untereinander im Atom stark gegenüber der l-s-Kopplung sind (LS-Kopplung stark).
 Dies ist bei schweren Atom nicht mehr gegeben. Dort dominieren die einzelnen
-l-s-Kopplungen. (jj-Kopplung stark)\\
+l-s-Kopplungen (jj-Kopplung stark).\\
 Da im Gesamtsystem die Drehimpulserhaltung
 gelten muss, gilt für $\Delta L =\pm1$. Bei Absorption eines Photons wird aus dem elektromagnetischen Feld ein Photon (Boson, Spin 1) mit dem Drehimpuls vom Betrag 1 entnommen, was durch den Drehimpuls des Atoms wieder kompensiert werden muss. Analog verhält es sich bei der Emission. $\Delta L =\pm1$ kann auch mit die erforderliche unterschiedlichen Parität der Zustände begründet werden ($\OPP\ket{\psi}=(-1)^L\ket{\psi}$). Der
 Ortsoperator hat ungerade Parität. Insgesamt muss sich bei der Berechnung des Matrixelements eine gerade Funktion ergeben, damit dieses von 0
@@ -325,7 +329,7 @@ Tabelle \ref{tab:auswahlregeln} sind alle Auswahlregeln noch einmal
 aufgelistet.
 
 \begin{table}
-	\begin{tabular}{p{0.15\textwidth}p{0.37\textwidth}p{0.37\textwidth}}
+	\begin{tabular}{p{0.17\textwidth}p{0.36\textwidth}p{0.38\textwidth}}
 
 		\toprule
 		Regel & Ursache & Einschränkungen \\
@@ -351,6 +355,235 @@ aufgelistet.
 
 
 \subsection{Linienprofil}\label{sec:linienprofil}
+Bisher wurde noch keine Aussage über die spektrale Beschaffenheit eines
+Übergangs gemacht. Diese ist aber für die Laserspektroskopie von essenzieller
+Bedeutung, da sie viele Informationen über die untersuchten Atome wie z.B. die
+Lebensdauern der Niveaus, Sättigungsleistungen der Laser für die Übergänge oder
+die Geschwindigkeitsverteilung der Atome enthalten. Auch erfährt man durch die
+Kenntnis der Linienbreite, wie hoch sich überhaupt bestimmte Übergänge auflösen
+lassen und welche Lasereigenschaften dafür benötigt werden. Die
+Lasereigenschaften bzw. das Laserverhalten deckt einen wesentlichen Teil
+dieser Arbeit ab (siehe spätere Kapitel \ref{sec:diodenlaser}, **blabla02**).
+Übergänge (hier Linien genannt) sind nicht beliebig scharf, sondern haben eine Breite, die verschiedene Ursachen hat, auf welche in diesem Abschnitt näher eingegangen werden soll. Der Großteil dieses Kapitels stützt sich auf \cite{demtroeder:laserspektroskopie}. Die spektrale Linienbreite ist durch das Frequenzintervall $\delta\omega=\omega_2-\omega_1$ zwischen den beiden
+Frequenzen, bei denen die Absorptions- bzw. Emissionsintensitäten auf die Hälfte
+ihres Maximums abgesunken sind, definiert (volle Halbwertsbreite, engl.: FWHM).
+
+\subsubsection{Natürliche
+Linienbreite}\label{subsubsec:natuerliche_linienbreite}
+Die natürliche Linienbreite ist eine unvermeidliche, natürliche Gegebenheit.
+Dies beruht darauf, dass man ein Atom (in klassischer Sichtweise) als
+einen harmonischen, gedämpften Oszillator ansehen kann, dessen Frequenzspektrum
+nicht diskret ist. Die Lösung der Bewegungsgleichung eines klassischen
+Oszillators
+\begin{equation}\label{eq:klassischer_oszillator_bewegungsgleichung}
+	\ddot x+\gamma\dot x+\omega_0^2x=0
+\end{equation}
+ist
+\begin{equation}\label{eq:klassischer_oszillator_loesung}
+	x(t)=x_0\mathrm{e}^{-\nicefrac{\gamma t}{2}}\left[\cos(\omega
+	t)+\frac{\gamma}{2\omega}\sin{(\omega t)}\right]\quad
+	\text{mit}\quad \omega=\sqrt{\omega_0^2-\frac{\gamma^2}{4}}\,.
+\end{equation}
+Um das Frequenzspektrum zu erhalten, führt man eine Fouriertransformation durch
+($x(t)\to A(\omega)$). Unter Berücksichtigung, dass man sich in nahresonanter
+Umgebung befindet ($(\omega-\omega_0)^2\ll\omega_0^2$), folgt die auf die
+Gesamtintensität $I_0$ normierte spektrale Intensitätsverteilung als sog.
+\textit{Lorentz-Profil}
+\begin{equation}\label{eq:klassischer_oszillator}
+	\begin{split}
+		I(\omega) &=A(\omega)A^*(\omega)\\
+		&=
+		I_0\frac{\nicefrac{\gamma}{2\pi}}{(\omega-\omega_0)^2+(\nicefrac{\gamma}{2})^2}\,.
+	\end{split}
+\end{equation}
+Hierbei ist $\delta\omega_n=\gamma$ die natürliche Linienbreite. Weiterhin lässt
+sich hier auch ein Zusammenhang zwischen der Linienbreite und der Lebensdauer
+eines Zustandes herleiten. Multipliziert man die Bewegungsgleichung
+\eqref{eq:klassischer_oszillator_bewegungsgleichung} mit $m\dot x$ und führt
+eine Zeitableitung durch, findet man
+\begin{equation}\label{eq:klassischer_oszillator_lebensdauer_01}
+	\fracd{}{t}\left[\frac{m}{2}\dot
+	x^2+\frac{m}{2}\omega_0^2x^2\right]=-\gamma m\dot x^2=\fracd{W}{t}=P(t)\,.
+\end{equation}
+wobei $W$ die Gesamtenergie und $P(t)$ die momentan abgestrahlte Leistung des
+Atoms ist. Nach Einsetzen von \eqref{eq:klassischer_oszillator_loesung} in
+\eqref{eq:klassischer_oszillator_lebensdauer_01} und zeitliche Mittlung findet
+man
+\begin{equation}\label{eq:klassischer_oszillator_lebensdauer_01}
+	\mean{P(t)}_t=-\frac{1}{2}\gamma mx_0^2\omega_0^2\mathrm{e}^{-\gamma
+	t}\propto\mathrm{e}^{-\gamma
+	t}\,.
+\end{equation}
+Dies bedeutet, dass die Leistungsabnahme nach $\tau=\nicefrac{1}{\gamma}$ auf
+$\nicefrac{1}{\mathrm{e}}$ des Anfangswertes abgefallen ist. Folglich ist die
+Linienbreite eines spontanen Zerfalls von einem Niveau $E_i$ in den Grundzustand
+$\delta\omega_i=\nicefrac{1}{\tau_i}$. Zu diesem Ergebnis kommt man auch über
+die Heisenbergsche Unschärferelation bei scharf bestimmtem $\tau$:
+\begin{equation}\label{eq:unschaerferelation}
+	\begin{split}
+		\Delta E\cdot\Delta t &\geq2\pi\hbar\\
+		&\Leftrightarrow\\
+		\hbar\,\delta\omega\cdot2\pi\tau &\geq2\pi\hbar\\
+		&\Leftrightarrow\\
+		\delta\omega &\geq\frac{1}{\tau}\,.
+	\end{split}
+\end{equation}
+Die Linienbreite eines Übergangs zwischen
+zwei angeregten Niveaus $E_i$ und $E_k$ ergibt sich aus den Lebensdauern beider Niveaus mit
+\begin{equation}\label{eq:natuerliche_linienbreite_lebensdauern}
+	\delta\omega_{i\leftrightarrow
+	k}=\frac{1}{\tau_i}+\frac{1}{\tau_k}\,.
+\end{equation}
+
+\subsubsection{Sättigungsverbreiterung}\label{subsubsec:saettigungsverbreiterung}
+Die Sättigunugsverbreiterung der Linie tritt erst durch Einstrahlen von
+Laserlicht in Erscheinung. Sie ist gerade bei hohen Laserleistungen von
+Bedeutung. Sehr elegant lässt sich die Sättigungsverbreiterung über den
+\textit{Dichtematrix-Formalismus} herleiten.\\
+Im Experiment sind die Atome aufgrund der spontanen Emission statistisch
+verteilt und somit dephasiert. Es liegt kein \textit{reiner Zustand}\footnote{Reiner Zustand: Es
+besteht eine kohärente Überlagerung der Zustände:
+$\ket{\Psi}=\frac{1}{\sqrt{2}}\left[\alpha(t)\mathrm{e}^{\mathrm{i}\phi}\keta+\beta(t)\ketb\right]$,
+wobei die Phase $\phi$ immer konstant bleibt.} mehr vor, sondern ein
+\textit{statistisches Gemisch}. Die Phase zwischen den Zuständen ist
+für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt. Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr
+möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
+allerdings.\\
+Dazu betrachtet mach sich die Dichtematrix:
+\begin{equation}\label{eq:dichtematrix}
+	\OP{\rho}
+	=
+	\begin{pmatrix}
+		\rho_{11} & \rho_{12}\\
+		\rho_{21} & \rho_{22}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		c_1c_1^* & c_1c_2^*\\
+		c_2c_1^* & c_2c_2^*
+	\end{pmatrix}\,.
+\end{equation}
+$\rho_{11}$ bzw. $\rho_{22}$ sind die Besetzungswahrscheinlichkeiten von
+$\ket{1}$ bzw. $\ket{2}$. $\rho_{12}$ und $\rho_{21}$ sind die
+Kohärenzen beider Zustände, wobei $\rho_{12}=\rho_{21}^*$ ist. $c_i$ bzw.
+$c_i^*$ sind wiederum die Zeitentwicklungskoeffizienten der Zustände $\ket{i}$.
+Die Bewegungsgleichungen dieser Koeffizienten erlangt man aus dem
+nicht-störungstheoretischen Ansatz eines 2-Niveau-Systems, welcher wie folgt
+aussieht:
+\begin{subequations}\label{eq:2-niveau-system_ansatz}
+	\begin{equation}\label{eq:2-niveau-system_ansatz_hamilton}
+		\begin{split}
+			\OPH &=\OPH_0-\vd\cdot\vE(t)\\
+			\text{mit}\quad
+			\vE(t) &=\vec{\epsilon}E_0\cos{(\omega t)}\\
+			\text{und}\quad
+			\OPH_0 &=\hbar\omega_1\ket{1}\bra{1}+\hbar\omega_2\ket{2}\bra{2}
+		\end{split}
+	\end{equation}
+	\begin{equation}\label{eq2-niveau-system_ansatz_zustand}
+		\ket{\Psi}=c_1(t)\mathrm{e}^{-\mathrm{i}\omega_1
+		t}\ket{1}+c_2(t)\mathrm{e}^{-\mathrm{i}\omega_2 t}\ket{2}\,.
+	\end{equation}	
+\end{subequations}
+Gleichung \ref{eq:2-niveau-system_ansatz_hamilton} beschreibt den
+Hamilton-Operator, Gleichung \ref{eq2-niveau-system_ansatz_zustand} beschreibt
+den Zustand eines 2-Niveau-Systems. Nach Einsetzen in die Schrödingergleichung
+und etwas längerer Rechnung findet man
+\begin{subequations}\label{eq:2-niveau-system_koeffizienten}
+	\begin{equation}\label{eq:2-niveau-system_c1}
+		\dot c_1(t)=\frac{\mathrm{i}\Omega_0}{2}\mathrm{e}^{\mathrm{i}\delta t}c_2(t)
+	\end{equation}
+	\begin{equation}\label{eq2-niveau-system_ansatz_c2}
+		\dot c_2(t)=\frac{\mathrm{i}\Omega_0}{2}\mathrm{e}^{\mathrm{i}\delta
+		t}c_1(t)\,,
+	\end{equation}	
+\end{subequations}
+wobei $\delta$ die Verstimmungsfrequenz zwischen Lichtfeld und atomarem Übergang
+ist ($\delta=\omega-\omega_{21}$). $\Omega_0=\nicefrac{dE_0}{\hbar}$ ist die
+sog. \textit{Rabifrequenz}\footnote{Die Rabifrequenz
+ist die Frequenz mit der das 2-Niveau-System zwischen Grundzustand und
+angeregtem Zustand oszilliert, sofern kontinuierlich resonantes Licht
+eingestrahlt wird.}, welche aber im Folgenden von keinem Interesse ist.
+Betrachtet man die Zeitentwicklung der Dichtematrixelemente
+\begin{equation}\label{eq:dichtematrix_zeitentwicklung}
+	\fracd{}{t}\OP{\rho}
+	=
+	\begin{pmatrix}
+		\dot c_1c_1^*+c_1\dot c_1^* & \dot c_1c_2^*+c_1\dot c_2^*\\
+		\dot c_2c_1^*+c_2\dot c_1^* & \dot c_2c_2^*+c_2\dot c_2^*
+	\end{pmatrix}
+\end{equation}
+und setzt nun Gln. \ref{eq:2-niveau-system_koeffizienten} in Gl.
+\ref{eq:dichtematrix_zeitentwicklung} ein ergeben sich die sog.
+\textit{optischen Blochgleichungen} (OBE's):
+\begin{subequations}\label{eq:blochgleichungen_01}
+	\begin{equation}\label{eq:blochgleichungen_11}
+		\fracd{}{t}\rho_{11}=\gamma\rho_{22}+\mathrm{i}\frac{\Omega_0}{2}(\tilde\rho_{21}-\tilde\rho_{12})
+	\end{equation}
+	\begin{equation}\label{eq:blochgleichungen_22}
+		\fracd{}{t}\rho_{22}=-\gamma\rho_{22}+\mathrm{i}\frac{\Omega_0}{2}(\tilde\rho_{12}-\tilde\rho_{21})
+	\end{equation}
+	\begin{equation}\label{eq:blochgleichungen_12}
+		\fracd{}{t}\tilde\rho_{12}=-\left(\frac{\gamma}{2}+\mathrm{i}\delta\right)\tilde\rho_{12}+\mathrm{i}\frac{\Omega_0}{2}(\rho_{22}-\rho_{11})
+	\end{equation}
+	\begin{equation}\label{eq:blochgleichungen_21}
+		\fracd{}{t}\tilde\rho_{21}=-\left(\frac{\gamma}{2}+\mathrm{i}\delta\right)\tilde\rho_{21}+\mathrm{i}\frac{\Omega_0}{2}(\rho_{11}-\rho_{22})\,.
+	\end{equation}	
+\end{subequations}
+Hierbei wurde direkt schon die spontane Emissionsrate $\gamma$ von Niveau
+$\ket{2}$ zu Niveau $\ket{1}$ eingepflegt.
+$\tilde\rho_{12}=\mathrm{e}^{-\mathrm{i}\delta t}\rho_{12}$ und $\tilde\rho_{21}=\mathrm{e}^{\mathrm{i}\delta
+t}\rho_{21}$ bedeutet, dass $\rho_{ij}$ ($i\neq j$) in ein rotierendes
+Bezugssystem mit Frequenz $\delta$ transformiert worden sind. Da für die
+Kohärenzen $\rho_{12}=\rho_{21}^*$ gilt, reduzieren sich die OBE's zu zwei
+unabhängigen Gleichungen
+\begin{subequations}\label{eq:blochgleichungen_01}
+	\begin{equation}\label{eq:blochgleichungen_21}
+		\fracd{}{t}\tilde\rho_{21}=-\left(\frac{\gamma}{2}-\mathrm{i}\delta\right)\tilde\rho_{21}-\frac{\mathrm{i}w\Omega_0}{2}
+	\end{equation}
+	\begin{equation}\label{eq:blochgleichungen_w}
+		\fracd{}{t}w=-\gamma(w+1)-\mathrm{i}\Omega_0(\tilde\rho_{21}-\tilde\rho_{12})
+	\end{equation}	
+\end{subequations}
+mit der \textit{Besetzungsinversion} $w=\rho_{22}-\rho_{11}$. Sie gibt an, wie
+stark die Besetzung im Zustand $\ket{2}$ gegenüber der im Zustand $\ket{1}$ ist.
+Für lange Zeiten stellt sich eine Gleichgewichtslösung ein. Dies ist mit der Bedingung gegeben, dass sich
+die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
+\begin{equation}\label{eq:blochgleichungen_gleichgewicht}
+	\begin{split}
+		\fracd{}{t}\tilde\rho_{21} &=\fracd{}{t}w=0\\
+		&\Leftrightarrow\\
+		w &=-\frac{1}{1+S}\\
+		\text{und}\quad
+		\tilde\rho{21}
+		&=\frac{\mathrm{i}\Omega_0}{2(\nicefrac{\gamma}{2}-\mathrm{i}\delta)(1+S)}\,.
+	\end{split}
+\end{equation}
+Hier wurde der \textit{Sättigungsparameter}
+\begin{equation}\label{eq:saettigungsparameter}
+	S=\frac{S_0}{1+\nicefrac{4\delta^2}{\gamma^2}}
+\end{equation}
+mit dem \textit{resonanten Sättigungsparameter}
+\begin{equation}\label{eq:saettigungsparameter_0}
+	S_0=\frac{2\Omega_0^2}{\gamma^2}
+\end{equation}
+eingeführt. Für die Population des angeregten Zustandes erhält man mit
+$\rho_{11}+\rho_{22}=1$
+\begin{equation}\label{eq:besetzung_22}
+	\rho_{22}=\frac{1}{2}(1+w)=\frac{S}{2(1+S)}=\frac{\nicefrac{S_0}{2}}{1+S_0+\nicefrac{4\delta^2}{\gamma^2}}\,.
+\end{equation}
+Hieraus ergibt sich die Photonenstreurate
+\begin{equation}\label{eq:photonenstreurate_01}
+	\Gamma_{ph}=\gamma\rho_{22}=\frac{\gamma}{2}\frac{S_0}{1+S_0+\nicefrac{4\delta^2}{\gamma^2}}\,,
+\end{equation}
+die im Gleichgewicht gleich der Absorptionsrate ist.
+Nach einer Umformung
+\begin{equation}\label{eq:photonenstreurate_01}
+	\Gamma_{ph}=\left(\frac{S_0}{1+S_0}\right)\left(\frac{\nicefrac{\gamma}{2}}{1+\nicefrac{4\delta^2}{\gamma'^2}}\right)
+	\quad\text{mit}\quad
+	\gamma'=\gamma\sqrt{1+S_0}
+\end{equation}
+sieht man etwas sehr interessantes: 
 
 \section{Resonanz-Ionisations-Spektroskopie}\label{sec:ris}
 
