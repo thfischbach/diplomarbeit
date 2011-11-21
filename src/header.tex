@@ -42,7 +42,7 @@ labelfont=bf,
 %tableposition=top
 ]{caption}
 \usepackage{tikz} %zum Zeichnen von grafiken
-\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.shapes,shapes,backgrounds,positioning,fit,petri,calc}
 
 \usepackage{palatino}
 \usepackage{listings}
@@ -54,7 +54,10 @@ labelfont=bf,
 
 \usepackage{graphicx} % Allows for eps images
 \usepackage{multicol} % Allows for multiple columns
-
+%\usepackage[Lenny]{sty/fncychap} %Kapitel Style
+%\usepackage{color,calc,soul,fourier}
+\usepackage{xcolor}
+\usepackage{blindtext}
 
 
 % **************************************************
@@ -104,3 +107,103 @@ labelfont=bf,
                
 \newcommand{\graph}{11.0cm}
 \input{jkcommands}
+\usepackage{titlesec}
+
+
+% **************************************************
+% **************** Chapter style *******************
+% **************************************************
+
+
+%style 1
+
+% \titleformat{\chapter}[display]
+% {\bfseries\Large}
+% {\hfill \tikz[remember picture] \node[] (nr)
+% {\fontsize{50}{70}\selectfont\color{red!50!black}\textbf{\thechapter}~};
+% \begin{tikzpicture}[overlay,remember picture] \coordinate (leftborder) at ($(nr)-(100,0)$);
+% \coordinate (leftborderhigh) at ($(nr.north west)-(100,0)$);
+% \coordinate (leftborderlow) at ($(nr.south west)-(100,0)$);
+% \coordinate (left) at ($(nr.west)-(1.5,0)$);
+% \fill[red!20!white] (leftborderhigh) -- ($(nr.north west)+(0,0.5)$) -- (left)
+% -- (leftborder) -- cycle; \fill[red!20!white] (leftborderlow) -- ($(nr.south
+% west)-(0,0.5)$) -- (left) -- (leftborder) -- cycle; \draw[red!50!black,line width=0.1em,line join=round] (left) -- ($(nr.south
+% west)-(0,0.5)$) -- ($(nr.south east)-(0,0.5)$) -- ($(nr.north east)+(0,0.5)$) -- ($(nr.north west)+(0,0.5)$) -- (left) -- (leftborder);
+% \end{tikzpicture}}
+% {-2ex}
+% {\filleft\fontsize{50}{70}\selectfont\scshape}
+% [\vspace{0ex}]
+
+
+%style 2
+
+% \colorlet{chapter}{black!75}
+% \addtokomafont{chapter}{\color{chapter}}
+% 
+% 
+% %\makeatletter% siehe De-TeX-FAQ
+% \renewcommand*{\chapterformat}{%
+% \begingroup% damit \unitlength-Änderung lokal bleibt
+% \setlength{\unitlength}{1mm}%
+% \begin{picture}(20,40)(0,5)%
+% \setlength{\fboxsep}{0pt}%
+% %\put(0,0){\framebox(20,30){}}%
+% %\put(0,20){\makebox(20,20){\rule{20\unitlength}{20\unitlength}}}%
+% \put(20,15){\line(1,0){\dimexpr
+% \textwidth-20\unitlength\relax\@gobble}}%
+% \put(0,0){\makebox(20,20)[r]{%
+% \fontsize{28\unitlength}{28\unitlength}\selectfont\thechapter
+% \kern-.04em% Ziffer in der Zeichenzelle nach rechts schieben
+% }}%
+% \put(20,15){\makebox(\dimexpr
+% \textwidth-20\unitlength\relax\@gobble,\ht\strutbox\@gobble)[l]{%
+% \ \normalsize\color{black}\chapapp~\thechapter\autodot
+% }}%
+% \end{picture} % <-- Leerzeichen ist hier beabsichtigt!
+% \endgroup
+% }
+
+
+%style 3
+
+% \definecolor{nicered}{rgb}{.647,.129,.149}
+% \usepackage{soul}
+%  
+% \makeatletter
+% \newsavebox{\feline@chapter}
+% \newcommand\feline@chapter@marker[1][4cm]{%
+% \sbox\feline@chapter{%
+% \resizebox{!}{#1}{\fboxsep=1pt%
+% \colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}%
+% }}%
+% \rotatebox{90}{%
+% \resizebox{%
+% \heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}%
+% {!}{\scshape\so\@chapapp}}\quad%
+% \raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}%
+% }
+% \newcommand\feline@chm[1][4cm]{%
+% \sbox\feline@chapter{\feline@chapter@marker[#1]}%
+% \makebox[0pt][l]{% aka \rlap
+% \makebox[1cm][r]{\usebox\feline@chapter}%
+% }}   
+%  
+% \renewcommand*{\chapterformat}{%
+% \hspace{\leftmargin} \feline@chm[2.5cm] % Height of the colored box
+% \hspace{2cm}
+% }
+% \makeatother
+
+%style 4
+
+% \titleformat{\chapter}[display]
+% {\bfseries\Large}
+% {\hfill \tikz[remember picture] \node[] (nr) {\fontsize{120}{70}\selectfont\color{lightgray}\textbf{\thechapter}};
+% \begin{tikzpicture}[overlay,remember picture]
+% \coordinate (leftborder) at ($(nr)-(100,0)$);
+% \coordinate (left) at ($(nr.west)-(1.5,0)$);
+% \draw[decoration={shape backgrounds,shape size=.5cm,shape=signal},signal from=west, signal to=east,decorate, draw=red!50!black, fill=red!50, decoration={shape sep=.5cm},line join=round] (leftborder) -- (left);
+% \end{tikzpicture}}
+% {-2ex}
+% {\filleft\fontsize{50}{70}\selectfont\scshape}
+% [\vspace{0ex}]
