@@ -194,7 +194,7 @@ die spontane Emission. Zeichnung \ref{fig:einstein_koeffizienten}
 veranschaulicht dies.\\
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=10cm]{gfx/einstein_koeffizienten.eps}
+	\includegraphics[width=10cm]{gfx/einstein_koeffizienten}
 	\caption{zwei Energieniveaus eines Atoms mit Absorption,
 	induzierte Emission und spontane Emission (von links nach
 	rechts)}\label{fig:einstein_koeffizienten}
@@ -708,6 +708,139 @@ Linienverbreiterung bei. Andernfalls ist die Umverteilung der Doppler-Klassen
 gleichmäßig, was zur homogenen Verbreiterung führt.
 
 \section{Resonanz-Ionisations-Spektroskopie}\label{sec:ris}
+Die Resonanz-Ionisations-Spektroskopie, kurz RIS, ist eine weit verbreitete
+Methode Atome spektrometrisch zu untersuchen. Dabei werden Atome über
+mehrstufige Anregung (\ref{subsec:mehrfach_resonante_anregung})
+ionisiert (\ref{subsec:ionisation}) und anschließend mittels
+einer Ionenoptik zu einem Detektor geführt, wo sie nachgewiesen werden. Der große Unterschied zu anderen spektroskopischen Methoden wie Absorptions- und Fluoreszenzspektroskopie ist die
+Tatsache, dass hierbei Ionen mit einer Effizienz von nahezu $\epsilon=1$,
+anstatt Photonen mit einer wesentlich geringeren Effizienz von
+$\epsilon\leq10^{-4}$ detektiert werden.\\
+Die Ionisation geschieht bei der RIS elementselektiv, was bedeutet, dass die
+Anregung über für das Atom charakteristische Anregungsschritte ionisiert wird.
+Die Isotpenselektivität ist bei der RIS insofern gegeben, dass die atomaren
+Übergänge einer Isotopieverschiebung (\ref{subsec:isotopieverschiebung})
+unterlegen sind und so jedes Anregungsschema eines jeden Isotops individuell
+ist. Die Isotopieverschiebungen der Übergänge des in diesem Projekt
+untersuchten Urans (\ref{subsec:uran}) sind dabei typischerweise mehrere
+GHz groß. Mit gepulst betriebenden, breitbandigen
+Titan-Saphir-Lasern, wie sie u.a. in der AG Larissa in Mainz verwendet werden,
+ist eine gute Isotopenselektivität nicht mehr gegeben, da ihre Linienbreite
+ebenso bei mehreren GHz liegt. Um hochselektive RIS zu betreiben,
+werden in diesem Projekt sehr schmalbandige Diodenlaser
+(\ref{sec:diodenlaser}) verwendet, deren Linienbreite bei nur einigen
+MHz liegt.\\
+Eine Erweiterung der RIS ist die sog. Resonanz-Ionisations-Massenspektrometrie,
+kurz RIMS. Hierbei werden die Ionen vor der Detektion zusätzlich in einem
+Massenspektrometer nach ihrer Masse selektiert, was eine Trennung der Isotope
+garantiert. Auch werden Ionen anderer Elemente oder Moleküle mit verschiedener
+Masse zum untersuchten Isotop unterdrückt. In Kap.
+\ref{sec:experimenteller_aufbau} wird im Rahmen des experimentellen Aufbaus noch
+einmal auf die Massentrennung, die mit Hilfe eines Quadrupols geschieht,
+eingegangen. Das Hauptaugenmerk liegt in dieser Arbeit allerdings auf der RIS
+und des dabei verwendeten Lasersystems.
 
+\subsection{Mehrfach
+resonante Anregung}\label{subsec:mehrfach_resonante_anregung}
+Wie in Kap. \ref{sec:licht-atom-wechselwirkung} schon erklärt, können Atome
+durch Absorption resonant in ein höher liegendes Energieniveau gebracht werden.
+Durch geschickte Kombination von aneinandergereihten Anregungsschritten kann
+das Atom in einen Zustand oberhalb des \textit{Ionisationspotentials} gebracht
+und somit ionisiert werden. Typischerweise werden in diesem Projekt dreistufige
+Anregungsschemata verwendet, wobei der dritte Schritt das Atom letzendlich in
+einen Kontinuumszustand führt und das Atom einfach ionisiert. Um das
+Anregungsverhalten theoretisch zu beschreiben, reicht es allerdings nicht mehr,
+zwei Zwei-Niveau-Systeme aneinandergereiht zu betrachten. Es muss hierbei ein
+Dichtematrixformalismus für ein N- bzw. 3-Niveau-System entwickelt werden, der
+die drei Prozesse Absorption, induzierte Emission und spontane Emission für alle
+Niveaus des System bzw. dessen statistisches Verhalten mit einbezieht. Für ein
+Zwei-Niveau-System wurde dies in in Kap. 
+\ref{subsubsec:saettigungsverbreiterung} angerissen. Für ein N-Niveau-System
+verkompliziert sich die theoretische Beschreibung sehr und wird deshalb in
+dieser Arbeit nicht weiter behandelt. Es sei dabei für die theoretische
+Beschreibung im Allgemeinen auf \cite{blum:density_matrix_theory} und für die
+Beschreibung in Bezug auf die RIS an Calcium-Atomen auf
+\cite{noertershaeuser:1999:dissertation} verwiesen. In
+\cite{schumann:2005:dissertation} wurde die Ionisationseffizienz in Abhängigkeit
+der Verstimmung der ersten beiden Anregungsschritte von Uran theoretisch
+berechnet. Abbildung \ref{fig:2D-laserscan_theorie_schumann} zeigt diese
+Abhängigkeit.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{gfx/2d-laserscan_theorie_schumann.png}
+	\caption{Dopplerfreie
+	Ionisationseffizienz in Abhängigkeit
+	der Verstimmungen der beiden ersten
+	Anregungsschritte mit den Strukturen
+	der Einphoton-Resonanz (B), (C) und
+	Zweiphotonen-Resonanz (A),
+	Erklärung im Text}\label{fig:2D-laserscan_theorie_schumann}
+\end{figure}
+Wie die interessanten Strukturen zeigen, ergibt sich kein zweidimensionales
+Voigtprofil, wie man es naiverweise annehmen könnte. Die diagonale Struktur A
+resultiert aus der \textit{Zweiphotonen-Resonanz}. Dabei ist die Summenfrequenz
+der ersten beiden Anregungsschritte gleich der Übergangsfrequenz vom
+Grundzustand zum zweiten angeregten Niveau. Auch bei relativ großer Verstimmung
+zum Zwischenniveau erhält man noch signifikante Zählraten. Die Struktur B
+zeigt die \textit{Einphotonen-Resonanz} bei resonantem ersten Übergang. Auch
+hier ergeben sich signifikante Zählraten bei großer Verstimmung des zweiten Schrittes, aber
+wesentlich weniger als bei der Zweiphotonen-Resonanz. Hält man im Gegensatz dazu
+den zweiten Schritt resonant fest und verstimmt den ersten Schritt, fällt die
+Ionisatzionseffizient sehr schnell ab (C). Dies ist leicht einzusehen, denn es
+ist bei mehrfach resonanter Anregung wesentlich effizienter, wenn die starke
+Populationsabnahme durch nicht-Resonanz erst in höheren Niveaus eintritt als
+schon in den unteren Niveaus.
+
+\subsection{Ionisation}\label{subsec:ionisation}
+Um die Atome letzendlich nach dem letzten Anregungsschritt zu ionisieren, muss
+ein Niveau besetzt werden, das oberhalb des Ionisationspotentials liegt. Die
+kann auf Grund drei verschiedener Prozesse geschehen: \textit{Feldionisation},
+\textit{nicht-resonante Photoionisation} und \textit{Autoionisation}. Da die
+ersten beiden Prozesse in diesem Projekt keine keine Anwendung finden bzw.
+keinen merkenswerten Beitrag haben, seien diese nur am Rande erwähnt und es soll
+näher auf die Autoionisation eingegangen werden.
+
+\subsubsection{Feldionisation}\label{subsubsec:feldionisation}
+Durch Anlegen eines elektrischen Feldes in der Wechselwirkungsregion mit des
+Lasern kann das Ionisationspotential herabgesenkt werden, wodurch gebundene
+Zustände oberhalb des Ionisationspotentials liegen können und somit durch
+resonante Anregung in diese Zustände eine Ionisation möglich ist. Da allerdings
+hierfür sehr starke Felder nötig sind, kommt es ungünstigerweise zu
+\textit{AC-Start-Shifts} insbesondere in den Niveaus der unteren Schritte.
+
+\subsubsection{nicht-resonante
+Photoionisation}\label{subsubsec:nicht-resonante_photoionisation}
+Neben resonanten Übergängen sind auch nicht-resonante Anregungen in das
+Kontinuum möglich. Vorraussetzung hierfür ist, dass die gesamte Photonenenergie
+aller Anregungsschritte inklusive der Photonenenergie des ionisierenden Schritts
+größer sein muss als die Energie des Ionisationspotentials
+($\hbar\omega_1+\hbar\omega_2+\hbar\omega_3\gg\E_{IP}$). Da jedoch der
+Wirkungsquerschnitt für solch einen Prozess gegenüber der anderen Prozesse
+sehr unterdrückt ist, wird hierfür ein leistungsstarker Laser
+benötigt, was wiederum mit erheblichen Kosten verbunden ist.
+
+\subsubsection{Autoionisation}\label{subsubsec:autoionisation}
+Bei der in diesem Projekt verwendeten Autoionisation sind Zustände nötig, die
+oberhalb des Ionisationspotentials liegen. Bei komplexen Atomen wie das hier
+verwendete Uran kommt es häufig vor, dass bestimmte Anregungsschritte durch die
+Anregung zweier Elektronen charakterisiert sind. Obwohl diese Zustände
+gebunden sind, kann ihre Gesamtenergie größer als das Ionisationspotential sein.
+Weiterhin gibt es starke Überlappe der Elektronen-Wellenfunktionen, was einen
+Energieübertrag zwischen zwei Elektronen begünstigt und so zu sehr schnellen
+Zerfällen in ein Elektron und ein Ion führt. Die Lebensdauer solcher Zustände
+kann bis zu 3-4 Größenordnungen kleiner als die der unterhalb des
+Ionisationspotentials sein, wobei die spektrale Breite gemäß der
+Unschärferelation entsprechend größer ist. Der Vorteil gegenüber den anderen
+Prozessen ist die Möglichkeit, Atome ohne störende Einflüsse resonant zu
+ionisieren, wobei für den ionisierenden Schritt nur moderate cw\footnote{cw:
+"`continuous wave"', zu deutsch: "`kontinuierliche Welle"', Bezeichnung für Dauerstrichlaser}-Laserleistungen von
+wenigen $\unit{100}{mW}$ nötig sind und gleichzeitig vergleichbar hohe
+Wirkungsquerschnitte erzielt werden.\\
+Im folgenden soll kurz auf das von den ersten Anregungsschritten abweichende
+Linienprofil eingegangen werden. 
+
+\subsection{Uran}\label{subsec:uran}
+
+\subsection{Isotopieverschiebung}\label{subsec:isotopieverschiebung}
 
 \section{Diodenlaser in der RIS}\label{sec:diodenlaser}
