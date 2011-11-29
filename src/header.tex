@@ -50,9 +50,9 @@ labelfont=bf,
 \usepackage{babel}
 %\usepackage[style=authortitle-icomp]{biblatex}
 %\usepackage[babel,german=quotes]{csquotes}
-\usepackage[numbers,square]{natbib}
+%\usepackage[numbers,square]{natbib}
 
-\usepackage{graphicx} % Allows for eps images
+%\usepackage{graphicx} % Allows for eps images
 \usepackage{multicol} % Allows for multiple columns
 %\usepackage[Lenny]{sty/fncychap} %Kapitel Style
 %\usepackage{color,calc,soul,fourier}
@@ -108,6 +108,31 @@ labelfont=bf,
 \newcommand{\graph}{11.0cm}
 \input{jkcommands}
 \usepackage{titlesec}
+\usepackage{ifpdf}
+
+\graphicspath{{gfx/}{plt/}} 
+
+
+% **************************************************
+% **************** eps in pdflatex******************
+% **************************************************
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+   \pdffalse
+\else
+   \pdfoutput=1
+   \pdftrue
+\fi
+\ifpdf
+   \usepackage{graphicx}
+   \usepackage{epstopdf}
+   \epstopdfsetup{suffix=}
+   \DeclareGraphicsRule{.eps}{pdf}{.pdf}{`epstopdf #1}
+   \pdfcompresslevel=9
+\else
+   \usepackage{graphicx}
+\fi
 
 
 % **************************************************

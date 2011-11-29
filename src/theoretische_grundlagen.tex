@@ -5,8 +5,8 @@ Schrödinger- bzw. Diracgleichung, die dabei auftretenden Drehimpulskopplungen
 und die daraus resultierenden Energieaufspaltungen der Atome als vorhanden
 vorausgesetzt. Diesbezüglich sei auf einschlägige Lehrbücher wie
 \cite{demtroeder:ex3}, \cite{demtroeder:laserspektroskopie} und \cite{saleh:grundlagen_der_photonik}
-verwiesen.\\ In Kapitel \ref{sec:licht-atom-wechselwirkung} soll die Wechselwirkung von
-Licht und Atom behandelt werden. Darauf aufbauend soll
+verwiesen. In Kapitel \ref{sec:licht-atom-wechselwirkung} soll die
+Wechselwirkung von Licht und Atom behandelt werden. Darauf aufbauend soll
 in Kapitel \ref{sec:ris} die Resonanz-Ionisations-Spektroskopie,
 kurz RIS, in Bezug auf die Resonanz-Ionisation von Uran-Isotopen erklärt
 werden. Kapitel \ref{sec:diodenlaser} soll das Funktionsprinzip von
@@ -77,14 +77,14 @@ $\mathrm{e}^{\pm\mathrm{i}\vk\cdot\vr}\approx1$. Nun setzt man mit der zeitabhä
 \begin{equation}\label{eq:sgl_stoerung_01}
 	\mathrm{i}\hbar\pfrac{}{t}\ket{\Psi(t)}=\OPH(t)\ket{\Psi(t)}\,,
 	\quad
-	\ket{\Psi(t)}=\sum_n{c_n(t)\mathrm{e}^{-\frac{\mathrm{i}}{\hbar} E_n
+	\ket{\Psi(t)}=\sum\limits_n{c_n(t)\mathrm{e}^{-\frac{\mathrm{i}}{\hbar} E_n
 	t}\ket{\Psi_n}}
 \end{equation}
 Führt man die Zeitableitung aus und projiziert beide Seiten der Gleichung auf
 einen beliebigen Zustand $\Psi_f$, findet man
 \begin{equation}\label{eq:sgl_stoerung_02}
 	\dot
-	c_f(t)=-\frac{\mathrm{i}}{\hbar}\sum_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nf}t}\bra{\Psi_f}\OPH'(t)\ket{\Psi_n}}
+	c_f(t)=-\frac{\mathrm{i}}{\hbar}\sum\limits_n{c_n(t)\mathrm{e}^{-\mathrm{i}\omega_{nf}t}\bra{\Psi_f}\OPH'(t)\ket{\Psi_n}}
 	\quad\text{mit}\quad
 	\omega_{nf}=\frac{E_n-E_f}{\hbar}\,.
 \end{equation}
@@ -105,13 +105,14 @@ Gl. \eqref{eq:ww}:
 Zu beachten ist hierbei, dass im Falle der Absorption der Nenner des zweiten
 Bruchs in Gl. \eqref{eq:koeff_cf} im nahresonenten Fall
 ($\omega_{fi}\approx\omega_L$) in der Größenordnung $2\omega_{fi}\approx
-\unit{10^{15}}{s^{-1}}$ (bei optischen Übergängen) liegt. Somit wird der
+10^{15}\,\text{s}^{-1}$ (bei optischen Übergängen) liegt. Somit wird der
 zweite Bruch verschwindend gering gegenüber dem ersten und kann vernachlässigt
 werden. Im Falle der Emission betrachtet man Übergänge vom energetisch höheren
 Niveau zum energetisch niedrigeren Niveau. Dabei gilt
 ($\omega_{if}\approx\omega_L$), wodurch der erste Bruch vernachlässigt werden
 kann. Diese Näherung wird auch \textit{Rotating-Wave-Approximation} (kurz RWA)
-genannt. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.\\ Für die Übergangswahrscheinlichkeit ergibt sich
+genannt. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.
+Für die Übergangswahrscheinlichkeit ergibt sich
 \begin{equation}\label{eq:uebergangs_wkt}
 	\begin{split}
 		P_{i\to f}(t,\Delta\omega) &= \abs{c_f(t)}^2\\
@@ -168,7 +169,7 @@ elektromagnetischen Feld statt. Es wird ein Photon der entsprechenden Mode aus
 dem elektromagnetischen Feld benutzt, um eine Emission zu induzieren und ein
 weiteres Photon in das Feld zu emittieren. Bei der spontanen Emission hingegen
 fällt das Atom spontan in einen energetisch niedrigeren Zustand und ein
-Photon der entsprechenden Mode wird emittiert (auch ohne Feld).\\ In einem
+Photon der entsprechenden Mode wird emittiert (auch ohne Feld). In einem
 elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei
 der $n(\nu)=\pfrac{n}{\nu}$ die spektrale Photonendichte (also Photonendichte
 pro Mode) ist, sind im stationären Gleichgewicht die Besetzungszahlen $N_i$ des
@@ -191,7 +192,7 @@ geben die Wahrscheinlichkeiten für die Absorption (a) und die induzierte
 Emission (b) an, wobei $B_{ki}$ bzw. $B_{ki}$ die jeweiligen sog.
 \textit{Einsteinkoeffizienten} sind. $A_{ik}$ ist der Einsteinkoeffizient für
 die spontane Emission. Zeichnung \ref{fig:einstein_koeffizienten}
-veranschaulicht dies.\\
+veranschaulicht dies.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=10cm]{gfx/einstein_koeffizienten}
@@ -199,7 +200,6 @@ veranschaulicht dies.\\
 	induzierte Emission und spontane Emission (von links nach
 	rechts)}\label{fig:einstein_koeffizienten}
 \end{figure}
-
 Im thermischen Gleichgewicht sind die Besetzungszahlen
 boltzmann-verteilt \cite{demtroeder:ex3}:
 \begin{equation}\label{eq:boltzmann_verteilung}
@@ -249,7 +249,7 @@ ist Gl. \eqref{eq:abgestrahlte_leistung_01} identisch mit
 	\mean{P}_t=N_iA_{ik}h\nu_{ik}\,.
 \end{equation}
 Daraus folgt
-\begin{equation}\label{eq:abgestrahlte_leistung_02}
+\begin{equation}\label{eq:einstein_koeff_A}
 	\boxed{
 		A_{ik}=\frac{2}{3}\frac{\omega_{ik}^3}{\epsilon_0c^3h}\abs{\OPv{d}_{ik}}^2
 	}\,.
@@ -280,7 +280,7 @@ man unter der Annahme eines isotropen Strahlungsfeldes
 	= \frac{2\pi^2}{3h^2\epsilon_0}\abs{\OPv{d}_{ki}}^2\mean{w(\nu)}_t\,.
 \end{equation}
 Ein Vergleich mit Gl. \eqref{eq:einsteinkoeff_wkten_ik} liefert
-\begin{equation}\label{eq:w_ki_02}
+\begin{equation}\label{eq:einstein_koeff_B}
 	\boxed{
 		B_{ki} = \frac{2\pi^2}{3h^2\epsilon_0}\abs{\OPv{d}_{ki}}^2
 	}\,.
@@ -305,7 +305,7 @@ der Konfiguration bzw. den Quantenzahlen der beiden Zustände ab:
 Vorausgesetzt wird, dass die l-l- und s-s-Kopplungen der einzelnen Elektronen
 untereinander im Atom stark gegenüber der l-s-Kopplung sind (LS-Kopplung).
 Dies ist bei schweren Atom nicht mehr gegeben. Dort dominieren die einzelnen
-l-s-Kopplungen (jj-Kopplung).\\
+l-s-Kopplungen (jj-Kopplung).\par
 Da im Gesamtsystem die Drehimpulserhaltung
 gelten muss, gilt für $\Delta L =\pm1$. Bei Absorption eines Photons wird aus
 dem elektromagnetischen Feld ein Photon (Boson, Spin 1) mit dem Drehimpuls vom
@@ -407,15 +407,15 @@ sich hier auch ein Zusammenhang zwischen der Linienbreite und der Lebensdauer
 eines Zustandes herleiten. Multipliziert man die Bewegungsgleichung
 \eqref{eq:klassischer_oszillator_bewegungsgleichung} mit $m\dot x$ und führt
 eine Zeitableitung durch, findet man
-\begin{equation}\label{eq:klassischer_oszillator_lebensdauer_01}
+\begin{equation}\label{eq:klassischer_oszillator_leistung_01}
 	\fracd{}{t}\left[\frac{m}{2}\dot
 	x^2+\frac{m}{2}\omega_0^2x^2\right]=-\gamma m\dot x^2=\fracd{W}{t}=P(t)\,.
 \end{equation}
 wobei $W$ die Gesamtenergie und $P(t)$ die momentan abgestrahlte Leistung des
 Atoms ist. Nach Einsetzen von \eqref{eq:klassischer_oszillator_loesung} in
-\eqref{eq:klassischer_oszillator_lebensdauer_01} und zeitliche Mittlung findet
+\eqref{eq:klassischer_oszillator_leistung_01} und zeitliche Mittlung findet
 man
-\begin{equation}\label{eq:klassischer_oszillator_lebensdauer_01}
+\begin{equation}\label{eq:klassischer_oszillator_leistung_02}
 	\mean{P(t)}_t=-\frac{1}{2}\gamma mx_0^2\omega_0^2\mathrm{e}^{-\gamma
 	t}\propto\mathrm{e}^{-\gamma
 	t}\,.
@@ -445,7 +445,7 @@ zwei angeregten Niveaus $E_i$ und $E_k$ ergibt sich aus den Lebensdauern beider 
 Die Sättigunugsverbreiterung der Linie tritt erst durch Einstrahlen von
 Laserlicht in Erscheinung. Sie ist gerade bei hohen Laserleistungen von
 Bedeutung. Sehr elegant lässt sich die Sättigungsverbreiterung über den
-\textit{Dichtematrix-Formalismus} herleiten.\\
+\textit{Dichtematrix-Formalismus} herleiten.\par
 Im Experiment sind die Atome aufgrund der spontanen Emission statistisch
 verteilt und somit dephasiert. Es liegt kein \textit{reiner Zustand}\footnote{Reiner Zustand: Es
 besteht eine kohärente Überlagerung der Zustände:
@@ -454,8 +454,7 @@ wobei die Phase $\phi$ immer konstant bleibt.} mehr vor, sondern ein
 \textit{statistisches Gemisch}. Die Phase zwischen den Zuständen ist
 für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt. Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr
 möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
-allerdings.\\
-Dazu betrachtet mach sich die Dichtematrix:
+allerdings. Dazu betrachtet mach sich die Dichtematrix:
 \begin{equation}\label{eq:dichtematrix}
 	\OP{\rho}
 	=
@@ -543,8 +542,8 @@ t}\rho_{21}$ bedeutet, dass $\rho_{ij}$ ($i\neq j$) in ein rotierendes
 Bezugssystem mit Frequenz $\delta$ transformiert worden sind. Da für die
 Kohärenzen $\rho_{12}=\rho_{21}^*$ gilt, reduzieren sich die OBE's zu zwei
 unabhängigen Gleichungen
-\begin{subequations}\label{eq:blochgleichungen_01}
-	\begin{equation}\label{eq:blochgleichungen_21}
+\begin{subequations}\label{eq:blochgleichungen_02}
+	\begin{equation}\label{eq:blochgleichungen_21_1}
 		\fracd{}{t}\tilde\rho_{21}=-\left(\frac{\gamma}{2}-\mathrm{i}\delta\right)\tilde\rho_{21}-\frac{\mathrm{i}w\Omega_0}{2}
 	\end{equation}
 	\begin{equation}\label{eq:blochgleichungen_w}
@@ -609,8 +608,8 @@ von Belang ist, da sich der Vorfaktor $\nicefrac{S_0}{1+S_0}$ in
 \eqref{eq:photonenstreurate_02} asymptotisch gegen 1 nähert.
 Sättigungsleistungen $I_{sat}$ in den optischen Übergängen der später in dieser
 Arbeit behandelten Ionisations-Schemata bewegen sich im Bereich von wenigen
-$\unit{}{mW}$ bei den ersten beiden Anregungsschritten bis hin zu einigen
-$\unit{100}{mW}$ beim autoionisierenden Schritt.
+mW bei den ersten beiden Anregungsschritten bis hin zu einigen
+$100\,mW$ beim autoionisierenden Schritt.
 
 \subsubsection{Doppler-Verbreiterung}\label{subsubsec:doppler-verbreiterung}
 In der Regel bewegen sich die zu untersuchenden Atome nicht unwesentlich schnell
@@ -647,7 +646,7 @@ Laserlicht transversal zur Austrittsrichtung der Atome aus dem Ofen
 eingestrahlt. Außerdem wird das Licht für die einzelnen Anregungsschritte in
 abwechselnder Richtung eingestrahlt, damit die Absorptionsrückstöße weitgehenst
 kompensiert werden und die transversale Geschwindigkeitskomponente nicht weiter
-erhöht wird.\\
+erhöht wird.\par
 Um die kombinierte Linienverbreiterung mit der natürlichen Linienbreite bzw. der
 Sättigungsverbreiterung zu erhalten, muss eine Faltung durchgeführt werden:
 \begin{equation}\label{eq:voigt_doppler}
@@ -668,10 +667,8 @@ elastischen und inelastischen Stößen kommen. Im Bild des klassischen Oszillato
 Dämpfung als weitere Dämpfung interpretiert werden kann. Die Linienbreite wird
 somit größer. Elastische Stöße ändern neben der kurzzeitigen Frequenzverstimmung
 zusätzlich die Phase des Oszillators. Somit kommt es bei elastischen Stößen
-zusätzlich zur Linienverbreiterung zu einer Verschiebung.\\
-Da hier allerdings mit sehr niedrigen Drücken (zwischen $\unit{10^{-6}}{mbar}$
-und $\unit{10^{-8}}{mbar}$) gearbeitet wird, kann dieser Effekt vernachlässigt
-werden.
+zusätzlich zur Linienverbreiterung zu einer Verschiebung. Da hier allerdings mit
+sehr niedrigen Drücken (zwischen $10^{-6}$ und $10^{-8}\,$mbar) gearbeitet wird, kann dieser Effekt vernachlässigt werden.
 
 \subsubsection{Gesamtes Linienprofil}\label{subsubsec:ges-linienprofil}
 Nicht nur die atomaren Übergangänge der Atome, sondern ebenso das Linienprofil
@@ -715,7 +712,7 @@ ionisiert (\ref{subsec:ionisation}) und anschließend mittels
 einer Ionenoptik zu einem Detektor geführt, wo sie nachgewiesen werden. Der große Unterschied zu anderen spektroskopischen Methoden wie Absorptions- und Fluoreszenzspektroskopie ist die
 Tatsache, dass hierbei Ionen mit einer Effizienz von nahezu $\epsilon=1$,
 anstatt Photonen mit einer wesentlich geringeren Effizienz von
-$\epsilon\leq10^{-4}$ detektiert werden.\\
+$\epsilon\leq10^{-4}$ detektiert werden.\par
 Die Ionisation geschieht bei der RIS elementselektiv, was bedeutet, dass die
 Anregung über für das Atom charakteristische Anregungsschritte ionisiert wird.
 Die Isotpenselektivität ist bei der RIS insofern gegeben, dass die atomaren
@@ -729,7 +726,7 @@ ist eine gute Isotopenselektivität nicht mehr gegeben, da ihre Linienbreite
 ebenso bei mehreren GHz liegt. Um hochselektive RIS zu betreiben,
 werden in diesem Projekt sehr schmalbandige Diodenlaser
 (\ref{sec:diodenlaser}) verwendet, deren Linienbreite bei nur einigen
-MHz liegt.\\
+MHz liegt.\par
 Eine Erweiterung der RIS ist die sog. Resonanz-Ionisations-Massenspektrometrie,
 kurz RIMS. Hierbei werden die Ionen vor der Detektion zusätzlich in einem
 Massenspektrometer nach ihrer Masse selektiert, was eine Trennung der Isotope
@@ -765,7 +762,7 @@ Beschreibung in Bezug auf die RIS an Calcium-Atomen auf
 der Verstimmung der ersten beiden Anregungsschritte von Uran theoretisch
 berechnet. Abbildung \ref{fig:2D-laserscan_theorie_schumann} zeigt diese
 Abhängigkeit.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{gfx/2d-laserscan_theorie_schumann.png}
 	\caption{Dopplerfreie
@@ -806,7 +803,7 @@ Lasern kann das Ionisationspotential herabgesenkt werden, wodurch gebundene
 Zustände oberhalb des Ionisationspotentials liegen können und somit durch
 resonante Anregung in diese Zustände eine Ionisation möglich ist. Da allerdings
 hierfür sehr starke Felder nötig sind, kommt es ungünstigerweise zu
-\textit{AC-Start-Shifts} insbesondere in den Niveaus der unteren Schritte.
+\textit{AC-Stark-Shifts} insbesondere in den Niveaus der unteren Schritte.
 
 \subsubsection{nicht-resonante
 Photoionisation}\label{subsubsec:nicht-resonante_photoionisation}
@@ -814,7 +811,7 @@ Neben resonanten Übergängen sind auch nicht-resonante Anregungen in das
 Kontinuum möglich. Vorraussetzung hierfür ist, dass die gesamte Photonenenergie
 aller Anregungsschritte inklusive der Photonenenergie des ionisierenden Schritts
 größer sein muss als die Energie des Ionisationspotentials
-($\hbar\omega_1+\hbar\omega_2+\hbar\omega_3\gg\E_{IP}$). Da jedoch der
+($\hbar\omega_1+\hbar\omega_2+\hbar\omega_3>\E_{IP}$). Da jedoch der
 Wirkungsquerschnitt für solch einen Prozess gegenüber der anderen Prozesse
 sehr unterdrückt ist, wird hierfür ein leistungsstarker Laser
 benötigt, was wiederum mit erheblichen Kosten verbunden ist.
@@ -824,23 +821,133 @@ Bei der in diesem Projekt verwendeten Autoionisation sind Zustände nötig, die
 oberhalb des Ionisationspotentials liegen. Bei komplexen Atomen wie das hier
 verwendete Uran kommt es häufig vor, dass bestimmte Anregungsschritte durch die
 Anregung zweier Elektronen charakterisiert sind. Obwohl diese Zustände
-gebunden sind, kann ihre Gesamtenergie größer als das Ionisationspotential sein.
-Weiterhin gibt es starke Überlappe der Elektronen-Wellenfunktionen, was einen
-Energieübertrag zwischen zwei Elektronen begünstigt und so zu sehr schnellen
+gebunden sind, kann ihre Gesamtenergie höher als das Ionisationspotential
+liegen. Weiterhin gibt es starke Überlappe der Elektronen-Wellenfunktionen, was einen Energieübertrag zwischen zwei Elektronen begünstigt und so zu sehr schnellen
 Zerfällen in ein Elektron und ein Ion führt. Die Lebensdauer solcher Zustände
-kann bis zu 3-4 Größenordnungen kleiner als die der unterhalb des
-Ionisationspotentials sein, wobei die spektrale Breite gemäß der
+kann bis zu 3-4 Größenordnungen kleiner sein als die der Zustände unterhalb des
+Ionisationspotentials, wobei die spektrale Breite gemäß der
 Unschärferelation entsprechend größer ist. Der Vorteil gegenüber den anderen
-Prozessen ist die Möglichkeit, Atome ohne störende Einflüsse resonant zu
-ionisieren, wobei für den ionisierenden Schritt nur moderate cw\footnote{cw:
+Prozessen ist die Möglichkeit, Atome ohne störende Einflüsse (Stark-Shifts)
+resonant zu ionisieren, wobei für den ionisierenden Schritt nur moderate cw\footnote{cw:
 "`continuous wave"', zu deutsch: "`kontinuierliche Welle"', Bezeichnung für Dauerstrichlaser}-Laserleistungen von
-wenigen $\unit{100}{mW}$ nötig sind und gleichzeitig vergleichbar hohe
-Wirkungsquerschnitte erzielt werden.\\
-Im folgenden soll kurz auf das von den ersten Anregungsschritten abweichende
-Linienprofil eingegangen werden. 
+wenigen $100\,$mW nötig sind und gleichzeitig vergleichbar hohe
+Wirkungsquerschnitte erzielt werden. Die autoionisierenden Übergänge sind
+allerdings ununterscheidbar von den nicht-resonanten Prozessen, wodurch
+beide Prozesse miteinander interferieren. Dazu betrachtet man als Endzustand
+eine Linearkombination aus einem diskreten Niveau und dem Kontinuum:
+\begin{equation}\label{eq:uebergang_diskret_kontinuum}
+	\ket{E}=a\ket{\phi}+\int b_\epsilon\ket{\epsilon}\dd\epsilon\,.
+\end{equation}
+Nach einem zeitunabhängigen störungstheoretischen Ansatz
+\begin{equation}\label{eq:uebergang_diskret_kontinuum_hamilton}
+	\OPH=\OPH_0+V
+\end{equation}
+mit $\OPH_0$ als ungestörten, in der Basis
+$\left(\ket{\phi}\text{,}\,\ket{\epsilon}\right)$ diagonalisierten
+Hamiltonoperator und der Störung $V$ findet man nach längerer Rechnung,
+welche in \cite{fano:1961:PhysRev.124.1866} ausgeführt ist, den
+Wirkungsquerschnitt
+\begin{equation}\label{eq:fano-profil}
+	\sigma(q,\Gamma,E_0,\epsilon)=\frac{\left(\nicefrac{q\Gamma}{2}+\epsilon-E_0\right)^2}{\left(\epsilon-E_0\right)^2+\left(\nicefrac{\Gamma}{2}\right)^2}
+\end{equation}
+der autoionisierenden Resonanz. Dabei sind $q$ der Formparameter, $\Gamma$ die
+Linienbreite und $E_0$ die Energielage der Resonanz. In \ref{fig:fano} ist der
+Wirkungsquerschnitt als sog. \textit{Fano-Profil} noch einmal grafisch
+dargestellt.
+\begin{figure}
+	\centering
+	\input{plt/fano}
+	\caption{Fano-Profil gemäß Gl. \eqref{eq:fano-profil} mit
+	$\Gamma=2$, $E_0=0$ und verschiedenen $q$}\label{fig:fano}
+\end{figure}
+Man erkennt, dass es sowohl konstruktive (Maximum) als auch destruktive
+(Minimum) Interferenzen zwischen den Übergängen in das Kontinuum und Übergänge
+in einen diskreten Zustand gibt. Für $q=0$ findet man bei $\epsilon=0$ ein
+Minimum, die sog. \textit{Window-Resonanz}. Für große $q$ ist die Überhöhung der
+Autoionisation gegenüber der nicht-resonanten Photoionisation näherungsweise
+quadratisch mit $q$ und $\sigma$ nähert sich einem Lorentzprofil.\par
+Komplizierter wird die Beschreibung, wenn man mit einbezieht, dass verschiedene
+Resonanzen und auch Kontinua miteinander interfereieren. Dazu wird allgemein ein
+Streuprozess betrachtet, bei dem das vor der Streuung gebundene Elektron am
+Ion streut und für $t\to\infty$ sich ein freies Ion-Elektron-System ergibt. Dies
+lässt sich gut mit der \textit{K-Matrix Theorie} beschreiben. Nach
+\cite{connerade:1998:highly_excited_atoms} ergibt sich dann für den
+Wirkungsquerschnitt
+\begin{equation}\label{eq:k-matrix_wirkungsquerschnitt}
+	\sigma\left(q_{1..n},\Gamma_{1..n},E_{1..n},E\right)=\abs{\tilde{D}}^2\frac{\left(1+\sum\limits_{k=1}^n{\frac{\nicefrac{\Gamma_k}{2}}{\left(E_k-E\right)}q_k}\right)^2}{1+\left(\sum\limits_{k=1}^n{\frac{\nicefrac{\Gamma_k}{2}}{\left(E_k-E\right)}}\right)^2}\,.
+\end{equation}
+Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Fig.
+\ref{fig:k-matrix_wirkungsquerschnitt} aufgetragen.
+\begin{figure}
+	\centering
+	\input{plt/k-matrix_wirkungsquerschnitt}
+	\caption{Wirkungsquerschnitt gemäß Gl. \eqref{eq:k-matrix_wirkungsquerschnitt}
+	mit $q_2=1000$, $E1=50$, $E2=400$, $\Gamma_1=2$, $\Gamma_2=2$ und
+	verschiedenen $q_1$}\label{fig:k-matrix_wirkungsquerschnitt}
+\end{figure}
+Danach haben schmale Resonanzen ein asymetrisches Fano-Profil, wenn sie durch
+eine benachbarte breite Resonanz gestört werden. Auch zu erkennen ist, dass
+Resonanzen mit relativ zu anderen Resonanzen kleinem $q$ wie Window-Resonanzen
+erscheinen.
 
 \subsection{Uran}\label{subsec:uran}
 
 \subsection{Isotopieverschiebung}\label{subsec:isotopieverschiebung}
+Aufgrund der verschiedenen Kerne verschiedener Isotope kommt es zu
+Energieniveauverschiebungen:
+\begin{equation}\label{eq:isotopieshift}
+	\delta\nu_{IV}=\delta\nu_{ME}+\delta\nu_{FE}\,.
+\end{equation}
+Diese Verschiebungen liegen zwischen einigen $100\,$MHz und einigen GHz. In
+Relation zur Gesamtenergie eines Niveaus, welche bei einigen $100\,$THz liegt,
+sind diese Verschiebungen zwar sehr klein, spielen aber z.B. bei
+Isotopenverhältnisbestimmungen eine große Rolle. Gerade mit schmalbandigen
+cw-Lasern lassen sich dadurch Isotope selektiv anregen. Die Verschiebung ist zum
+einen durch die Massenänderung und zum anderen durch die veränderte Ladungsverteilung des Kerns zu begründen (Masseneffekt $\delta\nu_{ME}$ und Feldeffekt $\delta\nu_{FE}$ in \eqref{eq:isotopieshift}). Der Masseneffekt
+\begin{equation}\label{eq:masseneffekt}
+	\delta\nu_{ME}=K_{ME}\frac{m_{A'}-m_A}{m_{A'}m_A}
+\end{equation}
+ist von den beiden Massen $m_{A'}$ und $m_A$ der Isotope und von der
+Masseneffektkonstante $K_{ME}=K_{NME}+K_{SME}$ abhängig. Die
+Masseneffektkonstante wiederum besteht aus dem normalen Masseneffekt
+\begin{equation}\label{eq:normaler_masseneffekt}
+	\delta\nu_{NME}=m_e\nu_A\frac{m_A}{m_A+m_e}\,,
+\end{equation}
+der aus der veränderten reduzierten Masse, die sich in einem
+Ein-Elektronen-System ergeben würde, resultiert und dem speziefischen
+Masseneffekt $K_{SME}$, der aus der Änderung der Korrelation aller
+Elektronenimpulse folgt und bestenfalls nur numerisch abgeschätzt werden
+kann. \par Da die Ortsanteile der Wellenfunktionen der Elektronen immer mit dem Ort des
+Kerns überlappen, kommt es bei Veränderung der Kernladungsdichteverteilung auch
+zu einer Energieniveauverschiebung:
+\begin{equation}\label{eq:normaler_masseneffekt}
+	\delta\nu_{FE}=K_{FE}\delta\mean{r^2}\,.
+\end{equation}
+Mit der Annahme, dass die Wellenfunktionen der Elektronen am Ort des Kerns
+nicht stark variieren und in jedem Isotop die gleiche sphärische Symmetrie
+vorliegt, kann die Änderung der Kernladungsdichteverteilung nach geraden
+Potenzen entwickelt werden. In Gl. \eqref{eq:normaler_masseneffekt} wurde
+die quadratische (niedrigste) Ordnung dieser Entwicklung eingesetzt.\par
+In der Anwendung unterscheidet man zwischen dem \textit{level-isotop-shift}
+(LIS) und dem \textit{transition-isotop-shift} (TIS). Bei ersterem betrachtet
+man die Energieverschiebung zwischen den Isotopen in Relation zum jeweiligen
+Grundzustandsniveau:
+\begin{equation}\label{eq:LIS}
+	\delta\nu_{IV}^{LIS}(E)=\nu_{A_1}^{GZ_1\leftrightarrow
+	E}-\nu_{A_2}^{GZ_2\leftrightarrow E}\,.
+\end{equation}
+Der TIS ist durch die Verschiebung des Abstands zweier Energieniveaus definiert:
+\begin{equation}\label{eq:TIS}
+	\delta\nu_{IV}^{TIS}(E',E)=\nu_{A_1}^{E'\leftrightarrow
+	E}-\nu_{A_2}^{E'\leftrightarrow E}\,.
+\end{equation}
+Dies ist die in der Praxis sinnvollere Definition, da hier die Verschiebung
+angibt, wie weit das Laserlicht beim Isotopenwechsel verstimmt werden muss, um
+den gleichen Übergang zum Anregen des Isotops zu verwenden. LIS und TIS sind
+über
+\begin{equation}\label{eq:TIS_LIS_verknuepfung}
+	\delta\nu_{IV}^{TIS}(E',E)=\delta\nu_{IV}^{LIS}(E)-\delta\nu_{IV}^{LIS}(E')
+\end{equation}
+miteinander verknüpft.
 
 \section{Diodenlaser in der RIS}\label{sec:diodenlaser}
