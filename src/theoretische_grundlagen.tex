@@ -553,7 +553,8 @@ unabhängigen Gleichungen
 mit der \textit{Besetzungsinversion} $w=\rho_{22}-\rho_{11}$. Sie gibt an, wie
 stark die Besetzung im Zustand $\ket{2}$ gegenüber der im Zustand $\ket{1}$ ist.
 Für lange Zeiten stellt sich (nach Rabioszillationen) ein Gleichgewicht
-ein. Dies ist mit der Bedingung gegeben, dass sich die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
+ein, wobei beide Niveaus gleich stark besetzt sind. Dies ist mit der Bedingung
+gegeben, dass sich die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
 \begin{equation}\label{eq:blochgleichungen_gleichgewicht}
 	\begin{split}
 		\fracd{}{t}\tilde\rho_{21} &=\fracd{}{t}w=0\\
@@ -951,3 +952,80 @@ den gleichen Übergang zum Anregen des Isotops zu verwenden. LIS und TIS sind
 miteinander verknüpft.
 
 \section{Diodenlaser in der RIS}\label{sec:diodenlaser}
+Um hochselektive Isotopentrennung bei der Ionisation und hochaufgelöste
+Spektroskopie zu garantieren, sind schmalbandige Laser nötig. Die ebenfalls in
+der AG Larissa verwendeten gepulst betriebenen Ti:Sa-Laser (Festkörperlaser)
+haben neben dem Vorteil der hohen Leistung und dem großen Scanbereich von bis
+zu $300\,$nm den Nachteil der sehr großen Linienbreite von mehreren GHz.
+Weiterhin müssen Festkörperlaser mit einem leistungsstarken Pumplaser gepumpt
+werden, was den Betriebsaufwand und die Betriebskosten enorm steigert.
+Mit Farbstofflasern hingegen können bei genügend hohen
+Leistungen\footnote{Die Laserleistung ist ausreichend hoch, wenn die
+Sättigungsleistungen der entsprechenden Übergänge erreicht werden können.}
+wesentlich kleiner Linienbreiten liefern. Nachteilig ist allerdings der
+Wartungsaufwand und ein ebenfalls nötigen Pumplaser. Eine bewährte Alternative
+sind Diodenlaser. Typische Linienbreiten von Diodenlasern liegen bei wenigen
+MHz. Weiterhin sind viele Diodenlaser wegen ihrer
+kommerziellen Verbreitung sehr kostengünstig. Für den ersten Anregungsschritt im
+Uran wird hier eine $405\,$nm-Diode verwendet, da ihre momentane Verfügbarkeit
+auf dem Markt durch die Blueray-Laufwerke sehr gut ist. Eine bisher verwendete
+$415\,$nm-Diode, welche aus den Entwicklungszeiten der Blueray-Laufwerke stammt,
+ist leider nicht mehr verfügbar, weshalb auf $405\,$nm gewechselt wurde.
+Zum Nachteil sind die sehr begrenzten spektralen Betriebsbereiche von
+wenigen nm im blauen bis hin zu $50\,$nm im roten Spektralbereich. Möchte man
+Wellenlängen außerhalb dieser Bereiche erreichen, kommt man um einen
+Diodenwechsel nicht herum. Kontinuierlich scanbar sind Diodenlaser dank eines
+zusätzlichen, exteren, verstimmbaren Resonators bis zu $30\,$GHz. Dieser Bereich
+ist ausreichend, um Isotopieverschiebungen abzudecken und hochauflösende
+Spektroskopie zu betreiben.\par
+Im Folgenden soll die Funktionsweise der hier
+verwendeten Diodenlaser erklärt werden. Die dabei verwendete Literatur besteht weitgehenst aus den
+Lehrbüchern \cite{demtroeder:ex3}, \cite{chow:semiconductor-laser} und der
+Arbeit \cite{schumann:2001:diplomarbeit}.
+
+\subsection{Laser-Prinzip}\label{subsec:laser-prinzip}
+Wie in Kap. \ref{sec:licht-atom-wechselwirkung} bereits ausführlich erklärt
+wurde, treten bei der Licht-Atom-Wechselwirkung die drei Prozesse
+\textit{Absorption}, \textit{stimulierte Emission} und \textit{spontane Emission} auf. Auch wurde
+gezeigt, dass in einem rein optisch betriebenen Zwei-Niveau-Systemen keine
+Besetzungsinversion möglich ist.
+Möchte man allerdings in dem sog. \textit{aktiven Medium} eines Lasers eine Lichtverstärkung
+hervorrufen, muss die Emissionsrate die Absorptionsrate überwiegen, wodurch eine
+Besetzungsinversion definiert ist. Das aktive Medium ist der von einem Resonator
+umgebene Bereich eines Lasers, in dem durch stimulierte Emission eine
+Verstärkung des Lichtfelds erreicht wird. Dabei stammt das stimulierenden
+Lichtfeld vom getriebenen Übergang des selben aktiven Mediums und bildet eine
+stehende Welle im Resonator aus. Der Großteil des Lichts im Resonator wird als
+Nutzlicht ausgekoppelt. Der restliche Teil wird zur Verstärkung verwendet. Eine
+Besetzungsinversion liegt dann vor, wenn die Besetzungswahrscheinlichkeit des
+angeregten Zustands mehr als $50\%$ ist.
+Mit dieser Bedingung kann die Ratengleichung \eqref{eq:raten_gleichung} mit
+Vernachlässigung der spontanen Emission\footnote{Die spontane Emission kann
+hier vernachlässigt werden, da beim Laserbetrieb die stimulierte Emission der
+spontanen Emission weit überlegen ist. Ein Überwiegen der spontanen Emission
+würde dem Betrieb einer Leuchtdiode (LED) entsprechen.} durch
+\begin{equation}\label{eq:laserbedingung}
+	\dot N_2=-(N_2-N_1)B_{21}w(\nu)<0
+	\quad\text{mit}\quad
+	\abs{B_{21}}=\abs{B_{12}}
+\end{equation}
+ausgedrückt werden, wobei der Index 1 den Grundzustand und der Index 2 den
+angeregten Zustand bezeichnen. Da durch reines optisches Pumpen in einem
+2-Niveau-System keine Besetzungsinversion möglich ist, muss elektrisches gepumpt
+werden, wie es in einem Halbleiterlaser praktiziert wird. In rein optisch
+gepumpten Lasern werden zur Besetzungsinversion eines Übergangs mehrere
+Niveaus benötigt. In \ref{fig:halbleiterlaser-prinzip} ist noch einmal
+schematisch das Prinzip eines Halbleiterlasers dargestellt.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{gfx/halbleiterlaser-prinzip}
+	\caption{Schematisch dargestelltes
+	Halbleiterlaser-Prinzip: a)
+	Resonatorendwände rechts und links (Spiegel); b) aktives
+	Medium; c) elektrisches Pumpen; d)
+	stimulierte Emission; e) Nutzlicht}\label{fig:halbleiterlaser-prinzip}
+\end{figure}
+
+\subsection{Halbleiterlaser: Aufbau und
+Funktion}\label{subsec:halbleiterlaser}
+
