@@ -955,30 +955,30 @@ miteinander verknüpft.
 Um hochselektive Isotopentrennung bei der Ionisation und hochaufgelöste
 Spektroskopie zu garantieren, sind schmalbandige Laser nötig. Die ebenfalls in
 der AG Larissa verwendeten gepulst betriebenen Ti:Sa-Laser (Festkörperlaser)
-haben neben dem Vorteil der hohen Leistung und dem großen Scanbereich von bis
-zu $300\,$nm den Nachteil der sehr großen Linienbreite von mehreren GHz.
+haben neben den Vorteil der hohen Leistung und dem großen Scanbereich von bis
+zu $300\,$nm, aber auch den Nachteil der sehr großen Linienbreite von mehreren
+GHz.
 Weiterhin müssen Festkörperlaser mit einem leistungsstarken Pumplaser gepumpt
 werden, was den Betriebsaufwand und die Betriebskosten enorm steigert.
-Mit Farbstofflasern hingegen können bei genügend hohen
+Farbstofflaser hingegen können bei genügend hohen
 Leistungen\footnote{Die Laserleistung ist ausreichend hoch, wenn die
 Sättigungsleistungen der entsprechenden Übergänge erreicht werden können.}
-wesentlich kleiner Linienbreiten liefern. Nachteilig ist allerdings der
-Wartungsaufwand und ein ebenfalls nötigen Pumplaser. Eine bewährte Alternative
-sind Diodenlaser. Typische Linienbreiten von Diodenlasern liegen bei wenigen
+Laserlicht mit wesentlich kleinerer Linienbreite liefern. Nachteilig ist
+allerdings der Wartungsaufwand und ein ebenfalls nötigen Pumplaser.\par
+Eine bewährte Alternative sind Diodenlaser. Typische Linienbreiten von Diodenlasern liegen bei wenigen
 MHz. Weiterhin sind viele Diodenlaser wegen ihrer
 kommerziellen Verbreitung sehr kostengünstig. Für den ersten Anregungsschritt im
-Uran wird hier eine $405\,$nm-Diode verwendet, da ihre momentane Verfügbarkeit
-auf dem Markt durch die Blueray-Laufwerke sehr gut ist. Eine bisher verwendete
+Uran wird hier z.B. eine $405\,$nm-Diode verwendet, da ihre momentane
+Verfügbarkeit auf dem Markt durch die Blueray-Laufwerke sehr gut ist. Eine bisher verwendete
 $415\,$nm-Diode, welche aus den Entwicklungszeiten der Blueray-Laufwerke stammt,
-ist leider nicht mehr verfügbar, weshalb auf $405\,$nm gewechselt wurde.
-Zum Nachteil sind die sehr begrenzten spektralen Betriebsbereiche von
-wenigen nm im blauen bis hin zu $50\,$nm im roten Spektralbereich. Möchte man
-Wellenlängen außerhalb dieser Bereiche erreichen, kommt man um einen
-Diodenwechsel nicht herum. Kontinuierlich scanbar sind Diodenlaser dank eines
-zusätzlichen, exteren, verstimmbaren Resonators bis zu $30\,$GHz. Dieser Bereich
-ist ausreichend, um Isotopieverschiebungen abzudecken und hochauflösende
-Spektroskopie zu betreiben.\par
-Im Folgenden soll die Funktionsweise der hier
+ist leider nicht mehr auf dem Markt verfügbar. Diodenlaser im roten Bereich sind
+sehr kostengünstig dank der anhaltenden Markt-Liquidität von CD-Laufwerken. Zum
+Nachteil sind die sehr begrenzten spektralen Betriebsbereiche von wenigen nm im blauen bis hin zu $50\,$nm im roten Spektralbereich. Möchte man Wellenlängen außerhalb dieser Bereiche erreichen, kommt man um einen
+Diodenwechsel nicht herum. Viele spektrale Bereiche sind auch garnicht
+erreichbar, da es schlicht keine Dioden in diesen Bereichen gibt. Lösung
+hierfür kann u.U. Frequenzverdopplung leistungsstarker Diodenlaser sein.
+Kontinuierlich scanbar sind Diodenlaser dank eines zusätzlichen, externen,
+verstimmbaren Resonators bis zu $30\,$GHz. Dieser Bereich ist ausreichend, um Isotopieverschiebungen abzudecken und hochauflösende Spektroskopie zu betreiben.\par Im Folgenden soll die Funktionsweise der hier
 verwendeten Diodenlaser erklärt werden. Die dabei verwendete Literatur besteht weitgehenst aus den
 Lehrbüchern \cite{demtroeder:ex3}, \cite{chow:semiconductor-laser} und der
 Arbeit \cite{schumann:2001:diplomarbeit}.
@@ -990,32 +990,35 @@ wurde, treten bei der Licht-Atom-Wechselwirkung die drei Prozesse
 gezeigt, dass in einem rein optisch betriebenen Zwei-Niveau-Systemen keine
 Besetzungsinversion möglich ist.
 Möchte man allerdings in dem sog. \textit{aktiven Medium} eines Lasers eine Lichtverstärkung
-hervorrufen, muss die Emissionsrate die Absorptionsrate überwiegen, wodurch eine
-Besetzungsinversion definiert ist. Das aktive Medium ist der von einem Resonator
+hervorrufen, muss die Emissionsrate die Absorptionsrate überwiegen. Das aktive Medium ist der von einem Resonator
 umgebene Bereich eines Lasers, in dem durch stimulierte Emission eine
 Verstärkung des Lichtfelds erreicht wird. Dabei stammt das stimulierenden
 Lichtfeld vom getriebenen Übergang des selben aktiven Mediums und bildet eine
-stehende Welle im Resonator aus. Der Großteil des Lichts im Resonator wird als
-Nutzlicht ausgekoppelt. Der restliche Teil wird zur Verstärkung verwendet. Eine
+stehende Welle im Resonator aus. Ein Teil des Lichts im Resonator wird als
+Nutzlicht ausgekoppelt. Der andere Teil wird zur Verstärkung verwendet. Eine
 Besetzungsinversion liegt dann vor, wenn die Besetzungswahrscheinlichkeit des
 angeregten Zustands mehr als $50\%$ ist.
-Mit dieser Bedingung kann die Ratengleichung \eqref{eq:raten_gleichung} mit
-Vernachlässigung der spontanen Emission\footnote{Die spontane Emission kann
-hier vernachlässigt werden, da beim Laserbetrieb die stimulierte Emission der
-spontanen Emission weit überlegen ist. Ein Überwiegen der spontanen Emission
-würde dem Betrieb einer Leuchtdiode (LED) entsprechen.} durch
-\begin{equation}\label{eq:laserbedingung}
-	\dot N_2=-(N_2-N_1)B_{21}w(\nu)<0
-	\quad\text{mit}\quad
-	\abs{B_{21}}=\abs{B_{12}}
-\end{equation}
-ausgedrückt werden, wobei der Index 1 den Grundzustand und der Index 2 den
-angeregten Zustand bezeichnen. Da durch reines optisches Pumpen in einem
-2-Niveau-System keine Besetzungsinversion möglich ist, muss elektrisches gepumpt
-werden, wie es in einem Halbleiterlaser praktiziert wird. In rein optisch
-gepumpten Lasern werden zur Besetzungsinversion eines Übergangs mehrere
-Niveaus benötigt. In \ref{fig:halbleiterlaser-prinzip} ist noch einmal
-schematisch das Prinzip eines Halbleiterlasers dargestellt.
+% Mit dieser Bedingung kann die Ratengleichung \eqref{eq:raten_gleichung} mit
+% Vernachlässigung der spontanen Emission\footnote{Die spontane Emission kann
+% hier vernachlässigt werden, da beim Laserbetrieb die stimulierte Emission der
+% spontanen Emission weit überlegen ist. Ein Überwiegen der spontanen Emission
+% würde bei Halbleiterlasern dem Betrieb einer Leuchtdiode (LED) entsprechen.}
+% durch
+% \begin{equation}\label{eq:laserbedingung}
+% 	\dot N_2=-(N_2-N_1)B_{21}w(\nu)<0
+% 	\quad\text{mit}\quad
+% 	\abs{B_{21}}=\abs{B_{12}}
+% \end{equation}
+% ausgedrückt werden, wobei der Index 1 den Grundzustand und der Index 2 den
+% angeregten Zustand bezeichnen.
+Da durch reines optisches Pumpen in einem
+2-Niveau-System keine Besetzungsinversion möglich ist, muss elektrisch gepumpt
+werden, was mit Halbleitern möglich ist und in Kap.
+\ref{subsec:halbleiterlaser} näher beschrieben wird. In rein optisch gepumpten
+Lasern werden zur Besetzungsinversion eines Übergangs mehrere Niveaus benötigt,
+worauf an dieser Stelle allerdings nicht weiter eingegangen werden soll. In
+\ref{fig:halbleiterlaser-prinzip} ist noch einmal schematisch das Prinzip eines
+Halbleiterlasers/Diodenlasers dargestellt.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=15cm]{gfx/halbleiterlaser-prinzip}
@@ -1026,6 +1029,138 @@ schematisch das Prinzip eines Halbleiterlasers dargestellt.
 	stimulierte Emission; e) Nutzlicht}\label{fig:halbleiterlaser-prinzip}
 \end{figure}
 
-\subsection{Halbleiterlaser: Aufbau und
+\subsection{Halbleiterlaser: Bauarten und
 Funktion}\label{subsec:halbleiterlaser}
+In diesem Kapitel wird das Verständnis des \textit{Bändermodels} vorausgesetzt.
+Dabei sei auf das Lehrbuch \cite{demtroeder:ex3} verwiesen.\par
+Als Übergang in
+einem Halbleiterlaser bedient man sich zweier benachbarter Energiebänder, die
+als Quasi-Zwei-Niveau-System\footnote{Quasi-Zwei-Niveau-System deshalb, weil
+die Bänder nicht scharf, sondern verschmiert sind und der Übergang nicht
+in einem Atom, sondern in einem Festkörper-Kristall ist.} angesehen werden
+können und deren Bandlücke die Energie des emmittierten Lichts entspricht.
+Das energetisch höher liegende Band wird \textit{Leitungsband}, das untere
+\textit{Valenzband} genannt, wobei die Bänder so gewählt sind, dass das
+Ferminiveau dazwischen liegt. Dies bedeutet, dass das Valenzband im Grundzustand
+noch mit negativen Ladungsträgern, Elektronen, besetzt ist, das Leitungsband
+jedoch nicht mehr. Durch Einbringen von Donatoren bzw.
+Akzeptoren, Elemente mit einem Valenzelektron bzw. mit einer bis auf ein
+Elektron voller äußerer Schale, kann man Halbleiter negativ bzw. positiv
+dotieren. Die Grundzustände der Donatoren bzw. Akzeptoren liegen unterhalb des
+Leitungs- bzw. Valenzbandes (siehe \ref{subfig:pn-halbleiter_a}).
+\begin{figure}
+ 	\centering
+	\subfigure[]{
+		\label{subfig:pn-halbleiter_a}
+    	\includegraphics[width=7cm]{gfx/pn-halbleiter_a}
+  	}
+	\subfigure[]{
+		\label{subfig:pn-halbleiter_b}
+    	\includegraphics[width=7cm]{gfx/pn-halbleiter_b}
+  	}
+  	\subfigure[]{
+		\label{subfig:pn-halbleiter_c}
+    	\includegraphics[width=7cm]{gfx/pn-halbleiter_c}
+  	}
+	\subfigure[]{
+		\label{subfig:pn-halbleiter_d}
+    	\includegraphics[width=7cm]{gfx/pn-halbleiter_d}
+  	}
+	\caption{Bandstruktur eines p-n-Halbleiters: a)
+	Energieniveaus mit Dotierung; b) Energieniveaus nach
+	zusammenführen der p- und n-Schicht; c) starke
+	Dotierung; d) mit angelegter Mindestspannung $U$,
+	Laserbetrieb}\label{fig:pn-halbleiter}
+\end{figure}
+
+Somit stellt
+man im n-dotierten Halbleiter frei bewegliche Elektronen und im p-dotierten Halbleiter frei bewegliche positive
+Ladungsträger, auch \textit{Löcher} genannt, zur Verfügung. Diese sog.
+\textit{Majoritätsladungsträger} können bei Zusammenbringen von einem
+n-dotierten und einem p-dotierten Halbleiter in den jeweiligen anderen
+Halbleiter diffundieren, wo sie dann \textit{Minoritätsladungsträger} sind, und
+rekombinieren miteinander. Somit entsteht in der Grenzregion im Gleichgewicht
+ein sog. \textit{Makropotential}, mit der \textit{Diffusionsspannung} $V_D$. Da
+das Ferminiveau als chemisches Potential in beiden Teilen des Halbleiters gleich
+sein muss, verschieben sich die Bänder um $eV_D$ (siehe
+\ref{subfig:pn-halbleiter_b}). Bei starker Dotierung liegt das Ferminiveau unter
+dem Valenzband des p-dotierten Bereichs und über dem Leitungsbandes des
+n-dotierten Bereichs, was bedeutet, dass das Valanzband des p-dotierten Bereichs
+stark mit Löchern und das Leitungsband des n-dotierten Bereichs stark mit
+Elektronen besetzt ist (siehe \ref{subfig:pn-halbleiter_c}). Legt man nun eine
+Spannung $U$ an, die die Niveauverschiebung der beiden Halbleiterteile
+kompensiert, können die Elektronen im Leitungsband des n-dotierten Bereichs mit
+den Löchern im Valenzband des p-dotierten Bereichs rekombinieren, worauf hin
+die Emission eines Photons erfolgt (siehe \ref{subfig:pn-halbleiter_d}). Beim
+Anlegen der Spannung entstehen \textit{Quasi-Ferminiveaus} $E_F^n$ und $E_F^p$
+der beiden Dotierungen mit
+\begin{equation}\label{eq:quasi-ferminiveaus}
+	U=\frac{\left(E_F^n-E_F^p\right)}{e}\,.
+\end{equation}
+Die Endspiegel des Resonators werden durch Bruchflächen der Halbleiterkristalls
+mit einer Reflektivität von ca. $30\,\%$ realisiert, wobei der Resonator ca.
+$1\,$µm dick zwischen den n- und p-Schichten, $10\,$µm breit und $250\,$µm
+lang ist. Um die durch
+Rekombination verarmenden Niveaus wieder aufzufüllen, muss ein konstanter Strom
+fließen.
+
+\subsubsection{Heteostrukturen}\label{heterostrukturen}
+Die ersten Halbleiterlaser bestanden nur aus einer n- und einer
+p-Schicht. Die Laser mussten weit unter Raumtemperatur mit einer hohen
+\textit{Schwellenstromdichte} gepulst betrieben werden. Ihre Lebensdauer betrug
+nur wenige Minuten. Um zu verstehen, wie die Schwellenstromdichte mit den
+Laserparametern verknüpft ist, betrachtet man die Bedingung
+\begin{equation}\label{eq:schwellenbedingung}
+	R_1R_2\mathrm{e}^{2\left(\Gamma G_{th}-\alpha_{abs}\right)L}=1\,,
+\end{equation}
+für die Schwellenverstärkung $G_{th}$, bei der die optischen Verluste bei einem
+Umlauf im Resonator gerade durch die Verstärkung ausgeglichen werden.
+Dabei sind $R_1$ und $R_2$ die Reflektivitäten der Endspiegel, $\Gamma$ der
+Confinement-Faktor, der die Güte des Überlaps von aktivem Medium und
+Stehwelle charakterisiert, $\alpha_{abs}$ der Absorptionskoeffizient im
+Medium und $L$ die Länge des aktiven Mediums. Aus dieser Bedingung folgt die
+Schwellenverstärkung
+\begin{equation}\label{eq:schwellenbedingung}
+	G_{th}=\frac{1}{\Gamma}\left(\alpha_{abs}-\frac{\mathrm{ln}{(R_1R_2)}}{2L}\right)\,.
+\end{equation}
+Die Verstärkung
+\begin{equation}\label{eq:laser-verstärkung}
+	G=A_g\left(N-N_g\right)
+\end{equation}
+ergibt sich in guter Näherung aus dem Verstärkungskoeffizienten $A_g$ und der
+Schwellenladungsträgerdichte $N_g$, die beide von Materialeigenschaften abhängig
+sind. Die Ladungsträgerdichte
+\begin{equation}\label{eq:ladungstraegerdichte}
+	N=\frac{J\eta}{e\gamma_{nr}d}
+\end{equation}
+erhält man aus der Elementarladung $e$, der Rekombinationsrate $\gamma_{nr}$,
+der Dicke des aktiven Mediums $d$, der Quanteneffizienz der Inversion $\eta$ und der
+Stromdichte $J$. Insgesamt findet man dann für die Schwellenstromdichte
+\begin{equation}\label{eq:schwellenstromdichte}
+	J_{th}=\frac{e\gamma_{nr}d}{\eta}\left[N_g+\frac{\alpha_{abs}-\nicefrac{\mathrm{ln}{\left(R_1R_2\right)}}{2L}}{A_g\Gamma}\right]\,.
+\end{equation}
+Hieraus ist ersichtlich, dass allein durch Verkleinerung der aktiven Schicht die
+Schwellenstromdichte veringert werden kann. Zum einen können die
+Brechnugsindizes räumlich so verändert werden, dass sie durch Totalrefelxion die
+aktive Schicht weiter einengen (\textit{optical confinement}). Zum anderen ist
+es möglich, durch bestimmte Strukturen der Bandenergien einen engeren Einschluss
+der Ladungsträger zu erreichen. (\textit{electrical confinement}). In sog.
+\textit{Heterostrukturen} werden diese beiden Effekte ausgenutzt, in dem man
+mehrere Schichten von dotierten Halbleitern kombiniert. Dabei ist darauf zu
+achten, dass sich die verschiedenen Kristalle sich in der Struktur ähneln, damit
+keine Störstellen entstehen. In Fig. \ref {fig:heterostrukturen} sind einige
+Heterostrukturen und ihre Auswirkungen auf die Bandlücke und Brechnugsindizes
+dargestellt. Laserdioden mit der zunächst einmal eindimensionalen Einengung
+senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm]{gfx/heterostrukturen}
+	\caption{Verschiedene Heterostrukturen;
+	Dargestellt sind Schichtaufbau,
+	Bandstruktur $W$, Verlauf des Brechnungsindex $n$ 
+	und spezifische Ausstrahlung $M$.}\label{fig:heterostrukturen}
+\end{figure}
+
+\subsubsection{Single- und
+Multi-Mode-Diodenlaser}\label{subsubsec:singel_multi_mode_laserdioden}
 
