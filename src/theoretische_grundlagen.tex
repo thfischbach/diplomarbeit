@@ -877,7 +877,7 @@ Wirkungsquerschnitt
 \begin{equation}\label{eq:k-matrix_wirkungsquerschnitt}
 	\sigma\left(q_{1..n},\Gamma_{1..n},E_{1..n},E\right)=\abs{\tilde{D}}^2\frac{\left(1+\sum\limits_{k=1}^n{\frac{\nicefrac{\Gamma_k}{2}}{\left(E_k-E\right)}q_k}\right)^2}{1+\left(\sum\limits_{k=1}^n{\frac{\nicefrac{\Gamma_k}{2}}{\left(E_k-E\right)}}\right)^2}\,.
 \end{equation}
-Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Fig.
+Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Abb.
 \ref{fig:k-matrix_wirkungsquerschnitt} aufgetragen.
 \begin{figure}
 	\centering
@@ -1148,7 +1148,7 @@ der Ladungsträger zu erreichen. (\textit{electrical confinement}). In sog.
 \textit{Heterostrukturen} werden diese beiden Effekte ausgenutzt, in dem man
 mehrere Schichten von dotierten Halbleitern kombiniert. Dabei ist darauf zu
 achten, dass sich die verschiedenen Kristalle sich in der Struktur ähneln, damit
-keine Störstellen entstehen. In Fig. \ref {fig:heterostrukturen} sind einige
+keine Störstellen entstehen. In Abb. \ref {fig:heterostrukturen} sind einige
 Heterostrukturen und ihre Auswirkungen auf die Bandlücke und Brechnugsindizes
 dargestellt. Laserdioden mit der zunächst einmal eindimensionalen Einengung
 senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
@@ -1158,9 +1158,163 @@ senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
 	\caption{Verschiedene Heterostrukturen;
 	Dargestellt sind Schichtaufbau,
 	Bandstruktur $W$, Verlauf des Brechnungsindex $n$ 
-	und spezifische Ausstrahlung $M$.}\label{fig:heterostrukturen}
+	und spezifische Ausstrahlung $M$. (aus
+	\cite{schumann:2001:diplomarbeit})}\label{fig:heterostrukturen}
 \end{figure}
 
-\subsubsection{Single- und
-Multi-Mode-Diodenlaser}\label{subsubsec:singel_multi_mode_laserdioden}
+\subsubsection{Lasermoden}\label{subsubsec:lasermoden}
+Wie schon erwähnt, kann der Resonator des Lasers durch Totalreflexion an den
+Schichtgrenzen realisiert werden. Dabei ist der dieser allerdings nur in eine
+Dimension begrenzt. Eine Möglichkeit für die transversale Eingrenzung in
+der Schichtenebene ist eine lokal begrenzte Stromzuführung, auch \textit{gain
+guided laser} bzw. \textit{gewinnführender Laser} genannt. Alternativ ist es
+möglich transversal verschieden dotierte Schichten einzubringen, wodurch wie bei
+der lateralen Einengung unterschiedliche Brechnungsindizes Totalreflexion
+bewirken (\textit{index guided laser} bzw. \textit{indexgeführter Laser}). Beide
+Varianten sind in Abb. \ref{fig:transversale_eingrenzung_diodenlaser}
+dargestellt.
+\begin{figure}[h]
+ 	\centering
+	\subfigure[]{
+		\label{subfig:transversale_eingrenzung_diodenlaser_a}
+    	\includegraphics[width=7cm]{gfx/transversale_eingrenzung_diodenlaser_a}
+  	}
+	\subfigure[]{
+		\label{subfig:transversale_eingrenzung_diodenlaser_b}
+    	\includegraphics[width=7cm]{gfx/transversale_eingrenzung_diodenlaser_b}
+  	}
+	\caption{Gewinngeführter (a) und indexgeführter (b) Aufbau einer
+	kantenemittierenden Laserdiode. Der aktive Bereich
+	ist der schraffierte Bereich.
+	(aus
+	\cite{schumann:2001:diplomarbeit})}\label{fig:transversale_eingrenzung_diodenlaser}
+\end{figure}
+In einem solchen offenen Resonator bilden sich sog.
+\textit{transversal-elektromagnetische Moden}, kurz TEM$_{mn,q}$, aus, wobei $m$
+und $n$ die zur Resonatorachse senkrechten Ordnungen und $q$ die longitudinale
+Ordnung indizieren. Die Ordnung ist durch die Anzahl der ausgebildeten
+Stehwellenknoten in der jeweiligen Raumrichtung definiert. In
+Abb. \ref{fig:TEM-moden} ist die Amplitude der fundamentalen Mode, der erste und
+der zweite Harmonische einer Raumrichtung dargestellt.
+\begin{figure}[h]
+ 	\centering
+	\subfigure[]{
+		\label{subfig:TEM-moden_a}
+    	\includegraphics[width=7cm]{gfx/TEM-moden_a}
+  	}
+	\subfigure[]{
+		\label{subfig:TEM-moden_b}
+    	\includegraphics[width=7cm]{gfx/TEM-moden_b}
+  	}
+  	\subfigure[]{
+		\label{subfig:TEM-moden_c}
+    	\includegraphics[width=7cm]{gfx/TEM-moden_c}
+  	}
+	\caption{Amplituden der fundamentalen Mode (a), der ersten (b)
+	und der zweiten (c) Harmonischen.}\label{fig:TEM-moden}
+\end{figure}
+Für TEM$_{mn,q}$ Moden ergeben sich die Frequenzen
+\begin{equation}\label{eq:TEM-moden_frequenz}
+	\nu_{mn,q}=\frac{c}{2d}\left[q+\frac{1}{2}(m+n+1)\right]\,.
+\end{equation}
+Im \textit{Single-Mode}-Laserbetrieb ist man bestrebt nur die fundamentale Mode
+TEM$_{00,q}$ zu erzeugen. Dies ist allerdings nur mit räumlich sehr eingeengten
+Resonatoren möglich. Deshalb haben Single-Mode-Laserdioden eine aktive
+Schicht mit einer Ausdehnung von $3\,$µm in lateraler und $1\,$µm in
+transversaler Dimension und können Ausgangsleistungen von bis zu $150$mW erreichen. Höhere
+Ausgangsleistungen von bis zu $4$W sind nur mit größeren aktiven Schichten von
+$50$ bis $400\,$µm in lateraler und $1$ bis $3\,$µm in transversaler Dimension
+erreichbar.
+Der sog. \textit{freie Spektralbereich} des Resonators ist der spektrale Abstand
+zweier möglichen Moden, die anschwingen können und ergibt sich für TEM$_{00,q}$
+Moden zu
+\begin{equation}\label{eq:FSR_TEM-moden}
+	\text{FSR}_{00,q}=\frac{c}{2d}\,.
+\end{equation}
+Da die typischen Werte des FSRs von Single-Mode-Dioden im infraroten
+Spektralberech bei $150$ bis $600\,$GHz liegen und somit nur um ca. ein zehntel
+kleiner sind als das Verstärkungsprofil eines Diodenlasers in diesem Bereich
+($30$ bis $50\,$nm), kann praktisch nur die fundamentale Mode anschwingen.
 
+\subsubsection{externer Resonator}\label{subsubsec:externer_resonator}
+Die Frequenz lässt sich durch Variation von Strom und Temperatur verstimmen. Ein
+höherer Strom führt zu einer stärkeren Besetzung des Valenzbandes und somit zu
+einer kleiner effektiveren Energielücke bzw. kleineren Frequenz. Gleichzeitig
+wird allerdings durch Erhöhung des Brechungsindexes die Eigenfrequenz des
+Resonators verringert. Selbstverständlich erhöht sich auch die Leistung des
+Lasers. Eine Temperaturerhöhung bewirkt auch eine stärkere Besetzung des
+Valenzbandes und ebenfalls einen größeren Brechnungsindex.\par
+Da Strom und Temperatur jeweils auf zwei verschiedene Arten Einfluss auf die
+Frequenz haben, müssten diese Parameter simultan variiert werden, was
+allerdings enormen Einschränkungen unterliegt. Ein zu höher Strom zerstört die
+Diode. Zu niedrige Temperaturen führen zur Kondensation an der Diode und zu hohe
+Temperaturen zur Überhitzung. Zur größeren Verstimmbarkeit und wesentlich
+höheren spektralen Selektivität verwendet man deshalb externe Resonatoren. Dabei
+verwendet man ein Gitter, dessen erste Ordnung wieder in die Diode
+zurückgekoppelt wird. Die Rückkopplung führt zur Verstärkung des selektierten Spektrums. Die
+nullte Ordnung wird als Nutzstrahl ausgekoppelt. Dabei gibt es zwei typische
+Aufbauten.\par
+\begin{figure}[h]
+ 	\centering
+	\subfigure[]{
+		\label{subfig:externe_resonatoren_littrow}
+    	\includegraphics[width=15cm]{gfx/externe_resonatoren_littrow}
+  	}
+	\subfigure[]{
+		\label{subfig:externe_resonatoren_littmann}
+    	\includegraphics[width=15cm]{gfx/externe_resonatoren_littmann}
+  	}
+	\caption{Externe Resonatoren im Littow- (a) und
+	im Littmann-Design (b)}\label{fig:externe_resonatoren}
+\end{figure}
+Abbildung \ref{fig:externe_resonatoren_littrow} zeigt das sog.
+\textit{Littrow-Design}, bei dem durch Verkippen des Gitters die Wellenlänge
+\begin{equation}\label{eq:FSR_TEM-moden}
+	\lambda=2g\sin{(\alpha)}
+\end{equation}
+selektiert werden kann. Durch Verdrehen eines Auskoppelspiegels um dieselbe
+Achse kann die nullte Ordnung ohne Winkeländerung ausgekoppelt werden. Der
+externe Resonator ist hierbei durch die hintere Wand der Diode und durch das
+Gitter begrenzt.\par
+Eine andere Variante ist das sog. \textit{Littman-Design} (siehe Abb.
+\ref{fig:externe_resonatoren_littmann}). Dabei wird die erste Ordnung des
+Gitters auf einen Spiegel und in dieselbe Richtung wieder zurück in die Diode
+gekoppelt. Die Wellenlänge
+\begin{equation}\label{eq:FSR_TEM-moden}
+	\lambda=g[\sin{(\alpha)+\sin{(\beta)}]}
+\end{equation}
+ist nun vom Winkel des Spiegels abhängig. Durch die zweifache Frequenzselektion
+am Gitter erreicht man wesentlich schmälere Linienbreiten, verliert jedoch
+Leistung. Beim Verdrehen von Gitter bzw. Spiegel muss darauf geachtet werde,
+dass ebenfalls die Resonatorlänge angepasst werden muss. Dies kann durch
+eine geschickt gewählte Drehachse realisiert werden.\par
+Die anschwingende Mode kombiniert sich nun aus internem und externem Resonator
+und dem Verstärkungsprofil wie in Abb. \ref{fig:moden_frequenzselektion}
+dargestellt.
+\begin{figure}[h]
+	\centering
+	\footnotesize
+	\input{plt/moden_frequenzselektion}
+	\caption{Verstärkungsprofil, internes und
+	externes Modenprofil und anschwingende Mode des
+	Lasers}\label{fig:moden_frequenzselektion}
+\end{figure}
+Nur die Mode mit der größten Verstärkung schwingt an, alle anderen
+werden unterdrückt. Damit die Frequenz über einen möglichst großen Bereich
+verstimmt werden kann, muss das Modenprofil des internen und externen Resonators
+gleichzeitig verstimmt werden. Strom und Gitterwinkel müssen als simultan
+verstimmt werden, wobei das Gitter kann mit Hilfe eines Piezos verdreht werden
+kann. Dieses Verfahren nennt man \textit{Feed Forward}.\par
+Alternativ ist es auch möglich ein \textit{AR-coating (Antireflex-coating)} für
+die Diode zu verwenden, und somit den Laser ohne internen Resonator betreiben.
+Dies bringt den Vorteil, dass nur noch der Gitterwinkel verstellt werden muss,
+der Strom und somit auch weitgehenst die Leistung konstant bleiben. Nachteil
+ist, dass die Diode alleine nicht mehr als Laserdiode verwednet werden kann, da
+der notwendige Resonator fehlt.
+
+\subsubsection{Leistung}\label{subsubsec:diodenlaser_leistung}
+Für den autoionisierenden Schritt werden gewöhnlich sehr viel höhere Leistungen
+($>200\,$mW) benötigt als mit Single-Mode-Dioden möglich ist. Mit einen
+\textit{Trapezverstärker} können im roten Bereich durch
+\textit{Injection-Seeding} Leistungen von über $1\,$W erreicht werden. Nähere
+Erklärungen finden sich in \cite{schumann:2001:diplomarbeit}.

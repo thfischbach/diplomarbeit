@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     68634,       1179]
-NotebookOptionsPosition[     68188,       1160]
-NotebookOutlinePosition[     68533,       1175]
-CellTagsIndexPosition[     68490,       1172]
+NotebookDataLength[     68558,       1174]
+NotebookOptionsPosition[     68154,       1157]
+NotebookOutlinePosition[     68500,       1172]
+CellTagsIndexPosition[     68457,       1169]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -44,8 +44,6 @@ Cell[BoxData[
     RowBox[{"-", "a"}], "*", 
     RowBox[{"x", "^", "2"}]}], "+", "b"}]}]], "Input",
  CellChangeTimes->{{3.5298531233240213`*^9, 3.529853149452634*^9}}],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Plot", "[", 
@@ -1156,10 +1154,9 @@ ooz64uLMyqjPT2/t5e8O58K8eZKuNppmjLke+MA6mmuzXQtqc7otbC/JuZNq
 aEiSD6uzU+W2JR/UqmQN+D2wkdKE9bstyMlFfOLvJ4AoOdqQLC4TOtJX2QLh
 V0kG6auslPhVgroKO3yljmPWTfnqD8QUq7edfp78/H+1etrfAaFrLjE=\
 \>"]]
-}, Open  ]]
 },
 WindowSize->{707, 758},
-WindowMargins->{{Automatic, 85}, {43, Automatic}},
+WindowMargins->{{Automatic, 198}, {60, Automatic}},
 FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1176,14 +1173,11 @@ CellTagsIndex->{}
 Notebook[{
 Cell[557, 20, 577, 15, 31, "Input"],
 Cell[1137, 37, 280, 8, 31, "Input"],
-Cell[CellGroupData[{
-Cell[1442, 49, 913, 20, 52, InheritFromParent],
-Cell[2358, 71, 65814, 1086, 248, 48125, 795, "CachedBoxData", "BoxData", \
+Cell[1420, 47, 913, 20, 52, "Input"],
+Cell[2336, 69, 65814, 1086, 248, 48125, 795, "CachedBoxData", "BoxData", \
 "Output"]
-}, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-
