@@ -195,7 +195,9 @@ die spontane Emission. Zeichnung \ref{fig:einstein_koeffizienten}
 veranschaulicht dies.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=10cm]{gfx/einstein_koeffizienten}
+	\fbox{
+		\includegraphics[width=10cm]{gfx/einstein_koeffizienten}
+	}
 	\caption{zwei Energieniveaus eines Atoms mit Absorption,
 	induzierte Emission und spontane Emission (von links nach
 	rechts)}\label{fig:einstein_koeffizienten}
@@ -765,7 +767,9 @@ berechnet. Abbildung \ref{fig:2D-laserscan_theorie_schumann} zeigt diese
 Abhängigkeit.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm]{gfx/2d-laserscan_theorie_schumann.png}
+	\fbox{
+		\includegraphics[width=\textwidth-1cm]{gfx/2d-laserscan_theorie_schumann.png}
+	}
 	\caption{Dopplerfreie
 	Ionisationseffizienz in Abhängigkeit
 	der Verstimmungen der beiden ersten
@@ -857,6 +861,7 @@ Wirkungsquerschnitt als sog. \textit{Fano-Profil} noch einmal grafisch
 dargestellt.
 \begin{figure}
 	\centering
+	\footnotesize
 	\input{plt/fano}
 	\caption{Fano-Profil gemäß Gl. \eqref{eq:fano-profil} mit
 	$\Gamma=2$, $E_0=0$ und verschiedenen $q$}\label{fig:fano}
@@ -881,6 +886,7 @@ Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Abb.
 \ref{fig:k-matrix_wirkungsquerschnitt} aufgetragen.
 \begin{figure}
 	\centering
+	\footnotesize
 	\input{plt/k-matrix_wirkungsquerschnitt}
 	\caption{Wirkungsquerschnitt gemäß Gl. \eqref{eq:k-matrix_wirkungsquerschnitt}
 	mit $q_2=1000$, $E1=50$, $E2=400$, $\Gamma_1=2$, $\Gamma_2=2$ und
@@ -1021,7 +1027,9 @@ worauf an dieser Stelle allerdings nicht weiter eingegangen werden soll. In
 Halbleiterlasers/Diodenlasers dargestellt.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm]{gfx/halbleiterlaser-prinzip}
+	\fbox{
+		\includegraphics[width=\textwidth-1cm]{gfx/halbleiterlaser-prinzip}
+	}
 	\caption{Schematisch dargestelltes
 	Halbleiterlaser-Prinzip: a)
 	Resonatorendwände rechts und links (Spiegel); b) aktives
@@ -1048,31 +1056,32 @@ Akzeptoren, Elemente mit einem Valenzelektron bzw. mit einer bis auf ein
 Elektron voller äußerer Schale, kann man Halbleiter negativ bzw. positiv
 dotieren. Die Grundzustände der Donatoren bzw. Akzeptoren liegen unterhalb des
 Leitungs- bzw. Valenzbandes (siehe \ref{subfig:pn-halbleiter_a}).
-\begin{figure}
+\begin{figure}[h]
  	\centering
-	\subfigure[]{
-		\label{subfig:pn-halbleiter_a}
-    	\includegraphics[width=7cm]{gfx/pn-halbleiter_a}
-  	}
-	\subfigure[]{
-		\label{subfig:pn-halbleiter_b}
-    	\includegraphics[width=7cm]{gfx/pn-halbleiter_b}
-  	}
-  	\subfigure[]{
-		\label{subfig:pn-halbleiter_c}
-    	\includegraphics[width=7cm]{gfx/pn-halbleiter_c}
-  	}
-	\subfigure[]{
-		\label{subfig:pn-halbleiter_d}
-    	\includegraphics[width=7cm]{gfx/pn-halbleiter_d}
-  	}
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+		\subfigure[]{
+			\label{subfig:pn-halbleiter_a}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_a}
+	  	}
+		\subfigure[]{
+			\label{subfig:pn-halbleiter_b}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_b}
+	  	}
+	  	\subfigure[]{
+			\label{subfig:pn-halbleiter_c}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_c}
+	  	}
+		\subfigure[]{
+			\label{subfig:pn-halbleiter_d}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_d}
+	  	}
+	}}
 	\caption{Bandstruktur eines p-n-Halbleiters: a)
 	Energieniveaus mit Dotierung; b) Energieniveaus nach
 	zusammenführen der p- und n-Schicht; c) starke
 	Dotierung; d) mit angelegter Mindestspannung $U$,
 	Laserbetrieb}\label{fig:pn-halbleiter}
 \end{figure}
-
 Somit stellt
 man im n-dotierten Halbleiter frei bewegliche Elektronen und im p-dotierten Halbleiter frei bewegliche positive
 Ladungsträger, auch \textit{Löcher} genannt, zur Verfügung. Diese sog.
@@ -1154,7 +1163,9 @@ dargestellt. Laserdioden mit der zunächst einmal eindimensionalen Einengung
 senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm]{gfx/heterostrukturen}
+	\fbox{
+		\includegraphics[width=\textwidth-1cm]{gfx/heterostrukturen}
+	}
 	\caption{Verschiedene Heterostrukturen;
 	Dargestellt sind Schichtaufbau,
 	Bandstruktur $W$, Verlauf des Brechnungsindex $n$ 
@@ -1175,14 +1186,16 @@ Varianten sind in Abb. \ref{fig:transversale_eingrenzung_diodenlaser}
 dargestellt.
 \begin{figure}[h]
  	\centering
-	\subfigure[]{
-		\label{subfig:transversale_eingrenzung_diodenlaser_a}
-    	\includegraphics[width=7cm]{gfx/transversale_eingrenzung_diodenlaser_a}
-  	}
-	\subfigure[]{
-		\label{subfig:transversale_eingrenzung_diodenlaser_b}
-    	\includegraphics[width=7cm]{gfx/transversale_eingrenzung_diodenlaser_b}
-  	}
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+		\subfigure[]{
+			\label{subfig:transversale_eingrenzung_diodenlaser_a}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/transversale_eingrenzung_diodenlaser_a}
+	    	}
+		\subfigure[]{
+			\label{subfig:transversale_eingrenzung_diodenlaser_b}
+	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/transversale_eingrenzung_diodenlaser_b}
+	    	}
+  	}}
 	\caption{Gewinngeführter (a) und indexgeführter (b) Aufbau einer
 	kantenemittierenden Laserdiode. Der aktive Bereich
 	ist der schraffierte Bereich.
@@ -1197,21 +1210,12 @@ Stehwellenknoten in der jeweiligen Raumrichtung definiert. In
 Abb. \ref{fig:TEM-moden} ist die Amplitude der fundamentalen Mode, der erste und
 der zweite Harmonische einer Raumrichtung dargestellt.
 \begin{figure}[h]
- 	\centering
-	\subfigure[]{
-		\label{subfig:TEM-moden_a}
-    	\includegraphics[width=7cm]{gfx/TEM-moden_a}
-  	}
-	\subfigure[]{
-		\label{subfig:TEM-moden_b}
-    	\includegraphics[width=7cm]{gfx/TEM-moden_b}
-  	}
-  	\subfigure[]{
-		\label{subfig:TEM-moden_c}
-    	\includegraphics[width=7cm]{gfx/TEM-moden_c}
-  	}
-	\caption{Amplituden der fundamentalen Mode (a), der ersten (b)
-	und der zweiten (c) Harmonischen.}\label{fig:TEM-moden}
+	\centering
+	\footnotesize
+	\input{plt/TEM-moden}
+	\caption{Amplituden der fundamentalen Mode, der ersten und der zweiten
+	Harmonischen in Abhängigkeit von einer
+	räumlichen Dimension}\label{fig:TEM-moden}
 \end{figure}
 Für TEM$_{mn,q}$ Moden ergeben sich die Frequenzen
 \begin{equation}\label{eq:TEM-moden_frequenz}
@@ -1256,55 +1260,69 @@ nullte Ordnung wird als Nutzstrahl ausgekoppelt. Dabei gibt es zwei typische
 Aufbauten.\par
 \begin{figure}[h]
  	\centering
-	\subfigure[]{
-		\label{subfig:externe_resonatoren_littrow}
-    	\includegraphics[width=15cm]{gfx/externe_resonatoren_littrow}
-  	}
-	\subfigure[]{
-		\label{subfig:externe_resonatoren_littmann}
-    	\includegraphics[width=15cm]{gfx/externe_resonatoren_littmann}
-  	}
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+		\subfigure[]{
+			\label{subfig:externe_resonatoren_littrow}
+	    	\includegraphics[width=\textwidth-1cm]{gfx/externe_resonatoren_aufbau_littrow}
+	    	}
+		\subfigure[]{
+			\label{subfig:externe_resonatoren_littmann}
+	    	\includegraphics[width=\textwidth-1cm]{gfx/externe_resonatoren_aufbau_littmann}
+	    	}
+	}}
 	\caption{Externe Resonatoren im Littow- (a) und
-	im Littmann-Design (b)}\label{fig:externe_resonatoren}
+	im Littmann-Design (b)}\label{fig:externe_resonatoren_aufbau}
 \end{figure}
-Abbildung \ref{fig:externe_resonatoren_littrow} zeigt das sog.
+Abbildung \ref{fig:externe_resonatoren_aufbau_littrow} zeigt das sog.
 \textit{Littrow-Design}, bei dem durch Verkippen des Gitters die Wellenlänge
 \begin{equation}\label{eq:FSR_TEM-moden}
 	\lambda=2g\sin{(\alpha)}
 \end{equation}
-selektiert werden kann. Durch Verdrehen eines Auskoppelspiegels um dieselbe
-Achse kann die nullte Ordnung ohne Winkeländerung ausgekoppelt werden. Der
+selektiert werden kann, wobei $g$ die Gitterkonstante ist. Durch Verdrehen eines
+Auskoppelspiegels um dieselbe Achse kann die nullte Ordnung ohne Winkeländerung ausgekoppelt werden. Der
 externe Resonator ist hierbei durch die hintere Wand der Diode und durch das
 Gitter begrenzt.\par
 Eine andere Variante ist das sog. \textit{Littman-Design} (siehe Abb.
-\ref{fig:externe_resonatoren_littmann}). Dabei wird die erste Ordnung des
-Gitters auf einen Spiegel und in dieselbe Richtung wieder zurück in die Diode
+\ref{fig:externe_resonatoren__aufbau_littmann}). Dabei wird die erste Ordnung
+des Gitters auf einen Spiegel und in dieselbe Richtung wieder zurück in die Diode
 gekoppelt. Die Wellenlänge
 \begin{equation}\label{eq:FSR_TEM-moden}
-	\lambda=g[\sin{(\alpha)+\sin{(\beta)}]}
+	\lambda=g\left[\sin{(\alpha)}+\sin{(\beta)}\right]
 \end{equation}
 ist nun vom Winkel des Spiegels abhängig. Durch die zweifache Frequenzselektion
 am Gitter erreicht man wesentlich schmälere Linienbreiten, verliert jedoch
 Leistung. Beim Verdrehen von Gitter bzw. Spiegel muss darauf geachtet werde,
 dass ebenfalls die Resonatorlänge angepasst werden muss. Dies kann durch
 eine geschickt gewählte Drehachse realisiert werden.\par
-Die anschwingende Mode kombiniert sich nun aus internem und externem Resonator
-und dem Verstärkungsprofil wie in Abb. \ref{fig:moden_frequenzselektion}
-dargestellt.
+Die anschwingende Mode kombiniert sich nun aus internem und externem Modenprofil
+wie in Abb. \ref{fig:moden_frequenzselektion} dargestellt.
 \begin{figure}[h]
+	\footnotesize	
 	\centering
-	\footnotesize
-	\input{plt/moden_frequenzselektion}
+	\subfigure[]{
+		\label{subfig:moden_frequenzselektion_a}
+		\input{plt/moden_frequenzselektion_a}
+  	}
+	\subfigure[]{
+		\label{subfig:moden_frequenzselektion_b}
+		\input{plt/moden_frequenzselektion_b}
+  	}
 	\caption{Verstärkungsprofil, internes und
 	externes Modenprofil und anschwingende Mode des
-	Lasers}\label{fig:moden_frequenzselektion}
+	Lasers; (a) zeigt eine Konfiguration, bei der eine Mode anschwingt; (b) zeigt
+	den Grenzfall, bei dem zwei Moden anschwingen können $\rightarrow$
+	Modensprung bzw. Multi-Mode}
+	\label{fig:moden_frequenzselektion}
 \end{figure}
 Nur die Mode mit der größten Verstärkung schwingt an, alle anderen
-werden unterdrückt. Damit die Frequenz über einen möglichst großen Bereich
-verstimmt werden kann, muss das Modenprofil des internen und externen Resonators
-gleichzeitig verstimmt werden. Strom und Gitterwinkel müssen als simultan
-verstimmt werden, wobei das Gitter kann mit Hilfe eines Piezos verdreht werden
-kann. Dieses Verfahren nennt man \textit{Feed Forward}.\par
+werden unterdrückt, wie in \ref{subfig:moden_frequenzselektion_a} zu sehen ist.
+Damit die Frequenz über einen möglichst großen Bereich verstimmt werden kann,
+muss das Modenprofil des internen und externen Resonators gleichzeitig verstimmt
+werden. Strom und Gitterwinkel müssen als simultan verstimmt werden, wobei das
+Gitter mit Hilfe eines Piezos verdreht werden kann. Dieses Verfahren nennt
+man \textit{Feed Forward}. Verstimmt man nur einen Resonator oder verstimmt
+man beide Resonatoren in falscher Relation kommt es zu
+\textit{Modensprüngen}, wie \ref{subfig:moden_frequenzselektion_a} zeigt.\par
 Alternativ ist es auch möglich ein \textit{AR-coating (Antireflex-coating)} für
 die Diode zu verwenden, und somit den Laser ohne internen Resonator betreiben.
 Dies bringt den Vorteil, dass nur noch der Gitterwinkel verstellt werden muss,

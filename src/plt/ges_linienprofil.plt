@@ -1,7 +1,7 @@
 clear
 reset
 file="ges_linienprofil"
-set key inside top left spacing 1.2
+set key inside top left
 set xlabel 'E'
 set ylabel '$\sigma$'
 set samples 100000
@@ -17,7 +17,7 @@ v(w,w0,g,n) = n*l(w,w0,g) + (1-n)*g(w,w0)
 #set label 1 sprintf('$\chi^2_{\mathrm{red}} = %.4f$',FIT_WSSR/FIT_NDF) at graph 0.02, 0.80
 
 set term push
-set term epslatex color
+set term epslatex color 10
 set out sprintf('%s.tex',file)
 
 plot g(x,10.0) title "Doppler-Profil" lt 3 lc 2, \

@@ -1,7 +1,7 @@
 clear
 reset
 file="fano"
-set key inside top left spacing 1.2
+set key inside top left
 set xlabel '$\epsilon$'
 set ylabel '$\sigma$'
 set samples 100000
@@ -14,7 +14,7 @@ E0=0
 #set label 1 sprintf('$\chi^2_{\mathrm{red}} = %.4f$',FIT_WSSR/FIT_NDF) at graph 0.02, 0.80
 
 set term push
-set term epslatex color
+set term epslatex color 10
 set out sprintf('%s.tex',file)
 
 plot f(0,x) title "q=0" lt 1 lc 1, \
