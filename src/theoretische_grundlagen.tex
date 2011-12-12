@@ -17,7 +17,10 @@ Essenziell wichtig für die Resonanz-Ionisation ist das Verständnis der atomare
 Wechselwirkung mit einem elektromagnetischen Feld. Im Folgenden soll insbesondere auf die
 atomaren Übergänge und deren Linienprofil eingegangen werden, da dies bei der
 Atom-Spektroskopie eine wichtige Rolle spielt. Der größte Teil dieses
-Theorie-Abschnitts basiert im Wesentlichen auf den o.g. Lehrbüchern.
+Theorie-Abschnitts basiert im Wesentlichen auf den o.g. Lehrbüchern und den
+Vorlesungsskripten \cite{bloch:atomphysik},
+\cite{rauschenbeutel:atomphysik}, \cite{rauschenbeutel:quantenoptik} und
+\cite{kuhr:quantenoptik}.
 
 % $$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
 % $$W_{ki}=\frac{\pi e^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
@@ -109,7 +112,7 @@ Bruchs in Gl. \eqref{eq:koeff_cf} im nahresonenten Fall
 zweite Bruch verschwindend gering gegenüber dem ersten und kann vernachlässigt
 werden. Im Falle der Emission betrachtet man Übergänge vom energetisch höheren
 Niveau zum energetisch niedrigeren Niveau. Dabei gilt
-($\omega_{if}\approx\omega_L$), wodurch der erste Bruch vernachlässigt werden
+$\omega_{if}\approx\omega_L$, wodurch der erste Bruch vernachlässigt werden
 kann. Diese Näherung wird auch \textit{Rotating-Wave-Approximation} (kurz RWA)
 genannt. Im Folgenden wird allerdings exemplarisch die Absorption betrachtet.
 Für die Übergangswahrscheinlichkeit ergibt sich
@@ -452,7 +455,7 @@ wobei die Phase $\phi$ immer konstant bleibt.} mehr vor, sondern ein
 \textit{statistisches Gemisch}. Die Phase zwischen den Zuständen ist
 für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt. Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr
 möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
-allerdings. Dazu betrachtet mach sich die Dichtematrix:
+allerdings. Dazu betrachtet man die Dichtematrix:
 \begin{equation}\label{eq:dichtematrix}
 	\OP{\rho}
 	=
@@ -502,8 +505,8 @@ und etwas längerer Rechnung findet man
 	\end{equation}	
 \end{subequations}
 wobei $\delta$ die Verstimmungsfrequenz zwischen Lichtfeld und atomarem Übergang
-ist ($\delta=\omega-\omega_{21}$). $\Omega_0=\nicefrac{dE_0}{\hbar}$ ist die
-sog. \textit{Rabifrequenz}\footnote{Die Rabifrequenz
+ist ($\delta=\omega-\omega_{21}$\,, $\omega_{21}=\omega_2-\omega_1$).
+$\Omega_0=\nicefrac{dE_0}{\hbar}$ ist die sog. \textit{Rabifrequenz}\footnote{Die Rabifrequenz
 ist die Frequenz mit der das 2-Niveau-System zwischen Grundzustand und
 angeregtem Zustand oszilliert, sofern kontinuierlich resonantes Licht
 eingestrahlt wird.}, welche aber im Folgenden von keinem Interesse ist.
@@ -551,8 +554,8 @@ unabhängigen Gleichungen
 mit der \textit{Besetzungsinversion} $w=\rho_{22}-\rho_{11}$. Sie gibt an, wie
 stark die Besetzung im Zustand $\ket{2}$ gegenüber der im Zustand $\ket{1}$ ist.
 Für lange Zeiten stellt sich (nach Rabioszillationen) ein Gleichgewicht
-ein, wobei beide Niveaus gleich stark besetzt sind. Dies ist mit der Bedingung
-gegeben, dass sich die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
+ein, wobei beide Niveaus bestenfalls gleich stark besetzt sind. Dies ist mit der Bedingung gegeben,
+dass sich die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
 \begin{equation}\label{eq:blochgleichungen_gleichgewicht}
 	\begin{split}
 		\fracd{}{t}\tilde\rho_{21} &=\fracd{}{t}w=0\\
@@ -576,7 +579,12 @@ $\rho_{11}+\rho_{22}=1$
 \begin{equation}\label{eq:besetzung_22}
 	\rho_{22}=\frac{1}{2}(1+w)=\frac{S}{2(1+S)}=\frac{\nicefrac{S_0}{2}}{1+S_0+\nicefrac{4\delta^2}{\gamma^2}}\,.
 \end{equation}
-Hieraus ergibt sich die Photonenstreurate
+Nebenbei kann man hierbei die sehr wichtige Tatsache, dass die Population des
+angeregten Zustandes \textit{niemals größer als $50\,$\%} sein kann, ablesen:
+\begin{equation}\label{eq:besetzung_22_kleiner-gleich_50}
+	\lim_{S\to\infty}\rho_{22}=\frac{1}{2}\,.
+\end{equation}
+Weiterhin ergibt sich aus Gl. \eqref{eq:besetzung_22} die Photonenstreurate
 \begin{equation}\label{eq:photonenstreurate_01}
 	\Gamma_{ph}=\gamma\rho_{22}=\frac{\gamma}{2}\frac{S_0}{1+S_0+\nicefrac{4\delta^2}{\gamma^2}}\,,
 \end{equation}
@@ -883,7 +891,7 @@ Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Abb.
 	\centering
 	\footnotesize
 	\input{plt/k-matrix_wirkungsquerschnitt}
-	\caption[Wirkuungsquerschnitt - K-Matrix Theorie]{Wirkungsquerschnitt gemäß Gl.
+	\caption[Wirkungsquerschnitt - K-Matrix Theorie]{Wirkungsquerschnitt gemäß Gl.
 	\eqref{eq:k-matrix_wirkungsquerschnitt} mit $q_2=1000$, $E1=50$, $E2=400$, $\Gamma_1=2$, $\Gamma_2=2$ und
 	verschiedenen $q_1$}\label{fig:k-matrix_wirkungsquerschnitt}
 \end{figure}
