@@ -14,7 +14,7 @@
    id="svg3818"
    version="1.1"
    inkscape:version="0.48.1 "
-   sodipodi:docname="pound-drever-hall_aufbau.pdf">
+   sodipodi:docname="pound-drever-hall_aufbau.svg">
   <defs
      id="defs3820" />
   <sodipodi:namedview
@@ -25,14 +25,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="162.05432"
+     inkscape:cx="271.87968"
      inkscape:cy="130.31922"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
-     inkscape:window-height="1002"
-     inkscape:window-x="1272"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
@@ -57,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -350,5 +350,24 @@
          y="161.28191"
          style="font-size:12px;text-align:center;text-anchor:middle"
          id="tspan3982-2">Mixer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:66.94561005px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="415.2746"
+       y="96.715019"
+       id="text4069-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4071-7"
+         x="415.2746"
+         y="96.715019"
+         style="font-size:16.73640251px"><tspan
+           style="font-size:12px"
+           id="tspan4128">Resonator</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 441.96134,86.828763 448.07575,62.96781"
+       id="path4099"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

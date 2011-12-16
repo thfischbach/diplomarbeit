@@ -334,8 +334,8 @@ $F=0\leftrightarrow0$. In Tab. \ref{tab:auswahlregeln} sind alle
 Auswahlregeln noch einmal aufgelistet.
 
 \begin{table}
+	%Summe der Breiten muss 0.91 mal \textwidth sein.
 	\begin{tabular}{p{0.17\textwidth}p{0.36\textwidth}p{0.38\textwidth}}
-
 		\toprule
 		Regel & Ursache & Einschränkungen \\
 		\midrule[1px]
@@ -685,7 +685,7 @@ Linienprofil zu erhalten muss das Profil des Lasers mit dem der atomaren
 	\begin{split}
 		V_{ges}(\omega)
 		&=\int{G_{Laser}(\omega-\omega')V_{Atom}(\omega')\dd\omega'}\\
-		&=\int{G_{Laser}(\omega-\omega')\left(\int{L_{nat/sat}(\omega'-\omega'')G_{Doppler}(\omega'')\dd\omega''}\right)\dd\omega'}\,.
+		&=\int{G_{Laser}(\omega-\omega')\left(\int{L_{nat+sat}(\omega'-\omega'')G_{Doppler}(\omega'')\dd\omega''}\right)\dd\omega'}\,.
 	\end{split}
 \end{equation}
 Das Profil des Lasers ist ein Gauß-Profil. Das Profil eines atomaren Übergangs
@@ -1317,7 +1317,8 @@ wie in Abb. \ref{fig:moden_frequenzselektion} dargestellt.
 	\label{fig:moden_frequenzselektion}
 \end{figure}
 Nur die Mode mit der größten Verstärkung schwingt an, alle anderen
-werden unterdrückt, wie in \ref{subfig:moden_frequenzselektion_a} zu sehen ist.
+werden unterdrückt, wie in Abb. \ref{subfig:moden_frequenzselektion_a} zu sehen
+ist.
 Damit die Frequenz über einen möglichst großen Bereich verstimmt werden kann,
 muss das Modenprofil des internen und externen Resonators gleichzeitig verstimmt
 werden. Strom und Gitterwinkel müssen also simultan verstimmt werden, wobei das
