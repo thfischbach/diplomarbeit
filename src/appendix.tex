@@ -1,1 +1,83 @@
-\chapter{Signalgenerierung}\label{anh:kap:signalgenerierung}
+\chapter{Elektronik der
+Signalgenerierung}\label{anh:kap:signalgenerierung_elektronik} In diesem
+Abschnitt soll die Elektronik der Signalgenerierung, die in Abschn. \ref{subsec:signalgenerierung} erwähnt wurde, genauer betrachtet werden.
+Ziel ist es, aus dem Fringepattern-Signal des FPIs digital lesbare Signale zu
+generieren, mit denen man die Zeit zwischen Beginn der
+Spannungsrampe und Offsetfringe bzw. zwischen Offsetfringe
+und Interfringe messen kann. Exemplarisch wird die Signalgenerierung hier
+für einen Laser erklärt. Selbstverständlich besteht der komplette
+Schaltkreis aus vier identischen Kopien der in Abb.
+\ref{fig:signalgenerierung_schaltplan} dargestellten Schaltung.\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+		\subfigure[]{
+			\label{subfig:signalgenerierung_schaltplan_01}
+	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_01}
+	    }
+		\subfigure[]{
+			\label{subfig:signalgenerierung_schaltplan_02}
+	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_02}
+	    	}
+	    \subfigure[]{
+			\label{subfig:signalgenerierung_schaltplan_03}
+	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_03}
+	    	}
+	}}
+	\caption[Signalgenerierung
+	Schaltplan]{Schaltplan der
+	Signalgenerierung zum
+	Fringe-Offset-Locking (aus ***blabla*Referenz zu
+	Höltke Schaltplan*blabla***)}\label{fig:signalgenerierung_schaltplan}
+\end{figure}
+Um eletronisch ein Fringemaximum zu detektieren ist es nötig die Ableitung
+des Signals zu generieren. Abbildung
+\ref{subfig:signalgenerierung_schaltplan_01} zeigt den ersten Teil der Schaltung. Über den rückgekoppelten Operationsverstärker
+\textit{TL082} wird die Ableitung gebildet und somit ein Signal an (7)
+erzeugt, das einen steilen Nulldurchgang mit negativer Steigung bei jedem Fringe hat und über einen
+Monitor-Ausgang (DIF0) betrachtet werden kann. Danach wird ein
+hysteretischer Komparator \textit{AD790} verwendet, der oberhalb eines
+bestimmten Spannungsniveaus ein digitales HIGH und unterhalb eines bestimmten Spannungsniveaus
+ein digitales LOW an (7) ausgibt. Der Zwischenzustand von (7) ist
+davon abhängig, ob die Spannung von unterhalb des unteren Niveaus oder von
+oberhalb des oberen Niveaus kommt. Somit schaltet der Komparator kurz vor dem
+Maximum des Fringes auf HIGH und bei unterem Niveau von $0\,$V genau am
+Nulldurchgang der Ableitung, also am Maximum des Fringes, auf LOW. Die
+Teilschaltung mit dem IC \textit{74LS123} reagiert auf die fallende Flanke des
+TTL-Pulses des Komparators und erzeugt beginnend am
+Nulldurchgang der Ableitung selbst einen kurzen TTL-Puls (T1) mit einer
+Länge, die durch die Wahl des vorgeschalteten Widerstandes und des Kondensators abhängt.\par
+Das Gate des Rampengenerators ((STARTTTL) in Abb.
+\ref{subfig:signalgenerierung_schaltplan_02}) ist bei fallender Spannungsrampe
+HIGH und bei steigender Spannungsrampe LOW. Im ersten Teil der Schaltung
+\ref{subfig:signalgenerierung_schaltplan_02} bewirkt dies einen durch das
+Drehpotentiometer in der Länge einstellbaren TTL-Puls am Anfang der steigenden
+Spannungsrampe. Das Ende der steigenden Spannungsrampe wird ignoriert.
+Mit einer Zeitverzögerung von der Länge des erzeugten TTL-Pulses wird dann im
+zweiten Teil der Schaltung \ref{subfig:signalgenerierung_schaltplan_02} ein weiterer TTL-Puls erzeugt.
+Dadurch wird eine Verzögerung des Starttriggers der steigenden Rampe bewirkt, um
+den Start der Fringe-Detektion zu verschieben und so die zu Beginn der Rampe
+auftretende Nichtlinearität zu ignorieren.\par
+Schaltung \ref{subfig:signalgenerierung_schaltplan_03} ist nun für die Erzeugung
+der in \ref{fig:FPI_signal-zeitverlauf}(d,e) dargestellten TTL-Pulse zuständig. Sie
+besteht aus zwei NOR-Flipflops (links und rechts) und wiederum aus dem IC
+\textit{74LS123} in der Mitte, welcher nun sensitiv auf eine steigende
+Pulsflanke ist. Im Ausgangszustand liegt an den beiden Eingängen und am unteren
+Ausgang des linken Flipflops LOW an. Der verzögerte kurze Start-TTL-Puls kommt
+nun am Set-Eingang des linken Flipflops (CLK1) an und setzt den unteren
+Ausgang, der den Offsetfringe-TTL-Puls durch (CLKB1) repräsentiert, auf HIGH.
+Der Counter für die Offsetfringezeit beginnt zu zählen. Der Offsetfringe
+erzeugt nun an (T1) einen kurzen TTL-Puls, welcher den linken Flipflop zurücksetzt. (CLKB1) wird also LOW und der Counter
+für die die Offsetfringezeit stoppt. Der obere Ausgang des ersten Flipflops
+wechselt somit auf HIGH, was einen kurzen TTL-Puls am Ausgang Q von
+\textit{74LS123} auslöst. Dadurch wird der Ausgang des rechten FlipFlops (CLKA1) auf HIGH gesetzt
+und der Counter für die Interfringezeit beginnt zu zählen. Damit durch den
+kurzen Puls an (T1) nicht der verbotene Eingangszustand HIGH/HIGH am rechten
+Flipflop anliegt, wird dieser durch ein effektives AND mit
+$\overline{\text{Q}}$, das zu diesem Zeitpunkt kurz LOW ist, verknüpft. Der
+Interfringe löst wieder einen TTL Puls an (T1) aus und setzt nun den rechten
+Flipflop zurück, was auch den Counter für die Interfringezeit stoppt.\par
+Mit dieser Schaltung können also die Transmissionssignale des FPIs in digitale
+Signale für die Counterkarte umgesetzt werden.
+
+\chapter{Counterkarte}\label{anh:kap:counterkarte}
