@@ -24,11 +24,10 @@ Schaltkreis aus vier identischen Kopien der in Abb.
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_03}
 	    	}
 	}}
-	\caption[Signalgenerierung
-	Schaltplan]{Schaltplan der
+	\caption[Signalgenerierung - Schaltplan]{Schaltplan der
 	Signalgenerierung zum
-	Fringe-Offset-Locking (aus ***blabla*Referenz zu
-	Höltke Schaltplan*blabla***)}\label{fig:signalgenerierung_schaltplan}
+	Fringe-Offset-Locking (aus
+	\cite{signalgenerierung})}\label{fig:signalgenerierung_schaltplan}
 \end{figure}
 Um eletronisch ein Fringemaximum zu detektieren ist es nötig die Ableitung
 des Signals zu generieren. Abbildung
@@ -81,3 +80,62 @@ Mit dieser Schaltung können also die Transmissionssignale des FPIs in digitale
 Signale für die Counterkarte umgesetzt werden.
 
 \chapter{Counterkarte}\label{anh:kap:counterkarte}
+In diesem Abschnitt soll detailiert auf die Elektronik der Counterkare
+eingegangen werden. An sie werden die TTL-Signale der in Abschn.
+\ref{anh:kap:signalgenerierung_elektronik} erklärten Signalgenerierung für das
+Fringepattern weitergeleitet, mit denen sie die Offsetfringe- und
+Interfringezeiten eines Diodenlasers und des Referenzlasers messen kann.
+Abbildung \ref{fig:counterkarte_schaltplan} zeigt den Schaltplan der
+Counterkarte. Die Platine ist noch einmal in Abb.
+\ref{fig:counterkarte_foto} als Foto abgebildet.\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-2cm]{gfx/counterkarte_foto}
+	    }}
+	\caption[Counterkarte -
+	Foto]{Foto der Counterkarte}\label{fig:counterkarte_foto}
+\end{figure}
+Das Gate des Rampengenerators wird an der Lemobuchse (X10) abgegriffen.
+Über den Jumper \textit{JP3} lässt sich das Rohsignal oder die Invertierung weiterverwenden.
+Hier ist eine Invertierung nötig, womit die steigende Spannungsrampe einem HIGH entspricht.
+Über das AND \textit{IC20} ist somit der Taktgeber \textit{IC17} bei steigender
+Rampe aktiviert. Die Taktrate ist über \textit{JP4} einstellbar. Der Bereich
+\textit{Clear Counter \& D-FF Manuaell/Arduino/Atmega} erzeugt aus der
+steigenden Flanke des Gates (also aus dem Übergang von fallender zu steigendet
+Rampe) einen $1\,$\textmu s langen Puls, mit dem die vier Counter des Typs
+\textit{SN74LV8154PW} zurückgesetzt werden, sofert Jumper \textit{JP2} gesetzt
+ist. Gleichzeitig werden auch die getakteten Flipflops \textit{IC6A/B}
+und \textit{IC15A/B} deren Ausgänge die Ready-Bits darstellen, zurückgesetzt.
+Andernfalls müssen die Counter vor jeder Rampe üer die Anschlüsse
+($\overline{\text{CLR}}$) oder ($\overline{\text{CLR2}}$) zurückgesetzt werden.
+Über die Lemobuchsen (X1), (X7), (X8) und (X9) erhält die Karte die TTL-Signale
+der Signalgenerierung. Ist eines dieser TTL-Signale HIGH, zählt der
+entsprechende Counter mit der vorgegebenen Taktrate hoch. Beim Eintreten des
+ebtsprechenden Fringes, also bei fallender Flanke wird über einen der Bausteine
+\textit{IC5A/B} und \textit{IC14A/B} ein kurzer TTL-Puls ausgelöst, der den
+Counterwerte in die Counteregister schiebt. Gleichzeitig wird über das
+entsprechende Flipflop das Ready-Bit gesetzt.\par
+Über die Anschlüsse (DORR), (DIRR), (DODR) und (DIDR) können die Ready-Bits
+ausgelesen werden. Die verschiedenen Counterregister können über (Addr. 0),
+(Addr. 1) und (Addr. 2) adressiert werden. Tabelle
+\ref{tab:adressbus_kodierung} schlüsselt die Adresskodierung auf. Um die
+Adressierung zu aktivieren muss (Enable) auf HIGH gesetzt werden. An (Y0) bis (Y7) liegt dann das Byte des entsprechenden Registers an.\par
+Als Erweiterung wurde auf dieselbe Platine das Interface für einen modularen
+unabhängiger vierfacher 16-Bit DAC implementiert, der die Modulation von Laserparametern übernehmen
+könnte. Somit ist es möglich die Counterkarte auch in Systemen einzusetzen, in
+denen ausschließlich nur über Fringe-Offset-Locking stabilisiert wird. Ein
+zwischengeschalteter Mikrocontroller würde die Regelung übernehmen. Details über
+den DAC können \cite{counterkarte_laserstabilisierung} entnommen werden.
+\begin{landscape}
+	\begin{figure}
+	 	\centering
+	 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+	 	\centering
+		    \includegraphics[height=\textwidth-0cm]{gfx/counterkarte_schaltplan}
+		    }}
+		\caption[Counterkarte -
+		Schaltplan]{Schaltplan der Counterkarte (aus \cite{counterkarte_laserstabilisierung})}\label{fig:counterkarte_schaltplan}
+	\end{figure}
+\end{landscape}
