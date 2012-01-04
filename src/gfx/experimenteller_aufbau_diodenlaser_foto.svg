@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="699.08752"
+   height="435.13162"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.1 "
+   sodipodi:docname="diodenlaser_foto.pdf">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="319.09754"
+     inkscape:cy="177.39337"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1280"
+     inkscape:window-height="1002"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3921"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-25.798082,-29.737034)">
+    <image
+       y="29.737034"
+       x="25.798082"
+       id="image4019"
+       xlink:href="file:///Z:/Diplomarbeit/src/gfx/diodenlaser_foto.JPG"
+       height="435.13162"
+       width="699.08752" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3923"
+       width="151.52289"
+       height="51.51778"
+       x="221.2234"
+       y="11.943429"
+       transform="translate(22.60334,27.956156)" />
+    <path
+       style="fill:#ff0000;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 356.61521,209.15572 328.33094,90.462779"
+       id="path3068-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="317.7164"
+       y="61.673439"
+       id="text3070-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="317.7164"
+         y="61.673439"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000000"
+         id="tspan3145">Laserdiode und</tspan><tspan
+         sodipodi:role="line"
+         x="317.7164"
+         y="86.673439"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000000"
+         id="tspan3149">Kolimatorlinse</tspan></text>
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;opacity:0.75"
+       d="m 395,217.36218 35,0 -30,105 265,0"
+       id="path3151"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3923-2"
+       width="64.649773"
+       height="31.31473"
+       x="466.0603"
+       y="90.371803" />
+    <path
+       style="fill:#ff0000;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 444.49848,214.17108 496.01626,123.7624"
+       id="path3068-3-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="497.52356"
+       y="112.14565"
+       id="text3070-2-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="497.52356"
+         y="112.14565"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000000"
+         id="tspan3149-3">Gitter</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3923-2-0"
+       width="64.649773"
+       height="31.31473"
+       x="559.9339"
+       y="186.84137" />
+    <path
+       style="fill:#ff0000;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 515.13854,264.17363 74.75129,-43.94167"
+       id="path3068-3-8-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="591.39716"
+       y="208.61522"
+       id="text3070-2-8-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="591.39716"
+         y="208.61522"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000000"
+         id="tspan3149-3-2">Piezo</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3923-2-0-6"
+       width="165.66504"
+       height="31.31473"
+       x="207.89572"
+       y="371.69928" />
+    <path
+       style="fill:#ff0000;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 317.65371,375.2904 392.405,331.34873"
+       id="path3068-3-8-4-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="289.86664"
+       y="393.47311"
+       id="text3070-2-8-9-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="289.86664"
+         y="393.47311"
+         style="font-size:20px;text-align:center;text-anchor:middle;fill:#000000"
+         id="tspan3149-3-2-0">Auskoppelspiegel</tspan></text>
+  </g>
+</svg>
