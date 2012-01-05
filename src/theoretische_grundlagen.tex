@@ -1,16 +1,16 @@
 Im folgenden Kapitel sollen die wichtigsten physikalischen Grundlagen für das
 Verständnis der in dieser Arbeit behandelten Thematik erklärt werden. Dabei
-werden die Kenntnisse über den Aufbau des Atoms, die quantisierten Lösungen der
+werden Kenntnisse über den Aufbau des Atoms, die quantisierten Lösungen der
 Schrödinger- bzw. Diracgleichung, die dabei auftretenden Drehimpulskopplungen
-und die daraus resultierenden Energieaufspaltungen der Atome als vorhanden
-vorausgesetzt. Diesbezüglich sei auf einschlägige Lehrbücher wie
+und die daraus resultierenden Energieaufspaltungen der Atome vorausgesetzt.
+Diesbezüglich sei auf einschlägige Lehrbücher wie
 \cite{demtroeder:ex3}, \cite{demtroeder:laserspektroskopie} und \cite{saleh:grundlagen_der_photonik}
 verwiesen. In Kapitel \ref{sec:licht-atom-wechselwirkung} soll die
-Wechselwirkung von Licht und Atom behandelt werden. Darauf aufbauend soll
-in Kapitel \ref{sec:ris} die Resonanz-Ionisations-Spektroskopie,
-kurz RIS, in Bezug auf die Resonanz-Ionisation von Uran-Isotopen erklärt
-werden. Kapitel \ref{sec:diodenlaser} soll das Funktionsprinzip von
-Halbleiterlasern und deren Rolle in diesem Projekt wiedergeben.
+Wechselwirkung von Licht und Atom behandelt werden. Darauf aufbauend wird
+in Kapitel \ref{sec:ris} die Resonanzionisationsspektroskopie,
+kurz RIS, in Bezug auf die Resonanzionisation von Uranisotopen erklärt. Kapitel
+\ref{sec:diodenlaser} behandelt das Funktionsprinzip von Halbleiterlasern und
+deren Rolle in diesem Projekt.
 
 \section{Licht-Atom-Wechselwirkung}\label{sec:licht-atom-wechselwirkung}
 Essenziell wichtig für die Resonanz-Ionisation ist das Verständnis der atomaren
@@ -49,7 +49,7 @@ Die Zustandsänderung des Atoms folgt dann entsprechend von einem Zustand in
 einen energetisch niedriger gelegenen Zustand.\par
 
 \subsubsection{Fermis goldene Regel}\label{subsubsec:fermis_goldene_regel}
-Grundlegend beschreibt \textit{Fermis goldene Regel} die
+Grundlegend beschreibt \textit{Fermis goldene Regel} (FGR) die
 Übergangsrate von einem Zustand $\Psi_i$ (i: \textit{initial}) in einen
 beliebigen Zustand $\Psi_f$ (f: \textit{final}). Diese kann halbklassisch
 störungstheoretisch hergeleitet werden.  Dabei betrachtet man das externe elektromagnetische Feld als Störung
@@ -92,7 +92,7 @@ einen beliebigen Zustand $\Psi_f$, findet man
 	\omega_{nf}=\frac{E_n-E_f}{\hbar}\,.
 \end{equation}
 Nimmt man nun an, dass die Störung klein ist, das Atom also vornehmlich im
-Ausgangs-Zustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$, $c_{n\neq
+Ausgangszustand $\Psi_i$ bleibt ($c_i(0)=1$, $c_i(t)\approx 1$, $c_{n\neq
 i}\approx0$), verkürzt sich die Summe in Gl. \eqref{eq:sgl_stoerung_02}
 auf einen Summanden mit $n=i\neq f$. $c_f(t)$ folgt aus zeitlicher Integration von $\dot c_f(t)$ mit
 Gl. \eqref{eq:ww}:
@@ -106,7 +106,7 @@ Gl. \eqref{eq:ww}:
 	\end{split}
 \end{equation}
 Zu beachten ist hierbei, dass im Falle der Absorption der Nenner des zweiten
-Bruchs in Gl. \eqref{eq:koeff_cf} im nahresonenten Fall
+Bruchs in Gl. \eqref{eq:koeff_cf} im nahresonanten Fall
 ($\omega_{fi}\approx\omega_L$) in der Größenordnung $2\omega_{fi}\approx
 10^{15}\,\text{s}^{-1}$ (bei optischen Übergängen) liegt. Somit wird der
 zweite Bruch verschwindend gering gegenüber dem ersten und kann vernachlässigt
@@ -144,8 +144,7 @@ von Endzuständen. Mit der Annahme, dass sich $\rho(E_f)$ gegenüber $P_{i\to
 f}(t,\Delta\omega)$ nur langsam ändert, kann $\rho(E_f)$ in Gl. \eqref{eq:uebergangs_wkt_total} als hinreichend konstant angenommen und aus dem Integral gezogen werden. Weiterhin wurde die Substitution $\dd E_f=\hbar\dd(\Delta\omega)$ vorgenommen. Für die
 totale Übergangsrate folgt dann mit Gl. \eqref{eq:uebergangs_wkt_total}
 für genügend große Zeiten ($t\to\infty\stackrel{\wedge}{=}
-t\gg\frac{1}{\omega_{fi}}$) Fermis
-goldene Regel:
+t\gg\frac{1}{\omega_{fi}}$) FGR:
 \begin{equation}\label{eq:uebergangs_rate_total}
 	\begin{split}
 		\Gamma_{i\to f}
@@ -166,12 +165,14 @@ Betragsquadrat des Matrixelements ist und es zum anderen logischerweise keinen
 Bisher wurden Absorption und Emission nur allgemein behandelt. Bei der Emission
 muss man allerdings zwischen \textit{induzierter} und \textit{spontaner
 Emission} unterscheiden. Die induzierte Emission findet nur mit vorhandenem
-elektromagnetischen Feld statt. Es wird ein Photon der entsprechenden Mode aus
+elektromagnetischem Feld statt. Es wird ein Photon der entsprechenden Mode aus
 dem elektromagnetischen Feld benutzt, um eine Emission zu induzieren und ein
 weiteres Photon in das Feld zu emittieren. Bei der spontanen Emission hingegen
 fällt das Atom spontan in einen energetisch niedrigeren Zustand und ein
-Photon der entsprechenden Mode wird emittiert (auch ohne Feld). In einem
-elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei
+Photon der entsprechenden Mode wird emittiert (auch im
+\textit{Vakuumfeld}\footnote{Ein elektromagnetisches Feld mit null Photonen
+wird Vakuumfeld genannt.}).
+In einem elektromagnetischen Feld mit spektraler Energiedichte $w(\nu)=n(\nu)h\nu$, bei
 der $n(\nu)=\pfrac{n}{\nu}$ die spektrale Photonendichte (also Photonendichte
 pro Mode) ist, sind im stationären Gleichgewicht die Besetzungszahlen $N_i$ des
 höheren Niveaus und $N_k$ des niedrigeren Niveaus zeitlich konstant. In der Ratengleichung
@@ -205,12 +206,12 @@ veranschaulicht dies.
 	induzierte Emission und spontane Emission (von links nach
 	rechts)}\label{fig:einstein_koeffizienten}
 \end{figure}
-Im thermischen Gleichgewicht sind die Besetzungszahlen
-boltzmann-verteilt \cite{demtroeder:ex3}:
+Im thermischen Gleichgewicht folgen die Besetzungszahlen
+Boltzmann-Verteilung \cite{demtroeder:ex3}:
 \begin{equation}\label{eq:boltzmann_verteilung}
 	\begin{split}
-		\frac{N_i}{N_k}&=\frac{g_i}{g_k}\mathrm{e}^{-\frac{(E_i-E_k)}{kT}}\\[0.2cm]
-		&=\frac{g_i}{g_k}\mathrm{e}^{-\frac{h\nu}{kT}}\,.
+		\frac{N_i}{N_k}&=\frac{g_i}{g_k}\mathrm{e}^{-\frac{(E_i-E_k)}{k_BT}}\\[0.2cm]
+		&=\frac{g_i}{g_k}\mathrm{e}^{-\frac{h\nu}{k_BT}}\,.
 	\end{split}	
 \end{equation}
 $g_i$ und $g_k$ sind die Entartungsgrade ($2J+1$) der jeweiligen Niveaus und
@@ -218,12 +219,12 @@ sind damit eine statistische Gewichtung dieser.
 Kombiniert man \eqref{eq:raten_gleichung} und \eqref{eq:boltzmann_verteilung}
 und löst nach $w(\nu)$ auf, findet man
 \begin{equation}\label{eq:spektrale_energiedichte_1}
-	w(\nu)=\frac{\nicefrac{A_{ik}}{B_{ik}}}{\left(\nicefrac{g_i}{g_k}\right)\left(\nicefrac{B_{ik}}{B_{ki}}\right)\left(\mathrm{e}^\frac{h\nu}{kT}-1\right)}\,.
+	w(\nu)=\frac{\nicefrac{A_{ik}}{B_{ik}}}{\left(\nicefrac{g_i}{g_k}\right)\left(\nicefrac{B_{ik}}{B_{ki}}\right)\left(\mathrm{e}^\frac{h\nu}{k_BT}-1\right)}\,.
 \end{equation}
-Führt man einen Koeffizientenvergleicht mit der spektralen
+Führt man einen Koeffizientenvergleich mit der spektralen
 Energiedichte eines thermischen Strahlungsfeldes \cite{demtroeder:ex3}
 \begin{equation}\label{eq:spektrale_energiedichte_2}
-	w(\nu)=\frac{8\pi h\nu^3}{c^3}\frac{1}{\mathrm{e}^\frac{h\nu}{kT}-1}
+	w(\nu)=\frac{8\pi h\nu^3}{c^3}\frac{1}{\mathrm{e}^\frac{h\nu}{k_BT}-1}
 \end{equation}
 durch, findet man folgende Beziehungen der Einsteinkoeffizienten:
 \begin{subequations}\label{eq:einsteinkoeff_relationen}
@@ -259,13 +260,13 @@ Daraus folgt
 	A_{ik}=\frac{2}{3}\frac{\omega_{ik}^3}{\epsilon_0c^3h}\abs{\OPv{d}_{ik}}^2\,.
 \end{equation}
 Um die Einsteinkoeffizienten für die Absorption und induzierte Emission
-auszurechnen, setzt man mit der Absorptionswahrscheinlichkeit pro Sekunde an
-(oben hergeleitete Fermis goldene Regel \eqref{eq:uebergangs_rate_total}):
+zu berechnen, setzt man mit der Absorptionswahrscheinlichkeit pro Sekunde an
+(FGR \eqref{eq:uebergangs_rate_total}):
 \begin{equation}\label{eq:w_ki_01}
 	W_{k\to i}
 	= \frac{2\pi}{\hbar}\rho(E_k)\abs{\bra{\Psi_i}\OPH'\ket{\Psi_k}}^2
 \end{equation}
-Die Energieniveadichte lässt sich schreiben als
+Die Energieniveaudichte lässt sich schreiben als
 $\rho(E)=\pfrac{n}{E}=\frac{1}{h}\pfrac{n}{\nu}$.
 Das zeitliche Mittel der spektralen Energiedichte des elektromagnetischen Feldes
 ist $\mean{w(\nu)}_t=\pfrac{n}{\nu}\frac{1}{2}\epsilon_0 E^2_0$. Damit lässt
@@ -304,10 +305,23 @@ der Konfiguration bzw. den Quantenzahlen der beiden Zustände ab:
 \begin{equation}\label{eq:dipolmatrixelement_quantenzahlen}
 	\bra{n_i,L_i,S_i,m_{L_i}, m_{S_i}}\OPv{r}\ket{n_k,L_k,S_k,m_{L_k}, m_{S_k}}
 \end{equation}
-Vorausgesetzt wird, dass die l-l- und s-s-Kopplungen der einzelnen Elektronen
-untereinander im Atom stark gegenüber der l-s-Kopplung sind (LS-Kopplung).
-Dies ist bei schweren Atom nicht mehr gegeben. Dort dominieren die einzelnen
-l-s-Kopplungen (jj-Kopplung).\par
+Vorausgesetzt wird die LS-Kopplung mit
+\begin{equation}\label{eq:LS-Kopplung}
+	\begin{split}
+		\vec{J}&=\vec{L}+\vec{S}\\
+		\vec{L}&=\sum\limits_i\vec{l}_i\\
+		\vec{S}&=\sum\limits_i\vec{s}_i\,.
+	\end{split}
+\end{equation}
+Dies ist bei schweren Atom nicht mehr gegeben. Dort dominiert die
+jj-Kopplung mit
+\begin{equation}\label{eq:jj-Kopplung}
+	\begin{split}
+		\vec{J}=\sum\limits_i\vec{j}_i\\
+		\vec{j}_i=\vec{l}_i+\vec{s}_i\,.
+	\end{split}
+\end{equation}
+\par
 Da im Gesamtsystem der Drehimpuls erhalten ist, muss $\Delta L =\pm1$ sein.
 Bei Absorption eines Photons wird aus dem elektromagnetischen Feld ein Photon (Boson, Spin 1) mit dem Drehimpuls vom
 Betrag 1 entnommen, was durch den Drehimpuls des Atoms wieder kompensiert werden
@@ -324,9 +338,9 @@ Absorption von zirkular polarisiertem Licht, das sich senkrecht zur
 Quantisierungsachse ausbreitet, ist der Photonen-Drehimpuls +1 für
 $\sigma^+$-Polarisation und -1 für $\sigma^-$-Polarisation. Linear polarisiertes
 Licht ist eine Kombination aus $\sigma^+$- und $\sigma^-$-polarisiertem Licht.
-Die Projektion des Drehimpulses ändert sich in diesem Fall nicht. Es gilt also
+Die Projektion des Drehimpulses ändert sich in diesem Fall nicht, es gilt also
 $\Delta m_L = 0, \pm1$. Die Spinwellenfunktion wird bei Dipolübergängen nicht
-beeinflusst. Daher gilt $\Delta S=0$. Weiterhin gilt für $\vJ=\vL+\vS$ die
+beeinflusst, somit gilt $\Delta S=0$. Weiterhin gilt für $\vJ=\vL+\vS$ die
 Änderung $\Delta J=0,\pm1$. $\Delta J=0$ rührt daher, dass die Änderung $\Delta
 L=\pm1$ durch die entgegengesetzte Änderung $\Delta m_S=\mp1$ kompensiert wird,
 was allerdings für $J=0\leftrightarrow0$ nicht gelten kann. Für die Kopplung an
@@ -366,13 +380,16 @@ Bisher wurde noch keine Aussage über die spektrale Beschaffenheit eines
 Bedeutung, da sie viele Informationen über die untersuchten Atome wie z.B. die
 Lebensdauern der Niveaus, Sättigungsleistungen der Laser für die Übergänge oder
 die Geschwindigkeitsverteilung der Atome enthalten. Auch erfährt man durch die
-Kenntnis der Linienbreite, wie hoch sich überhaupt bestimmte Übergänge auflösen
-lassen und welche Lasereigenschaften dafür benötigt werden. Die
-Lasereigenschaften bzw. das Laserverhalten deckt einen wesentlichen Teil
-dieser Arbeit ab (siehe spätere Kapitel \ref{sec:diodenlaser},
+Kenntnis der Linienbreite, wie hoch sich bestimmte Übergänge prinzipiell
+auflösen lassen und welche Lasereigenschaften dafür benötigt werden. Die
+Lasereigenschaften bzw. das Laserverhalten sind eine wesentlicher Bestandsteil
+dieser Arbeit (siehe spätere Kapitel \ref{sec:diodenlaser},
 %TODO: !Kapitel Lasereiegnschaften/Laserverhalten referenzieren
-).
-Übergänge (hier Linien genannt) sind nicht beliebig scharf, sondern haben eine Breite, die verschiedene Ursachen hat, auf welche in diesem Abschnitt näher eingegangen werden soll. Der Großteil dieses Kapitels stützt sich auf \cite{demtroeder:laserspektroskopie}. Die spektrale Linienbreite ist durch das Frequenzintervall $\delta\omega=\omega_2-\omega_1$ zwischen den beiden
+). Übergänge (hier Linien genannt) sind nicht beliebig scharf, sondern haben
+eine Breite, die verschiedene Ursachen hat. Darauf wird in diesem Abschnitt
+näher eingegangen. Der Großteil dieses Kapitels stützt sich auf
+\cite{demtroeder:laserspektroskopie}. Die spektrale Linienbreite ist durch das
+Frequenzintervall $\delta\omega=\omega_2-\omega_1$ zwischen den beiden
 Frequenzen, bei denen die Absorptions- bzw. Emissionsintensitäten auf die Hälfte
 ihres Maximums abgesunken sind, definiert (volle Halbwertsbreite, engl.:
 FWHM).
@@ -412,11 +429,11 @@ eines Zustandes herleiten. Multipliziert man die Bewegungsgleichung
 eine Zeitableitung durch, findet man
 \begin{equation}\label{eq:klassischer_oszillator_leistung_01}
 	\fracd{}{t}\left[\frac{m}{2}\dot
-	x^2+\frac{m}{2}\omega_0^2x^2\right]=-\gamma m\dot x^2=\fracd{W}{t}=P(t)\,.
+	x^2+\frac{m}{2}\omega_0^2x^2\right]=-\gamma m\dot x^2=\fracd{W}{t}=P(t)\,,
 \end{equation}
 wobei $W$ die Gesamtenergie und $P(t)$ die momentan abgestrahlte Leistung des
 Atoms ist. Nach Einsetzen von \eqref{eq:klassischer_oszillator_loesung} in
-\eqref{eq:klassischer_oszillator_leistung_01} und zeitliche Mittlung findet
+\eqref{eq:klassischer_oszillator_leistung_01} und zeitlicher Mittlung findet
 man
 \begin{equation}\label{eq:klassischer_oszillator_leistung_02}
 	\mean{P(t)}_t=-\frac{1}{2}\gamma mx_0^2\omega_0^2\mathrm{e}^{-\gamma
@@ -446,7 +463,7 @@ zwei angeregten Niveaus $E_i$ und $E_k$ ergibt sich aus den Lebensdauern beider 
 \end{equation}
 
 \subsubsection{Sättigungsverbreiterung}\label{subsubsec:saettigungsverbreiterung}
-Die Sättigunugsverbreiterung der Linie tritt erst durch Einstrahlen von
+Die Sättigungsverbreiterung der Linie tritt erst durch Einstrahlen von
 Laserlicht in Erscheinung. Sie ist gerade bei hohen Laserleistungen von
 Bedeutung. Sehr elegant lässt sich die Sättigungsverbreiterung über den
 \textit{Dichtematrix-Formalismus} herleiten.\par
@@ -458,7 +475,7 @@ wobei die Phase $\phi$ immer konstant bleibt.} mehr vor, sondern ein
 \textit{statistisches Gemisch}. Die Phase zwischen den Zuständen ist
 für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt. Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr
 möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
-allerdings. Dazu betrachtet man die Dichtematrix:
+allerdings. Dazu betrachtet man die Dichtematrix
 \begin{equation}\label{eq:dichtematrix}
 	\OP{\rho}
 	=
@@ -476,7 +493,7 @@ $\rho_{11}$ bzw. $\rho_{22}$ sind die Besetzungswahrscheinlichkeiten von
 $\ket{1}$ bzw. $\ket{2}$. $\rho_{12}$ und $\rho_{21}$ sind die
 Kohärenzen beider Zustände, wobei $\rho_{12}=\rho_{21}^*$ ist. $c_i$ bzw.
 $c_i^*$ sind wiederum die Zeitentwicklungskoeffizienten der Zustände $\ket{i}$.
-Die Bewegungsgleichungen dieser Koeffizienten erlangt man aus dem
+Die Bewegungsgleichungen dieser Koeffizienten erhält man aus dem
 nicht-störungstheoretischen Ansatz eines 2-Niveau-Systems, welcher wie folgt
 aussieht:
 \begin{subequations}\label{eq:2-niveau-system_ansatz}
@@ -556,8 +573,8 @@ unabhängigen Gleichungen
 \end{subequations}
 mit der \textit{Besetzungsinversion} $w=\rho_{22}-\rho_{11}$. Sie gibt an, wie
 stark die Besetzung im Zustand $\ket{2}$ gegenüber der im Zustand $\ket{1}$ ist.
-Für lange Zeiten stellt sich (nach Rabioszillationen) ein Gleichgewicht
-ein, wobei beide Niveaus bestenfalls gleich stark besetzt sind. Dies ist mit der Bedingung gegeben,
+Für lange Zeiten stellt sich (nach ausgemittelten Rabioszillationen) ein
+Gleichgewicht ein, wobei beide Niveaus bestenfalls gleich stark besetzt sind. Dies ist mit der Bedingung gegeben,
 dass sich die Besetzungsinversion und die Kohärenzen nicht mehr ändern:
 \begin{equation}\label{eq:blochgleichungen_gleichgewicht}
 	\begin{split}
@@ -619,6 +636,7 @@ Sättigungsleistungen $I_{sat}$ in den optischen Übergängen der später in die
 Arbeit behandelten Ionisations-Schemata bewegen sich im Bereich von wenigen
 mW bei den ersten beiden Anregungsschritten bis hin zu einigen
 $100\,mW$ beim autoionisierenden Schritt.
+%TODO: !!Bild: Sättigungsverbreiterte Linie
 
 \subsubsection{Doppler-Verbreiterung}\label{subsubsec:doppler-verbreiterung}
 In der Regel bewegen sich die zu untersuchenden Atome nicht unwesentlich schnell
