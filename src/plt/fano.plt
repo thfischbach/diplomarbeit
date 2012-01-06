@@ -2,8 +2,8 @@ clear
 reset
 file="fano"
 set key inside top left
-set xlabel '$\epsilon$'
-set ylabel '$\sigma$'
+set xlabel 'Energie $\epsilon$'
+set ylabel 'Wirkungsquerschnitt $\sigma$'
 set samples 100000
 set xrange [-5:5]
 set yrange [-1:18]
