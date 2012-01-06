@@ -104,10 +104,10 @@ Hier ist eine Invertierung nötig, womit die steigende Spannungsrampe einem HIGH
 Rampe aktiviert. Die Taktrate ist über \textit{JP4} einstellbar. Der Bereich
 \textit{Clear Counter \& D-FF Manuaell/Arduino/Atmega} erzeugt aus der
 steigenden Flanke des Gates (also aus dem Übergang von fallender zu steigendet
-Rampe) einen $1\,$\textmu s langen Puls, mit dem die vier Counter des Typs
-\textit{SN74LV8154PW} zurückgesetzt werden, sofert Jumper \textit{JP2} gesetzt
+Rampe) einen verzögerten $1\,$\textmu s langen Puls, mit dem die vier Counter
+des Typs \textit{SN74LV8154PW} zurückgesetzt werden, sofert Jumper \textit{JP2} gesetzt
 ist. Gleichzeitig werden auch die getakteten Flipflops \textit{IC6A/B}
-und \textit{IC15A/B} deren Ausgänge die Ready-Bits darstellen, zurückgesetzt.
+und \textit{IC15A/B} deren Ausgänge die Status-Bits darstellen, zurückgesetzt.
 Andernfalls müssen die Counter vor jeder Rampe üer die Anschlüsse
 ($\overline{\text{CLR}}$) oder ($\overline{\text{CLR2}}$) zurückgesetzt werden.
 Über die Lemobuchsen (X1), (X7), (X8) und (X9) erhält die Karte die TTL-Signale
@@ -116,8 +116,8 @@ entsprechende Counter mit der vorgegebenen Taktrate hoch. Beim Eintreten des
 ebtsprechenden Fringes, also bei fallender Flanke wird über einen der Bausteine
 \textit{IC5A/B} und \textit{IC14A/B} ein kurzer TTL-Puls ausgelöst, der den
 Counterwerte in die Counteregister schiebt. Gleichzeitig wird über das
-entsprechende Flipflop das Ready-Bit gesetzt.\par
-Über die Anschlüsse (DORR), (DIRR), (DODR) und (DIDR) können die Ready-Bits
+entsprechende Flipflop das Status-Bit gesetzt.\par
+Über die Anschlüsse (DORR), (DIRR), (DODR) und (DIDR) können die Status-Bits
 ausgelesen werden. Die verschiedenen Counterregister können über (Addr. 0),
 (Addr. 1) und (Addr. 2) adressiert werden. Tabelle
 \ref{tab:adressbus_kodierung} schlüsselt die Adresskodierung auf. Um die
@@ -139,3 +139,10 @@ den DAC können \cite{counterkarte_laserstabilisierung} entnommen werden.
 		Schaltplan]{Schaltplan der Counterkarte (aus \cite{counterkarte_laserstabilisierung})}\label{fig:counterkarte_schaltplan}
 	\end{figure}
 \end{landscape}
+
+\chapter{Quelltext Datenaufbereitung}\label{anh:kap:quelltext_arduino_laserinformationsverarbeitung}
+Im Folgenden ist der Quelltext des Programms für den Mikrocontroller
+\textit{Arduino} zur Datenaufbereitung der Laserinformationen abgedruckt. Das
+Programm wurde in einer an den Arduino angepassten Version der
+Programmiersprache C geschrieben. Alle Kommentare sind in englisch gehalten.
+\lstinputlisting[]{code/arduino_laserinformation.c}
