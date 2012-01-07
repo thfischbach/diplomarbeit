@@ -243,8 +243,7 @@ void loop() {
         
         //correct wrong times caused by potential
         //FSR-hops for right mean-values
-        correctedTimeOR[i] = timeOR[i]
-         + (FSR_number_ref - first_FSR_number_ref) * timeIR[i];
+        correctedTimeOR[i] = timeOR[i] + FSR_number_ref * timeIR[i];
         correctedTimeOD[i] = timeOD[i]
          + (FSR_number_DL - first_FSR_number_DL) * timeID[i];
         

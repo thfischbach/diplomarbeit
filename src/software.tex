@@ -92,28 +92,49 @@ Frequenzverstimmungen vorkommen, dass während einer Rampe der Interfringe aus
 dem aktuellen FSR hinausläuft, noch bevor der Counter gestoppt wurde und
 somit eine falsche Zeit gemessen wird. Um diese Fälle und andere Fehlmessungen
 auszusondern, wird geprüft, ob die gemessene Interfringezeit stark vom
-Allzeitmittelwert abweicht.\par
-Bei offensichtlich falscher Messung wird die
+Allzeitmittelwert abweicht. Bei offensichtlich falscher Messung wird die
 momentane Iteration abgebrochen und für die spätere Ausgabe ein
 Validitätsvariable auf 0 gesetzt, damit bei der Weiterverarbeitung am PC
-entschieden werden kann, ob die Daten genutzt werden möchten oder nicht. Sind
-die Zeiten valide, kann herausgefunden werden, ob die Laserfrequenz einer der beiden Laser
-in den nächsten FSR des FPIs gelaufen ist. Dabei wird jeweils überprüft, ob die
-Zeit des Offsetfringes sich gegenüber der Zeit der vorherigen Rampe um mehr als
-die Hälfte der Interfringezeit verändert hat. Gilt
-$t_{O,akt.}-t_{O,alt}>\nicefrac{1}{2}\cdot t_{I,akt}$, so wird vermutet, dass
-der Laser in den links benachbarten FSR gedriftet ist. Im Falle von
-$t_{O,akt.}-t_{O,alt}<-\nicefrac{1}{2}\cdot t_{I,akt}$ ist der Laser vermutlich
-in den rechts benachbarten FSR gedriftet. In beiden Fällen wird eine
-FSR-Nummer-Variable erniedrigt bzw. erhöht. Die Detektion kann natürlich wie
-schon erwähnt nur funktionieren, wenn die Frequenz deutlich langsamer als
-$\nicefrac{1}{2}\text{FSR}$ pro Rampenzyklus verstimmt wird. Damit auch bei
-FSR-Sprüngen die Zeiten zur Mittelung beitragen können, werden diese
-anschleißend durch subtrahieren bzw. addieren der Interfringezeit
+entschieden werden kann, ob die Daten genutzt werden möchten oder nicht.\par
+Sind die Zeiten valide, kann herausgefunden werden, ob die Laserfrequenz des Diodenlaser in den nächsten FSR des FPIs gelaufen ist. Dabei wird
+überprüft, ob sich die Zeit des Offsetfringes relativ zur Offsetfringezeit des
+Referenzlasers gegenüber der Zeit der vorherigen Rampe um mehr als die Hälfte
+der Interfringezeit verändert hat. Folgendes kann auftreten:
+\begin{subequations}\label{eq:FSR-sprung}
+	\begin{equation}\label{eq:FSR-sprung_links}
+		(t_{OD,akt.}-t_{OR,akt.})-(t_{OD,alt}-t_{OR,alt})>\nicefrac{1}{2}\cdot
+t_{ID,akt}
+	\end{equation}
+	\begin{equation}\label{eq:FSR-sprung_rechts}
+		(t_{OD,akt.}-t_{OR,akt.})-(t_{OD,alt}-t_{OR,alt})<-\nicefrac{1}{2}\cdot
+t_{ID,akt}\,.
+	\end{equation}
+\end{subequations}
+Gilt \eqref{eq:FSR-sprung_links}, so wird vermutet, dass der Laser in den links
+benachbarten FSR gedriftet ist. Im Falle von \eqref{eq:FSR-sprung_rechts} ist
+der Laser vermutlich in den rechts benachbarten FSR gedriftet. In
+beiden Fällen wird eine FSR-Nummer-Variable erniedrigt bzw. erhöht, um später am
+PC die FSR-Sprünge zählen zu können. Die Detektion kann natürlich wie schon
+erwähnt nur funktionieren, wenn die Frequenz deutlich langsamer als $\nicefrac{1}{2}\text{FSR}$ pro Rampenzyklus verstimmt wird. Damit auch bei FSR-Sprüngen die Zeiten zur Mittelung beitragen können,
+werden diese anschleißend durch subtrahieren bzw. addieren der Interfringezeit
 korrigiert.\par
+Für den Referenzlaser ist ein FSR-Sprung aufgrund seiner absoluten Stabilität
+bis auf wenige MHz praktisch unmöglich, sofern des Offset der Rampe so
+eingestellt ist, dass der erste Fringe ca.
+$\nicefrac{1}{2}\text{FSR}$ nach Start der Rampe auftaucht. Somit bleibt die
+Laserfrequenz mit aller Sicherheit immer in demselben FSR des FPIs. Es
+kommt jedoch vor, dass die Rampe oder das FPI einem Drift unterliegen
+und der Referenzlaser scheinbar in einen benachbarten FSR driftet.
+Analog wie beim Diodenlaser wird auch hier der scheinbare FSR-Sprung
+detektiert. In diesem Fall wird aber lediglich die Offsetfringezeit wie beim
+Diodenlaser korrigiert. Die Zählvariable für den scheinbaren FSR-Sprung
+wird nur noch zu Debugzwecken aufbewahrt. Logischerweise können
+gleichzeitige FSR-Sprünge beider Laser so nicht erkannt werden. In diesem
+sehr unwahrscheinlichen Fall käme es zu Fehlberechnungen der Relativfrequenz.
+Um dennoch sicher zu sein, sollte deshalb regelmäßig auf die Lage des ersten
+He:Ne-Fringes geachtet und ggf. das Offset der Rampe nachkorrigiert werden.\par
 Wurden genügend Rampen durchlaufen, können die aktuellen Mittelwerte aller
-Zeiten und die Varianzen der Offsetfringezeiten berechnet und mit allen anderen
-nötigen Werten über RS232 an den PC gesandt werden (brauner Kasten in Abb.
+Zeiten und die Varianzen der Offsetfringezeiten berechnet und mit allen anderen nötigen Werten über RS232 an den PC gesandt werden (brauner Kasten in Abb.
 \ref{fig:ablaufdiagramm_arduino_laser}). Der String der versendet wird, beginnt
 mit \lstinline|"*begin*"| und endet mit \lstinline|"*end*"|, damit später mit
 sichergestellt werden kann, wo die Daten anfangen und aufhören. Die Werte sind
@@ -127,12 +148,11 @@ nach Abschneiden von \lstinline|"*begin*"| und \lstinline|"*end*"| durch das
 SubVI \lstinline|arduino_laser_read.vi| in globale Variablen geschrieben.
 Parallel wird jeweils eine boolsche Variable gesetzt, die angibt, dass die Laserinformationen aktuell sind. Wird ein String aus einer der
 globalen Variablen gelesen, wird die boolsche Variable zurückgesetzt und die
-Laserinformationen werden als nicht mehr aktuell gewertet. Die aktuellen können
-nun separat über das SubVI \lstinline|get_laser_times.vi| nach Angabe der
-Lasernummer abgeholt werden. Das SubVI \lstinline|delta_time2delta_frequency.vi|
-berechnet aus den Zeiten die Relativfrequenzen nach Gl.
-\eqref{eq:FPI_frequenzdrift_03}. Das SubVI \lstinline|laser-control.vi|, die in
-Abschn. \ref{sec:stabilisierung_scan-strategie} näher betrachtet wird, hat neben
+Laserinformationen werden als nicht mehr aktuell gewertet. Aktualität fordernde
+Lesezugriffe auf die Daten warten, bis die Variable wieder gesetzt wurde. Die
+aktuellen Zeiten können nun separat über das SubVI
+\lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl. \eqref{eq:FPI_frequenzdrift_03} aus den Zeiten die
+Relativfrequenzen. Das SubVI \lstinline|laser-control.vi|, die in Abschn. \ref{sec:stabilisierung_frequenzverstimmungs-strategie} näher betrachtet wird, hat neben
 der Regelung und Frequenzverstimmtung auf die Sollfrequenz auch die Aufgabe
 Monitoringdaten an die Benutzeroberfläche der Laserkontrolle (Abb.
 \ref{fig:benutzeroberflaeche_laserkontrolle}) weiterzugeben. Zu den
@@ -140,6 +160,29 @@ Monitoringdaten gehören Jitter des Lasers, Ist-Relativfrequenz und Abweichung
 zur Soll-Relativfrequenz, wobei die detektierten FSR-Sprünge mit einbezogen
 werden müssen. Die Referenzfrequenz ist beim Start des Programms oder beim
 Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
-%TODO: !Screenshot: Laserkontrolle - Benutzerinterface
+\begin{figure}[hp]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/benutzeroberflaeche_laserkontrolle}
+	    }}
+	\caption[Benutzeroberfläche -
+	Laserkontrolle]{Benutzeroberfläche
+	der Laserkontrolle}\label{fig:benutzeroberflaeche_laserkontrolle}
+\end{figure}
 
 \section{Stabilisierung/Frequenzverstimmungs-Strategie}\label{sec:stabilisierung_frequenzverstimmungs-strategie}
+Frequenzverstimmung und gleichzeitige Regelung wird von der SubVI
+\lstinline|laser-control.vi| verwaltet. Die Anforderungen sind möglichst
+schnelles Anfahren der Sollfrequenz, egal, wie groß die Verstimmung ist, und
+anschließendes Regeln. Grundidee ist, dass der Laser über das \textit{iScan}
+sehr schnell in den Bereich der Sollfrequenz gefahren wird und anschließend mit Hilfe
+des Fringe-Offset-Locking nachgeregelt wird, da ein direktes Anfahren mit dem
+\textit{iScan} aufgrund seiner Nichtliniearität unmöglich ist. In
+\ref{kap:charakterisierung} wird sich zeigen, dass der Fehler bei alleiniger
+Verstimmung mit dem \textit{iScan} wenige bis mehr als $100\,$MHz sein kann.
+Dies bedarf einer nicht-trivialen Strategie, die mit Hilfe von
+\ref{fig:frequenzverstimmungs-strategie} und dem Ablaufdiagramm
+\ref{fig:frequenzverstimmungs-strategie_ablaufdiagramm} veranschaulicht werden
+soll.\par
+Zunächst soll
