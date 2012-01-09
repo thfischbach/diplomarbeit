@@ -163,7 +163,7 @@ Monitoringdaten gehören Jitter des Lasers, Ist-Relativfrequenz und Abweichung
 zur Soll-Relativfrequenz, wobei die detektierten FSR-Sprünge mit einbezogen
 werden müssen. Die Referenzfrequenz ist beim Start des Programms oder beim
 Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
-\begin{figure}[hp]
+\begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
  	\centering
@@ -259,7 +259,7 @@ Schritt und der Rest im dritten Schritt). Der Fehler im Schritt $B\rightarrow C$
 darf also maximal $\nicefrac{\text{FSR}}{2}$ sein, damit der erwartete FSR erreicht wird. Die Verstimmnungsfrequnenzen der einzelnen Schritte ergeben sich aus
 \begin{equation}\label{eq:scan-strategie_schritte}
 	\begin{split}
-		\Delta\nu_{A\rightarrow B}&=\frac{\text{FSR}}{2}-\nu_{Offset_{vor}}\\
+		\Delta\nu_{A\rightarrow B}&=\frac{\text{FSR}}{2}-\nu_{Offset,vor}\\
 		\Delta\nu_{B\rightarrow
 		C}&=\left\lfloor\frac{(\Delta\nu-\Delta\nu_{A\rightarrow
 		B})}{\text{FSR}}\right\rfloor\cdot\text{FSR}\\
@@ -310,8 +310,8 @@ Das komplette Ablaufdiagramm des SubVI \lstinline|laser-control.vi| ist in Abb.
 der Fall, dass eine neue Soll-Frequenz gesetzt und die oben beschriebene
 Rountine abgearbeitet wird, ein spezieller Zweig im Ablauf der SubVI. Genauso
 dient das SubVI zum schlichten Festhalten des Lasers. Für die FSR-Berechnung
-gilt dann einfach $n=0$ und $n_{Ard,1}=n_{Ard,2}=n_{Ard,0}$. Gleiches gilt, wenn
-der Laser nur um eine Frequenz $<\nicefrac{\text{FSR}}{3}$ verstimmt werden
+gilt dann einfach $n=0$ und $n_{Ard,1}=n_{Ard,2}:=n_{Ard,0}$. Gleiches gilt,
+wenn der Laser nur um eine Frequenz $<\nicefrac{\text{FSR}}{3}$ verstimmt werden
 soll. Ein simples Verstimmen der Laserfrequenz via \textit{iScan} genügt. Um die
 Werte am Ende eines Durchlaufs der Rountine für den nächsten Schleifendurchlauf
 als Eingangswerte zur Verfügung stellen zu können, wird ein Shiftregister
@@ -356,18 +356,178 @@ in naher Zukunft die Software performanter zu gestalten, womit mehr
 Regelzyklen pro Sekunde abgearbeitet werden können und die insgesamte
 Verstimmnungsdauer weniger als eine Sekunde dauern soll.
 
-% \section{Linearisierung des \textit{iScans}}\label{sec:linearisierung_iscan}
-% Wie schon in den vorigen Kapiteln erwähnt, ist es regelmäßig nötig, die LUT des
-% \textit{iScans} zu erneuern, damit die zunehmende Nichtlinearität der
-% \textit{iScans} ausgeglichen und der damit verbundene
-% Frequenzverstimmungsfehler ausgeglichen werden kann. Wie im Abschn.
-% \ref{sec:stabilisierung_frequenzverstimmungs-strategie} deutlich geworden ist,
-% sollte der Fehler im schlimmsten Fall nicht größer als $150\,$MHz sein. Aber
-% nicht nur aus Gründen der Sicherheit in der Frequenzberechnung, sondern auch die
-% der Motivation, die Frequenzverstimmungsroutine schnell zu machen (also wenig
-% nachkorrigieren zu müssen) erfordert einen nahezu perfekte Linearität. Der grobe
-% Ablauf der Linearisierung wurde bereits in Abschn.
-% \ref{sec:iscan_und_fringe-offset-locking} angerissen. Auf die Stabilisierung des
-% FPIs soll hier nicht weiter eingegangen werden, dazu sei auf das Handbuch des
-% \textit{LaseLock} \cite{laselock} verwiesen.\par
+\section{Linearisierung der \textit{iScans} und
+FSR-Korrektur}\label{sec:linearisierung_iscan} Wie schon in den vorigen
+Kapiteln erwähnt, muss die Skalierung der \textit{iScans} kalibriert werden.
+Diese muss sowohl linear als auch korrekt gestreckt
+sein, damit sie sich mit der tatsächlichen Frequenzskala deckt. Um das
+Linearitätskriterium zu erfüllen, ist es regelmäßig nötig, die
+Phase-Frequenz-Beziehung der LUT der \textit{iScans} zu erneuern. Gleichzeitig
+kann auch der FSR des iScans gemessen und ggf. erneuert werden, um die korrekte Streckung der Skala zu gewährleisten.
+Diese Maßnahmen sorgen für kleinere Fehler im Verstimmen der Laserfrequenz mit
+dem \textit{iScan}. Wie im Abschn.
+\ref{sec:stabilisierung_frequenzverstimmungs-strategie} deutlich geworden ist,
+sollte der Fehler im schlimmsten Fall nicht größer als $150\,$MHz sein. Neben
+dem Aspekt der Sicherheit in der Frequenzberechnung ist es auch wichtig, den
+Fehler des \textit{iScans} mit FOL schnell auszukorrigieren, was eine möglichst
+gute Linearität und einen korrekten FSR des \textit{iScans} fordert. Der grobe Ablauf
+der Linearisierung wurde bereits in Abschn. \ref{sec:iscan_und_fringe-offset-locking} angerissen. Auf die Stabilisierung des FPIs soll hier nicht weiter eingegangen werden, dazu sei auf das Handbuch des \textit{LaseLock} \cite{laselock} verwiesen.\par
+Die \textit{iScan scan control unit} hat einen analogen Eingang mit
+dahintergeschaltetem \textit{Analog-Digital-Converter} (ADC), über den das
+Photodiodensignal der FPI-Transmission während eines
+Verstimmungsvorgangs digital aufgenommen werden kann. Um eine Repräsentation der
+(Nicht-)Linearität der \textit{iScans} zu erhalten, wird eine interne
+Frequenzverstimmungsroutine der \textit{iScan scan control unit} verwendet, die
+die Laserfrequenz linear zu den Werten in der LUT durchstimmt.
+Durch Auswerten der Distanzen zwischen den einzelnen
+Transmissionsfringes in der digitalen Frequenzskala des \textit{iScans} kann
+eine Korrektur der LUT-Werte und des digital hinterlegten FSR-Wertes berechnet
+werden. Bevor die Verstimmungsroutine starten kann, müssen die in Tab.
+\ref{tab:verstimmungsroutine_parameter} aufgelisteten Parameter korrekt
+eingestellt werden.
+\begin{table}
+	%Summe der Breiten muss 0.91 mal \textwidth sein.
+	\begin{tabular}{p{0.25\textwidth}p{0.66\textwidth}}
+		\toprule
+			Parameter & Funktion \\
+		\midrule[1px]
+		\hline
+			\lstinline|ScanOffset| & Startwert der Verstimmungsroutine in MHz\\
+			\lstinline|ScanWidth| & Größe des Verstimmungsbereiches in MHz\\
+			\lstinline|ScanStepSize| & Schrittweite in MHz\\
+			\lstinline|ScanStepDuration| & Wartezeit bis zum nächsten Schritt in ms\\
+			\lstinline|Mes_Points| & Anzahl der Schritte (alternativ zu
+			\lstinline|ScanStepSize|)\\
+			\lstinline|Mes_PointsAuto| & 1: nutze \lstinline|Mes_Points|; 2: nutze
+			\lstinline|ScanStepSize|\\
+			\lstinline|ScanOnOff| & Verstimmungsroutine aktiv/inaktiv\\
+			\lstinline|MeasureScanRuns| & Messroutine aktiv/inaktiv\\
+			\lstinline|Measure| & setzt
+			\lstinline|MeasureScanRuns=1| und \lstinline|ScanOnOff=1| (Start des Scans
+			und Datenaufnahme)\\
+		\bottomrule[1px]
+	\end{tabular}
+	\caption[Parameter der Verstimmungsoutine]{Parameter für die
+	Verstimmungsoutine der \textit{iScans}}
+	\label{tab:verstimmungsroutine_parameter}
+\end{table}
+Alternativ zu \lstinline|ScanStepSize| kann über \lstinline|Mes_Points| die
+Anzahl der Schritte angegeben werden, wobei gleichzeitig
+\lstinline|Mes_PointsAuto=1| gesetzt sein muss. Über den Parameter
+\lstinline|Scn_In[i] = [Input-Kanalnummer]| können 8
+verschiedene Datenquelle festgelegt werden, wobei
+\lstinline|i| von 0 bis 7 geht und \lstinline|Input-Kanalnummer| die Quelle
+der Daten ist. Für den analogen Eingang des ADC ist dies die Kanalnummer 448.
+Nach Start der Routine sendet die \textit{iScan scan control unit} zeilenweise
+aktuelle Relativfrequenz und ADC-Wert. Im Folgenden und mithilfe von Abb.
+\ref{fig:linearisierung_ablaufdiagramm} soll nun der Ablauf einer
+Linearisierungsroutine für ein einzelnes \textit{iScan} erklärt werden. Die
+Software baut auf einer von \textit{TEM-Messtechnik} zur Verfügung gestellten
+SubVI auf, wobei die Linearisierungsroutine bereits weitgehend implementiert
+war. Die Kalibrierung des Parameters \lstinline|FSR| (vermuteter FSR des
+\textit{iScans}) wurde nachträglich hinzugefügt.\par
+\begin{figure}[hp]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_ablaufdiagramm}
+	    }}
+	\caption[Linearisierung der \textit{iScans} -
+	Ablaufdiagramm]{Ablaufdiagramm der
+	Linearisierung der \textit{iScans}}\label{fig:linearisierung_ablaufdiagramm}
+\end{figure}
+Zunächst werden alle relevanten aktuellen \textit{iScan}-Parameter
+zwischengespeichert, damit sie am Ende der Routine wieder zurückgeschrieben
+werden können. Über welchen Frequenzbereich das Fringepattern abgefahren wird,
+legt Parameter \lstinline|FSR| fest.
+Prozentual zu \lstinline|FSR| wird ein Offset berechnet, mit dem der abzufahrende Frequenzbereich erweitert wird, damit
+Nichtlinearitäten am Anfang und am Ende des Bereichs abgeschnitten werden
+können. Beim ersten Durchlauf der Linearisirungsroutine wird die LUT
+zurückgesetzt. Das bedeutet, sie wird mit Werten $A_i$ und $B_i$ gefüllt, die
+die äquidistante Punkte auf einem Kreis repräsentieren. Sind alle nötigen
+Parameter gesetzt, beginnt das Abfahren der Frequenz linear zur LUT, wobei die
+Messwerte des Fringepattern und die Frequenzwerte parallel in ein Array
+gespeichert werden. Das Fringepattern wird auf der
+Benutzeroberfläche angezeigt (siehe
+\ref{fig:linearisierung_benutzeroberflaeche_fringepattern}).\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_fringepattern}
+	    }}
+	\caption[Benutzeroberfläche Linearisierung -
+	Fringepattern]{Ausgabe des Fringepatterns und dessen Interpolation auf der
+	Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
+\end{figure}
+Vor der Weiterverarbeitung des Fringepattern wird dieses zur Glättung mehrfach
+Interpoliert, damit es keine Probleme bei der Positionsbestimmung der Fringes
+gibt. Das interpolierte Fringepattern wird nun in ein leider
+geschütztes\footnote{Quelltext nicht offen} SubVI von \textit{TEM-Messtechnik}
+gegeben, das die Fringepositionen detektiert, die Frequenzabstände der Fringes
+untereinander analysiert und ein Array mit der aktuellen Phasenabweichung von
+der Linearität ausgibt. Anschleißend wird das Array negiert, dessen Offsets
+abgeschnitten und auf die Länge $N$ der LUT-Tabelle interpoliert, sodass sich
+$N$ Phasenkorrekturwerte $\Delta\phi_i$ im Intervall
+$[0,\text{\lstinline|FSR|}]$ ergeben. Die neuen LUT-Einträge
+\begin{equation}\label{eq:LUT_korrektur_01}
+	\begin{split}
+		A_i&=-A\cdot\cos{\left(2\pi\frac{i}{N}+\Delta\phi_i\right)}\\
+		&\text{und}\\
+		B_i&=B\cdot\sin{\left(2\pi\frac{i}{N}+\Delta\phi_i\right)}\,.
+	\end{split}
+\end{equation}
+werden durch modulieren einer Kreisquadratur mit der Phasenkorrektur
+berechnet und in die LUT-Tabelle geschrieben. Ist die
+maximale Frequenzabweichung nach der Korrektur nicht unter einem bestimmten Toleranzwert, wird die Routine ein weiteres Mal durchlaufen,
+wobei die LUT eingangs nicht mehr zurückgesetzt wird. Stattdessen werden
+die neuen Korrekturwerte über
+\begin{equation}\label{eq:LUT_korrektur_02}
+	\Delta\phi_i=\Delta\phi_{i,alt}-\Delta\phi_{i,akt}
+\end{equation}
+berechnet, wobei $\Delta\phi_{i,alt}$ die Korrekturwerte $\Delta\phi_i$
+des vorherigen Durchlaufs und $\Delta\phi_{i,akt}$ die aktuellen Korrekturwerte
+sind. Das Aufnehmen des Fringepattern und die Phasenkorrektur wiederholt sich so
+lange bis, der Toleranzwert unterschritten wurde. Abbildung
+\ref{fig:linearisierung_benutzeroberflaeche_phasenkorrektur} zeigt die Ausgabe der Phasenkorrektur auf der Benutzeroberfläche mit eingangs zurückgesetzter LUT.\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_phasenkorrektur}
+	    }}
+	\caption[Benutzeroberfläche Linearisierung -
+	Phasenkorrektur]{Ausgabe der Phasenkorrektur nach erstmaligem Linearisieren auf
+	der Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
+\end{figure}
+Neben der Linearität der \textit{iScans} kann auch die Korrektur des Parameters
+\lstinline|FSR| bestimmt werden. Dazu betrachtet man zunächst die
+Abweichung der \textit{iScan}-Skala zur tatsächlichen Frequenz. In
+\ref{fig:linearisierung_benutzeroberflaeche_frequenz-abweichung} ist die
+Ausgabe der Abweichung auf der Benutzeroberfläche dargestellt.
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_frequenz-abweichung}
+	    }}
+	\caption[Benutzeroberfläche Linearisierung -
+	Frequenzfehler]{Ausgabe	des Frequenzfehlers auf der
+	Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_frequenz-abweichung}
+\end{figure}
+Die weißen Punkte stellen die Abweichung der einzelnen Fringeabstände zum FSR
+des FPIs dar. Die rote Kurve beschreibt den totale Fehler des \textit{iScans} relativ zur
+Startfrequenz. Endet die Kurve bei $\nu=\text{\lstinline|FSR|}$ ohne Fehler,
+kann man davon ausgehen, dass der Parameter \lstinline|FSR| auch den
+tatsächlichen FSR des \textit{iScans} repräsentiert. Ist der Fehler bei
+$\nu=\text{\lstinline|FSR|}$ allerdings $>0$ bzw. $<0$, so ist
+der Paramater \lstinline|FSR| zu klein bzw. zu groß gewählt und muss ensprechend
+nachkorrigiert werden.\par
+Problem bei der Berechnung der Abweichung zum wahren Wert des FSRs ist, dass nur
+diskrete Messpunkte im Frequenzabstand von einem FPI-FSR, also ca. $300\,MHz$
+vorliegen. Eine Möglichkeit ist, nach erfolgreicher Linearisierung einen
+linearer Fit der totalen Frequenzabweichung zu machen. Die Differenz der Offsets bei
+$\nu=0$ und $\nu=\text{\lstinline|FSR|}$ ergibt dann den Korrekturwert. Eine
+genauere und linearisierungsunabhängige Methode, die hier implementiert wurde,
+soll im Folgenden kurz erleutert werden.\par
 
