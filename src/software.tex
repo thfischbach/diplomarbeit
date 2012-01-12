@@ -11,12 +11,24 @@ Linearisierung der \textit{iScans} und dem Neuschreiben der LUT. Die
 Benutzerschnittstelle zur Experimentsteuerung soll in Abschn.
 \ref{sec:experimentsteuerung} behandelt werden. In Abschn. \ref{sec:sonstiges}
 werden weitere Funktionen kurz angerissen. Da die Software am PC in
-Labview entwickelt wurde und somit der Code nur sehr platzverschwendend
+\textit{Labview} entwickelt wurde und somit der Code nur sehr platzverschwendend
 dargestellt werden kann, wird die Beschreibung ausschließlich über
 Ablaufdiagramme und Bildschirmfotos der Benutzeroberfläche geschehen. Der
-Quellcode des Labview-Programms kann am Kontrollrechner selbst eingesehen
-werden. Programme in Labview werden im Folgenden \textit{Virtuelles
-Instrument} (VI) bzw. SubVI (Unterprogramm) genannt.
+Quellcode des \textit{Labview}-Programms kann am Kontrollrechner selbst eingesehen
+werden. Programme in \textit{Labview} werden im Folgenden \textit{Virtuelles
+Instrument} (VI) bzw. SubVI (Unterprogramm) genannt. SubVIs sind standardmäßig
+nichts anderes als ausgelagerte Codestücke und sind für die Zeit, in der sie
+verwendet, gesperrt. Dies unterscheidet \textit{Labview} wesentlich von anderen
+Programmiersprachen. Es gibt jedoch doe Möglichkeit ein SubVI als
+\textit{reentrant}\footnote{http://zone.ni.com/devzone/cda/tut/p/id/6411}
+(eintrittsinvariant oder wiedereintrittsfähig) zu deklarieren. Wird das SubVI dann mehrfach in einem übergeordneten VI mehrfach
+verwendet, werden dieser SubVI entsprechend viele Kopien des Speicherbereichs
+zur Verfügung gestellt. Dies ist vergleichbar mit dem Instanziieren von Klassen
+in anderen Programmiersprachen und macht ein unabhängiges Ausführen möglich und
+führt gerade bei PC-Systemen mit viel Arbeitsspeicher und einem Prozessor, der
+Prozesse bzw. Threads paralle ausführe kann, zu enormen Performancesteigerungen.
+Aus diese Gründen wurde darauf geachtet, dass mehrfach verwendete SubVIs
+inbesondere bei der Laserkontrolle reentrant sind.
 
 \section{Datenerfassung der Laser}\label{sec:datenerfassung_der_laser}
 Die Informationen der Laser durchlaufen mehrere Stufen der Signal- und
@@ -43,8 +55,9 @@ wurde in der Programmiersprache C geschrieben und ist im Anhang
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/ablaufdiagramm_arduino_laser}
 	    }}
 	\caption[Laserdatenaufbereitung -
-	Ablaufdiagramm]{Ablaufdiagramm der
-	Laserdatenaufbereitung}\label{fig:ablaufdiagramm_arduino_laser}
+	Ablaufdiagramm]{Zu sehen ist das Ablaufdiagramm der
+	Laserdatenaufbereitung mit dem
+	\textit{Arduino}.}\label{fig:ablaufdiagramm_arduino_laser}
 \end{figure}
 Der \textit{Arduino} verfügt über 54 digitale Ein- und Ausgänge, welche der
 Kommunikation mit der Counterkarte dienen. HIGH ($5\,$V) bzw. LOW ($0\,$V) wird
@@ -153,9 +166,9 @@ Parallel wird jeweils eine boolsche Variable gesetzt, die angibt, dass die Laser
 globalen Variablen gelesen, wird die boolsche Variable zurückgesetzt und die
 Laserinformationen werden als nicht mehr aktuell gewertet. Aktualität fordernde
 Lesezugriffe auf die Daten warten, bis die Variable wieder gesetzt wurde. Die
-aktuellen Zeiten können nun separat über das SubVI
-\lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl. \eqref{eq:FPI_frequenzdrift_03} aus den Zeiten die
-Relativfrequenzen. Das SubVI \lstinline|laser-control.vi|, das in Abschn.
+Piorität liegt hier auf der Aktualität der Daten und nicht darauf, möglichst
+jedes Datenpaket zu verarbeiten. Die aktuellen Zeiten können nun separat über
+das SubVI \lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl. \eqref{eq:FPI_frequenzdrift_03} aus den Zeiten die Relativfrequenzen. Das SubVI \lstinline|laser-control.vi|, das in Abschn.
 \ref{sec:stabilisierung_frequenzverstimmungs-strategie} näher betrachtet wird, hat neben der Regelung und Frequenzverstimmtung auf die Sollfrequenz auch die Aufgabe
 Monitoringdaten an die Benutzeroberfläche der Laserkontrolle (Abb.
 \ref{fig:benutzeroberflaeche_laserkontrolle}) weiterzugeben. Zu den
@@ -170,8 +183,10 @@ Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/benutzeroberflaeche_laserkontrolle}
 	    }}
 	\caption[Benutzeroberfläche -
-	Laserkontrolle]{Benutzeroberfläche
-	der Laserkontrolle}\label{fig:benutzeroberflaeche_laserkontrolle}
+	Laserkontrolle]{Zu sehen ist ein Bildschirmfoto der Benutzeroberfläche
+	der Laserkontrolle. Laser 3 ist
+	momentan in Betrieb, die
+	Regelung ist ausgeschaltet.}\label{fig:benutzeroberflaeche_laserkontrolle}
 \end{figure}
 
 \section{Stabilisierung/Frequenzverstimmungs-Strategie}\label{sec:stabilisierung_frequenzverstimmungs-strategie}
@@ -194,8 +209,9 @@ soll.\par
  	\centering
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/frequenzverstimmungs-strategie}
 	    }}
-	\caption[Frequenzverstimmungs-Strategie]{Frequenzverstimmungs-Strategie,
-	Erklärung im Text.}\label{fig:frequenzverstimmungs-strategie}
+	\caption[Frequenzverstimmungs-Strategie]{Die
+	Zeichnung veranschaulicht die Frequenzverstimmungs-Strategie,
+	welche im Text näher erklärt wird.}\label{fig:frequenzverstimmungs-strategie}
 \end{figure}
 \begin{figure}[hp]
  	\centering
@@ -205,8 +221,12 @@ soll.\par
 	    }}
 	\caption[Frequenzverstimmungs-Strategie
 	-
-	Ablaufdiagramm]{Frequenzverstimmungs-Strategie
-	Ablaufdiagramm}\label{fig:frequenzverstimmungs-strategie_ablaufdiagramm}
+	Ablaufdiagramm]{Dargestellt ist das
+	Ablaufdiagramm der 
+	Frequenzverstimmungs-Strategie,
+	die von der SubVI
+	\lstinline|laser-control.vi|
+	implementiert wird.}\label{fig:frequenzverstimmungs-strategie_ablaufdiagramm}
 \end{figure}
 Naiverweise könnte man die Strategie verfolgen, den zu verstimmenden
 Frequenzwert in ein Vielfaches $n$ des FSRs und einen Rest aufzuteilen. Mit dem
@@ -230,7 +250,7 @@ verstimmenden Frequenz $\Delta\nu$ die erreichte Frequenz über
 		n &= \left\lfloor\frac{\Delta\nu}{\text{FSR}}\right\rfloor\,,
 	\end{split}
 \end{equation}
-berechnen, wobei $n_{Lab,nach}$ bzw. $n_{Lab,vor}$ die von Labview
+berechnen, wobei $n_{Lab,nach}$ bzw. $n_{Lab,vor}$ die von \textit{Labview}
 verwaltete FSR-Nummer und $\nu_{Offset,nach}$ bzw. $\nu_{Offset,vor}$ die
 Frequenzposition des Lasers im FSR realtiv zum Referenzlaser nach bzw. vor der
 Verstimmung sind. Das Nachkorrigieren des \textit{iScan}-Fehlers
@@ -287,8 +307,8 @@ zusammengefasst.
 			6 & \textit{Arduino}-FSR-Nummer $n_{Ard,3}$ abfragen\\
 		\bottomrule[1px]
 	\end{tabular}
-	\caption[Laserfrequenzverstimmungs-Strategie]{Zeitliche Abfolge der
-	Laserfrequenzverstimmungs-Strategie}
+	\caption[Laserfrequenzverstimmungs-Strategie]{Die Tabelle listet die zeitliche
+	Abfolge der Laserfrequenzverstimmungs-Strategie auf.}
 	\label{tab:scan-strategie_abfolge}
 \end{table}
 Die erreichte Frequenz berechnet sich dann über
@@ -329,12 +349,13 @@ Dieses beinhaltet die in Tab.
 			$\nu_{Offset,ref}$ & Referenzfrequenzposition des Offsetfringes\\
 			$\nu_{Soll}$ & momentane Soll-Frequenz relativ zur Nullfreqenz\\
 			$\nu_{iScan}$ & Wert des \textit{iScan}-Parameters \lstinline|ScanOffset|\\
-			$n_{Lab}$ & zuletzt von Labview berechnete FSR-Nummer\\
+			$n_{Lab}$ & zuletzt von \textit{Labview} berechnete FSR-Nummer\\
 			$n_{Ard,0,3}$ & zuletzt vom \textit{Arduino} gelieferte FSR-Nummer\\
 		\bottomrule[1px]
 	\end{tabular}
-	\caption[Shiftregister - \lstinline|laser-control.vi|]{Shiftregistervariablen
-	der SubVI \lstinline|laser-control.vi|}
+	\caption[Shiftregister -
+	\lstinline|laser-control.vi|]{Aufgelistet sind die Shiftregistervariablen der
+	SubVI \lstinline|laser-control.vi|.}
 	\label{tab:shiftregister_laserkontrolle}
 \end{table}
 Beim ersten Aufruf der SubVI sind alle Variablen des Shiftregisters außer
@@ -363,9 +384,10 @@ Diese muss sowohl linear als auch korrekt gestreckt
 sein, damit sie sich mit der tatsächlichen Frequenzskala deckt. Um das
 Linearitätskriterium zu erfüllen, ist es regelmäßig nötig, die
 Phase-Frequenz-Beziehung der LUT der \textit{iScans} zu erneuern. Gleichzeitig
-kann auch der FSR des iScans gemessen und ggf. erneuert werden, um die korrekte Streckung der Skala zu gewährleisten.
-Diese Maßnahmen sorgen für kleinere Fehler im Verstimmen der Laserfrequenz mit
-dem \textit{iScan}. Wie im Abschn.
+kann auch der FSR des iScans gemessen und ggf. erneuert werden, um die korrekte
+Streckung der Skala zu gewährleisten. Ein Maßstab für die Kalibrierung ist der
+FSR des FPIs, der bis auf wenige $10\,$kHz genau bestimmt werden kann. Diese
+Maßnahmen sorgen für kleinere Fehler im Verstimmen der Laserfrequenz mit dem \textit{iScan}. Wie im Abschn.
 \ref{sec:stabilisierung_frequenzverstimmungs-strategie} deutlich geworden ist,
 sollte der Fehler im schlimmsten Fall nicht größer als $150\,$MHz sein. Neben
 dem Aspekt der Sicherheit in der Frequenzberechnung ist es auch wichtig, den
@@ -407,8 +429,9 @@ eingestellt werden.
 			und Datenaufnahme)\\
 		\bottomrule[1px]
 	\end{tabular}
-	\caption[Parameter der Verstimmungsoutine]{Parameter für die
-	Verstimmungsoutine der \textit{iScans}}
+	\caption[Parameter der Verstimmungsoutine]{Aufgelistet ist eine
+	Auswahl der wichtigsten Parameter für die Verstimmungsoutine der
+	\textit{iScans}.}
 	\label{tab:verstimmungsroutine_parameter}
 \end{table}
 Alternativ zu \lstinline|ScanStepSize| kann über \lstinline|Mes_Points| die
@@ -433,8 +456,8 @@ war. Die Kalibrierung des Parameters \lstinline|FSR| (vermuteter FSR des
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_ablaufdiagramm}
 	    }}
 	\caption[Linearisierung der \textit{iScans} -
-	Ablaufdiagramm]{Ablaufdiagramm der
-	Linearisierung der \textit{iScans}}\label{fig:linearisierung_ablaufdiagramm}
+	Ablaufdiagramm]{Dargestellt ist das Ablaufdiagramm der
+	Linearisierung der \textit{iScans}.}\label{fig:linearisierung_ablaufdiagramm}
 \end{figure}
 Zunächst werden alle relevanten aktuellen \textit{iScan}-Parameter
 zwischengespeichert, damit sie am Ende der Routine wieder zurückgeschrieben
@@ -457,8 +480,12 @@ Benutzeroberfläche angezeigt (siehe
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_fringepattern}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Fringepattern]{Ausgabe des Fringepatterns und dessen Interpolation auf der
-	Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
+	Fringepattern]{Zu sehen ist ein Bildschirmfoto der Ausgabe des Fringepatterns
+	und dessen Interpolation auf der Benutzeroberfläche.
+	\textit{entry no} ist die Stelle eines jeden Elements des
+	Datenarrays (Verstimmungsschritt).
+	Die Schrittweite der Frequenzverstimmung war hier
+	$2\,$MHz.}\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
 \end{figure}
 Vor der Weiterverarbeitung des Fringepattern wird dieses zur Glättung mehrfach
 Interpoliert, damit es keine Probleme bei der Positionsbestimmung der Fringes
@@ -497,8 +524,16 @@ lange bis, der Toleranzwert unterschritten wurde. Abbildung
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_phasenkorrektur}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Phasenkorrektur]{Ausgabe der Phasenkorrektur nach erstmaligem Linearisieren auf
-	der Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
+	Phasenkorrektur]{Zu sehen ist ein Bildschirmfoto der Ausgabe der
+	Phasenkorrekturwerte auf der Benutzeroberfläche nach erstmaligem Linearisieren.
+	\textit{entry
+	of LUT no} ist die Nummer des Zeileneintrags in der
+	LUT. \textit{relative correction} ist die relative Phasenkorrektur des
+	jeweiligen Eintrags. Dabei entspricht 1 dem vollen Kreis, also $2\pi$. Der
+	weiße Plot beschriebt die vorige Linearitätskorrektur (hier konstant 0, da
+	die LUT eingangs zurückgesetzt wurde). Der rote Plot beschriebt die Korrektur
+	nach Messen der neuen
+	Linearitätsabweichung.}\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
 \end{figure}
 Neben der Linearität der \textit{iScans} kann auch die Korrektur des Parameters
 \lstinline|FSR| bestimmt werden. Dazu betrachtet man zunächst die
@@ -512,22 +547,177 @@ Ausgabe der Abweichung auf der Benutzeroberfläche dargestellt.
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_frequenz-abweichung}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Frequenzfehler]{Ausgabe	des Frequenzfehlers auf der
-	Benutzeroberfläche.}\label{fig:linearisierung_benutzeroberflaeche_frequenz-abweichung}
+	Frequenzfehler]{Zu sehen ist ein Bildschirmfoto der Ausgabe	des Frequenzfehlers
+	auf der Benutzeroberfläche. Die weißen Punkte sind die einzelnen Abweichungen
+	der Frequenzabstände benachbarter Fringes zum FSR des FPIs. Der rote Plot ist
+	die totale Frequenzabweichung realtiv zur ersten Fringeposition.}
+	\label{fig:linearisierung_benutzeroberflaeche_frequenz-abweichung}
 \end{figure}
-Die weißen Punkte stellen die Abweichung der einzelnen Fringeabstände zum FSR
-des FPIs dar. Die rote Kurve beschreibt den totale Fehler des \textit{iScans} relativ zur
-Startfrequenz. Endet die Kurve bei $\nu=\text{\lstinline|FSR|}$ ohne Fehler,
-kann man davon ausgehen, dass der Parameter \lstinline|FSR| auch den
-tatsächlichen FSR des \textit{iScans} repräsentiert. Ist der Fehler bei
-$\nu=\text{\lstinline|FSR|}$ allerdings $>0$ bzw. $<0$, so ist
-der Paramater \lstinline|FSR| zu klein bzw. zu groß gewählt und muss ensprechend
-nachkorrigiert werden.\par
-Problem bei der Berechnung der Abweichung zum wahren Wert des FSRs ist, dass nur
-diskrete Messpunkte im Frequenzabstand von einem FPI-FSR, also ca. $300\,MHz$
-vorliegen. Eine Möglichkeit ist, nach erfolgreicher Linearisierung einen
-linearer Fit der totalen Frequenzabweichung zu machen. Die Differenz der Offsets bei
-$\nu=0$ und $\nu=\text{\lstinline|FSR|}$ ergibt dann den Korrekturwert. Eine
-genauere und linearisierungsunabhängige Methode, die hier implementiert wurde,
-soll im Folgenden kurz erleutert werden.\par
+Die weißen Punkte stellen die Abweichung der einzelnen Nachbarfringeabstände zum
+FSR des FPIs dar. Die rote Kurve beschreibt den totale Fehler des
+\textit{iScans} relativ zur ersten Fringeposition. Verschwindet die Differenz
+zwischen dem Offset der Kurve bei $\nu=0$ und dem Offset bei
+$\nu=\text{\lstinline|FSR|}$, kann man davon ausgehen, dass der Parameter
+\lstinline|FSR| auch den tatsächlichen FSR des \textit{iScans} repräsentiert.
+Ist der Fehler allerdings $>0$ bzw. $<0$, so
+ist der Paramater \lstinline|FSR| zu klein bzw. zu groß gewählt und muss
+ensprechend nachkorrigiert werden.\par
+Problem bei der Berechnung der Abweichung
+zum wahren Wert des FSRs ist, dass nur diskrete Messpunkte im Frequenzabstand
+von einem FPI-FSR, also ca. $300\,MHz$ vorliegen. Eine Möglichkeit ist, nach
+erfolgreicher Linearisierung einen linearen Fit der totalen Frequenzabweichung
+zu machen. Die Differenz der Offsets bei $\nu=0$ und
+$\nu=\text{\lstinline|FSR|}$ ergibt dann den Korrekturwert. Eine genauere und
+linearisierungsunabhängige Methode, die hier implementiert wurde, soll im
+Folgenden kurz erleutert werden.\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/FSR-korrektur}
+	    }}
+	\caption[\textit{iScan}-FSR-Korrektur -
+	Methode]{Die Zeichnung veranschaulicht die Methode für die Korektur des
+	\text{iScan}-FSRs. In (a) ist Anfang und Ende des
+	Fringepattern zu sehen. (b) zeigt die zur
+	FSR-Korrektur nötigen Größen. Dabei ist $\text{FSR}_{est}$ der
+	angegebene FSR des \textit{iScans} (Parameter
+	\lstinline|FSR|) und $\text{FSR}_{korr}$ der
+	Korrekturwert.}\label{fig:FSR-korrektur}
+\end{figure}
+Zur Berechnung werden die zwei Messpunkte der totalen Abweichung jeweils vor und
+nach $\nu=0$ bzw. $\nu=\text{\lstinline|FSR|}$ benötigt ($\nu_{i,j}$ und
+$\nu_{err,i,j}$ in Abb. \ref{fig:FSR-korrektur}(b)). Es ist nur von Interesse,
+wie groß die Aweichungen bei $\nu=0$ und $\nu=\text{\lstinline|FSR|}$ sind. Die Abweichung dazwischen ist
+unerheblich, womit unabhängig von der Linearisierung eine FSR-Korrektur
+durchgeführt werden kann. Es werden nun jeweils lineare Fits einmal durch die
+beiden Punkte $(\left.\nu_{1,1}\right|\nu_{err,1,1})$ und
+$(\left.\nu_{1,2}\right|\nu_{err,1,2})$ und einmal durch die Punkte
+$(\left.\nu_{2,1}\right|\nu_{err,2,1})$ und
+$(\left.\nu_{2,2}\right|\nu_{err,2,2})$ gelegt.
+Die Differenz der Offsets der Schnittpunkte der Geraden bei $\nu=0$ und $\nu=\text{\lstinline|FSR|}$ ergeben de Wert für die
+FSR-Korrektur:
+\begin{equation}\label{eq:FSR_korrektur}
+	\begin{split}
+		\text{FSR}_{korr}
+		&=\nu_{offs,2}-\nu_{offs,1}\\
+		&=a_2(\text{\lstinline|FSR|}-\nu_{2,1})+\nu_{err,2,1}-[a_1(-\nu_{1,1})+\nu_{err,1,1}]\\
+		&=\frac{\nu_{err,2,2}-\nu_{err,2,1}}{\nu_{2,2}-\nu_{2,1}}(\text{\lstinline|FSR|}-\nu_{2,1})+\nu_{err,2,1}+\frac{\nu_{err,1,2}-\nu_{err,1,1}}{\nu_{1,2}-\nu_{1,1}}\nu_{1,1}-\nu_{err,1,1}\,.
+	\end{split}
+\end{equation}
+Im Beispiel \ref{fig:linearisierung_benutzeroberflaeche_frequenz-abweichung}
+ist $\text{FSR}_{korr}=238,6\,$MHz. Es wurde ein FSR von $8000\,$MHz angenommen,
+also $\text{\lstinline|FSR|}=\text{FSR}_{est}=8000\,$MHz. Nach der Korrektur
+würde gelten $\text{\lstinline|FSR|}=\text{FSR}_{est,neu}=8239\,$MHz.\par
+Neben der Linearisierung und der FSR-Korrektur der \textit{iScans} bietet die
+Routine auch ein schlichtes überwachen der Linearität und des FSRs. Dazu werden
+die Korrkturfunktionen einfach abgeschaltet.
 
+\section{Experimentsteuerung}\label{sec:experimentsteuerung}
+In diesem Abschnitt wird der Teil der Software behandelt, der für die Steuerung
+des Experiments und die Aufnahme der Messdaten verantwortlich ist. In Abschn.
+\ref{subsec:messdatenerfassung} soll die softwareseitige Datenaufnahme kurz
+beschrieben werden. Abschnitt \ref{subsec:spektroskopie_software} befasst sich mit den
+Funktionen, die die Möglichkeit bieten Spektroskopische Untersuchungen
+weitgehendst automtisch durchzuführen.\par
+Neben diesen Funktionen sind in naher Zukunft noch die Implementierung von
+Erweiterungen vorgesehen. Es soll eine Steuerung des QMS nachgerüstet werden, um
+Massenscans durchführen zu können. Eine Ofensteuerung ist optional auch geplant.
+Darüber hinaus soll auch eine Routine für Isotopenverhältnismessungen
+programmiert werden. Da der Schwerpunkt dieser Arbeit auf der Entwicklung des
+Lasersystems und dessen Charakterisierung liegt, wurden zunächst nur die dafür
+nötigen Funktionen implementiert.
+
+\subsection{Messdatenerfassung}\label{subsec:messdatenerfassung}
+Zu den bisher nötigen Messdaten zählen die Absolutwellenlänge des Wavemeters und
+die Countrate des Channeltrons. Beide Werte erreichen den PC via RS232 als
+Gleitkomma- bzw. Dezimalwerte. Analog zu den Laserdaten des FOL werden diese
+Werte zur Vermeidung eines Pufferstaus direkt in jeweilige globale Variablen
+geschrieben und mit einem boolschen Wert versehen, der angibt, ob die Werte
+aktuell oder schon gelesen worden sind. Auch hier liegt di  Priorität auf der
+Aktualität der Daten und nicht darauf, jeden Wert zu erfassen. Beide Werte
+können über die SubVIs \lstinline|get_wavemeter_data.vi| und
+\lstinline|get_countrate_data.vi| aus den gloalen Variablen ausgelesen
+werden.\par
+Die Wellenlänge wird mit dem Wavemeter gemessen, dessen Software auf einem
+separaten PC läuft. Sie schickt in regelmäßigen Abständen die Wellenänge in nm
+für den Brechungsindex $n=1$ (Vakuumswellenlänge) seriell an den PC auf dem das
+\textit{Labview}-Programm läuft. Die Daten für die Countrate werden wie schon
+erwähnt von einem \textit{Arduino} aufbereitet und analog zur Wellenlänge an den
+PC geschickt. Der Quelltext des Programms für den \textit{Arduinos} ist in Anh.
+\ref{anh:kap:quelltext_arduino_countrate} einzusehen.\par
+Sowohl die Wellenlänge/Frequenz/Wellenzahl als auch die Countrate kann
+permanent auf der Benutzeroberfläche überwacht werden. Weiterhin können die
+Wiederholraten der Anzeigen angegeben und das zeitliches Verhalten der Messdaten
+aufgezeichnet werden.
+
+\subsection{Spektroskopie}\label{subsec:spektroskopie_software}
+Um atomare Übergänge zu finden und zu charakterisieren ist es nötig, Countraten
+gegen Frequenz aufzunehmen. Abbildung \ref{fig:spektroskopie_benutzeroberfläche}
+zeigt die Benutzeroberfläche des \textit{Labview}-Programmteils zur
+Spektroskopie.
+%TODO: !Bild: Spekroskopie Benutzeroberfläche
+Im Folgenden sollen zunächst alle Funktionen beschrieben und
+anschließend der Ablauf eines Messvorgangs erklärt werden.\par
+Es ist möglich, sowohl \textit{eindimensionale Scans} als auch
+\textit{mehrdimensionale Scans} durchzuführen. Unter eindimensionalen Scans
+versteht man die Countratenaufnahme beim Verstimmen der Frequenz eines Lasers
+und Festhalten der Frequenzen der anderen beiden Laser. Bei zwei- bzw.
+dreidimensionalen Scans wird ein zwei- bzw. dreidimensionales Frequenzraster von
+zwei bzw. allen drei Lasern abgtastet. Dabei wird die Frequenz des Laser in der
+ersten Dimension permanent von Start bis Ende durchgefahren und nach jedem
+Durchlauf die Frequenz des Lasers der nächsthöheren Dimension auf den nächsten
+Frequenzschritt eingestellt. Unter \textit{laser behaviour} kann zwischen
+allen möglichen Kombinationen, die sich dadurch ergeben, entschieden werden.
+Weiterhin wird im eindimensionalen Fall angeboten, die Laserfrequenz manuell zu
+verstimmen (beispielsweise durch manuelles
+ändern des Parameters \lstinline|ScanOffset| des \textit{iScans}, 
+vorrausgesetzt FOL ist deaktiviert).\par
+Als Frequenzdatenquelle kann unter \textit{data
+source} zwischen der Relativfrequenz gemäß
+$\nu_{Soll}$ aus Abschn. \ref{sec:stabilisierung_frequenzverstimmungs-strategie}
+und der Absolutfrequenz über das Wavemeter gewählt werden. Selbstverständlich
+kann immer nur für einen Laser das Wavemeter als Datenquelle dienen. Ein Scan ist immer in
+diskrete Frequenzschritte mit der maximalen Auflösung von $1\,$MHz unterteilt
+(\textit{step size}). Soll ein Scan automatisch erfolgen, muss für die zu
+verstimmende(n) Laserfrequenz(en) ein Start- und ein Stopwert angegeben werden.
+Werden Relativfrequenzen aufgenommen, ist es immer sinnvoll eine absolute
+Frequenz als Referenz zu haben. Dazu kann über den Button \textit{get} die
+Absolutfrequenz des Lasers aus dem Wavemeter ausgelesen werden. Mit
+\textit{use?} kann entschieden werden, ob die Absolutfrequenz beim abspeichern
+der Werte auf die Relativfrequenz addiert werden soll. In jedem Fall wird die
+Absolutfrequenz in den Header der Aufnahmedatei gespeichert.\par
+Weiterhin kann die Integrationszeit für die Countrate ausgewählt und die Anzahl
+der Wavemeter-Werte, die gemittelt werden sollen, angegeben werden. Da das
+Wavemeter ab und zu Werte in völlig anderen Wellenlängenbereichen detektiert
+(Multimode-Glasfaser), wurde bei der Mittelung darauf geachtet,
+unplausible Werte zu ignorieren.\par
+Abbildung \ref{fig:spektroskopie_ablaufdiagramm} veranschaulicht noch einmal
+schematisch den allgemeinen Ablauf eines Frequenzscans.
+\begin{figure}[hp]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\centering
+	    \includegraphics[width=\textwidth-0.5cm]{gfx/spektroskopie_ablaufdiagramm}
+	    }}
+	\caption[Spektroskopie -
+	Software-Ablaufdiagramm]{Dargestellt ist das Ablaufdiagramm der
+	Spektroskopie-Routine.}\label{fig:spektroskopie_ablaufdiagramm}
+\end{figure}
+Zunächst werden Start- und Stop-Frequenzen und die Schrittweite der Laser
+ermittelt, woraus dann die einzelnen Anzahlen der Schritte berechnet werden.
+Weiterhin werden die Laser ihrer Dimension zugeordnet, wobei für die/den fixen
+Laser die Schrittanzahl $N=1$ gilt. Die Schleife(n) für diese(n) Laser wird
+praktisch nur einmal durchlaufen und der/die Laser bleibt/bleiben auf
+seiner/ihrer aktuellen Frequenzposition. Die drei Dimensionen werden über
+drei ineinander geschachtelte Schleifen abgearbeitet. Sofern der Scan nicht
+manuell verläuft, wird am Anfang jeder Schleife der Laser der entsprechenden
+Dimension auf die Sollfrequenz des nächsten Schrittes verstimmt. Jedes mal, bevor in die Schleife
+der ersten Dimension eingetreten wird, muss der Plot auf der Benutzeroberfläche
+gelöscht werden, da hier immer nur eine Dimension angezeigt werden kann. Bevor
+die Countrate aufgenommen wird, muss abgewartet werden, bis alle Laser (außer
+der evtl. manuell verstimmte Laser) auf der Sollfrequenz sind.
+Anschließend werden die Daten aufgenommen. Wurden alle nötigen Iterationen
+durchlaufen oder wird der manuelle Scan gestoppt, werden alle Daten in eine
+vorher festgelegte Datei geschrieben und alle Laser auf ihre Ausgangsfrequenz
+zurückgefahren.
