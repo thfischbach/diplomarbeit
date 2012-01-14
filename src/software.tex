@@ -276,7 +276,7 @@ anschließender Pause von $17\,$ms, um sicher FSR-Sprünge detektieren zu könne
 Nach einer Abfrage der FSR-Nummer $n_{Ard,1}$ vom \textit{Arduino} folgen zweiter und dritter Schritt ($B\rightarrow C$ und $C\rightarrow D$) analog zur
 vorherigen Überlegung (also ein ganzzahliges Vielfaches von FSR im zweiten
 Schritt und der Rest im dritten Schritt). Der Fehler im Schritt $B\rightarrow C$
-darf also maximal $\nicefrac{\text{FSR}}{2}$ sein, damit der erwartete FSR erreicht wird. Die Verstimmnungsfrequnenzen der einzelnen Schritte ergeben sich aus
+darf also maximal $\nicefrac{\text{FSR}}{2}$ sein, damit der erwartete FSR erreicht wird. Die Verstimmungsfrequenzen der einzelnen Schritte ergeben sich aus
 \begin{equation}\label{eq:scan-strategie_schritte}
 	\begin{split}
 		\Delta\nu_{A\rightarrow B}&=\frac{\text{FSR}}{2}-\nu_{Offset,vor}\\
@@ -287,9 +287,10 @@ darf also maximal $\nicefrac{\text{FSR}}{2}$ sein, damit der erwartete FSR errei
 		B})\mod\text{FSR}\,,
 	\end{split}
 \end{equation}
-wobei $\Delta\nu$ die zu verstimmende Frequenz ist.
-Die zeitliche Abfolge ist in Tab. \ref{tab:scan-strategie_abfolge} noch einmal
-zusammengefasst.
+wobei $\Delta\nu$ die zu verstimmende Frequenz ist und $\nu_{Offset,vor}$ nicht
+relativ zum Referenzlaser, sondern relativ zum Rampenstart gemessen wird. Die
+zeitliche Abfolge ist in Tab.
+\ref{tab:scan-strategie_abfolge} noch einmal zusammengefasst.
 \begin{table}
 	%Summe der Breiten muss 0.91 mal \textwidth sein.
 	\begin{tabular}{p{0.05\textwidth}p{0.86\textwidth}}
@@ -324,7 +325,7 @@ Die erreichte Frequenz berechnet sich dann über
 	\end{split}
 \end{equation}
 wobei $n_{Ard,0}$ der \textit{Arduino}-FSR-Nummer $n_{Ard,3}$ des vorherigen
-Schleifendurchlaufs entspricht.\par
+Schleifendurchlaufs der SubVI \lstinline|laser-control.vi| entspricht.\par
 Das komplette Ablaufdiagramm des SubVI \lstinline|laser-control.vi| ist in Abb.
 \ref{fig:frequenzverstimmungs-strategie_ablaufdiagramm} abgebildet. Dabei ist
 der Fall, dass eine neue Soll-Frequenz gesetzt und die oben beschriebene
@@ -656,7 +657,28 @@ Um atomare Übergänge zu finden und zu charakterisieren ist es nötig, Countrat
 gegen Frequenz aufzunehmen. Abbildung \ref{fig:spektroskopie_benutzeroberfläche}
 zeigt die Benutzeroberfläche des \textit{Labview}-Programmteils zur
 Spektroskopie.
-%TODO: !Bild: Spekroskopie Benutzeroberfläche
+\ref{fig:spektroskopie_benutzeroberflaeche}).\par
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:spektroskopie_benutzeroberflaeche_manuell}
+		\includegraphics[width=\textwidth-0.4cm]{gfx/spektroskopie_benutzeroberflaeche_manuell}
+		}
+	\subfigure[]{
+		\label{subfig:spektroskopie_benutzeroberflaeche_automatisch}
+		\includegraphics[width=\textwidth-0.4cm]{gfx/spektroskopie_benutzeroberflaeche_automatisch}
+		}
+	}}
+	\caption[Benutzeroberfläche
+	Spektroskopie]{Abgebildet ist die Benutzeroberfläche für
+	Spektroskopiemessungen mit eindimensionalen Scans. In (a) ist ein manueller
+	Scan zu sehen, wobei Laser 1 und 2 auf ihrer Frequenz festgehalten wurden und Laser 3 manuell mit dem
+	\textit{iScan} verstimmt wurde. (b) zeigt einen automatischen Scan, bei dem die
+	Frequenzen der Laser 2 und 3 stabilisiert und festgehalten und Laser 1
+	automatisch vertsimmt wurde.}
+	\label{fig:spektroskopie_benutzeroberflaeche}
+\end{figure}
 Im Folgenden sollen zunächst alle Funktionen beschrieben und
 anschließend der Ablauf eines Messvorgangs erklärt werden.\par
 Es ist möglich, sowohl \textit{eindimensionale Scans} als auch
@@ -721,3 +743,18 @@ Anschließend werden die Daten aufgenommen. Wurden alle nötigen Iterationen
 durchlaufen oder wird der manuelle Scan gestoppt, werden alle Daten in eine
 vorher festgelegte Datei geschrieben und alle Laser auf ihre Ausgangsfrequenz
 zurückgefahren.
+
+\section{Sonstiges}\label{sec:sonstiges}
+Um das Verwalten der \textit{iScans} über den PC zu erweitern, wurde die
+Möglichkeit geschaffen, alle wichtigen \textit{iScan}-Parameter über die
+Benutzeroberfläche des \textit{Labview}-Programms zu editieren. Dazu gehören
+die Scan-Parameter und die Parameter, die zur Modulation der
+Laser-Parameter wichtig sind (siehe Abschn. \ref{subsec:iscan_control_unit}).
+Weiterhin können die Streckfaktoren und Offsets der normierten Signale des
+\textit{iScan heads} editiert werden. Das kann entweder manuell
+oder automatisch über die Routine \textit{Circle Alignement} durchgeführt
+werden. Diese Routine wurde von \textit{TEM Messtechnik übernommen} und leicht
+modifiziert, damit sie in das Hauptprogramm eingebettet werden konnte. Dabei
+wird der Laser mehrfach um einen \textit{iScan}-FSR in der Frequenz verstimmt
+und das Quadratursignal analysiert. Dadurch werden die nötigen Faktoren
+berechnet, damit eine Kreissymmetrie entsteht.
