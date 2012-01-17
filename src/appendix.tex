@@ -1,5 +1,7 @@
-\chapter{Elektronik der
-Signalgenerierung}\label{anh:kap:signalgenerierung_elektronik} In diesem
+\chapter{Elektronik}\label{anh:kap:elektronik}
+
+\section{Elektronik der
+Signalgenerierung}\label{anh:sec:signalgenerierung_elektronik} In diesem
 Abschnitt soll die Elektronik der Signalgenerierung, die in Abschn. \ref{subsec:signalgenerierung} erwähnt wurde, genauer betrachtet werden.
 Ziel ist es, aus dem Fringepattern-Signal des FPIs digital lesbare Signale zu
 generieren, mit denen man die Zeit zwischen Beginn der
@@ -79,7 +81,7 @@ Flipflop zurück, was auch den Counter für die Interfringezeit stoppt.\par
 Mit dieser Schaltung können also die Transmissionssignale des FPIs in digitale
 Signale für die Counterkarte umgesetzt werden.
 
-\chapter{Counterkarte}\label{anh:kap:counterkarte}
+\section{Counterkarte}\label{anh:sec:counterkarte}
 In diesem Abschnitt soll detailiert auf die Elektronik der Counterkare
 eingegangen werden. An sie werden die TTL-Signale der in Abschn.
 \ref{anh:kap:signalgenerierung_elektronik} erklärten Signalgenerierung für das
@@ -140,16 +142,56 @@ den DAC können \cite{counterkarte_laserstabilisierung} entnommen werden.
 	\end{figure}
 \end{landscape}
 
-\chapter{Quelltext Datenaufbereitung}\label{anh:kap:quelltext_arduino_laserinformationsverarbeitung}
-Im Folgenden ist der Quelltext des Programms für den Mikrocontroller
+\chapter{Software}\label{anh:kap:software}
+
+\section{Quelltext
+Datenaufbereitung}\label{anh:kap:quelltext_arduino_laserinformationsverarbeitung} Im Folgenden ist der Quelltext des Programms für den Mikrocontroller
 \textit{Arduino} zur Datenaufbereitung der Laserinformationen abgedruckt. Das
 Programm wurde in einer an den Arduino angepassten Version der
 Programmiersprache C geschrieben. Alle Kommentare sind in englisch gehalten.
 \lstinputlisting[]{code/arduino_laserinformation.c}
 
-\chapter{Quelltext Countratenauslese}\label{anh:kap:quelltext_arduino_countrate}
-Im Folgenden kann der Quelltext des Programms für den Arduino zur
+\section{Quelltext
+Countratenauslese}\label{anh:kap:quelltext_arduino_countrate} Im Folgenden kann der Quelltext des Programms für den Arduino zur
 Countratenauslese aus der Counterkarte für die Countraten eingesehen werden. Die
 Kommunikation mit der Counterkarte erfolgt über eine SPI-Schnittstelle. Die
 Daten werden anschließend an den PC via RS232 weitergeleitet.
 \lstinputlisting[]{code/arduino_countrate.c}
+
+\chapter{Charakterisierung des Systems}\label{anh:kap:charakterisierung}
+
+\section{Simulationen Nonius-Methode}\label{anh:sec:nonius_simulationen}
+In diesem Abschnitt werden die Simulationen für die FSR-Bestimmung des FPIs
+vorgestellt. Es folgt der \textit{Mathematica}-Quelltext für die Simulation:
+\lstset{language=Mathematica}
+\lstinputlisting[]{code/nonius_simulation.txt}
+Abbildung \ref{fig:nonius_FSR_simulation} zeigt die Simulation für verschiedene
+$a$ und $7$ Relativfrequenzen. Angenommen wurde ein FSR von $300\,$MHz. Die
+Wavemetergenauigkeit wurde auf $40\,$MHz festegelegt und die simulierten
+Frequenzen entsprechend zufällig variiert.
+\begin{figure}[h]
+ 	\centering
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:nonius_FSR_simulation_a2}
+		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a2}
+		}
+ 	\subfigure[]{
+		\label{subfig:nonius_FSR_simulation_a3}
+		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a3}
+		}
+	 \subfigure[]{
+		\label{subfig:nonius_FSR_simulation_a4}
+		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a4}
+		}
+	\subfigure[]{
+		\label{subfig:nonius_FSR_simulation_a5}
+		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a5}
+		}
+	}}
+	\caption[Simulationen Nonius-Methode]{Die Abbildung zeigt Plots der
+	Simulationen zur Bestimmung des FSR mit verscheidenen $a$ und $7$ Relativfrequnenzen.}
+	\label{fig:nonius_FSR_simulation}
+\end{figure}
+
+\section{Laserstabilität}\label{anh:sec:laserstabilitaet}

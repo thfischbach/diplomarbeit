@@ -1,0 +1,11 @@
+f[FSRreal_, FSRest_, start_, n_, istart_, a_] := 
+  Module[{sum, delta, wavemeterAccuracy},
+    sum = 0;
+    wavemeterAccuracy = 40;
+    For[i = istart, i <= n, i++,
+     delta = RandomReal[{0, wavemeterAccuracy}];
+     sum = sum + (((start + FSRest*a^i) + delta)/FSRreal - 
+            Round[((start + FSRest*a^i) + delta)/FSRreal])^2;
+     ];
+    Return[sum];
+  ]
