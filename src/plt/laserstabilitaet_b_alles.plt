@@ -35,9 +35,9 @@ set format x ""
 set ylabel 'relative Frequenz [MHz]'
 set samples 100000
 set xrange [0:120]
-plot datafile1 using (($1-starttime1)/60000):4 title 'freilaufend' with linespoints lc 1 pt 1, \
-datafile2 using (($1-starttime2)/60000):4 title '\textit{iScan}-stabilisiert' with linespoints lc 3 pt 1, \
-datafile3 using (($1-starttime3)/60000):4 title '\textit{iScan}+FOL-stabilisiert' with linespoints lc 2 pt 1
+plot datafile1 using (($1-starttime1)/60000):4 title 'freilaufend' with linespoints lc 1 pt 1 lt 1, \
+datafile2 using (($1-starttime2)/60000):4 title '\textit{iScan}-stabilisiert' with linespoints lc 3 pt 1 lt 1, \
+datafile3 using (($1-starttime3)/60000):4 title '\textit{iScan}+FOL-stabilisiert' with linespoints lc 2 pt 1 lt 1
 
 
 set origin 0, 0.35

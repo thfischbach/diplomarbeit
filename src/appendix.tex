@@ -169,7 +169,7 @@ Abbildung \ref{fig:nonius_FSR_simulation} zeigt die Simulation für verschiedene
 $a$ und $7$ Relativfrequenzen. Angenommen wurde ein FSR von $300\,$MHz. Die
 Wavemetergenauigkeit wurde auf $40\,$MHz festegelegt und die simulierten
 Frequenzen entsprechend zufällig variiert.
-\begin{figure}[h]
+\begin{figure}[H]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
  	\subfigure[]{
@@ -193,5 +193,96 @@ Frequenzen entsprechend zufällig variiert.
 	Simulationen zur Bestimmung des FSR mit verscheidenen $a$ und $7$ Relativfrequnenzen.}
 	\label{fig:nonius_FSR_simulation}
 \end{figure}
-
 \section{Laserstabilität}\label{anh:sec:laserstabilitaet}
+In diesem Abschnitt finden sich die Plots des Frequenzverhaltens eines jeden
+Lasers im neuen System und des Lasers für den zweiten Anregungsschitts im alten
+System. Es wird unterschieden zwischen freilaufend, \textit{iScan}-stabilisiert
+und \textit{iScan}+FOL-stabilisiert.
+\begin{figure}[hp]
+ 	\centering
+ 	\footnotesize
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_a_freilaufend}
+		\input{plt/laserstabilitaet_a_freilaufend}
+		}
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_a_iScan}
+		\input{plt/laserstabilitaet_a_iScan}
+		}
+	 \subfigure[]{
+		\label{subfig:laserstabilitaet_a_iScan+FOL}
+		\input{plt/laserstabilitaet_a_iScan+FOL}
+		}
+	}}
+	\caption[Laserfrequenzverhalten blauer Laser]{Die Abbildung zeigt das
+	Laserfrequenzverhalten des blauen Lasers im freilaufenden (a),
+	\textit{iScan}-stabiliserten (b) und \textit{iScan}+FOL-stabiliserten Modus
+	(c). Unten ist jeweils der Jitter aufgetragen.}
+	\label{fig:laserstabilitaet_a}
+\end{figure}
+\begin{figure}[hp]
+ 	\centering
+ 	\footnotesize
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_b_freilaufend}
+		\input{plt/laserstabilitaet_b_freilaufend}
+		}
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_b_iScan}
+		\input{plt/laserstabilitaet_b_iScan}
+		}
+	 \subfigure[]{
+		\label{subfig:laserstabilitaet_b_iScan+FOL}
+		\input{plt/laserstabilitaet_b_iScan+FOL}
+		}
+	}}
+	\caption[Laserfrequenzverhalten \textit{DL-Pro}]{Die Abbildung zeigt das
+	Laserfrequenzverhalten des \textit{DL-Pro} im freilaufenden (a),
+	\textit{iScan}-stabiliserten (b) und \textit{iScan}+FOL-stabiliserten Modus
+	(c). Unten ist jeweils der Jitter aufgetragen.}
+	\label{fig:laserstabilitaet_b}
+\end{figure}
+\begin{figure}[hp]
+ 	\centering
+ 	\footnotesize
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_c_freilaufend}
+		\input{plt/laserstabilitaet_c_freilaufend}
+		}
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_c_iScan}
+		\input{plt/laserstabilitaet_c_iScan}
+		}
+	 \subfigure[]{
+		\label{subfig:laserstabilitaet_c_iScan+FOL}
+		\input{plt/laserstabilitaet_c_iScan+FOL}
+		}
+	}}
+	\caption[Laserfrequenzverhalten \textit{TA-Pro}]{Die Abbildung zeigt das
+	Laserfrequenzverhalten des \textit{TA-Pro} im freilaufenden (a),
+	\textit{iScan}-stabiliserten (b) und \textit{iScan}+FOL-stabiliserten Modus
+	(c). Unten ist jeweils der Jitter aufgetragen.}
+	\label{fig:laserstabilitaet_c}
+\end{figure}
+\begin{figure}[hp]
+ 	\centering
+ 	\footnotesize
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfigure[]{
+		\label{subfig:laserstabilitaet_alt_freilaufend}
+		\input{plt/laserstabilitaet_alt_freilaufend}
+		}
+	 \subfigure[]{
+		\label{subfig:laserstabilitaet_alt_FOL}
+		\input{plt/laserstabilitaet_alt_FOL}
+		}
+	}}
+	\caption[Laserfrequenzverhalten \textit{TA-Pro}]{Die Abbildung zeigt das
+	Laserfrequenzverhalten des Lasers für den zweiten Anregungsschritt aus dem
+	alten System im freilaufenden (a) und FOL-stabiliserten Modus (c). Unten ist
+	jeweils der Jitter aufgetragen.}
+	\label{fig:laserstabilitaet_c}
+\end{figure}

@@ -33,8 +33,8 @@ set format x ""
 set ylabel 'relative Frequenz [MHz]'
 set samples 100000
 set xrange [0:120]
-plot datafile1 using (($1-starttime1)/60000):4 title 'freilaufend' with linespoints lc 1 pt 1, \
-datafile2 using (($1-starttime2)/60000):4 title 'FOL-stabilisiert' with linespoints lc 2 pt 1
+plot datafile1 using (($1-starttime1)/60000):4 title 'freilaufend' with linespoints lc 1 pt 1 lt 1, \
+datafile2 using (($1-starttime2)/60000):4 title 'FOL-stabilisiert' with linespoints lc 2 pt 1 lt 1
 
 
 set origin 0, 0.2
@@ -42,7 +42,7 @@ set size 1, 0.15
 set tmargin 1
 unset key
 unset xlabel
-set ylabel 'Jitter [MHz]' 0,-1
+set ylabel 'Jitter [MHz]' 0,-1.5
 set ytic 5,5,15
 set samples 100000
 set xrange [0:120]

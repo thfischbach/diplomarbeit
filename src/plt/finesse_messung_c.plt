@@ -28,9 +28,9 @@ fit [-0.003:0.005] f(x) datafile using 1:2 via k, c, d, a
 #latex
 #set label 1 '\small $U(t,\kappa,a,b,c) = b\cdot\frac{1}{1+\kappa \sin^2{(at)}}+c$' at graph 0.25, 0.80
 set label 2 sprintf('$\kappa = %.3f\pm%.3f$',k,k_err) at graph 0.25, 0.31
-set label 3 sprintf('$a = \unit{(%.1f\pm%.1f)}{\nicefrac{1}{s}}$',a,a_err) at graph 0.25, 0.24
-set label 4 sprintf('$b = \unit{(%.3f\pm%.3f)}{V}$',d,d_err) at graph 0.25, 0.17
-set label 5 sprintf('$c = \unit{(%.3f\pm%.3f)}{V}$',c,c_err) at graph 0.25, 0.10
+set label 3 sprintf('$a = (%.2f\pm%.2f)\,$s$^{-1}$',a,a_err) at graph 0.25, 0.24
+set label 4 sprintf('$b = (%.3f\pm%.3f)\,$V',d,d_err) at graph 0.25, 0.17
+set label 5 sprintf('$c = (%.3f\pm%.3f)\,$V',c,c_err) at graph 0.25, 0.10
 
 #picture
 #set label 2 sprintf('chi^2 = %.4f',FIT_WSSR/FIT_NDF) at graph 0.02, 0.73
