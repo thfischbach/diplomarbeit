@@ -13,15 +13,15 @@ Schaltkreis aus vier identischen Kopien der in Abb.
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_01}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_01}
 	    }
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_02}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_02}
 	    	}
-	    \subfigure[]{
+	    \subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_03}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_03}
 	    	}
@@ -152,8 +152,8 @@ Programmiersprache C geschrieben. Alle Kommentare sind in englisch gehalten.
 \lstinputlisting[]{code/arduino_laserinformation.c}
 
 \section{Quelltext
-Countratenauslese}\label{anh:kap:quelltext_arduino_countrate} Im Folgenden kann der Quelltext des Programms für den Arduino zur
-Countratenauslese aus der Counterkarte für die Countraten eingesehen werden. Die
+Countratenauslese}\label{anh:sec:quelltext_arduino_countrate} Im Folgenden kann
+der Quelltext des Programms für den Arduino zur Countratenauslese aus der Counterkarte für die Countraten eingesehen werden. Die
 Kommunikation mit der Counterkarte erfolgt über eine SPI-Schnittstelle. Die
 Daten werden anschließend an den PC via RS232 weitergeleitet.
 \lstinputlisting[]{code/arduino_countrate.c}
@@ -172,19 +172,19 @@ Frequenzen entsprechend zufällig variiert.
 \begin{figure}[H]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:nonius_FSR_simulation_a2}
 		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a2}
 		}
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:nonius_FSR_simulation_a3}
 		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a3}
-		}
-	 \subfigure[]{
+		}\\
+	 \subfloat[]{
 		\label{subfig:nonius_FSR_simulation_a4}
 		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a4}
 		}
-	\subfigure[]{
+	\subfloat[]{
 		\label{subfig:nonius_FSR_simulation_a5}
 		\includegraphics[width=(\textwidth-0.6cm)/2]{plt/nonius_FSR_simulation_a5}
 		}
@@ -202,15 +202,15 @@ und \textit{iScan}+FOL-stabilisiert.
  	\centering
  	\footnotesize
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_a_freilaufend}
 		\input{plt/laserstabilitaet_a_freilaufend}
-		}
- 	\subfigure[]{
+		}\\
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_a_iScan}
 		\input{plt/laserstabilitaet_a_iScan}
-		}
-	 \subfigure[]{
+		}\\
+	 \subfloat[]{
 		\label{subfig:laserstabilitaet_a_iScan+FOL}
 		\input{plt/laserstabilitaet_a_iScan+FOL}
 		}
@@ -225,15 +225,15 @@ und \textit{iScan}+FOL-stabilisiert.
  	\centering
  	\footnotesize
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_b_freilaufend}
 		\input{plt/laserstabilitaet_b_freilaufend}
-		}
- 	\subfigure[]{
+		}\\
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_b_iScan}
 		\input{plt/laserstabilitaet_b_iScan}
-		}
-	 \subfigure[]{
+		}\\
+	 \subfloat[]{
 		\label{subfig:laserstabilitaet_b_iScan+FOL}
 		\input{plt/laserstabilitaet_b_iScan+FOL}
 		}
@@ -248,15 +248,15 @@ und \textit{iScan}+FOL-stabilisiert.
  	\centering
  	\footnotesize
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_c_freilaufend}
 		\input{plt/laserstabilitaet_c_freilaufend}
-		}
- 	\subfigure[]{
+		}\\
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_c_iScan}
 		\input{plt/laserstabilitaet_c_iScan}
-		}
-	 \subfigure[]{
+		}\\
+	 \subfloat[]{
 		\label{subfig:laserstabilitaet_c_iScan+FOL}
 		\input{plt/laserstabilitaet_c_iScan+FOL}
 		}
@@ -271,11 +271,11 @@ und \textit{iScan}+FOL-stabilisiert.
  	\centering
  	\footnotesize
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
- 	\subfigure[]{
+ 	\subfloat[]{
 		\label{subfig:laserstabilitaet_alt_freilaufend}
 		\input{plt/laserstabilitaet_alt_freilaufend}
-		}
-	 \subfigure[]{
+		}\\
+	 \subfloat[]{
 		\label{subfig:laserstabilitaet_alt_FOL}
 		\input{plt/laserstabilitaet_alt_FOL}
 		}

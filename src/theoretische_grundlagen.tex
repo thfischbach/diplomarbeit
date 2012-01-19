@@ -1092,23 +1092,24 @@ Energiegrenze. Durch Einbringen von Donatoren bzw.
 Akzeptoren, Elemente mit einem Valenzelektron bzw. mit einer bis auf ein
 Elektron vollen äußeren Schale, kann man Halbleiter negativ bzw. positiv
 dotieren. Die Grundzustände der Donatoren bzw. Akzeptoren liegen unterhalb des
-Leitungs- bzw. oberhalb des Valenzbandes (siehe \ref{subfig:pn-halbleiter_a}).
+Leitungs- bzw. oberhalb des Valenzbandes (siehe
+\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_a}).
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:pn-halbleiter_a}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_a}
 	  	}
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:pn-halbleiter_b}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_b}
-	  	}
-	  	\subfigure[]{
+	  	}\\
+	  	\subfloat[]{
 			\label{subfig:pn-halbleiter_c}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_c}
 	  	}
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:pn-halbleiter_d}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/pn-halbleiter_d}
 	  	}
@@ -1133,17 +1134,17 @@ rekombinieren miteinander. Somit entsteht in der Grenzregion im Gleichgewicht
 ein sog. \textit{Makropotential} mit der \textit{Diffusionsspannung} $V_D$. Da
 das Ferminiveau als chemisches Potential in beiden Teilen des Halbleiters gleich
 sein muss, verschieben sich die Bänder um $eV_D$ (siehe
-\ref{subfig:pn-halbleiter_b}). Bei starker Dotierung liegt das Ferminiveau unter
-dem Valenzband des p-dotierten Bereichs und über dem Leitungsbandes des
+\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_b}). Bei starker Dotierung
+liegt das Ferminiveau unter dem Valenzband des p-dotierten Bereichs und über dem Leitungsbandes des
 n-dotierten Bereichs, was bedeutet, dass das Valenzband des p-dotierten Bereichs
 stark mit Löchern und das Leitungsband des n-dotierten Bereichs stark mit
-Elektronen besetzt ist (siehe \ref{subfig:pn-halbleiter_c}). Legt man nun eine
-Spannung $U$ an, die die Niveauverschiebung der beiden Halbleiterteile
+Elektronen besetzt ist (siehe
+\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_c}). Legt man nun eine Spannung $U$ an, die die Niveauverschiebung der beiden Halbleiterteile
 kompensiert, können die Elektronen im Leitungsband des n-dotierten Bereichs mit
 den Löchern im Valenzband des p-dotierten Bereichs rekombinieren, worauf hin
-die Emission eines Photons erfolgt (siehe \ref{subfig:pn-halbleiter_d}). Beim
-Anlegen der Spannung entstehen \textit{Quasi-Ferminiveaus} $E_F^n$ und $E_F^p$
-der beiden Dotierungen mit
+die Emission eines Photons erfolgt (siehe
+\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_d}). Beim Anlegen der
+Spannung entstehen \textit{Quasi-Ferminiveaus} $E_F^n$ und $E_F^p$ der beiden Dotierungen mit
 \begin{equation}\label{eq:quasi-ferminiveaus}
 	U=\frac{\left(E_F^n-E_F^p\right)}{e}\,.
 \end{equation}
@@ -1227,11 +1228,11 @@ dargestellt.
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:transversale_eingrenzung_diodenlaser_a}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/transversale_eingrenzung_diodenlaser_a}
 	    	}
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:transversale_eingrenzung_diodenlaser_b}
 	    	\includegraphics[width=(\textwidth-1cm)/2]{gfx/transversale_eingrenzung_diodenlaser_b}
 	    	}
@@ -1301,11 +1302,11 @@ Aufbauten.\par
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
-		\subfigure[]{
+		\subfloat[]{
 			\label{subfig:externe_resonatoren_aufbau_littrow}
 	    	\includegraphics[width=\textwidth-1cm]{gfx/externe_resonatoren_aufbau_littrow}
-	    	}
-		\subfigure[]{
+	    	}\\
+		\subfloat[]{
 			\label{subfig:externe_resonatoren_aufbau_littmann}
 	    	\includegraphics[width=\textwidth-1cm]{gfx/externe_resonatoren_aufbau_littmann}
 	    	}
@@ -1314,7 +1315,8 @@ Aufbauten.\par
 	Resonatoren im Littrow- (a) und im Littmann-Design
 	(b).}\label{fig:externe_resonatoren_aufbau}
 \end{figure}
-Abbildung \ref{subfig:externe_resonatoren_aufbau_littrow} zeigt das sog.
+Abbildung
+\ref{fig:externe_resonatoren_aufbau}\subref{subfig:externe_resonatoren_aufbau_littrow} zeigt das sog.
 \textit{Littrow-Design}, bei dem durch Verkippen des Gitters die Wellenlänge
 \begin{equation}\label{eq:littrow}
 	\lambda=2g\sin{(\alpha)}
@@ -1324,8 +1326,8 @@ Auskoppelspiegels um dieselbe Achse kann die nullte Ordnung ohne Winkeländerung
 externe Resonator ist hierbei durch die hintere Wand der Diode und durch das
 Gitter begrenzt.\par
 Eine andere Variante ist das sog. \textit{Littman-Design} (siehe Abb.
-\ref{subfig:externe_resonatoren_aufbau_littmann}). Dabei wird die erste Ordnung
-des Gitters auf einen Spiegel und auf demselben Weg wieder zurück in die
+\ref{fig:externe_resonatoren_aufbau}\subref{subfig:externe_resonatoren_aufbau_littmann}).
+Dabei wird die erste Ordnung des Gitters auf einen Spiegel und auf demselben Weg wieder zurück in die
 Diode gekoppelt. Die Wellenlänge
 \begin{equation}\label{eq:littmann}
 	\lambda=g\left[\sin{(\alpha)}+\sin{(\beta)}\right]
@@ -1340,11 +1342,11 @@ wie in Abb. \ref{fig:moden_frequenzselektion} dargestellt.
 \begin{figure}[h]
 	\footnotesize	
 	\centering
-	\subfigure[]{
+	\subfloat[]{
 		\label{subfig:moden_frequenzselektion_a}
 		\input{plt/moden_frequenzselektion_a}
-  	}
-	\subfigure[]{
+  	}\\
+	\subfloat[]{
 		\label{subfig:moden_frequenzselektion_b}
 		\input{plt/moden_frequenzselektion_b}
   	}
@@ -1356,16 +1358,16 @@ wie in Abb. \ref{fig:moden_frequenzselektion} dargestellt.
 	\label{fig:moden_frequenzselektion}
 \end{figure}
 Nur die Mode mit der größten Verstärkung schwingt an, alle anderen
-werden unterdrückt, wie in Abb. \ref{subfig:moden_frequenzselektion_a} zu sehen
-ist.
+werden unterdrückt, wie in Abb.
+\ref{fig:moden_frequenzselektion}\subref{subfig:moden_frequenzselektion_a} zu sehen ist.
 Damit die Frequenz über einen möglichst großen Bereich verstimmt werden kann,
 muss das Modenprofil des internen und externen Resonators gleichzeitig verstimmt
 werden. Strom und Gitterwinkel müssen also simultan verstimmt werden, wobei das
 Gitter mithilfe eines Piezoaktuators verdreht werden kann. Dieses Verfahren
 nennt man \textit{Feed Forward}. Verstimmt man nur einen Resonator oder verstimmt
 man beide Resonatoren in falscher Relation kommt es zu
-\textit{Modensprüngen}, wie \ref{subfig:moden_frequenzselektion_a} zeigt.\par
-Alternativ ist es auch möglich ein \textit{Antireflex-coating (AR-coating)} für
+\textit{Modensprüngen}, wie
+\ref{fig:moden_frequenzselektion}\subref{subfig:moden_frequenzselektion_a} zeigt.\par Alternativ ist es auch möglich ein \textit{Antireflex-coating (AR-coating)} für
 die Diode zu verwenden, und somit den Laser ohne internen Resonator zu
 betreiben.
 Dies bringt den Vorteil, dass nur noch der Gitterwinkel verstellt werden muss

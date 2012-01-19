@@ -30,7 +30,12 @@
 \usepackage{colortbl} %Tabellen einfaerben
 \usepackage{booktabs} %"'schöne"' Tabellen ?
 \usepackage{arydshln} %kein Darstellungsfehler in Tabelle
-\usepackage[FIGTOPCAP]{subfigure} %teilt figures, 2Bilder nebeneinander möglich
+\usepackage{subfig} %teilt figures, 2Bilder nebeneinander
+% möglich
+\captionsetup[subfloat]{position=t}
+\captionsetup[figure]{position=b}
+
+%\renewcommand\thefigure{\thesection.\arabic{figure}}
 %\setlength{\subfigcapskip}{0pt}
 
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black, pdfsubject={Diplomarbeit: Aufbau und Charakterisierung einer interferometrischen Frequenzstabilisierung für Diodenlaser}, pdfproducer={Thomas Fischbach},
