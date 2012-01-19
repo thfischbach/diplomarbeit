@@ -91,9 +91,14 @@
       \put(5643,440){\makebox(0,0){\strut{} 2000}}%
       \put(6839,440){\makebox(0,0){\strut{} 2500}}%
       \put(160,2719){\rotatebox{-270}{\makebox(0,0){\strut{}Schwebungsfrequenz [MHz]}}}%
-      \put(3849,140){\makebox(0,0){\strut{}Messpunkt #}}%
+      \put(3849,140){\makebox(0,0){\strut{}Messpunkt \#}}%
     }%
     \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%
+      \put(2056,1264){\makebox(0,0)[l]{\strut{}\textit{iScans}: aktiv}}%
+      \put(2056,973){\makebox(0,0)[l]{\strut{}FOL: aktiv}}%
+      \put(5045,1264){\makebox(0,0)[l]{\strut{}\textit{iScans}: aktiv}}%
+      \put(5045,973){\makebox(0,0)[l]{\strut{}FOL: inaktiv}}%
     }%
     \gplbacktext
     \put(0,0){\includegraphics{beatfrequenzen_neu_iScan+FOL_drift}}%
