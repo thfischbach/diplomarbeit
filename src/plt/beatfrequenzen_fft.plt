@@ -8,7 +8,7 @@ set xlabel 'Frequenz [MHz]'
 #set format x "%.0f"
 set ylabel 'Amplitude'
 set samples 100000
-set tmargin 0
+set tmargin 0.1
 unset ytics
 set lmargin 8
 

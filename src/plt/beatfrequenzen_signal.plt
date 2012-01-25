@@ -8,7 +8,7 @@ set xlabel 'Zeit [ns]'
 #set format x "%.0f"
 set ylabel 'Amplitude [mV]'
 set samples 100000
-set tmargin 0
+set tmargin 0.1
 
 set term push
 set term epslatex color 10 size 14cm, 7cm

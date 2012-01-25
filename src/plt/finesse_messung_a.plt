@@ -9,7 +9,7 @@ set xlabel 'Zeit t [ms]'
 set ylabel 'Amplitude U [V]'
 set samples 100000
 set xrange [-6:2]
-#set yrange [0:0.1]
+set yrange [0:0.09]
 
 set fit errorvariables
 f(nu)=d/(1+k*sin(a*nu+b)**2)+c

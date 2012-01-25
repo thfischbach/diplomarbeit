@@ -16,15 +16,15 @@ Schaltkreis aus vier identischen Kopien der in Abb.
 		\subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_01}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_01}
-	    }
+	    }\\
 		\subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_02}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_02}
-	    	}
+	    }\\
 	    \subfloat[]{
 			\label{subfig:signalgenerierung_schaltplan_03}
 	    	\includegraphics[width=(\textwidth-1cm)]{gfx/signalgenerierung_schaltplan_03}
-	    	}
+	    }
 	}}
 	\caption[Signalgenerierung - Schaltplan]{Schaltplan der
 	Signalgenerierung zum
@@ -285,4 +285,41 @@ und \textit{iScan}+FOL-stabilisiert.
 	alten System im freilaufenden (a) und FOL-stabiliserten Modus (c). Unten ist
 	jeweils der Jitter aufgetragen.}
 	\label{fig:laserstabilitaet_c}
+\end{figure}
+
+\newpage
+\section{Linearisierung der
+\textit{iScans}}\label{anh:sec:linearisierung}
+In Abb. \ref{fig:linearisierung_FSR_korr_anh} werden die einzelnen
+Fringepatternanalysen für die Datenpunkte der Plots in Abb.
+\ref{fig:linearisierung_FSR_korr} gezeigt.
+\begin{figure}[hb]
+ 	\centering
+ 	\footnotesize
+ 	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
+ 	\subfloat[Messung 1 / Korrektur 1]{
+		\label{subfig:linearisierung_FSR_korr_anh_01}
+		\input{plt/linearisierung_FSR_korr/01}
+	}
+ 	\subfloat[Messung 2 / Korrektur 2]{
+		\label{subfig:linearisierung_FSR_korr_anh_02}
+		\input{plt/linearisierung_FSR_korr/02}
+	}\\
+	\subfloat[Messung 3 / Korrektur 3]{
+		\label{subfig:linearisierung_FSR_korr_anh_03}
+		\input{plt/linearisierung_FSR_korr/03}
+	}
+	\subfloat[Messung 4 / Korrektur 4]{
+		\label{subfig:linearisierung_FSR_korr_anh_04}
+		\input{plt/linearisierung_FSR_korr/04}
+	}\\
+	\subfloat[Messung 5 / Korrektur 5]{
+		\label{subfig:linearisierung_FSR_korr_anh_05}
+		\input{plt/linearisierung_FSR_korr/05}
+	}
+	}}
+	\caption[Linearitaet \textit{iScan}, Fringepatternanlyse]{Die Abbildung zeigt
+	die einzelnen Plots der Fringepatternanalyse für die Linearisierung aus
+	Abb. \ref{fig:linearisierung_FSR_korr}.}
+	\label{fig:linearisierung_FSR_korr_anh}
 \end{figure}

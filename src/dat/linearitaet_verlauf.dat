@@ -1,5 +1,6 @@
 # Linearisation-Deviation-Summary-File "delin-check_01-all"
 # Laser: Blau
+# Plots: 1, 
 
 # Iteration	Max. deviation [MHz]	FSR [MHz]	FSR_error [MHz]	Timebase
 1	11.215245	8161	-0.102334	01.08.2011 17:26:55

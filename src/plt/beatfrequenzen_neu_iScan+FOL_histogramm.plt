@@ -22,7 +22,7 @@ set fit errorvariables
 gauss(x) = A*exp(-(x-mu)**2/(2*sigma**2))/(sigma*sqrt(2*pi))
 fit gauss(x) datafile using 1:2 via sigma,mu,A
 
-set label 1 sprintf('$\sigma = (%.3f\pm%.3f)\,$MHz',sigma,sigma_err) at graph 0.05, 0.95
+set label 1 sprintf('$2\sigma = (%.2f\pm%.2f)\,$MHz',2*sigma,2*sigma_err) at graph 0.05, 0.95
 set label 2 sprintf('$A = (%.0f\pm%.0f)\,$MHz',A,A_err) at graph 0.05, 0.88
 set label 3 sprintf('$\mu = (%.3f\pm%.3f)\,$MHz',mu,mu_err) at graph 0.05, 0.81
 
