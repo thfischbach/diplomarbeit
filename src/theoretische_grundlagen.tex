@@ -49,7 +49,7 @@ Die Zustandsänderung des Atoms folgt dann entsprechend von einem Zustand in
 einen energetisch niedriger gelegenen Zustand.\par
 
 \subsubsection{Fermis goldene Regel}\label{subsubsec:fermis_goldene_regel}
-Grundlegend beschreibt \textit{Fermis goldene Regel} (FGR) die
+\textit{Fermis goldene Regel} (FGR) gibt quantenmechanisch korrekt die
 Übergangsrate von einem Zustand $\Psi_i$ (i: \textit{initial}) in einen
 beliebigen Zustand $\Psi_f$ (f: \textit{final}). Diese kann halbklassisch
 störungstheoretisch hergeleitet werden.  Dabei betrachtet man das externe elektromagnetische Feld als Störung
@@ -70,8 +70,8 @@ mit dem Wechselwirkungsoperator
 \end{equation}
 Hierbei ist $E_0$ die Amplitude und $\vec{\epsilon}$ der
 Polarisationsvektor des elektromagnetischen Feldes. $\OPv{d} = e\OPv{r}$ ist
-der Dipoloperator. Zusätzlich kann man die Annahme machen, dass das Atom in Relation zur
-Wellenlänge des Lichts sehr klein ist und es somit am Ort
+der Dipoloperator des atomaren Übergangs. Zusätzlich kann man die Annahme
+machen, dass das Atom in Relation zur Wellenlänge des Lichts sehr klein ist und es somit am Ort
 des Atoms nur verschwindend geringe örtliche Änderungen der Amplitude des
 elektromagnetischen Feldes erfährt ($\vk\cdot\vr\ll 1$, Atom am Ort $\vr=0$). Diese Näherung nennt man
 \textit{Dipolnäherung}. Dadurch folgt für die Entwicklung des
@@ -149,10 +149,10 @@ t\gg\frac{1}{\omega_{fi}}$) FGR:
 	\begin{split}
 		\Gamma_{i\to f}
 		&= \lim_{t\to\infty}{\left(\fracd{}{t}{P_{i\to f}(t)}\right)}\\
-		&= \frac{2\pi}{\hbar}\rho(E_f)\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2
+		&= \frac{2\pi}{\hbar}\rho(E_f)\abs{\bra{\Psi_f}\OPH'\ket{\Psi_i}}^2\,.
 	\end{split}
 \end{equation}
-$\bra{\Psi_f}\OPH'\ket{\Psi_i} =
+Die Darstellung $\bra{\Psi_f}\OPH'\ket{\Psi_i} =
 \frac{1}{2}E_0\vec{\epsilon}\cdot e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ enthält
 das sog. \textit{Dipolmatrixelement} $e\bra{\Psi_f}\OPv{r}\ket{\Psi_i}$ für die Zustände
 $\Psi_i$ und $\Psi_f$. Es gibt an, wie stark ein Übergang im Rahmen der
@@ -168,7 +168,7 @@ Emission} unterscheiden. Die induzierte Emission findet nur mit vorhandenem
 elektromagnetischem Feld statt. Es wird ein Photon der entsprechenden Mode aus
 dem elektromagnetischen Feld benutzt, um eine Emission zu induzieren und ein
 weiteres Photon in das Feld zu emittieren. Bei der spontanen Emission hingegen
-fällt das Atom spontan in einen energetisch niedrigeren Zustand und ein
+geht das Atom spontan in einen energetisch niedrigeren Zustand über und ein
 Photon der entsprechenden Mode wird emittiert (auch im
 \textit{Vakuumfeld}\footnote{Ein elektromagnetisches Feld mit null Photonen
 wird Vakuumfeld genannt.}).
@@ -322,17 +322,18 @@ jj-Kopplung mit
 	\end{split}
 \end{equation}
 \par
-Da im Gesamtsystem der Drehimpuls erhalten ist, muss $\Delta L =\pm1$ sein.
+Da im Gesamtsystem der Drehimpuls erhalten ist, muss beim Übergang $\Delta L
+=\pm1$ sein.
 Bei Absorption eines Photons wird aus dem elektromagnetischen Feld ein Photon (Boson, Spin 1) mit dem Drehimpuls vom
-Betrag 1 entnommen, was durch den Drehimpuls des Atoms wieder kompensiert werden
-muss. Analog verhält es sich bei der Emission. $\Delta L =\pm1$ kann auch mit
+Betrag 1 entnommen, was durch die Drehimpulsänderung des Atoms wieder
+kompensiert werden muss. Analog verhält es sich bei der Emission. $\Delta L =\pm1$ kann auch mit
 der erforderlichen unterschiedlichen Parität der Zustände begründet werden
 ($\OPP\ket{\psi}=(-1)^L\ket{\psi}$). Der Ortsoperator hat ungerade Parität.
 Insgesamt muss sich bei der Berechnung des Matrixelements eine gerade Funktion
 ergeben, damit dieses von 0 verschieden ist. Dies ist nur mit unterschiedlicher
 Parität beider Zustände möglich $(-1)^{L_i}\neq(-1)^{L_k}$, was für ungerade
-$\Delta L$ gilt. Die Begrenzung auf $\pm1$ ist durch den Spin 1 des Photons
-begründet. Die Änderung der Projektion des Drehimpulses auf die
+$\Delta L$ gilt. Die Begrenzung auf $\Delta L=\pm1$ ist durch den Spin 1 des
+Photons begründet. Die Änderung der Projektion des Drehimpulses auf die
 Quantisierungsachse ist mit der Polarisation des Photons verknüpft. Bei der
 Absorption von zirkular polarisiertem Licht, das sich senkrecht zur
 Quantisierungsachse ausbreitet, ist der Photonen-Drehimpuls +1 für
@@ -342,11 +343,11 @@ Die Projektion des Drehimpulses ändert sich in diesem Fall nicht, es gilt also
 $\Delta m_L = 0, \pm1$. Die Spinwellenfunktion wird bei Dipolübergängen nicht
 beeinflusst, somit gilt $\Delta S=0$. Weiterhin gilt für $\vJ=\vL+\vS$ die
 Änderung $\Delta J=0,\pm1$. $\Delta J=0$ rührt daher, dass die Änderung $\Delta
-L=\pm1$ durch die entgegengesetzte Änderung $\Delta m_S=\mp1$ kompensiert wird,
-was allerdings für $J=0\leftrightarrow0$ nicht gelten kann. Für die Kopplung an
-den Kernspin gilt analoge Überlegung: $\Delta F = 0, \pm1$ außer bei
-$F=0\leftrightarrow0$. In Tab. \ref{tab:auswahlregeln} sind alle
-Auswahlregeln noch einmal aufgelistet.
+L=\pm1$ durch die entgegengesetzte Änderung $\Delta m_S=\mp1$ kompensiert
+werden kann, was allerdings für $J=0\leftrightarrow0$ nicht möglich ist. Für die
+Kopplung an den Kernspin gilt analoge Überlegung: $\Delta F = 0, \pm1$ außer
+$F=0\leftrightarrow0$. In Tab. \ref{tab:auswahlregeln} sind alle Auswahlregeln
+noch einmal aufgelistet.
 
 \begin{table}
 	%Summe der Breiten muss 0.91 mal \textwidth sein.
@@ -375,7 +376,7 @@ Auswahlregeln noch einmal aufgelistet.
 
 
 \subsection{Linienprofil}\label{sec:linienprofil}
-Bisher wurde noch keine Aussage über die spektrale Beschaffenheit eines
+Bisher wurde noch keine Aussage über die spektralen Eigenschaften eines
 Übergangs gemacht. Diese ist aber für die Laserspektroskopie von essenzieller
 Bedeutung, da sie viele Informationen über die untersuchten Atome wie z.B. die
 Lebensdauern der Niveaus, Sättigungsleistungen der Laser für die Übergänge oder
@@ -385,10 +386,8 @@ auflösen lassen und welche Lasereigenschaften dafür benötigt werden. Die
 Lasereigenschaften bzw. das Laserverhalten sind eine wesentlicher Bestandsteil
 dieser Arbeit (siehe spätere Abschnitte \ref{sec:diodenlaser},
 \ref{sec:lasersystem}, \ref{sec:stabilitaet_der_laser}). Übergänge (hier Linien genannt) sind nicht beliebig scharf, sondern
-haben eine Breite, die verschiedene Ursachen hat. Darauf wird in diesem Abschnitt
-näher eingegangen. Der Großteil dieses Kapitels stützt sich auf
-\cite{demtroeder:laserspektroskopie}. Die spektrale Linienbreite ist durch das
-Frequenzintervall $\delta\omega=\omega_2-\omega_1$ zwischen den beiden
+haben eine Breite, die verschiedene Ursachen hat
+\cite{demtroeder:laserspektroskopie}. Die spektrale Linienbreite ist durch das Frequenzintervall $\delta\omega=\omega_2-\omega_1$ zwischen den beiden
 Frequenzen, bei denen die Absorptions- bzw. Emissionsintensitäten auf die Hälfte
 ihres Maximums abgesunken sind, definiert (volle Halbwertsbreite, engl.:
 FWHM).
@@ -396,7 +395,7 @@ FWHM).
 \subsubsection{Natürliche
 Linienbreite}\label{subsubsec:natuerliche_linienbreite}
 Die natürliche Linienbreite ist eine unvermeidliche, natürliche Gegebenheit.
-Dies beruht darauf, dass man ein Atom (in klassischer Sichtweise) als
+Diese beruht darauf, dass man ein Atom (in klassischer Sichtweise) als
 einen harmonischen, gedämpften Oszillator ansehen kann, dessen Frequenzspektrum
 nicht diskret ist. Die Lösung der Bewegungsgleichung eines klassischen
 Oszillators
@@ -436,7 +435,6 @@ Atoms ist. Nach Einsetzen von \eqref{eq:klassischer_oszillator_loesung} in
 man
 \begin{equation}\label{eq:klassischer_oszillator_leistung_02}
 	\mean{P(t)}_t=-\frac{1}{2}\gamma mx_0^2\omega_0^2\mathrm{e}^{-\gamma
-	t}\propto\mathrm{e}^{-\gamma
 	t}\,.
 \end{equation}
 Dies bedeutet, dass die Leistungsabnahme nach $\tau=\nicefrac{1}{\gamma}$ auf
@@ -472,8 +470,9 @@ besteht eine kohärente Überlagerung der Zustände:
 $\ket{\Psi}=\frac{1}{\sqrt{2}}\left[\alpha(t)\mathrm{e}^{\mathrm{i}\phi}\keta+\beta(t)\ketb\right]$,
 wobei die Phase $\phi$ immer konstant bleibt.} mehr vor, sondern ein
 \textit{statistisches Gemisch}. Die Phase zwischen den Zuständen ist
-für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt. Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr
-möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
+für jedes Atom individuell im Intervall $[0,2\pi)$ verteilt\footnote{$[x,y)$
+steht für ein halboffenes Intervall "`x bis y, exklusive y"'.}.
+Somit ist eine einfach Behandlung mit der Schrödingergleichung nicht mehr möglich. Der Dichtematrix-Formalismus berücksichtigt diese Tatsache
 allerdings. Dazu betrachtet man die Dichtematrix
 \begin{equation}\label{eq:dichtematrix}
 	\OP{\rho}
@@ -528,7 +527,7 @@ ist ($\delta=\omega-\omega_{21}$\,, $\omega_{21}=\omega_2-\omega_1$).
 $\Omega_0=\nicefrac{dE_0}{\hbar}$ ist die sog. \textit{Rabifrequenz}\footnote{Die Rabifrequenz
 ist die Frequenz mit der das 2-Niveau-System zwischen Grundzustand und
 angeregtem Zustand oszilliert, sofern kontinuierlich resonantes Licht
-eingestrahlt wird.}, welche aber im Folgenden von keinem Interesse ist.
+eingestrahlt wird.}, welche aber im Folgenden nicht von Interesse ist.
 Betrachtet man die Zeitentwicklung der Dichtematrixelemente
 \begin{equation}\label{eq:dichtematrix_zeitentwicklung}
 	\fracd{}{t}\OP{\rho}
@@ -626,8 +625,8 @@ spontanen Zerfallsrate \eqref{eq:abgestrahlte_leistung_02} erhält man
 		\quad\text{mit}\quad
 		I_{sat}=\frac{\pi hc}{3\lambda^3\tau}\,.
 \end{equation}
-Das bedeutet, dass die Linienbreite eines Übergangs mit der Wurzel der
-Laserintensität $I$ wächst. Des Weiteren
+Mit \eqref{eq:photonenstreurate_02} bedeutet das, dass die Linienbreite eines
+Übergangs mit der Wurzel der Laserintensität $I$ wächst. Des Weiteren
 ist zu erkennen, dass die Erhöhung der Laserleistung irgendwann nicht mehr
 von Belang ist, da sich der Vorfaktor $\nicefrac{S_0}{\left(1+S_0\right)}$ in
 \eqref{eq:photonenstreurate_02} asymptotisch gegen 1 nähert.
@@ -638,11 +637,10 @@ $100\,$mW beim autoionisierenden Schritt.
 %TODO: !!Bild: Sättigungsverbreiterte Linie
 
 \subsubsection{Doppler-Verbreiterung}\label{subsubsec:doppler-verbreiterung}
-In der Regel bewegen sich die zu untersuchenden Atome nicht unwesentlich schnell
-parallel zum Wellenvektor $\vk$ des Laserlichts. Für ein Atom, das sich auf das
-Laserlicht zubewegt, verschiebt sich die Frequenz ins blaue. Analog verschiebt
-sich die Frequenz für das Atom ins rote, wenn es sich in Richtung der
-Photonen bewegt. Durch Einstrahlen von entsprechend entgegengesetzt zur
+In der Regel bewegen sich die zu untersuchenden Atome relativ zum Wellenvektor
+$\vk$ des Laserlichts. Für ein Atom, das sich auf das Laserlicht zubewegt,
+verschiebt sich aufgrund des Dopplereffekts die Frequenz ins blaue. Analog
+verschiebt sich die Frequenz für das Atom ins rote, wenn es sich in Richtung der Photonen bewegt. Durch Einstrahlen von entsprechend entgegengesetzt zur
 Ruhefrequenz $\omega_0$ verstimmtem Licht mit der Frequenz
 \begin{equation}\label{eq:doppler}
 	\omega=\omega_0+k_zv_z=\omega_0\left(1+\frac{v_z}{c}\right)
