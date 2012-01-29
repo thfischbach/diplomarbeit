@@ -16,22 +16,11 @@ deren Rolle in diesem Projekt.
 Essenziell wichtig für die Resonanzionisation ist das Verständnis der atomaren
 Wechselwirkung mit einem elektromagnetischen Feld. Im Folgenden soll insbesondere auf die
 atomaren Übergänge und deren Linienprofil eingegangen werden, da dies bei der
-Atom-Spektroskopie eine wichtige Rolle spielt. Der größte Teil dieses
-Theorie-Abschnitts basiert im Wesentlichen auf den o.g. Lehrbüchern und den
-Vorlesungsskripten \cite{bloch:atomphysik},
+Atom-Spektroskopie eine wichtige Rolle spielt. Die gewählte Darstellung im
+größten Teil dieses Theorieabschnitts basiert im Wesentlichen auf den o.g.
+Lehrbüchern und den Vorlesungsskripten \cite{bloch:atomphysik},
 \cite{rauschenbeutel:atomphysik}, \cite{rauschenbeutel:quantenoptik} und
 \cite{kuhr:quantenoptik}.
-
-% $$P_{ik}=\frac{2\pi}{\hbar^2}\lvert\langle\psi_k^0\rvert\hat{\mathcal{H}}'\lvert\psi_i^0\rangle\rvert^2\delta(E_k^0-E_i^0+\hbar\omega)$$
-% $$W_{ki}=\frac{\pi e^2}{3\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2\cdot\omega_{\nu}$$
-% $$B_{ki}=\frac{2}{3}\frac{\pi^2e^2}{\varepsilon_0\hbar^2}\lvert\langle\psi_k\rvert\vec{r}\lvert\psi_i\rangle\rvert^2$$
-% $$\vec{M}_{ik}=e\langle\psi_i\rvert\vec{r}\lvert\psi_k\rangle$$
-% $$\langle p\rangle = e\langle r\rangle = e\langle\psi_i\rvert
-% r\lvert\psi_i\rangle$$
-% $$\lvert\psi_k\rangle$$
-% $$\bar p ^2 \rightarrow \frac{1}{2}(\lvert M_{ik}\rvert+\lvert M_{ik}\rvert)^2 =
-% 2\lvert M_{ik}\rvert^2$$
-
 
 \subsection{Übergangsraten}\label{subsec:uebergangsraten}
 Befindet sich ein Atom in einem elektromagnetischen Feld können Absorptions- und
@@ -658,28 +647,27 @@ Frequenzverteilung folgt dann
 	n_i(\omega)\dd\omega=\frac{cN_i}{v_w}\omega_0\sqrt{\pi}\mathrm{e}^{-\left[\frac{c(\omega-\omega_0)}{\omega_0v_w}^2\right]}\dd\omega\,.
 \end{equation}
 Das Linienprofil ist proportional zu $n_i(\omega)$ und somit auch Gauß-verteilt.
-Für die Doppler-Linienhalbwertsbreite folgt somit  
+Für die Halbwertsbreite der Dopller-verbreiterten Linie folgt somit  
 \begin{equation}\label{eq:doppler-breite}
 	\delta\omega_D=\frac{\omega_0}{c}\sqrt{\frac{8k_BT\mathrm{ln}2}{m}}\,.
 \end{equation}
-Die Doppler-Verbreiterung geht also linear mit der Frequenz des eingestrahlten
-Lichts und wird bei hohen Temperaturen und leichten Atomen sehr groß. Sie kann
-die natürliche Linienbreite um gut zwei Größenordnungen übertreffen. Um der
-Dopplerverbreiterung möglichst Einhalt zu gebieten, wird im Experiment das
+Die Doppler-Verbreiterung nimmt also linear mit der Frequenz des eingestrahlten
+Lichts zu und wird bei hohen Temperaturen und leichten Atomen sehr groß. Sie
+kann die natürliche Linienbreite um gut zwei Größenordnungen übertreffen. Um die
+Dopplerverbreiterung möglichst gering zu halten, wird im Experiment das
 Laserlicht transversal zur Austrittsrichtung der Atome aus dem Ofen
 eingestrahlt. Außerdem wird das Licht für die einzelnen Anregungsschritte in
-abwechselnder Richtung eingestrahlt, damit die Summenfrequenz aller drei
-Photonen auf nahezu alle Dopplerklassen erweitert wird. Wie sich in Absch.
+zueinander kollinearer Richtung eingestrahlt, damit die Summenfrequenz aller
+drei Photonen auf nahezu alle Dopplerklassen erweitert wird. Wie sich in Absch.
 \ref{subsec:mehrfach_resonante_anregung} zeigen wird, ist die
 Dreiphotonensumme ausschlaggebend für die Ionisationseffizienz.\par
-Um die kombinierte Linienverbreiterung mit der natürlichen Linienbreite bzw. der
-Sättigungsverbreiterung zu erhalten, muss eine Faltung durchgeführt werden:
+Um das gesamte Linienprofil des Atoms zu erhalten, muss das gaußförmige
+Dopller-Profil mit dem sättigungsverbreiterten Lorentzprofil gefaltet werden:
 \begin{equation}\label{eq:voigt_doppler}
-	I_{ges}(\omega)=\int{I(\omega-\omega')n(\omega')\dd\omega'}
+	V_{Atom}(\omega)=\int{L_{nat+sat}(\omega-\omega')G_{Doppler}(\omega')\dd\omega'}\,.
 \end{equation}
-mit $I(\omega-\omega')$ aus Gl. \eqref{eq:lorentz-profil} und $n(\omega')$ aus
-Gl. \eqref{eq:boltzmann-verteilung_omega}. Die Faltung eines Gauß-Profils mit
-einem Lorentz-Profil ergibt ein sog. \textit{Voigt-Profil}.
+Die Faltung eines Gauß-Profils mit einem Lorentz-Profil ergibt ein sog.
+\textit{Voigt-Profil}.
 
 \subsubsection{Stoßverbreiterung}\label{subsubsec:stossverbreiterung}
 Ein im Rahmen dieser Arbeit zwar zu vernachlässigender aber erwähnenswerter
@@ -693,13 +681,14 @@ Dämpfung als weitere Dämpfung interpretiert werden kann. Die Linienbreite wird
 somit größer. Elastische Stöße ändern neben der kurzzeitigen Frequenzverstimmung
 zusätzlich die Phase des Oszillators. Somit kommt es bei elastischen Stößen
 zusätzlich zu einer Linienverschiebung. Da hier allerdings mit
-sehr niedrigen Drücken (zwischen $10^{-6}$ und $10^{-8}\,$mbar) gearbeitet wird, kann dieser Effekt vernachlässigt werden.
+sehr niedrigen Drücken (zwischen $10^{-6}$ und $10^{-8}\,$mbar) gearbeitet wird,
+kann dieser Effekt vernachlässigt werden.
 
 \subsubsection{Gesamtes Linienprofil}\label{subsubsec:ges-linienprofil}
 Nicht nur die atomaren Übergänge der Atome, sondern ebenso das Linienprofil
 des Lasers selbst tragen zum gesamten Linienprofil bei. Um das effektive
 Linienprofil zu erhalten muss das Profil des Lasers mit dem der atomaren
-Übergänge gefaltet werden:
+Übergänge aus Gl. \eqref{eq:voigt_doppler} gefaltet werden:
 \begin{equation}\label{eq:voigt}
 	\begin{split}
 		V_{ges}(\omega)
@@ -718,41 +707,43 @@ wieder ein Gauß-Profil ergibt, erhält man insgesamt ein Voigt-Profil.
 Linienverbreiterung}\label{subsubsec:homogene_inhomogene_verbreiterung}
 Man muss bei den einzelnen Linienverbreiterungseffekten zwischen einer
 \textit{homogenen} und einer \textit{inhomogenen Linienverbreiterung}
-unterscheiden. Gilt eine Linienverbreiterung für alle Atome gleich
-wahrscheinlich, nennt man sie homogen. Dies ist bei der natürlichen
-Linienbreite, der Sättigungsverbreiterung und der inelastischen
-Stoßverbreiterung der Fall. Ein Beispiel für die inhomogene Linienverbreiterung
-ist die Doppler-Verbreiterung. Hier ist die Wahrscheinlichkeit, eines Übergangs
-abhängig von der parallelen Geschwindigkeitskomponente der Atome zum
-eingestrahlten Licht. Bei elastischen Stößen kommt es außerdem zur Umverteilung
-der Doppler-Klassen. Ist die Stoßzeit zwischen zwei Stößen größer als die
-Licht-Atom-Wechselwirkungszeit, tragen die Stöße nicht zu homogenen
-Linienverbreiterung bei. Andernfalls ist die Umverteilung der Doppler-Klassen
-gleichmäßig, was zur homogenen Verbreiterung führt.
-%TODO: !siehe Amin-Korrektur 
+unterscheiden. Ist eine Linienverbreiterung für alle Atome identisch vorhanden,
+so nennt man sie homogen. Dies ist bei der natürlichen Linienbreite, der
+Sättigungsverbreiterung und der inelastischen Stoßverbreiterung der Fall. Ein
+Beispiel für die inhomogene Linienverbreiterung ist die Doppler-Verbreiterung.
+Hier ist die Wahrscheinlichkeit, eines Übergangs abhängig von der parallelen
+Geschwindigkeitskomponente der Atome zum eingestrahlten Licht. Bei elastischen
+Stößen kommt es außerdem zur Umverteilung der Doppler-Klassen. Ist die Stoßzeit
+zwischen zwei Stößen größer als die Licht-Atom-Wechselwirkungszeit, tragen die
+Stöße nicht zu homogenen Linienverbreiterung bei. Andernfalls ist die
+Umverteilung der Doppler-Klassen gleichmäßig, was zur homogenen Verbreiterung
+führt. 
 
 \section{Resonanzionisationsspektroskopie}\label{sec:ris}
 Die Resonanzionisationsspektroskopie, kurz RIS, ist eine weit verbreitete
-Methode, Atome spektroskopisch zu untersuchen. Dabei werden Atome über
-mehrstufige Anregung (Abschn. \ref{subsec:mehrfach_resonante_anregung})
+Methode, Atome spektroskopisch zu untersuchen. Dabei werden die erzeugten Atome
+über mehrstufige Anregung (Abschn. \ref{subsec:mehrfach_resonante_anregung})
 ionisiert (Abschn. \ref{subsec:ionisation}) und anschließend mittels
-einer Ionenoptik zu einem Detektor geführt, wo sie nachgewiesen werden. Der große Unterschied zu anderen spektroskopischen Methoden wie Absorptions- und Fluoreszenzspektroskopie ist die
-Tatsache, dass hierbei Ionen mit einer Effizienz von nahezu $\epsilon=1$,
-anstatt Photonen mit einer wesentlich geringeren Effizienz von
-$\epsilon\leq10^{-4}$ detektiert werden.\par
-Die Ionisation geschieht bei der RIS elementselektiv, was bedeutet, dass über
-für das Atom charakteristische Anregungsschritte ionisiert wird.
-Die Isotopenselektivität ist bei der RIS insofern gegeben, dass die atomaren
-Übergänge einer Isotopieverschiebung (Abschn. \ref{subsec:isotopieverschiebung})
+einer Ionenoptik zu einem Detektor geführt, wo sie nachgewiesen werden. Der
+große Unterschied zu anderen laserspektroskopischen Methoden wie
+etwa die Absorptions- und Fluoreszenzspektroskopie ist die Tatsache, dass
+hierbei Ionen mit einer Effizienz von nahezu $\epsilon=1$, anstatt Photonen mit
+einer üblicherweise wesentlich geringeren Effizienz von $\epsilon\leq10^{-4}$
+detektiert werden.\par
+Zusätzlich erfolgt die Ionisation bei der RIS elementselektiv, was
+bedeutet, dass über für jedes Element charakteristische Anregungsschritte
+ionisiert wird.
+Auch eine Isotopenselektivität ist bei der RIS insofern gegeben, dass die
+atomaren Übergänge einer Isotopieverschiebung (Abschn. \ref{subsec:isotopieverschiebung})
 unterliegen und so jedes Anregungsschema eines jeden Isotops individuell
 ist. Die Isotopieverschiebungen der Übergänge des in diesem Projekt
 untersuchten Urans sind dabei typischerweise mehrere
 GHz groß. Mit gepulst betriebenden, breitbandigen
 Titan-Saphir-Lasern, wie sie u.a. in der AG Larissa in Mainz verwendet werden,
 ist eine gute Isotopenselektivität nicht mehr gegeben, da ihre Linienbreite
-ebenso bei mehreren GHz liegt. Um hochselektive RIS zu betreiben,
-werden in diesem Projekt sehr schmalbandige Diodenlaser
-(Abschn. \ref{sec:diodenlaser}) verwendet, deren Linienbreite bei nur einigen
+gleichermaßen bei mehreren GHz liegt. Um hochselektive RIS zu betreiben,
+werden in diesem Projekt kontinuierlich betriebene und damit schmalbandige
+Diodenlaser (Abschn. \ref{sec:diodenlaser}) verwendet, deren Linienbreite bei nur einigen
 MHz liegt.\par
 Eine Erweiterung der RIS ist die sog. Resonanzionisationsmassenspektrometrie,
 kurz RIMS. Hierbei werden die Ionen vor der Detektion zusätzlich in einem
@@ -760,32 +751,31 @@ Massenspektrometer nach ihrer Masse selektiert, was eine Trennung der Isotope
 garantiert. Auch werden Ionen anderer Elemente oder Moleküle mit verschiedener
 Masse gegenüber dem untersuchten Isotop unterdrückt. In Kap.
 \ref{kap:experimenteller_aufbau} wird im Rahmen des experimentellen Aufbaus noch
-einmal auf die Massentrennung, die mithilfe eines Quadrupols geschieht,
-eingegangen. Das Hauptaugenmerk liegt in dieser Arbeit allerdings auf der RIS
+einmal auf die Massentrennung, die mithilfe eines Quadrupolmassenfilters
+geschieht, eingegangen. Das Hauptaugenmerk liegt in dieser Arbeit allerdings auf der RIS
 und dem dabei verwendeten Lasersystem.
 
 \subsection{Mehrfach
 resonante Anregung}\label{subsec:mehrfach_resonante_anregung}
 Wie in Abschn. \ref{sec:licht-atom-wechselwirkung} schon erklärt, können Atome
 durch Absorption resonant in ein höher liegendes Energieniveau gebracht werden.
-Durch geschickte Kombination von aneinandergereihten Anregungsschritten kann
+Durch Kombination von aneinandergereihten Anregungsschritten kann
 das Atom in einen Zustand oberhalb des \textit{Ionisationspotentials} gebracht
 und somit ionisiert werden. Typischerweise werden in diesem Projekt dreistufige
-Anregungsschemata verwendet, wobei der dritte Schritt das Atom letzendlich in
-eine Kontinuumsresonanz führt und das Atom einfach ionisiert. Um das
-Anregungsverhalten theoretisch zu beschreiben, reicht es allerdings nicht mehr,
-zwei Zwei-Niveau-Systeme aneinandergereiht zu betrachten. Es muss hierbei ein
-Dichtematrixformalismus für ein N- bzw. 3-Niveau-System entwickelt werden, der
-die drei Prozesse Absorption, induzierte Emission und spontane Emission für alle
-Niveaus des System bzw. dessen statistisches Verhalten mit einbezieht. Für ein
-Zwei-Niveau-System wurde dies in Abschn. 
-\ref{subsubsec:saettigungsverbreiterung} angedeutet. Für ein N-Niveau-System
-verkompliziert sich die theoretische Beschreibung sehr und wird deshalb in
-dieser Arbeit nicht weiter behandelt. Es sei dabei für die theoretische
-Beschreibung im Allgemeinen auf \cite{blum:density_matrix_theory} und für die
+Anregungsschemata verwendet, wobei der dritte Schritt das Atom einfach
+positiv ionisiert. Um das Anregungsverhalten theoretisch zu beschreiben, reicht
+es dabei nicht aus, mehrere Zwei-Niveau-Systeme aneinandergereiht zu betrachten,
+da damit kohärente Prozesse und die dadurch gegebenen Kohärenzen zwischen den
+Zuständen vernachlässigt werden. Es muss dazu ein Dichtematrixformalismus für
+ein 3-Niveau-System entwickelt werden, der die Prozesse Absorption, induzierte Emission und spontane Emission für alle
+Niveaus des System mit einbezieht. Für ein
+Zwei-Niveau-System wurde dies in Abschn.
+\ref{subsubsec:saettigungsverbreiterung} angedeutet. Für ein N-Niveau-System mit
+$N\geq3$ verkompliziert sich die theoretische Beschreibung deutlich und wird
+deshalb in dieser Arbeit nicht weiter behandelt. Es sei für die theoretische Beschreibung im Allgemeinen auf \cite{blum:density_matrix_theory} und für die
 Beschreibung in Bezug auf die RIS an Calcium-Atomen auf
 \cite{noertershaeuser:1999:dissertation} verwiesen. In
-\cite{schumann:2005:dissertation} wurde die Ionisationseffizienz in Abhängigkeit
+\cite{schumann:2005:dissertation} wurde die Ionisationseffizienz als Funktion
 der Verstimmung der ersten beiden Anregungsschritte von Uran theoretisch
 berechnet. Abbildung \ref{fig:2D-laserscan_theorie_schumann} zeigt diese
 Abhängigkeit.
@@ -803,37 +793,43 @@ Abhängigkeit.
 	Erklärungen finden sich im Text. (aus
 	\cite{schumann:2005:dissertation})}\label{fig:2D-laserscan_theorie_schumann}
 \end{figure}
-Wie die interessanten Strukturen zeigen, ergibt sich kein zweidimensionales
-Voigtprofil, wie man es naiverweise annehmen könnte. Die diagonale Struktur A
+Die Strukturen zeigen, dass sich kein zweidimensionales
+Voigtprofil ergibt. Die diagonale Struktur A
 resultiert aus der \textit{Zweiphotonen-Resonanz}. Dabei ist die Summenfrequenz
 der ersten beiden Anregungsschritte gleich der Übergangsfrequenz vom
-Grundzustand zum zweiten angeregten Niveau. Auch bei relativ großer Verstimmung
-zum Zwischenniveau erhält man noch signifikante Zählraten. Die Struktur B
-zeigt die \textit{Einphotonen-Resonanz} bei resonantem ersten Übergang. Auch
-hier ergeben sich signifikante Zählraten bei großer Verstimmung des zweiten Schrittes, aber
-wesentlich weniger als bei der Zweiphotonen-Resonanz. Hält man im Gegensatz dazu
-den zweiten Schritt resonant fest und verstimmt den ersten Schritt, fällt die
-Ionisatzionseffizient sehr schnell ab (Struktur C). Dies ist leicht einzusehen,
-denn es ist bei mehrfach resonanter Anregung wesentlich effizienter, wenn die starke
-Populationsabnahme durch nicht-Resonanz erst in höheren Niveaus eintritt als
-schon in den unteren Niveaus.
+Grundzustand (GZ) zum zweiten angeregten Zustand (SES, \textit{second excited
+state}).
+Auch bei relativ großer Verstimmung zum SES erhält man entlang dieser Linie noch
+signifikante Übergangsraten.
+Die Struktur B zeigt die \textit{Einphotonen-Resonanz} bei resonantem ersten Übergang. Auch
+hier ergeben sich deutlich erhöhte Raten bei großer Verstimmung des zweiten
+Schrittes, aber bereits deutlich schwächer als bei der Zweiphotonen-Resonanz.
+Hält man im Gegensatz dazu den zweiten Schritt in Resonanz und verstimmt den
+ersten Schritt, fällt die Ionisatzionseffizient sehr schnell ab (Struktur C), da
+diese maßgeblich von der Population des ersten angeregten Zustandes
+(FES, \textit{first excited state}) abhängt. Weitere Anregungen
+bis zur Ionisation werden somit weitaus unwahrscheinlicher, als wenn die
+Population erst in höheren Zuständen durch nicht-Resonanz abnimmt.
 
 \subsection{Ionisation}\label{subsec:ionisation}
-Um die Atome letzendlich nach dem letzten Anregungsschritt zu ionisieren, muss
+Um die Atome nach dem letzten Anregungsschritt zu ionisieren, muss
 ein Niveau besetzt werden, das oberhalb des Ionisationspotentials liegt. Dies
-kann durch drei verschiedener Prozesse geschehen: \textit{Feldionisation},
+kann durch drei verschiedene Prozesse geschehen: \textit{Feldionisation},
 \textit{nicht-resonante Photoionisation} und \textit{Autoionisation}. Da die
 ersten beiden Prozesse in diesem Projekt keine Anwendung finden bzw.
-keinen merkenswerten Beitrag haben, seien diese nur am Rande erwähnt und es soll
-näher auf die Autoionisation eingegangen werden.
+keinen nennenswerten Beitrag haben, seien diese nur am Rande erwähnt und es soll
+speziell auf die Autoionisation detailliert eingegangen werden.
 
 \subsubsection{Feldionisation}\label{subsubsec:feldionisation}
-Durch Anlegen eines elektrischen Feldes in der Wechselwirkungsregion mit den
-Lasern kann das Ionisationspotential herabgesenkt werden, wodurch gebundene
-Zustände oberhalb des Ionisationspotentials liegen können und somit durch
-resonante Anregung in diese Zustände eine Ionisation möglich ist. Da allerdings
-hierfür sehr starke Felder nötig sind, kommt es ungünstigerweise zu
-\textit{Stark-Shifts} insbesondere in den Niveaus der unteren Schritte.
+Durch Anlegen eines elektrischen Feldes in der Wechselwirkungsregion kann das
+Ionisationspotential abgesenkt werden, wodurch gebundene Zustände oberhalb des
+Ionisationspotentials zu liegen kommen und somit durch resonante Anregung in
+diese Zustände eine Ionisation möglich ist. Da allerdings hierfür
+vergleichsweise starke Felder nötig sind, kommt es ungünstigerweise zu
+\textit{Stark-Shifts}\footnote{Der \textit{Stark-Shift} bezeichnet die
+energetische Aufspaltung (Aufhebung der Entartung) atomarer oder molekularer
+Zustände in Anwesenheit eines externen elektrischen Feldes (analog zum
+Zeeman-Effekt bei externen magnetischen Feldern).}.
 %TODO: Bild Feldionisation, nicht-resonante Ionisation
 
 \subsubsection{nicht-resonante
@@ -841,32 +837,44 @@ Photoionisation}\label{subsubsec:nicht-resonante_photoionisation}
 Neben resonanten Übergängen sind auch nicht-resonante Anregungen in das
 Kontinuum möglich. Vorraussetzung hierfür ist, dass die gesamte Photonenenergie
 aller Anregungsschritte inklusive der Photonenenergie des ionisierenden Schritts
-größer sein muss als die Energie des Ionisationspotentials
+größer ist als das Ionisationspotential
 ($\hbar\omega_1+\hbar\omega_2+\hbar\omega_3>\E_{IP}$). Da jedoch der
-Wirkungsquerschnitt für solch einen Prozess gegenüber der anderen Prozesse
-sehr unterdrückt ist, wird hierfür ein leistungsstarker Laser
-benötigt, was mit einem hohen experimentellen Aufwand verbunden und unselektiv
-ist.
+Wirkungsquerschnitt für solch einen Prozess gegenüber resonanten Prozessen
+stark unterdrückt ist, wird hierfür sehr hohe Laserleistung
+benötigt.
 
 \subsubsection{Autoionisation}\label{subsubsec:autoionisation}
-Bei der in diesem Projekt verwendeten Autoionisation sind Zustände nötig, die
-oberhalb des Ionisationspotentials liegen. Bei komplexen Atomen wie dem hier
-verwendeten Uran kommt es häufig vor, dass bestimmte Anregungsschritte durch die
-Anregung zweier Elektronen charakterisiert sind. Obwohl diese Zustände
-gebunden sind, kann ihre Gesamtenergie das Ionisationspotential
-übersteigen. Weiterhin gibt es starke Überlappungen der
-Elektronen-Wellenfunktionen, was einen Energieübertrag zwischen zwei Elektronen begünstigt und so zu sehr schnellen Zerfällen in ein Elektron und ein Ion führt. Die Lebensdauer solcher Zustände
-kann bis zu 3-4 Größenordnungen kleiner sein als die der Zustände unterhalb des
-Ionisationspotentials, wobei die spektrale Breite gemäß der
-Unschärferelation entsprechend größer ist. Der Vorteil gegenüber den anderen
-Prozessen ist die Möglichkeit, Atome ohne störende Einflüsse (Stark-Shifts)
-resonant zu ionisieren, wobei für den ionisierenden Schritt nur moderate cw\footnote{cw:
-"`continuous wave"', zu deutsch: "`kontinuierliche Welle"', Bezeichnung für Dauerstrichlaser}-Laserleistungen von
-wenigen $100\,$mW nötig sind und gleichzeitig vergleichbar hohe
-Wirkungsquerschnitte erzielt werden. Die autoionisierenden Übergänge sind
-allerdings ununterscheidbar von den nicht-resonanten Prozessen, wodurch
-beide Prozesse miteinander interferieren. Dazu betrachtet man als Endzustand
-eine Linearkombination aus einem diskreten Niveau und dem Kontinuum:
+% Anders als z.B. beim Wasserstoffatom haben komplexe Atome kein flaches
+% Anregungsspektrum in das \textit{Kontinuum}, welches alle Zustände, die ein
+% Elektron frei vom Atom beschreiben, zusammenfasst. Es sind hingegen sog.
+% \textit{autoionisierende Resonanzen} in der Form von mehreren GHz breiten Peaks
+% zu beobachten. Das Zustandekommen dieser Strukturen lässt sich durch Anregung
+% mehrerer Elektronen in der Hülle des Atoms erklären, wobei die Elektronen die
+% Energie an ein Valenzelektron abgeben und dieses sich vom Restatom lösen kann.
+% Die Gesamtenergie der Anregung muss dabei oberhalb des Ionisationspotentials
+% liegen.
+Für die in diesem Projekt verwendete Autoionisation muss das zu untersuchende
+atomare System Anregungszustände besitzen, die oberhalb des
+Ionisationspotentials liegen.
+Bei komplexen Atomen wie Uran kommt es häufig vor, dass bestimmte Anregungsschritte durch die
+Anregung mehrerer Elektronen charakterisiert sind.
+Starke Überlappungen der Elektronen-Wellenfunktionen begünstigen den
+Energieübertrag zwischen den Elektronen, wodurch ein Valenzelektron energetisch über das Ionisationspotential
+gehoben werden kann und das Atom in ein Ion und ein freies Elektron zerfällt.
+Dazu muss die Gesamtenergie der Anregung oberhalb des Ionisationspotentials
+liegen.
+Die Lebensdauer solcher Zustände kann bis zu 3-4 Größenordnungen kleiner sein
+als die der Zustände unterhalb des Ionisationspotentials, wobei die spektrale
+Breite gemäß der Unschärferelation entsprechend größer ist.
+Sofern diese sog. \textit{autoionisierenden Resonanzen} Linienbreiten aufweisen,
+die nicht wesentlich größer sind als die spektrale Breite des ionisierenden
+Lasers, können die Wirkungsquerschnitte die der nichtresonanten Photoionisation
+um mehrere Größenordnungen überschreiten. Unter Verwendung von
+cw-Lasern\footnote{cw: "`continuous wave"', zu deutsch: "`kontinuierliche
+Welle"', Bezeichnung für Dauerstrichlaser} reichen zur Autoionisation meist
+Leistungen im Bereich von wenigen $100\,$mW aus.\par
+Um den Prozess der Autoionisation theoretisch zu beschreiben, betrachtet man als
+Endzustand eine Linearkombination aus einem diskreten Niveau und dem Kontinuum:
 \begin{equation}\label{eq:uebergang_diskret_kontinuum}
 	\ket{E}=a\ket{\phi}+\int b_\epsilon\ket{\epsilon}\dd\epsilon\,.
 \end{equation}
@@ -896,12 +904,12 @@ dargestellt.
 \end{figure}
 Man erkennt, dass es sowohl konstruktive (Maximum) als auch destruktive
 (Minimum) Interferenzen zwischen den Übergängen in das Kontinuum und Übergänge
-in einen diskreten Zustand gibt. Für $q=0$ findet man bei $\epsilon=0$ ein
-Minimum, die sog. \textit{Window-Resonanz}. Für große $q$ ist die Überhöhung der
-Autoionisation gegenüber der nicht-resonanten Photoionisation näherungsweise
-quadratisch in $q$ und $\sigma$ nähert sich einem Lorentzprofil.\par
+in einen diskreten Zustand gibt. Für den Fall $q=0$ findet man in Resonanz
+bei $\epsilon=0$ ein Minimum, die sog. \textit{Window-Resonanz}. Für große $q$
+ist dagegen die Überhöhung der Autoionisation gegenüber der nicht-resonanten
+Photoionisation näherungsweise quadratisch in $q$ und $\sigma$ nähert sich einem Lorentzprofil.\par
 Komplizierter wird die Beschreibung, wenn man mit einbezieht, dass verschiedene
-Resonanzen und auch Kontinua miteinander interfereieren. Dazu wird allgemein ein
+Resonanzen und auch Kontinua miteinander interferieren. Dazu wird allgemein ein
 Streuprozess betrachtet, bei dem das vor der Streuung gebundene Elektron am
 Ion streut und für $t\to\infty$ sich ein freies Ion-Elektron-System ergibt. Dies
 lässt sich gut mit der \textit{K-Matrix Theorie} beschreiben. Nach
@@ -921,25 +929,22 @@ Für zwei interferierende Resonanzen wurde der Wirkungsquerschnitt in Abb.
 	\eqref{eq:k-matrix_wirkungsquerschnitt} mit $q_2=1000$, $E1=50$, $E2=400$, $\Gamma_1=2$, $\Gamma_2=2$ und
 	verschiedenen $q_1$.}\label{fig:k-matrix_wirkungsquerschnitt}
 \end{figure}
-Danach haben schmale Resonanzen ein asymetrisches Fano-Profil, wenn sie durch
+Danach haben schmale Resonanzen ein asymmetrisches Fano-Profil, wenn sie durch
 eine benachbarte breite Resonanz gestört werden. Auch zu erkennen ist, dass
 Resonanzen mit relativ zu anderen Resonanzen kleinem $q$ wie Window-Resonanzen
 erscheinen.
 
-%\subsection{Uran}\label{subsec:uran}
-
 \subsection{Isotopieverschiebung}\label{subsec:isotopieverschiebung}
-Aufgrund der verschiedenen Kernmasse unterschiedlicher Isotope kommt es zu
-Energieniveauverschiebungen:
+Aufgrund der verschiedenen Kerneigenschaften der Isotope eines Elements kommt es
+zu Energieniveauverschiebungen:
 \begin{equation}\label{eq:isotopieshift}
 	\delta\nu_{IV}=\delta\nu_{ME}+\delta\nu_{FE}\,.
 \end{equation}
 Diese Verschiebungen liegen zwischen einigen $100\,$MHz und einigen GHz. In
 Relation zur Gesamtenergie eines Niveaus, welches bei einigen $100\,$THz liegt,
-sind diese Verschiebungen zwar sehr klein, spielen aber z.B. bei
-Isotopenverhältnisbestimmungen eine große Rolle. Gerade mit schmalbandigen
-cw-Lasern lassen sich dadurch Isotope selektiv anregen. Die Verschiebung ist zum
-einen durch die Massenänderung und zum anderen durch die veränderte Ladungsverteilung des Kerns zu begründen (Masseneffekt $\delta\nu_{ME}$ und Feldeffekt $\delta\nu_{FE}$ in \eqref{eq:isotopieshift}). Der Masseneffekt
+sind diese Verschiebungen zwar klein, aber mit schmalbandigen Lasern gut
+auflösbar. Dadurch können Isotope selektiv angeregt werden.
+Die Verschiebung ist zum einen durch die Massenänderung und zum anderen durch die veränderte Ladungsverteilung des Kerns zu begründen (Masseneffekt $\delta\nu_{ME}$ und Feldeffekt $\delta\nu_{FE}$ in \eqref{eq:isotopieshift}). Der Masseneffekt
 \begin{equation}\label{eq:masseneffekt}
 	\delta\nu_{ME}=K_{ME}\frac{m_{A'}-m_A}{m_{A'}m_A}
 \end{equation}
@@ -953,9 +958,10 @@ der aus der veränderten reduzierten Masse, die sich in einem
 Ein-Elektronen-System ergeben würde, resultiert und dem spezifischen
 Masseneffekt $K_{SME}$, der aus der Änderung der Korrelation aller
 Elektronenimpulse folgt und bestenfalls nur numerisch abgeschätzt werden
-kann. \par Da die Ortsanteile der Wellenfunktionen der Elektronen immer mit dem Ort des
-Kerns überlappen, kommt es bei Veränderung der Kernladungsdichteverteilung auch
-zu einer Energieniveauverschiebung:
+kann. \par
+Da die Ortsanteile der Wellenfunktionen der Elektronen mit Bahndrehimpuls
+$l=0$ mit dem Ort des Kerns überlappen, kommt es bei Veränderung der
+Kernladungsdichteverteilung auch zu einer Energieniveauverschiebung:
 \begin{equation}\label{eq:feldeffekt}
 	\delta\nu_{FE}=K_{FE}\delta\mean{r^2}\,.
 \end{equation}
@@ -964,10 +970,10 @@ nicht stark variieren und in jedem Isotop die gleiche sphärische Symmetrie
 vorliegt, kann die Änderung der Kernladungsdichteverteilung nach geraden
 Potenzen entwickelt werden. In Gl. \eqref{eq:feldeffekt} wurde
 die quadratische (niedrigste) Ordnung dieser Entwicklung eingesetzt.\par
-In der Anwendung unterscheidet man zwischen dem \textit{level-isotope-shift}
-(LIS) und dem \textit{transition-isotope-shift} (TIS). Bei ersterem betrachtet
-man die Energieverschiebung zwischen den Isotopen in Relation zum jeweiligen
-Grundzustandsniveau:
+Generell unterscheidet man zwischen der \textit{level-isotope-shift}
+(LIS) und der \textit{transition-isotope-shift} (TIS). Bei ersterer betrachtet
+man die Energieverschiebung eines Zustands zwischen den Isotopen in Relation zum
+jeweiligen Grundzustandsniveau:
 \begin{equation}\label{eq:LIS}
 	\delta\nu_{IV}^{LIS}(E)=\nu_{A_1}^{GZ_1\leftrightarrow
 	E}-\nu_{A_2}^{GZ_2\leftrightarrow E}\,.
@@ -977,76 +983,46 @@ Der TIS ist durch die Verschiebung des Abstands zweier Energieniveaus definiert:
 	\delta\nu_{IV}^{TIS}(E',E)=\nu_{A_1}^{E'\leftrightarrow
 	E}-\nu_{A_2}^{E'\leftrightarrow E}\,.
 \end{equation}
-Dies ist die in der Praxis sinnvollere Definition, da hier die Verschiebung
-angibt, wie weit das Laserlicht beim Isotopenwechsel verstimmt werden muss, um
-den gleichen Übergang zum Anregen des Isotops zu verwenden. LIS und TIS sind
-über
+Dies ist die in der Praxis nützlichere Definition, da sie die Verschiebung
+angibt, die das Laserlicht verstimmt werden muss, um
+den gleichen Übergang zum Anregen verschiedener Isotope zu verwenden. LIS und
+TIS sind über
 \begin{equation}\label{eq:TIS_LIS_verknuepfung}
 	\delta\nu_{IV}^{TIS}(E',E)=\delta\nu_{IV}^{LIS}(E)-\delta\nu_{IV}^{LIS}(E')
 \end{equation}
 miteinander verknüpft.
 
 \section{Diodenlaser in der RIS}\label{sec:diodenlaser}
-Um hochselektive Isotopentrennung bei der Ionisation und hochaufgelöste
-Spektroskopie zu garantieren, sind schmalbandige Laser nötig. Die ebenfalls in
-der AG Larissa verwendeten gepulst betriebenen Ti:Sa-Laser (Festkörperlaser)
-haben neben den Vorteil der hohen Leistung und dem großen Durchstimmbereich von
-bis zu $300\,$nm aber auch den Nachteil der sehr großen Linienbreite von
-$3$-$5\,$GHz.
-Weiterhin müssen Festkörperlaser mit einem leistungsstarken Pumplaser gepumpt
-werden, was den Betriebsaufwand und die Betriebskosten enorm steigert.
-Farbstofflaser hingegen können bei genügend hohen
-Leistungen\footnote{Die Laserleistung ist ausreichend hoch, wenn die
-Sättigungsleistungen der entsprechenden Übergänge erreicht werden können.}
-Laserlicht mit wesentlich kleinerer Linienbreite liefern. Nachteilig ist
-allerdings der Wartungsaufwand und ein ebenfalls nötiger Pumplaser.\par
-Eine bewährte Alternative sind Diodenlaser. Typische Linienbreiten von Diodenlasern liegen bei wenigen
-MHz. Weiterhin sind viele Diodenlaser wegen ihrer
-kommerziellen Verbreitung sehr kostengünstig. Für den ersten Anregungsschritt im
-Uran wird hier z.B. eine $405\,$nm-Diode verwendet, da ihre momentane
-Verfügbarkeit auf dem Markt durch die BluRay$^\text{\textregistered}$-Laufwerke sehr
-gut ist.
-Eine bisher verwendete $415\,$nm-Diode, welche aus den Entwicklungszeiten der
-BluRay-Laufwerke stammt, ist leider nicht mehr auf dem Markt verfügbar. Diodenlaser im roten Bereich sind
-sehr kostengünstig dank der anhaltenden Markt-Liquidität von CD-Laufwerken. Von
-Nachteil sind die sehr begrenzten spektralen Betriebsbereiche von wenigen nm im blauen bis hin zu $50\,$nm im roten Spektralbereich. Möchte man Wellenlängen außerhalb dieser Bereiche erreichen, kommt man um einen
-Diodenwechsel nicht herum. Viele spektrale Bereiche sind auch garnicht
-erreichbar, da es schlicht keine Dioden in diesen Bereichen gibt. Lösung
-hierfür kann u.U. Frequenzverdopplung leistungsstarker Diodenlaser sein.
-Kontinuierlich durchstimmbar sind Diodenlaser dank eines zusätzlichen, externen,
-verstimmbaren Resonators bis zu $30\,$GHz. Dieser Bereich ist ausreichend, um Isotopieverschiebungen abzudecken und hochauflösende Spektroskopie zu betreiben.\par Im Folgenden soll die Funktionsweise der hier
-verwendeten Diodenlaser erklärt werden. Die dabei verwendete Literatur besteht
-weitgehendst aus den Lehrbüchern \cite{demtroeder:ex3}, \cite{chow:semiconductor-laser} und der
-Arbeit \cite{schumann:2001:diplomarbeit}.
+Um hochaufgelöste Spektroskopie oder hochselektive Isotopentrennung
+durchzuführen, sind schmalbandige Laser nötig. Die ebenfalls in der AG Larissa
+verwendeten gepulst betriebenen Ti:Sa-Laser (Festkörperlaser) haben neben dem
+Vorteil hoher Leistung und großen Durchstimmbereichen von bis zu $300\,$nm den
+Nachteil großer Linienbreite von $3$-$5\,$GHz.\par
+Als schmalbandige Laser kommen Diodenlaser zum Einsatz, deren typische
+Linienbreiten bei wenigen MHz liegen. Ihre spektralen Betriebsbereiche sind
+wenige nm im blauen und bis zu $50\,$nm im roten Spektralbereich. Mithilfe eines externen Resonators können Diodenlaser bis zu $30\,$GHz kontinuierlich
+verstimmt werden, was zur Abdeckung der Isotopieverschiebungen und für
+hochauflösenden Spektroskopie ausreichend ist.\par
+Im Folgenden soll die Funktionsweise der hier verwendeten Diodenlaser erklärt
+werden. Die dabei verwendete Literatur besteht weitgehendst aus den Lehrbüchern
+\cite{demtroeder:ex3}, \cite{chow:semiconductor-laser} und der Arbeit
+\cite{schumann:2001:diplomarbeit}.
 
 \subsection{Prinzip des Halbleiterlasers}\label{subsec:prinzip_halbleiterlaser}
 Wie in Abschn. \ref{sec:licht-atom-wechselwirkung} bereits ausführlich erklärt
 wurde, treten bei der Licht-Atom-Wechselwirkung die drei Prozesse
 \textit{Absorption}, \textit{stimulierte Emission} und \textit{spontane Emission} auf. Auch wurde
-gezeigt, dass in einem rein optisch betriebenen Zwei-Niveau-Systemen keine
+gezeigt, dass in einem rein optisch betriebenen Zwei-Niveau-System keine
 Besetzungsinversion möglich ist.
 Möchte man allerdings in dem sog. \textit{aktiven Medium} eines Lasers eine Lichtverstärkung
 hervorrufen, muss die Emissionsrate die Absorptionsrate überwiegen. Das aktive Medium ist der von einem Resonator
 umgebene Bereich eines Lasers, in dem durch stimulierte Emission eine
 Verstärkung des Lichtfelds hervorgerufen wird. Dabei stammt das stimulierende
 Lichtfeld vom getriebenen Übergang des selben aktiven Mediums und bildet eine
-stehende bzw. fortlaufende Welle in einem Fabry-Parot- bzw. Ring-Resonator aus.
+stehende bzw. fortlaufende Welle in einem Fabry-Perot- bzw. Ring-Resonator aus.
 Ein Teil des Lichts im Resonator wird als Nutzlicht ausgekoppelt. Der andere Teil wird zur Verstärkung verwendet. Eine
 Besetzungsinversion liegt dann vor, wenn die Besetzungswahrscheinlichkeit des
 angeregten Zustands größer als $50\%$ ist.
-% Mit dieser Bedingung kann die Ratengleichung \eqref{eq:raten_gleichung} mit
-% Vernachlässigung der spontanen Emission\footnote{Die spontane Emission kann
-% hier vernachlässigt werden, da beim Laserbetrieb die stimulierte Emission der
-% spontanen Emission weit überlegen ist. Ein Überwiegen der spontanen Emission
-% würde bei Halbleiterlasern dem Betrieb einer Leuchtdiode (LED) entsprechen.}
-% durch
-% \begin{equation}\label{eq:laserbedingung}
-% 	\dot N_2=-(N_2-N_1)B_{21}w(\nu)<0
-% 	\quad\text{mit}\quad
-% 	\abs{B_{21}}=\abs{B_{12}}
-% \end{equation}
-% ausgedrückt werden, wobei der Index 1 den Grundzustand und der Index 2 den
-% angeregten Zustand bezeichnen.
 Da durch rein optisches Pumpen in einem
 2-Niveau-System keine Besetzungsinversion möglich ist, kann beispielsweise
 elektrisch gepumpt werden, was mit Halbleitern möglich ist und in Abschn.
@@ -1074,19 +1050,17 @@ In diesem Kapitel wird das Verständnis des \textit{Bändermodells} vorausgesetz
 Dabei sei auf das Lehrbuch \cite{demtroeder:ex3} verwiesen.\par
 Als Übergang in
 einem Halbleiterlaser bedient man sich zweier benachbarter Energiebänder, die
-als Quasi-Zwei-Niveau-System\footnote{Quasi-Zwei-Niveau-System deshalb, weil
-die Bänder nicht scharf, sondern verschmiert sind und der Übergang nicht
-in einem Atom, sondern in einem Festkörper-Kristall ist.} angesehen werden
+als Vier-Niveau-System angesehen werden
 können und deren Bandlücke der Energie des emittierten Lichts entspricht.
 Das energetisch höher liegende Band wird \textit{Leitungsband}, das untere
 \textit{Valenzband} genannt, wobei die Bänder so gewählt sind, dass das
 Ferminiveau dazwischen liegt. Dies bedeutet, dass das Valenzband im Grundzustand
-bei $T=0$ noch mit negativen Ladungsträgern, Elektronen, besetzt ist, das
-Leitungsband jedoch nicht mehr. Für $T>0$ verschmiert diese diskrete
-Energiegrenze. Durch Einbringen von Donatoren bzw.
-Akzeptoren, Elemente mit einem Valenzelektron bzw. mit einer bis auf ein
-Elektron vollen äußeren Schale, kann man Halbleiter negativ bzw. positiv
-dotieren. Die Grundzustände der Donatoren bzw. Akzeptoren liegen unterhalb des
+bei $T=0$ noch mit Ladungsträgern besetzt ist, das
+Leitungsband jedoch nicht. Für $T>0$ verschmiert diese diskrete
+Energiegrenze. Ein typisches Halbleiterelement ist Silicium, welches vier
+Valenzelektronen besitzt. Durch Einbringen von Donatoren bzw.
+Akzeptoren, Elementen mit einem Valenzelektron mehr bzw. weniger, kann man
+Halbleiter negativ bzw. positiv dotieren. Die Grundzustände der Donatoren bzw. Akzeptoren liegen unterhalb des
 Leitungs- bzw. oberhalb des Valenzbandes (siehe
 \ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_a}).
 \begin{figure}[h]
@@ -1121,12 +1095,13 @@ Leitungs- bzw. oberhalb des Valenzbandes (siehe
 \end{figure}
 Somit stellt
 man im n-dotierten Halbleiter frei bewegliche Elektronen und im p-dotierten Halbleiter frei bewegliche positive
-Ladungsträger, auch \textit{Löcher} genannt, zur Verfügung. Diese sog.
-\textit{Majoritätsladungsträger} können bei Zusammenbringen von einem
-n-dotierten und einem p-dotierten Halbleiter in den jeweiligen anderen
-Halbleiter diffundieren, wo sie dann \textit{Minoritätsladungsträger} sind, und
-rekombinieren miteinander. Somit entsteht in der Grenzregion im Gleichgewicht
-ein sog. \textit{Makropotential} mit der \textit{Diffusionsspannung} $V_D$. Da
+Ladungsträger, auch \textit{Löcher} genannt, zur Verfügung
+(\textit{Majoritätsladungsträger}). Beim Zusammenbringen von n- und p-dotierten
+Halbleitern entsteht ein Konzentrationsgradient der
+Ladungsträger. Durch die Diffusionskraft diffundieren die
+Majoritätsladungsträger in den jeweils andere Halbleiter, wo sie dann
+\textit{Minoritätsladungsträger} genannt werden. Somit entsteht in der
+Grenzregion im Gleichgewicht ein sog. \textit{Makropotential} mit der \textit{Diffusionsspannung} $V_D$. Da
 das Ferminiveau als chemisches Potential in beiden Teilen des Halbleiters gleich
 sein muss, verschieben sich die Bänder um $eV_D$ (siehe
 \ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_b}). Bei starker Dotierung
@@ -1136,17 +1111,17 @@ stark mit Löchern und das Leitungsband des n-dotierten Bereichs stark mit
 Elektronen besetzt ist (siehe
 \ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_c}). Legt man nun eine Spannung $U$ an, die die Niveauverschiebung der beiden Halbleiterteile
 kompensiert, können die Elektronen im Leitungsband des n-dotierten Bereichs mit
-den Löchern im Valenzband des p-dotierten Bereichs rekombinieren, worauf hin
-die Emission eines Photons erfolgt (siehe
-\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_d}). Beim Anlegen der
-Spannung entstehen \textit{Quasi-Ferminiveaus} $E_F^n$ und $E_F^p$ der beiden Dotierungen mit
+den Löchern im Valenzband des p-dotierten Bereichs rekombinieren, was mit der
+Emission von Photonen verbunden sein kann (siehe
+\ref{fig:pn-halbleiter}\subref{subfig:pn-halbleiter_d}).
+Beim Anlegen der Spannung entstehen \textit{Quasi-Ferminiveaus} $E_F^n$ und $E_F^p$ der beiden Dotierungen mit
 \begin{equation}\label{eq:quasi-ferminiveaus}
 	U=\frac{\left(E_F^n-E_F^p\right)}{e}\,.
 \end{equation}
-Die Endspiegel des Resonators werden durch Bruchflächen der Halbleiterkristalls
-mit einer Reflektivität von ca. $30\,\%$ realisiert, wobei der Resonator
-zwischen den n- und p-Schichten ca. $1\,$µm dick, $10\,$µm breit und $250\,$µm
-lang ist. Um die durch Rekombination verarmenden Niveaus wieder aufzufüllen,
+Die Endspiegel des Resonators werden durch die Abschlussflächen des
+Halbleiterkristalls mit einer Reflektivität von ca. $30\,\%$ realisiert, wobei der Resonator
+zwischen den n- und p-Schichten typischerweise etwa $1\,$µm dick, $10\,$µm breit
+und $250\,$µm lang ist. Um die durch Rekombination verarmenden Niveaus wieder aufzufüllen,
 muss ein konstanter Strom fließen.
 
 \subsubsection{Heteostrukturen}\label{heterostrukturen}
@@ -1184,19 +1159,20 @@ Stromdichte $J$. Insgesamt findet man dann für die Schwellenstromdichte
 \begin{equation}\label{eq:schwellenstromdichte}
 	J_{th}=\frac{e\gamma_{nr}d}{\eta}\left[N_g+\frac{\alpha_{abs}-\nicefrac{\mathrm{ln}{\left(R_1R_2\right)}}{2L}}{A_g\Gamma}\right]\,.
 \end{equation}
-Hieraus ist ersichtlich, dass allein durch Verkleinerung der aktiven Schicht die
+Hieraus ist ersichtlich, dass durch Verkleinerung der aktiven Schicht die
 Schwellenstromdichte veringert werden kann. Zum einen können die
-Brechnugsindizes räumlich so verändert werden, dass sie durch Totalrefelxion die
+Brechungsindizes räumlich so verändert werden, dass sie durch Totalrefelxion die
 aktive Schicht weiter einengen (\textit{optical confinement}). Zum anderen ist
 es möglich, durch bestimmte Strukturen der Bandenergien einen engeren Einschluss
 der Ladungsträger zu erreichen (\textit{electrical confinement}). In sog.
 \textit{Heterostrukturen} werden diese beiden Effekte ausgenutzt, in dem man
 mehrere Schichten von dotierten Halbleitern kombiniert. Dabei ist darauf zu
 achten, dass sich die verschiedenen Kristalle in der Struktur ähneln, damit
-keine Störstellen entstehen. In Abb. \ref {fig:heterostrukturen} sind einige
-Heterostrukturen und ihre Auswirkungen auf die Bandlücke und Brechungsindizes
-dargestellt. Laserdioden mit der zunächst einmal eindimensionalen Einengung
-senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
+möglichst keine Störstellen entstehen. In Abb. \ref{fig:heterostrukturen} sind
+einige Heterostrukturen sowie die zugehörigen Bandlücke und Brechungsindizes
+dargestellt. Durch die Einengung der aktiven Schicht konzentriert sich auch
+entsprechend die Ausstrahlung $M$, wie Abb. \ref{fig:heterostrukturen} zeigt.
+Laserdioden mit der zunächst einmal eindimensionalen Einengung senkrecht zu den Schichten nennt man \textit{kantenemittierende} Laserdioden.
 \begin{figure}[h]
 	\centering
 	\fbox{
@@ -1261,9 +1237,9 @@ Im \textit{Single-Mode}-Laserbetrieb ist man bestrebt nur die fundamentale Mode
 TEM$_{00,q}$ zu erzeugen. Dies ist allerdings nur mit räumlich sehr eingeengten
 Resonatoren möglich. Deshalb haben Single-Mode-Laserdioden eine aktive
 Schicht mit einer Ausdehnung von $3\,$µm in lateraler und $1\,$µm in
-transversaler Dimension und können Ausgangsleistungen von bis zu $150$mW erreichen. Höhere
-Ausgangsleistungen von bis zu $4$W sind nur mit größeren aktiven Schichten von
-$50$ bis $400\,$µm in lateraler und $1$ bis $3\,$µm in transversaler Dimension
+transversaler Dimension und können nur begrenzte Ausgangsleistungen von bis zu
+$150\,$mW erreichen. Höhere Ausgangsleistungen von bis zu $4\,$W sind nur mit
+größeren aktiven Schichten von $50$ bis $400\,$µm in lateraler und $3\,$µm in transversaler Dimension
 erreichbar.
 Der sog. \textit{freie Spektralbereich} des Resonators ist der spektrale Abstand
 zweier möglichen Moden, die anschwingen können und ergibt sich für TEM$_{00,q}$
@@ -1271,29 +1247,29 @@ Moden zu
 \begin{equation}\label{eq:FSR_TEM-moden}
 	\text{FSR}_{00,q}=\frac{c}{2d}\,.
 \end{equation}
-Da die typischen Werte des FSRs von Single-Mode-Dioden im infraroten
-Spektralberech bei $150$ bis $600\,$GHz liegen und somit nur um ca. ein zehntel
-kleiner sind als das Verstärkungsprofil eines Diodenlasers in diesem Bereich
-($30$ bis $50\,$nm), kann praktisch nur die fundamentale Mode anschwingen.
+Da die typischen Werte des FSRs von infraroten Single-Mode-Laserdioden bei $150$
+bis $600\,$GHz liegen und somit nur um ca. ein Zehntel kleiner sind als das
+Verstärkungsprofil eines Diodenlasers in diesem Bereich ($30$ bis $50\,$nm), kann praktisch nur die fundamentale Mode anschwingen.
 
 \subsubsection{Externer Resonator}\label{subsubsec:externer_resonator}
-Die Frequenz lässt sich durch Variation von Strom und Temperatur verstimmen. Ein
-höherer Strom führt zu einer stärkeren Besetzung des Valenzbandes und somit zu
-einer kleineren effektiveren Energielücke bzw. kleineren Frequenz. Gleichzeitig
+Die Frequenz eines Diodenlasers lässt sich durch Variation von Strom und
+Temperatur verstimmen.
+Ein höherer Strom führt zu einer stärkeren Besetzung des Valenzbandes und somit zu
+einer kleineren effektiven Energielücke bzw. kleineren Frequenz. Gleichzeitig
 wird allerdings durch Erhöhung des Brechungsindexes die Eigenfrequenz des
 Resonators verringert. Selbstverständlich erhöht sich auch die Leistung des
-Lasers. Eine Temperaturerhöhung bewirkt auch eine stärkere Besetzung des
-Valenzbandes und ebenfalls einen größeren Brechnungsindex.\par
+Lasers. Eine Temperaturerhöhung bewirkt gleichermaßen eine stärkere Besetzung
+des Valenzbandes und ebenfalls einen größeren Brechnungsindex.\par
 Da Strom und Temperatur jeweils auf zwei verschiedene Arten Einfluss auf die
 Frequenz haben, müssten diese Parameter simultan variiert werden, was
 allerdings enormen Einschränkungen unterliegt. Ein zu höher Strom zerstört die
 Diode. Zu niedrige Temperaturen führen zur Kondensation von Wasser an der Diode
 und zu hohe Temperaturen zur Überhitzung. Zur größeren Verstimmbarkeit und wesentlich
-höheren spektralen Selektivität verwendet man deshalb externe Resonatoren. Dabei
-verwendet man ein Gitter, dessen erste Ordnung wieder in die Diode
-zurückgekoppelt wird. Die Rückkopplung führt zur Verstärkung des selektierten Spektrums. Die
-nullte Ordnung wird als Nutzstrahl ausgekoppelt. Dabei gibt es zwei typische
-Aufbauten.\par
+höheren spektralen Selektivität werden deshalb externe Resonatoren eingesetzt.
+Dabei verwendet man ein Gitter, dessen erste Ordnung wieder in die Diode
+zurückgekoppelt wird. Die Rückkopplung führt zur Verstärkung des selektierten
+Spektralbereichs. Die nullte Ordnung wird als Nutzstrahl ausgekoppelt. Dabei
+gibt es zwei typische Aufbauten.\par
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
@@ -1329,10 +1305,10 @@ Diode gekoppelt. Die Wellenlänge
 \end{equation}
 ist nun vom Winkel des Spiegels abhängig. Durch die zweifache Frequenzselektion
 am Gitter erreicht man wesentlich schmalere Linienbreiten, verliert jedoch
-Leistung. Beim Verdrehen von Gitter bzw. Spiegel muss darauf geachtet werden,
-dass ebenfalls die Resonatorlänge angepasst werden muss. Dies kann durch
-eine geschickt gewählte Drehachse realisiert werden.\par
-Die anschwingende Mode kombiniert sich nun aus internem und externem Modenprofil
+Leistung. Beim Verdrehen des Gitter im Littrow-Design bzw. des Spiegel im
+Littmann-Design muss darauf geachtet werden, dass ebenfalls die Resonatorlänge
+angepasst wird. Dies kann durch eine geschickt gewählte Drehachse realisiert
+werden.\par Die anschwingende Mode kombiniert sich nun aus internem und externem Modenprofil
 wie in Abb. \ref{fig:moden_frequenzselektion} dargestellt.
 \begin{figure}[h]
 	\footnotesize	
@@ -1371,8 +1347,8 @@ Nachteil ist, dass die Diode alleine nicht mehr als Laserdiode verwendet werden 
 der notwendige Resonator fehlt.
 
 \subsubsection{Leistung}\label{subsubsec:diodenlaser_leistung}
-Für den autoionisierenden Schritt werden gewöhnlich sehr viel höhere Leistungen
-($>200\,$mW) benötigt als mit Single-Mode-Dioden möglich ist. Mit einen
+Für den autoionisierenden Schritt in der RIS werden gewöhnlich sehr viel höhere
+Leistungen ($>200\,$mW) benötigt als mit Single-Mode-Dioden möglich ist. Mit einen
 \textit{Trapezverstärker} können im roten Bereich durch
 \textit{Injection-Seeding} Leistungen von über $1\,$W erreicht werden. Nähere
 Erklärungen finden sich in \cite{schumann:2001:diplomarbeit}.

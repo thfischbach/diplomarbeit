@@ -25,11 +25,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.0000001"
-     inkscape:cx="140.92205"
-     inkscape:cy="10.142289"
+     inkscape:cx="188.83426"
+     inkscape:cy="88.677924"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      inkscape:window-width="1280"
      inkscape:window-height="962"
      inkscape:window-x="-8"
@@ -55,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -257,25 +257,27 @@
            id="tspan4128">Resonator</tspan></tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 376.27423,84.203187 393.01064,50.730384"
+       d="m 396.11914,89.762177 -3.1085,-39.031793"
        id="path4099"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 396.35792,162.86427 15.06276,18.41004"
+       d="m 376.11914,149.76218 10,30"
        id="path4101"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
        style="font-size:66.94561005px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="372.71774"
-       y="192.36218"
+       x="361.11914"
+       y="189.76218"
        id="text4069-7-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4071-7-2"
-         x="372.71774"
-         y="192.36218"
+         x="361.11914"
+         y="189.76218"
          style="font-size:12px">Glasplatte</tspan></text>
     <text
        xml:space="preserve"
@@ -308,10 +310,11 @@
     <rect
        style="opacity:0.5;fill:#006680;fill-opacity:0.49803922;stroke:#006680;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect3007"
-       width="8.3682013"
+       width="5.2597117"
        height="66.94561"
-       x="393.01065"
-       y="92.571388" />
+       x="360.36691"
+       y="-240.08656"
+       transform="matrix(0.67513324,0.73769581,-0.73769581,0.67513324,0,0)" />
     <rect
        style="opacity:0.5;fill:#006680;fill-opacity:0.49803922;stroke:#006680;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect3007-3"

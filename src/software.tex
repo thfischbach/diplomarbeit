@@ -80,7 +80,7 @@ All dies muss innerhalb eines Rampenzyklus (also innerhalb von maximal
 $17\,$ms) geschehen, damit keine Information verloren geht. Im schlimmsten Fall
 bleiben dem Mikrocontroller für die Berechnungen nach dem Auslesen der Counter
 nur ca. $2\,$ms (fallende Rampe). Aus diesem Grund wurde das Programm möglichst
-performant gestaltet.\par
+effizienz gestaltet.\par
 Es wird stets eine bestimmte Anzahl von
 Rampenzyklen zusammengefasst und Zeitmittelwerte für die Offset- und Interfringezeiten beider Laser ($t_{OR,i}$, $t_{OD,i}$, $t_{IR,i}$ und $t_{ID,i}$) berechnet. Weiterhin wird aus der
 Standardabweichung der Offsetfringezeiten der Jitter
@@ -138,12 +138,13 @@ PC die FSR-Sprünge zählen zu können. Die Detektion kann natürlich wie schon
 erwähnt nur funktionieren, wenn die Frequenz deutlich langsamer als
 $\nicefrac{\text{FSR}}{2}$ pro Rampenzyklus verstimmt wird. Damit auch bei
 FSR-Sprüngen die Zeiten zur Mittelung beitragen können, werden diese
-anschließend durch subtrahieren bzw. addieren der Interfringezeit korrigiert.\par Für den Referenzlaser ist ein FSR-Sprung aufgrund seiner absoluten Stabilität
+anschließend durch Subtrahieren bzw. Addieren der Interfringezeit korrigiert.\par
+Für den Referenzlaser ist ein FSR-Sprung aufgrund seiner absoluten Stabilität
 bis auf wenige MHz praktisch unmöglich, sofern der Offset der Rampe so
 eingestellt ist, dass der erste Fringe ca.
 $\nicefrac{\text{FSR}}{2}$ nach Start der Rampe auftaucht. Somit bleibt die
 Laserfrequenz mit aller Sicherheit immer in demselben FSR des FPIs. Es
-kommt jedoch vor, dass die Rampe oder das FPI einem Drift unterliegen
+kommt jedoch vor, dass die Rampe oder das FPI einer Drift unterliegen
 und der Referenzlaser scheinbar in einen benachbarten FSR driftet.
 Analog wie beim Diodenlaser wird auch hier der scheinbare FSR-Sprung
 detektiert. In diesem Fall wird aber lediglich die Offsetfringezeit wie beim
@@ -203,7 +204,7 @@ anschließendes Regeln. Alle im Folgenden verwendeten Frequenzangaben sind
 Relativfrequenzen zu einer zu Beginn festgelegten Nullfrequenz. Grundidee ist,
 dass der Laser über das \textit{iScan} sehr schnell in den Bereich der
 Sollfrequenz gefahren wird und anschließend mithilfe des FOLs nachgeregelt wird,
-da ein direktes Anfahren mit dem \textit{iScan} aufgrund seiner Nichtliniearität unmöglich ist. In Kap. \ref{kap:charakterisierung} wird sich zeigen, dass der Fehler bei
+da ein direktes Anfahren mit dem \textit{iScan} aufgrund seiner Nichtlinearität unmöglich ist. In Kap. \ref{kap:charakterisierung} wird sich zeigen, dass der Fehler bei
 alleiniger Verstimmung mit dem \textit{iScan} wenige bis mehr als $100\,$MHz sein kann.
 Dies bedarf einer nicht-trivialen Strategie, die mithilfe der Tab.
 \ref{tab:scan-strategie_abfolge}, der Abb.
@@ -392,9 +393,10 @@ Phase-Frequenz-Beziehung der LUT der \textit{iScans} zu erneuern. Gleichzeitig
 kann auch der FSR des iScans gemessen und ggf. erneuert werden, um die korrekte
 Streckung der Skala zu gewährleisten. Ein Maßstab für die Kalibrierung ist der
 FSR des FPIs, der bis auf wenige $10\,$kHz genau bestimmt werden kann. Diese
-Maßnahmen sorgen für kleinere Fehler im Verstimmen der Laserfrequenz mit dem \textit{iScan}. Wie im Abschn.
+Maßnahmen sorgen für eine Reduktion der Fehler im Verstimmen der Laserfrequenz
+mit dem \textit{iScan}. Wie im Abschn.
 \ref{sec:stabilisierung_frequenzverstimmungs-strategie} deutlich geworden ist,
-sollte der Fehler im schlimmsten Fall nicht größer als $150\,$MHz sein. Neben
+sollte der Fehler im ungünstigsten Fall nicht größer als $150\,$MHz sein. Neben
 dem Aspekt der Sicherheit in der Frequenzberechnung ist es auch wichtig, den
 Fehler des \textit{iScans} mit FOL schnell auszukorrigieren, was eine möglichst
 gute Linearität und einen korrekten FSR des \textit{iScans} fordert. Der grobe Ablauf
@@ -449,8 +451,8 @@ der Daten ist. Für den analogen Eingang des ADC ist dies die Kanalnummer 448.
 Nach Start der Routine sendet die \textit{iScan scan control unit} zeilenweise
 die aktuelle Relativfrequenz und den ADC-Wert. Im Folgenden und mithilfe von
 Abb. \ref{fig:linearisierung_ablaufdiagramm} soll nun der Ablauf einer
-Linearisierungsroutine für ein einzelnes \textit{iScan} erklärt werden. Die
-Software baut auf einer von \textit{TEM-Messtechnik} zur Verfügung gestellten
+Linearisierungsroutine für ein einzelnes \textit{iScan}-System erklärt werden.
+Die Software baut auf einer von \textit{TEM-Messtechnik} zur Verfügung gestellten
 SubVI auf, wobei die Linearisierungsroutine bereits weitgehend implementiert
 war. Die Kalibrierung des Parameters \lstinline|FSR| (vermuteter FSR des
 \textit{iScans}) wurde nachträglich hinzugefügt.\par
@@ -493,8 +495,9 @@ Benutzeroberfläche angezeigt (siehe
 	Die Schrittweite der Frequenzverstimmung war hier
 	$2\,$MHz.}\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
 \end{figure}
-Vor der Weiterverarbeitung des Fringepattern wird dieses zur Glättung mehrfach
-Interpoliert, damit es keine Probleme bei der Positionsbestimmung der Fringes
+Je nach eingestellter Schrittweite und Verweilzeit pro Schritt kann die
+Aufnahme des Fringepatter $30\,$s bis $1\,$min dauern. Vor der
+Weiterverarbeitung des Fringepattern wird dieses zur Glättung mehrfach interpoliert, damit es keine Probleme bei der Positionsbestimmung der Fringes
 gibt. Das interpolierte Fringepattern wird nun in ein
 geschütztes\footnote{Quelltext nicht offen} SubVI von \textit{TEM-Messtechnik} gegeben, das die Fringepositionen detektiert, die Frequenzabstände der Fringes
 untereinander analysiert und ein Array mit der aktuellen Phasenabweichung von
@@ -511,9 +514,9 @@ $[0,\text{\lstinline|FSR|})$ ergeben. Die neuen LUT-Einträge
 \end{equation}
 werden durch Modulation einer Kreisquadratur mit der Phasenkorrektur
 berechnet und in die LUT-Tabelle geschrieben. Ist die
-maximale Frequenzabweichung nach der Korrektur nicht unter einem bestimmten Toleranzwert, wird die Routine ein weiteres Mal durchlaufen,
-wobei die LUT eingangs nicht mehr zurückgesetzt wird. Stattdessen werden
-die neuen Korrekturwerte über
+maximale Frequenzabweichung nach der Korrektur nicht unter einem vom Benutzer
+frei wählbaren Toleranzwert, wird die Routine ein weiteres Mal durchlaufen,
+wobei die LUT eingangs nicht mehr zurückgesetzt wird. Stattdessen werden die neuen Korrekturwerte über
 \begin{equation}\label{eq:LUT_korrektur_02}
 	\Delta\phi_i=\Delta\phi_{i,alt}-\Delta\phi_{i,akt}
 \end{equation}
@@ -626,12 +629,12 @@ In diesem Abschnitt wird der Teil der Software behandelt, der für die Steuerung
 des Experiments und die Aufnahme der Messdaten verantwortlich ist. In Abschn.
 \ref{subsec:messdatenerfassung} soll die softwareseitige Datenaufnahme kurz
 beschrieben werden. Abschnitt \ref{subsec:spektroskopie_software} befasst sich mit den
-Funktionen, die die Möglichkeit bieten Spektroskopische Untersuchungen
+Funktionen, die die Möglichkeit bieten spektroskopische Untersuchungen
 weitgehendst automatisch durchzuführen.\par
 Neben diesen Funktionen ist in naher Zukunft noch die Implementierung von
 Erweiterungen vorgesehen. Es soll eine Steuerung des QMS nachgerüstet werden, um
-Massenscans durchführen zu können. Eine Ofensteuerung ist optional auch geplant.
-Darüber hinaus soll auch eine Routine für Isotopenverhältnismessungen
+Massenscans durchführen zu können. Auch eine Ofensteuerung ist optional geplant.
+Darüber hinaus soll eine automatisierte Routine für Isotopenverhältnismessungen
 programmiert werden. Da der Schwerpunkt dieser Arbeit auf der Entwicklung des
 Lasersystems und dessen Charakterisierung liegt, wurden zunächst nur die dafür
 nötigen Funktionen implementiert.
@@ -648,11 +651,10 @@ können über die SubVIs \lstinline|get_wavemeter_data.vi| und
 \lstinline|get_countrate_data.vi| aus den globalen Variablen ausgelesen
 werden.\par
 Die Wellenlänge wird mit dem Wavemeter gemessen, dessen Software auf einem
-separaten PC läuft. Sie schickt in regelmäßigen Abständen die Wellenänge in nm
-für den Brechungsindex $n=1$ (Vakuumwellenlänge) seriell an den PC, auf dem das
-\textit{Labview}-Programm läuft. Die Daten für die Countrate werden wie schon
-erwähnt von einem \textit{Arduino} aufbereitet und analog zur Wellenlänge an den
-PC geschickt. Der Quelltext des Programms für den \textit{Arduino} ist in Anh.
+separaten PC läuft. Sie schickt in regelmäßigen Abständen die Wellenlänge in nm
+(Vakuumwellenlänge) seriell an den PC, auf dem das \textit{Labview}-Programm läuft. Die Daten für die Countrate werden wie schon
+erwähnt von einem \textit{Arduino} aufbereitet und ebenso an
+den PC geschickt. Der Quelltext des Programms für den \textit{Arduino} ist in Anh.
 \ref{anh:sec:quelltext_arduino_countrate} einzusehen.\par
 Sowohl die Wellenlänge/Frequenz/Wellenzahl als auch die Countrate kann
 permanent auf der Benutzeroberfläche überwacht werden. Weiterhin können die
@@ -663,7 +665,7 @@ aufgezeichnet werden.
 Um atomare Übergänge zu finden und zu charakterisieren ist es nötig, Countraten
 gegen Frequenz aufzunehmen. Abbildung \ref{fig:spektroskopie_benutzeroberflaeche}
 zeigt die Benutzeroberfläche des \textit{Labview}-Programmteils zur
-Spektroskopie.\par
+Spektroskopie.
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
@@ -692,7 +694,7 @@ Es ist möglich, sowohl \textit{eindimensionale Scans} als auch
 versteht man die Countratenaufnahme beim Verstimmen der Frequenz eines Lasers
 und Festhalten der Frequenzen der anderen beiden Laser. Bei zwei- bzw.
 dreidimensionalen Scans wird ein zwei- bzw. dreidimensionales Frequenzraster von
-zwei bzw. allen drei Lasern abgtastet. Dabei wird die Frequenz des Laser in der
+zwei bzw. allen drei Lasern abgetastet. Dabei wird die Frequenz des Laser in der
 ersten Dimension permanent von Start bis Ende durchgefahren und nach jedem
 Durchlauf die Frequenz des Lasers der nächsthöheren Dimension auf den nächsten
 Frequenzschritt eingestellt. Unter \textit{laser behaviour} kann zwischen
@@ -717,9 +719,9 @@ der Werte auf die Relativfrequenz addiert werden soll. In jedem Fall wird die
 Absolutfrequenz in den Header der Aufnahmedatei gespeichert.\par
 Weiterhin kann die Integrationszeit für die Countrate ausgewählt und die Anzahl
 der Wavemeter-Werte, die gemittelt werden sollen, angegeben werden. Da das
-Wavemeter ab und zu Werte in völlig anderen Wellenlängenbereichen detektiert
-(Multimode-Glasfaser), wurde bei der Mittelung darauf geachtet,
-unplausible Werte zu ignorieren.\par
+Wavemeter ab und zu fälschlicherweise Werte in völlig anderen
+Wellenlängenbereichen detektiert (Einflüsse der Multimode-Glasfaser), wurde bei
+der Mittelung darauf geachtet, unplausible Werte zu ignorieren.\par
 Abbildung \ref{fig:spektroskopie_ablaufdiagramm} veranschaulicht noch einmal
 schematisch den allgemeinen Ablauf eines Frequenzscans.
 \begin{figure}[hp]
@@ -736,8 +738,8 @@ Zunächst werden Start- und Stop-Frequenzen und die Schrittweite der Laser
 ermittelt, woraus dann die einzelnen Anzahlen der Schritte berechnet werden.
 Weiterhin werden die Laser ihrer Dimension zugeordnet, wobei für fixierte
 Laser die Schrittanzahl $N=1$ gilt. Die Schleifen hierfür werden
-praktisch nur einmal durchlaufen, wodurch fixe Laser ihrer aktuellen
-Frequenzposition behalten.
+praktisch nur einmal durchlaufen, wodurch fixe Laser ihre aktuellen
+Frequenzpositionen behalten.
 Die drei Dimensionen werden über drei ineinander geschachtelte Schleifen abgearbeitet. Sofern der Scan nicht
 manuell verläuft, wird am Anfang jeder Schleife der Laser der entsprechenden
 Dimension auf die Sollfrequenz des nächsten Schrittes verstimmt. Jedes mal, bevor in die Schleife
@@ -758,7 +760,7 @@ die Scan-Parameter und die Parameter, die zur Modulation der
 Laser-Parameter wichtig sind (siehe Abschn. \ref{subsec:iscan_control_unit}).
 Weiterhin können die Streckfaktoren und Offsets der normierten Signale des
 \textit{iScan heads} editiert werden. Das kann entweder manuell
-oder automatisch über die Routine \textit{Circle Alignement} durchgeführt
+oder automatisch über die Routine \textit{Circle Alignment} durchgeführt
 werden. Diese Routine wurde von \textit{TEM Messtechnik übernommen} und leicht
 modifiziert, damit sie in das Hauptprogramm eingebettet werden konnte. Dabei
 wird der Laser mehrfach um einen \textit{iScan}-FSR in der Frequenz verstimmt

@@ -21,8 +21,8 @@ peak(x) = A*exp(-(x-mu)**2/(2*sigma**2))/(sigma*sqrt(2*pi)) - offsetY
 set fit errorvariables
 fit [mu-n*sigma:mu+n*sigma] peak(x) datafile using 1:2 via A, sigma, mu, offsetY
 
-set label 1 sprintf('$\sigma = (%.3f\pm%.3f)\,$MHz',sigma,sigma_err) at graph 0.1, 0.9
-set label 3 sprintf('$\mu = (%.3f\pm%.3f)\,$MHz',mu,mu_err) at graph 0.1, 0.83
+#set label 1 sprintf('$\sigma = (%.3f\pm%.3f)\,$MHz',sigma,sigma_err) at graph 0.1, 0.9
+#set label 3 sprintf('$\mu = (%.3f\pm%.3f)\,$MHz',mu,mu_err) at graph 0.1, 0.83
 
 n = 5
 

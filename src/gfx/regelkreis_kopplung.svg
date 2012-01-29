@@ -13,8 +13,8 @@
    height="330"
    id="svg3019"
    version="1.1"
-   inkscape:version="0.47 r22583"
-   sodipodi:docname="regelkreis_kopplung.pdf">
+   inkscape:version="0.48.1 "
+   sodipodi:docname="regelkreis_kopplung.svg">
   <defs
      id="defs3021">
     <inkscape:perspective
@@ -293,14 +293,14 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.1694036"
      inkscape:cx="259.55794"
-     inkscape:cy="121.89797"
+     inkscape:cy="177.21271"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1400"
-     inkscape:window-height="975"
-     inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-width="1280"
+     inkscape:window-height="962"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -322,7 +322,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -683,7 +683,7 @@
          x="167.41405"
          y="-68.43782"
          style="font-size:16px;text-align:center;line-height:120.00000477%;text-anchor:middle"
-         id="tspan4517">F-O-L</tspan></text>
+         id="tspan4517">FOL</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow2Mstart);marker-end:none"
        d="m 302.41402,-82.637821 -105,0"
@@ -910,5 +910,5 @@
            height="48.400398"
            x="127.68486"
            y="221.67529" /></flowRegion><flowPara
-         id="flowPara4775"></flowPara></flowRoot>  </g>
+         id="flowPara4775" /></flowRoot>  </g>
 </svg>

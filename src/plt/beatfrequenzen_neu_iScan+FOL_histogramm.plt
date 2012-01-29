@@ -32,5 +32,5 @@ set term epslatex color 10
 set out sprintf('%s.tex',file)
 
 plot datafile using 1:2 smooth freq with boxes,\
-gauss(x) title 'Fit' lc 3 lt 1
+gauss(x) title 'Fit' lc 3 lt 1 lw 2
 unset out

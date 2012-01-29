@@ -14,7 +14,7 @@ set key
 
 set yrange [-100:8000]
 set key inside
-set ylabel 'Relativfrequenz [MHz]'
+set ylabel 'Frequenzverschiebung [MHz]'
 set xlabel 'Zeit [s]
 
 plot datafile using ($1-starttime)/1000:3 with lines title 'Soll-Frequenz', \

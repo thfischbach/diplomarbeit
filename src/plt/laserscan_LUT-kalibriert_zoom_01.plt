@@ -21,7 +21,7 @@ y1 = -7.0; y2 = 7.0; y3 = 3993.0; y4 = 4007.0
 set multiplot
 set xlabel 'Zeit [s]' 0,0.5
 set border 1+2+8
-unset key
+set key inside right bottom
 set xtics nomirror
 set ytics 5
 set lmargin at screen lm
@@ -37,12 +37,12 @@ datafile using ($1-starttime)/1000:4 with points pt 6 lc 2 title 'Ist-Frequenz'
 unset xtics
 unset xlabel
 set border 2+4+8
-set key inside top left
+unset key
 set bmargin at screen bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) ) + gap
 set tmargin at screen bm + size + gap
 set yrange [y3:y4]
 
-set label 'Relativfrequenz [MHz]' at screen 0.03, bm + 0.5 * (size + gap) offset 0,-strlen("Relativfrequenz [MHz]")/4.0 rotate by 90
+set label 'Frequenzverschiebung [MHz]' at screen 0.03, bm + 0.5 * (size + gap) offset 0,-strlen("Frequenzverschiebung [MHz]")/4.0 rotate by 90
 
 set arrow from screen lm - gap / 4.0, bm + size * (abs(y2-y1) / (abs(y2-y1)+abs(y4-y3) ) ) - gap / 4.0 to screen \
 lm + gap / 4.0, bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) ) + gap / 4.0 nohead

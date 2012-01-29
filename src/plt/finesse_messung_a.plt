@@ -6,10 +6,13 @@ datafile = sprintf('../dat/%s.dat',file)
 #set key inside top left
 set xlabel 'Zeit t [ms]'
 #set format x "%.0f"
-set ylabel 'Amplitude U [V]'
+set ylabel 'Amplitude U [V]' 2,0
 set samples 100000
 set xrange [-6:2]
 set yrange [0:0.09]
+set ytics 0.02
+set tmargin 0.1
+set rmargin 0.5
 
 set fit errorvariables
 f(nu)=d/(1+k*sin(a*nu+b)**2)+c
@@ -27,10 +30,10 @@ fit f(x) datafile using 1:2 via k, c, d, a
 
 #latex
 #set label 1 '\small $U(t,\kappa,a,b,c) = b\cdot\frac{1}{1+\kappa \sin^2{(at)}}+c$' at graph 0.25, 0.80
-set label 2 sprintf('$\kappa = %.0f\pm%.0f$',k,k_err) at graph 0.25, 0.73
-set label 3 sprintf('$a = (%.3f\pm%.3f)\,$s$^{-1}$',a,a_err) at graph 0.25, 0.66
-set label 4 sprintf('$b = (%.5f\pm%.5f)\,$V',d,d_err) at graph 0.25, 0.59
-set label 5 sprintf('$c = (%.6f\pm%.6f)\,$V',c,c_err) at graph 0.25, 0.52
+set label 2 sprintf('\tiny$\kappa = %.0f\pm%.0f$',k,k_err) at graph 0.22, 0.60
+set label 3 sprintf('\tiny$a = (%.3f\pm%.3f)\,$s$^{-1}$',a,a_err) at graph 0.22, 0.50
+set label 4 sprintf('\tiny$b = (%.5f\pm%.5f)\,$V',d,d_err) at graph 0.22, 0.40
+set label 5 sprintf('\tiny$c = (%.6f\pm%.6f)\,$V',c,c_err) at graph 0.22, 0.30
 
 #picture
 #set label 2 sprintf('chi^2 = %.4f',FIT_WSSR/FIT_NDF) at graph 0.02, 0.73
@@ -39,7 +42,7 @@ set label 5 sprintf('$c = (%.6f\pm%.6f)\,$V',c,c_err) at graph 0.25, 0.52
 
 #set term windows
 set term push
-set term epslatex color 10 size 14cm,7cm
+set term epslatex color 10 size 7cm,5cm
 set out sprintf('%s.tex',file)
 
 plot datafile using ($1*1000):2 title 'Fringepattern', \

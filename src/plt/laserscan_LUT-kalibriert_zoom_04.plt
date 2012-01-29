@@ -42,7 +42,7 @@ set bmargin at screen bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) ) + g
 set tmargin at screen bm + size + gap
 set yrange [y3:y4]
 
-set label 'Relativfrequenz [MHz]' at screen 0.03, bm + 0.5 * (size + gap) offset 0,-strlen("Relativfrequenz [MHz]")/4.0 rotate by 90
+set label 'Frequenzverschiebung [MHz]' at screen 0.03, bm + 0.5 * (size + gap) offset 0,-strlen("Frequenzverschiebung [MHz]")/4.0 rotate by 90
 
 set arrow from screen lm - gap / 4.0, bm + size * (abs(y2-y1) / (abs(y2-y1)+abs(y4-y3) ) ) - gap / 4.0 to screen \
 lm + gap / 4.0, bm + size * (abs(y2-y1) / (abs(y2-y1) + abs(y4-y3) ) ) + gap / 4.0 nohead
