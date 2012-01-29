@@ -56,9 +56,9 @@ wurde in der Programmiersprache C geschrieben und ist im Anhang
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/ablaufdiagramm_arduino_laser}
 	    }}
 	\caption[Laserdatenaufbereitung -
-	Ablaufdiagramm]{Zu sehen ist das Ablaufdiagramm der
-	Laserdatenaufbereitung mit dem
-	\textit{Arduino}. (j=ja, n=nein)}\label{fig:ablaufdiagramm_arduino_laser}
+	Ablaufdiagramm]{Ablaufdiagramm der Laserdatenaufbereitung mit dem
+	\textit{Arduino}. (j=ja, n=nein)}
+	\label{fig:ablaufdiagramm_arduino_laser}
 \end{figure}
 Der \textit{Arduino} verfügt über 54 digitale Ein- und Ausgänge, welche der
 Kommunikation mit der Counterkarte dienen. HIGH ($5\,$V) bzw. LOW ($0\,$V) wird
@@ -190,10 +190,9 @@ Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/benutzeroberflaeche_laserkontrolle}
 	    }}
 	\caption[Benutzeroberfläche -
-	Laserkontrolle]{Zu sehen ist ein Bildschirmfoto der Benutzeroberfläche
-	der Laserkontrolle. Laser 3 ist
-	momentan in Betrieb, die
-	Regelung ist ausgeschaltet.}\label{fig:benutzeroberflaeche_laserkontrolle}
+	Laserkontrolle]{Bildschirmfoto der Benutzeroberfläche der Laserkontrolle. Laser
+	3 ist in Betrieb, die Regelung ist ausgeschaltet.}
+	\label{fig:benutzeroberflaeche_laserkontrolle}
 \end{figure}
 
 \section{Stabilisierung
@@ -228,8 +227,8 @@ soll.\par
 			6 & \textit{Arduino}-FSR-Nummer $n_{Ard,3}$ abfragen\\
 		\bottomrule[1px]
 	\end{tabular}
-	\caption[Laserfrequenzverstimmungs-Strategie]{Die Tabelle listet die zeitliche
-	Abfolge der Laserfrequenzverstimmungsstrategie auf.}
+	\caption[Laserfrequenzverstimmungs-Strategie]{Zeitliche
+	Abfolge der Laserfrequenzverstimmungsstrategie.}
 	\label{tab:scan-strategie_abfolge}
 \end{table}
 \begin{figure}[h]
@@ -238,9 +237,9 @@ soll.\par
  	\centering
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/frequenzverstimmungs-strategie}
 	    }}
-	\caption[Frequenzverstimmungs-Strategie]{Die
-	Zeichnung veranschaulicht die Frequenzverstimmungs-Strategie,
-	welche im Text näher erklärt wird.}\label{fig:frequenzverstimmungs-strategie}
+	\caption[Frequenzverstimmungs-Strategie]{Frequenzverstimmungs-Strategie,
+	im Text näher erklärt.}
+	\label{fig:frequenzverstimmungs-strategie}
 \end{figure}
 %TODO: Fringe A weiter nach links
 \begin{figure}[hp]
@@ -251,9 +250,8 @@ soll.\par
 	    }}
 	\caption[Frequenzverstimmungs-Strategie
 	-
-	Ablaufdiagramm]{Dargestellt ist das	Ablaufdiagramm der
-	Frequenzverstimmungs-Strategie, die von der SubVI \lstinline|laser-control.vi|
-	implementiert wird. (j=ja, n=nein)}
+	Ablaufdiagramm]{Ablaufdiagramm der Frequenzverstimmungs-Strategie, die von der
+	SubVI \lstinline|laser-control.vi| implementiert wird. (j=ja, n=nein)}
 	\label{fig:frequenzverstimmungs-strategie_ablaufdiagramm}
 \end{figure}
 Naiverweise könnte man die Strategie verfolgen, den zu verstimmenden
@@ -360,8 +358,8 @@ Dieses beinhaltet die in Tab.
 		\bottomrule[1px]
 	\end{tabular}
 	\caption[Shiftregister -
-	\lstinline|laser-control.vi|]{Aufgelistet sind die Shiftregistervariablen der
-	SubVI \lstinline|laser-control.vi|.}
+	\lstinline|laser-control.vi|]{Shiftregistervariablen der SubVI
+	\lstinline|laser-control.vi|.}
 	\label{tab:shiftregister_laserkontrolle}
 \end{table}
 Beim ersten Aufruf der SubVI sind alle Variablen des Shiftregisters außer
@@ -436,9 +434,8 @@ eingestellt werden.
 			und Datenaufnahme)\\
 		\bottomrule[1px]
 	\end{tabular}
-	\caption[Parameter der Verstimmungsoutine]{Aufgelistet ist eine
-	Auswahl der wichtigsten Parameter für die Verstimmungsoutine der
-	\textit{iScans}.}
+	\caption[Parameter der Verstimmungsoutine]{Auswahl der wichtigsten Parameter
+	für die Verstimmungsoutine der \textit{iScans}.}
 	\label{tab:verstimmungsroutine_parameter}
 \end{table}
 Alternativ zu \lstinline|ScanStepSize| kann über \lstinline|Mes_Points| die
@@ -463,9 +460,9 @@ war. Die Kalibrierung des Parameters \lstinline|FSR| (vermuteter FSR des
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_ablaufdiagramm}
 	    }}
 	\caption[Linearisierung der \textit{iScans} -
-	Ablaufdiagramm]{Dargestellt ist das Ablaufdiagramm der
-	Linearisierungsroutine der
-	\textit{iScans}. (j=ja, n=nein)}\label{fig:linearisierung_ablaufdiagramm}
+	Ablaufdiagramm]{Ablaufdiagramm der Linearisierungsroutine
+	der \textit{iScans}. (j=ja, n=nein)}
+	\label{fig:linearisierung_ablaufdiagramm}
 \end{figure}
 Zunächst werden alle relevanten aktuellen \textit{iScan}-Parameter
 zwischengespeichert, damit sie am Ende der Routine wieder zurückgeschrieben
@@ -488,12 +485,11 @@ Benutzeroberfläche angezeigt (siehe
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_fringepattern}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Fringepattern]{Zu sehen ist ein Bildschirmfoto der Ausgabe des Fringepatterns
-	und dessen Interpolation auf der Benutzeroberfläche.
-	\textit{entry no} ist die Stelle eines jeden Elements des
-	Datenarrays (Verstimmungsschritt).
-	Die Schrittweite der Frequenzverstimmung war hier
-	$2\,$MHz.}\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
+	Fringepattern]{Bildschirmfoto der Ausgabe des Fringepatterns und dessen
+	Interpolation auf der Benutzeroberfläche. \textit{entry no} ist die Stelle
+	eines jeden Elements des Datenarrays (Verstimmungsschritt). Die Schrittweite
+	der Frequenzverstimmung war hier $2\,$MHz.}
+	\label{fig:linearisierung_benutzeroberflaeche_fringepattern}
 \end{figure}
 Je nach eingestellter Schrittweite und Verweilzeit pro Schritt kann die
 Aufnahme des Fringepatter $30\,$s bis $1\,$min dauern. Vor der
@@ -532,16 +528,15 @@ lange, bis der Toleranzwert unterschritten wurde. Abbildung
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_phasenkorrektur}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Phasenkorrektur]{Zu sehen ist ein Bildschirmfoto der Ausgabe der
-	Phasenkorrekturwerte auf der Benutzeroberfläche nach erstmaligem Linearisieren.
-	\textit{entry
-	of LUT no} ist die Nummer des Zeileneintrags in der
-	LUT. \textit{relative correction} ist die relative Phasenkorrektur des
-	jeweiligen Eintrags. Dabei entspricht 1 dem vollen Kreis, also $2\pi$. Der
-	weiße Plot beschreibt die vorige Linearitätskorrektur (hier konstant 0, da
-	die LUT eingangs zurückgesetzt wurde). Der rote Plot beschreibt die Korrektur
-	nach Messen der neuen
-	Linearitätsabweichung.}\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
+	Phasenkorrektur]{Bildschirmfoto der Ausgabe der Phasenkorrekturwerte auf der
+	Benutzeroberfläche nach erstmaligem Linearisieren. \textit{entry
+	of LUT no} ist die Nummer des Zeileneintrags in der LUT. \textit{relative
+	correction} ist die relative Phasenkorrektur des jeweiligen Eintrags. Dabei
+	entspricht 1 dem vollen Kreis, also $2\pi$. Der weiße Plot beschreibt die
+	vorige Linearitätskorrektur (hier konstant 0, da die LUT eingangs zurückgesetzt
+	wurde). Der rote Plot beschreibt die Korrektur nach Messen der neuen
+	Linearitätsabweichung.}
+	\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
 \end{figure}
 %TODO: Plots dicker
 Neben der Linearität der \textit{iScans} kann auch die Korrektur des Parameters
@@ -556,7 +551,7 @@ Ausgabe der Abweichung auf der Benutzeroberfläche dargestellt.
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/linearisierung_benutzeroberflaeche_frequenz-abweichung}
 	    }}
 	\caption[Benutzeroberfläche Linearisierung -
-	Frequenzfehler]{Zu sehen ist ein Bildschirmfoto der Ausgabe	des Frequenzfehlers
+	Frequenzfehler]{Bildschirmfoto der Ausgabe des Frequenzfehlers
 	auf der Benutzeroberfläche. Die weißen Punkte sind die einzelnen Abweichungen
 	der Frequenzabstände benachbarter Fringes zum FSR des FPIs. Der rote Plot ist
 	die totale Frequenzabweichung realtiv zur ersten Fringeposition.}
@@ -586,13 +581,11 @@ Folgenden kurz erläutert werden.\par
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/FSR-korrektur}
 	    }}
 	\caption[\textit{iScan}-FSR-Korrektur -
-	Methode]{Die Zeichnung veranschaulicht die Methode für die Korrektur des
-	\text{iScan}-FSRs. In (a) ist Anfang und Ende des
-	Fringepattern zu sehen. (b) zeigt die zur
-	FSR-Korrektur nötigen Größen. Dabei ist $\text{FSR}_{est}$ der
-	angegebene FSR des \textit{iScans} (Parameter
-	\lstinline|FSR|) und $\text{FSR}_{korr}$ der
-	Korrekturwert.}\label{fig:FSR-korrektur}
+	Methode]{Methode zur Korrektur des \text{iScan}-FSRs. In (a) ist Anfang und
+	Ende des Fringepattern zu sehen. (b) zeigt die zur FSR-Korrektur nötigen
+	Größen. Dabei ist $\text{FSR}_{est}$ der angegebene FSR des \textit{iScans}
+	(Parameter \lstinline|FSR|) und $\text{FSR}_{korr}$ der Korrekturwert.}
+	\label{fig:FSR-korrektur}
 \end{figure}
 %TODO: !mit dem Screenshot in ein Bild mit subfloats; außerdem größer
 Zur Berechnung werden die zwei Messpunkte der totalen Abweichung jeweils vor und
@@ -679,9 +672,9 @@ Spektroskopie.
 		}
 	}}
 	\caption[Benutzeroberfläche
-	Spektroskopie]{Abgebildet ist die Benutzeroberfläche für
-	Spektroskopiemessungen mit eindimensionalen Scans. In (a) ist ein manueller
-	Scan zu sehen, wobei Laser 1 und 2 auf ihrer Frequenz festgehalten wurden und Laser 3 manuell mit dem
+	Spektroskopie]{Benutzeroberfläche für Spektroskopiemessungen mit
+	eindimensionalen Scans. In (a) ist ein manueller Scan zu sehen, wobei Laser 1
+	und 2 auf ihrer Frequenz festgehalten wurden und Laser 3 manuell mit dem
 	\textit{iScan} verstimmt wurde. (b) zeigt einen automatischen Scan, bei dem die
 	Frequenzen der Laser 2 und 3 stabilisiert und festgehalten und Laser 1
 	automatisch vertsimmt wurde.}
@@ -731,8 +724,9 @@ schematisch den allgemeinen Ablauf eines Frequenzscans.
 	    \includegraphics[width=\textwidth-0.5cm]{gfx/spektroskopie_ablaufdiagramm}
 	    }}
 	\caption[Spektroskopie -
-	Software-Ablaufdiagramm]{Dargestellt ist das Ablaufdiagramm der
-	Spektroskopie-Routine. (j=ja, n=nein)}\label{fig:spektroskopie_ablaufdiagramm}
+	Software-Ablaufdiagramm]{Ablaufdiagramm der Spektroskopie-Routine. (j=ja,
+	n=nein)}
+	\label{fig:spektroskopie_ablaufdiagramm}
 \end{figure}
 Zunächst werden Start- und Stop-Frequenzen und die Schrittweite der Laser
 ermittelt, woraus dann die einzelnen Anzahlen der Schritte berechnet werden.
