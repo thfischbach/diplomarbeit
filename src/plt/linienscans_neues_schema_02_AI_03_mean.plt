@@ -1,6 +1,6 @@
 clear
 reset
-file = "linienscans_neues_schema_02_AI_01_mean"
+file = "linienscans_neues_schema_02_AI_03_mean"
 datafile = sprintf('../dat/%s.dat',file)
 
 set key inside top right
@@ -55,19 +55,19 @@ a1 = 1
 a2 = 4
 #a3 = 1
 
-q1 = 46.
-q2 = 8.
+q1 = 12.
+q2 = 22.
 #q3 = 12.
 
-gamma1 = 0.00123
-gamma2 = 0.001
-gamma3 = 0.002
+gamma1 = 0.00124
+gamma2 = 0.00366
+#gamma3 = 0.002
 
-E1 = 381.8187
-E2 = 381.8268
+E1 = 379.525
+E2 = 379.529
 #E3 = 381.138
 
-EOffset = 381.0
+EOffset = 379.0
 
 E1 = E1 - EOffset
 E2 = E2 - EOffset
