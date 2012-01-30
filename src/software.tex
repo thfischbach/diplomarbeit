@@ -151,7 +151,7 @@ detektiert. In diesem Fall wird aber lediglich die Offsetfringezeit wie beim
 Diodenlaser korrigiert. Die Zählvariable für den scheinbaren FSR-Sprung
 wird nur noch zu Debugzwecken aufbewahrt. Logischerweise können
 gleichzeitige FSR-Sprünge beider Laser so nicht erkannt werden. In diesem
-sehr unwahrscheinlichen Fall käme es zu Fehlberechnungen der Relativfrequenz.
+sehr unwahrscheinlichen Fall käme es zu Fehlberechnungen des Frequenzabstands.
 Um dennoch sicher zu sein, sollte deshalb regelmäßig auf die Lage des ersten
 He:Ne-Fringes geachtet und ggf. das Offset der Rampe nachkorrigiert werden.\par
 Wurden genügend Rampen durchlaufen, können die aktuellen Mittelwerte aller
@@ -175,7 +175,10 @@ Laserinformationen werden als nicht mehr aktuell gewertet. Aktualität fordernde
 Lesezugriffe auf die Daten warten, bis die Variable wieder gesetzt wurde. Die
 Priorität liegt hier auf der Aktualität der Daten und nicht darauf, möglichst
 jedes Datenpaket zu verarbeiten. Die aktuellen Zeiten können nun separat über
-das SubVI \lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl. \eqref{eq:FPI_frequenzdrift_03} aus den Zeiten die Relativfrequenzen. Das SubVI \lstinline|laser-control.vi|, das in Abschn.
+das SubVI \lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt
+werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl.
+\eqref{eq:FPI_frequenzdrift_03} aus den Zeiten den Frequenzabstand. Das SubVI
+\lstinline|laser-control.vi|, das in Abschn.
 \ref{sec:stabilisierung_frequenzverstimmungs-strategie} näher betrachtet wird,
 hat neben der Regelung und Frequenzverstimmung auf die Sollfrequenz auch die Aufgabe, Monitoringdaten an die Benutzeroberfläche der Laserkontrolle (Abb.
 \ref{fig:benutzeroberflaeche_laserkontrolle}) weiterzugeben. Zu den
@@ -241,7 +244,6 @@ soll.\par
 	im Text näher erklärt.}
 	\label{fig:frequenzverstimmungs-strategie}
 \end{figure}
-%TODO: Fringe A weiter nach links
 \begin{figure}[hp]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
@@ -538,7 +540,6 @@ lange, bis der Toleranzwert unterschritten wurde. Abbildung
 	Linearitätsabweichung.}
 	\label{fig:linearisierung_benutzeroberflaeche_phasenkorrektur}
 \end{figure}
-%TODO: Plots dicker
 Neben der Linearität der \textit{iScans} kann auch die Korrektur des Parameters
 \lstinline|FSR| bestimmt werden. Dazu betrachtet man zunächst die
 Abweichung der \textit{iScan}-Skala zur tatsächlichen Frequenz. In
@@ -587,7 +588,6 @@ Folgenden kurz erläutert werden.\par
 	(Parameter \lstinline|FSR|) und $\text{FSR}_{korr}$ der Korrekturwert.}
 	\label{fig:FSR-korrektur}
 \end{figure}
-%TODO: !mit dem Screenshot in ein Bild mit subfloats; außerdem größer
 Zur Berechnung werden die zwei Messpunkte der totalen Abweichung jeweils vor und
 nach $\nu=0$ bzw. $\nu=\text{\lstinline|FSR|}$ benötigt ($\nu_{i,j}$ und
 $\nu_{err,i,j}$ in Abb. \ref{fig:FSR-korrektur}(b)). Es ist nur von Interesse,
@@ -760,5 +760,3 @@ modifiziert, damit sie in das Hauptprogramm eingebettet werden konnte. Dabei
 wird der Laser mehrfach um einen \textit{iScan}-FSR in der Frequenz verstimmt
 und das Quadratursignal analysiert. Dadurch werden die nötigen Faktoren
 berechnet, damit eine Kreissymmetrie entsteht.
-
-%TODO: !!Ablaufdiagramme: Text größer
