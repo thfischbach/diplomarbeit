@@ -65,9 +65,9 @@ Kommunikation mit der Counterkarte dienen. HIGH ($5\,$V) bzw. LOW ($0\,$V) wird
 als 1 bzw. 0 oder TRUE bzw. FALSE interpretiert. Das Programm besteht aus
 einem
 \textit{Setup}, in dem initialisierende Routinen wie beispielsweise die
-Pinbelegung abgearbeitet werden, und einer \textit{Endlosschleife} (\textit{Start}$\rightarrow$\textit{Programm}$\rightarrow$\textit{Stop}$\rightarrow$\textit{Start}$\rightarrow$\ldots),
-über die die stetige Überwachung der Laser abgewickelt wird. Die Aufgaben des
-Programms sind
+Pinbelegung abgearbeitet werden, und einer \textit{Endlosschleife}
+(\textit{Start}$\rightarrow$\textit{Programm}\\$\rightarrow$\textit{Stop}$\rightarrow$\textit{Start}$\rightarrow$\ldots),
+über die die stetige Überwachung der Laser abgewickelt wird. Die Aufgaben des Programms sind
 \begin{itemize}
 	\item Counter auslesen
 	\item reale Zeiten berechnen
@@ -168,7 +168,7 @@ Die Daten eines jeden Lasers kommen, wie oben erwähnt, als String in
 Zeitabständen eines Vielfachen der Rampendauer am PC an. Damit es zu keinem Pufferstau an
 der seriellen Schnittstelle des PCs kommt, werden die aktuellen Strings direkt
 nach Abschneiden von \lstinline|"*begin*"| und \lstinline|"*end*"| durch das
-SubVI \lstinline|arduino_laser_read.vi| in globale Variablen geschrieben.
+SubVI\\ \lstinline|arduino_laser_read.vi| in globale Variablen geschrieben.
 Parallel wird jeweils eine boolsche Variable gesetzt, die angibt, dass die Laserinformationen aktuell sind. Wird ein String aus einer der
 globalen Variablen gelesen, wird die boolsche Variable zurückgesetzt und die
 Laserinformationen werden als nicht mehr aktuell gewertet. Aktualität fordernde
@@ -177,7 +177,7 @@ Priorität liegt hier auf der Aktualität der Daten und nicht darauf, möglichst
 jedes Datenpaket zu verarbeiten. Die aktuellen Zeiten können nun separat über
 das SubVI \lstinline|get_laser_times.vi| nach Angabe der Lasernummer abgeholt
 werden. Das SubVI \lstinline|delta_time2delta_frequency.vi| berechnet nach Gl.
-\eqref{eq:FPI_frequenzdrift_03} aus den Zeiten den Frequenzabstand. Das SubVI
+\eqref{eq:FPI_frequenzdrift_03} aus den Zeiten den Frequenzabstand. Das SubVI\\
 \lstinline|laser-control.vi|, das in Abschn.
 \ref{sec:stabilisierung_frequenzverstimmungs-strategie} näher betrachtet wird,
 hat neben der Regelung und Frequenzverstimmung auf die Sollfrequenz auch die Aufgabe, Monitoringdaten an die Benutzeroberfläche der Laserkontrolle (Abb.
@@ -185,7 +185,7 @@ hat neben der Regelung und Frequenzverstimmung auf die Sollfrequenz auch die Auf
 Monitoringdaten gehören Jitter des Lasers, Ist-Relativfrequenz und Abweichung
 zur Soll-Relativfrequenz, wobei die detektierten FSR-Sprünge mit einbezogen
 werden müssen. Die Referenzfrequenz ist beim Start des Programms oder beim
-Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
+Drü\-cken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
 \begin{figure}[h]
  	\centering
  	\fbox{\parbox{\dimexpr \linewidth - 2\fboxrule - 2\fboxsep}{
@@ -201,8 +201,8 @@ Drücken des Buttons \lstinline|assign| die derzeit aktuelle Laserfrequenz.
 \section{Stabilisierung
 und
 Frequenzverstimmungsstrategie}\label{sec:stabilisierung_frequenzverstimmungs-strategie}
-Frequenzverstimmung und gleichzeitige Regelung wird von der SubVI \lstinline|laser-control.vi| verwaltet. Die Anforderungen sind möglichst schnelles Anfahren der Sollfrequenz, egal wie groß die Verstimmung ist, und
-anschließendes Regeln. Alle im Folgenden verwendeten Frequenzangaben sind
+Frequenzverstimmung und gleichzeitige Regelung wird von der SubVI\\
+\lstinline|laser-control.vi| verwaltet. Die Anforderungen sind möglichst schnelles Anfahren der Sollfrequenz, egal wie groß die Verstimmung ist, und anschließendes Regeln. Alle im Folgenden verwendeten Frequenzangaben sind
 Relativfrequenzen zu einer zu Beginn festgelegten Nullfrequenz. Grundidee ist,
 dass der Laser über das \textit{iScan} sehr schnell in den Bereich der
 Sollfrequenz gefahren wird und anschließend mithilfe des FOLs nachgeregelt wird,
@@ -403,7 +403,7 @@ gute Linearität und einen korrekten FSR des \textit{iScans} fordert. Der grobe 
 der Linearisierung wurde bereits in Abschn. \ref{sec:iscan_und_fringe-offset-locking} angerissen. Auf die Stabilisierung des FPIs soll hier nicht weiter eingegangen werden, dazu sei auf das Handbuch des \textit{LaseLock} \cite{laselock} verwiesen.\par
 Die \textit{iScan control unit} hat einen analogen Eingang mit
 dahintergeschaltetem \textit{Analog-Digital-Converter} (ADC), über den das
-Photodiodensignal der FPI-Transmission während eines
+Photodiodensignal der FPI-Trans\-mission während eines
 Verstimmungsvorgangs digital aufgenommen werden kann. Um eine Repräsentation der
 (Nicht-)Linearität der \textit{iScans} zu erhalten, wird eine interne
 Frequenzverstimmungsroutine der \textit{iScan control unit} verwendet, die

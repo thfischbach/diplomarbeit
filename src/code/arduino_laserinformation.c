@@ -27,7 +27,7 @@
  ** If [integrate] is >1, workingTime is multiplied
  ** by this value. 
  ** Depending on the Clock Rate (1.25, 2.5, 5 or 10 MHz)
- ** the constant clock must be changed.
+ ** the constant [clock] must be changed.
  ** (for max. times/resolution see EDF0611Boe manual)
  ** For Pin-Setup check the constants below and the
  ** EDF0611Boe manual.
@@ -223,21 +223,17 @@ void loop() {
         //detect FSR-hops
         if ((timeOR[i] - oldTimeOR) > (0.5 * timeIR[i])){
           FSR_number_ref -= 1;
-          //Serial.println("Ref_FSR - 1");      
         } else if ((timeOR[i] - oldTimeOR) < -(0.5 * timeIR[i])){
             FSR_number_ref += 1;
-            //Serial.println("Ref_FSR + 1");       
           } else {    
             if (((timeOD[i] - timeOR[i]) - (oldTimeOD - oldTimeOR))
                 > (0.5 * timeID[i])){
               FSR_number_DL -= 1;
-              //Serial.println("DL_FSR - 1");      
             }
             
             if (((timeOD[i] - timeOR[i]) - (oldTimeOD - oldTimeOR))
                 < -(0.5 * timeID[i])){
               FSR_number_DL += 1;
-              //Serial.println("DL_FSR + 1");       
             }
           }
         
