@@ -83,7 +83,7 @@ Signale für die Counterkarte umgesetzt werden.
 \section{Counterkarte}\label{anh:sec:counterkarte}
 In diesem Abschnitt soll detailliert auf die Elektronik der Counterkarte
 eingegangen werden. An sie werden die TTL-Signale der in Abschn.
-\ref{anh:kap:signalgenerierung_elektronik} erklärten Signalgenerierung für das
+\ref{anh:sec:signalgenerierung_elektronik} erklärten Signalgenerierung für das
 Fringepattern weitergeleitet, mit denen sie die Offsetfringe- und
 Interfringezeiten eines Diodenlasers und des Referenzlasers messen kann.
 Abbildung \ref{fig:counterkarte_schaltplan} zeigt den Schaltplan der
@@ -109,24 +109,24 @@ Rampe) einen verzögerten $1\,$\textmu s langen Puls, mit dem die vier Counter
 des Typs \textit{SN74LV8154PW} zurückgesetzt werden, sofern Jumper \textit{JP2}
 gesetzt ist. Gleichzeitig werden auch die getakteten Flipflops \textit{IC6A/B}
 und \textit{IC15A/B}, deren Ausgänge die Status-Bits darstellen, zurückgesetzt.
-Andernfalls müssen die Counter vor jeder Rampe üer die Anschlüsse
+Andernfalls müssen die Counter vor jeder Rampe über die Anschlüsse
 ($\overline{\text{CLR}}$) oder ($\overline{\text{CLR2}}$) zurückgesetzt werden.
 Über die Lemobuchsen (X1), (X7), (X8) und (X9) erhält die Karte die TTL-Signale
 der Signalgenerierung. Ist eines dieser TTL-Signale HIGH, zählt der
 entsprechende Counter mit der vorgegebenen Taktrate hoch. Beim Eintreten des
 entsprechenden Fringes, also bei fallender Flanke, wird über einen der Bausteine
 \textit{IC5A/B} und \textit{IC14A/B} ein kurzer TTL-Puls ausgelöst, der den
-Counterwerte in die Counterregister schiebt. Gleichzeitig wird über das
+Counterwert in die Counterregister schiebt. Gleichzeitig wird über das
 entsprechende Flipflop das Status-Bit gesetzt.\par
 Über die Anschlüsse (DORR), (DIRR), (DODR) und (DIDR) können die Status-Bits
 ausgelesen werden. Die verschiedenen Counterregister können über (Addr. 0),
 (Addr. 1) und (Addr. 2) adressiert werden. Tabelle
 \ref{tab:adressbus_kodierung} schlüsselt die Adresskodierung auf. Um die
-Adressierung zu aktivieren muss (Enable) auf HIGH gesetzt werden. An (Y0) bis (Y7) liegt dann das Byte des entsprechenden Registers an.\par
-Als Erweiterung wurde auf dieselbe Platine das Interface für einen modularen
+Adressierung zu aktivieren, muss (Enable) auf HIGH gesetzt werden. An (Y0) bis
+(Y7) liegt dann das Byte des entsprechenden Registers an.\par Als Erweiterung wurde auf dieselbe Platine das Interface für einen modularen
 unabhängigen vierfachen 16-Bit DAC implementiert, der die Modulation von
-Laserparametern übernehmen könnte. Somit ist es möglich die Counterkarte auch in Systemen einzusetzen, in
-denen ausschließlich über FOL wird. Ein
+Laserparametern übernehmen könnte. Somit ist es möglich, die Counterkarte auch
+in Systemen einzusetzen, in denen ausschließlich über FOL stabilisiert wird. Ein
 zwischengeschalteter Mikrocontroller würde die Regelung übernehmen. Details über
 den DAC können \cite{counterkarte_laserstabilisierung} entnommen werden.
 \begin{landscape}
@@ -168,7 +168,7 @@ vorgestellt. Es folgt der \textit{Mathematica}-Quelltext für die Simulation:
 \lstinputlisting[]{code/nonius_simulation.txt}
 Abbildung \ref{fig:nonius_FSR_simulation} zeigt die Simulation für verschiedene
 $a$ und $7$ Relativfrequenzen. Angenommen wurde ein FSR von $300\,$MHz. Die
-Wavemetergenauigkeit wurde auf $40\,$MHz festegelegt und die simulierten
+Wavemetergenauigkeit wurde auf $40\,$MHz festgelegt und die simulierten
 Frequenzen entsprechend zufällig variiert.
 \begin{figure}[H]
  	\centering
@@ -191,12 +191,13 @@ Frequenzen entsprechend zufällig variiert.
 		}
 	}}
 	\caption[Simulationen Nonius-Methode]{Plots der
-	Simulationen zur Bestimmung des FSR mit verscheidenen $a$ und $7$ Relativfrequnenzen.}
+	Simulationen zur Bestimmung des FSR mit verschiedenen $a$ und $7$
+	Relativfrequnenzen.}
 	\label{fig:nonius_FSR_simulation}
 \end{figure}
 \section{Laserstabilität}\label{anh:sec:laserstabilitaet}
 In diesem Abschnitt finden sich die Plots des Frequenzverhaltens eines jeden
-Lasers im neuen System und des Lasers für den zweiten Anregungsschitts im alten
+Lasers im neuen System und des Lasers für den zweiten Anregungsschritts im alten
 System. Es wird unterschieden zwischen freilaufend, \textit{iScan}-stabilisiert
 und \textit{iScan}+FOL-stabilisiert.
 \begin{figure}[hp]
@@ -216,9 +217,9 @@ und \textit{iScan}+FOL-stabilisiert.
 		\input{plt/laserstabilitaet_a_iScan+FOL}
 		}
 	}}
-	\caption[Laserfrequenzverhalten blauer Laser]{Laserfrequenzverhalten des blauen
-	Lasers im freilaufenden (a), \textit{iScan}-stabiliserten (b) und
-	\textit{iScan}+FOL-stabiliserten Modus (c). Unten ist jeweils der Jitter
+	\caption[Laserfrequenzverhalten, blauer Laser]{Laserfrequenzverhalten des
+	blauen Lasers im freilaufenden (a), \textit{iScan}-stabilisierten (b) und
+	\textit{iScan}+FOL-stabilisierten Modus (c). Unten ist jeweils der Jitter
 	aufgetragen.}
 	\label{fig:laserstabilitaet_a}
 \end{figure}
@@ -239,9 +240,9 @@ und \textit{iScan}+FOL-stabilisiert.
 		\input{plt/laserstabilitaet_b_iScan+FOL}
 		}
 	}}
-	\caption[Laserfrequenzverhalten \textit{DL-Pro}]{Laserfrequenzverhalten des
-	\textit{DL-Pro} im freilaufenden (a), \textit{iScan}-stabiliserten (b) und
-	\textit{iScan}+FOL-stabiliserten Modus (c). Unten ist jeweils der Jitter
+	\caption[Laserfrequenzverhalten, \textit{DL-Pro}]{Laserfrequenzverhalten des
+	\textit{DL-Pro} im freilaufenden (a), \textit{iScan}-stabilisierten (b) und
+	\textit{iScan}+FOL-stabilisierten Modus (c). Unten ist jeweils der Jitter
 	aufgetragen.}
 	\label{fig:laserstabilitaet_b}
 \end{figure}
@@ -262,9 +263,9 @@ und \textit{iScan}+FOL-stabilisiert.
 		\input{plt/laserstabilitaet_c_iScan+FOL}
 		}
 	}}
-	\caption[Laserfrequenzverhalten \textit{TA-Pro}]{Laserfrequenzverhalten des
-	\textit{TA-Pro} im freilaufenden (a), \textit{iScan}-stabiliserten (b) und
-	\textit{iScan}+FOL-stabiliserten Modus (c). Unten ist jeweils der Jitter
+	\caption[Laserfrequenzverhalten, \textit{TA-Pro}]{Laserfrequenzverhalten des
+	\textit{TA-Pro} im freilaufenden (a), \textit{iScan}-stabilisierten (b) und
+	\textit{iScan}+FOL-stabilisierten Modus (c). Unten ist jeweils der Jitter
 	aufgetragen.}
 	\label{fig:laserstabilitaet_c}
 \end{figure}
@@ -281,9 +282,10 @@ und \textit{iScan}+FOL-stabilisiert.
 		\input{plt/laserstabilitaet_alt_FOL}
 		}
 	}}
-	\caption[Laserfrequenzverhalten \textit{TA-Pro}]{Laserfrequenzverhalten des
+	\caption[Laserfrequenzverhalten, altes System]{Laserfrequenzverhalten des
 	Lasers für den zweiten Anregungsschritt aus dem alten System im freilaufenden
-	(a) und FOL-stabiliserten Modus (c). Unten ist jeweils der Jitter aufgetragen.}
+	(a) und FOL-stabilisierten Modus (c). Unten ist jeweils der Jitter
+	aufgetragen.}
 	\label{fig:laserstabilitaet_c}
 \end{figure}
 
@@ -318,7 +320,7 @@ Fringepatternanalysen für die Datenpunkte der Plots in Abb.
 		\input{plt/linearisierung_FSR_korr/05}
 	}
 	}}
-	\caption[Linearitaet \textit{iScan}, Fringepatternanlyse]{Plots der
+	\caption[Linearität \textit{iScan}, Fringepatternanalyse]{Plots der
 	Fringepatternanalyse für die Linearisierung aus Abb. \ref{fig:linearisierung_FSR_korr}.}
 	\label{fig:linearisierung_FSR_korr_anh}
 \end{figure}
