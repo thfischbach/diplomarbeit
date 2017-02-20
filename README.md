@@ -6,6 +6,6 @@ Arbeitstitel: **"Aufbau und Charakterisierung einer interferometrischen Frequenz
 
 Universität: [Uni Mainz](https://uni-mainz.de/)
 
-Institut: [Institut für Physik](https://www.iph.uni-mainz.de/)
+Institut: [Institut für Physik](http://www.iph.uni-mainz.de/)
 
 Arbeitsgruppe: [AG LARISSA](https://www.larissa.physik.uni-mainz.de/)
