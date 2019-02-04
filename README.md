@@ -9,7 +9,7 @@ Die Arbeit ist in deutsch geschrieben.
 This project contains the written part of the diploma thesis of Thomas Fischbach. The thesis has been written in context of the research group Larissa at the Institute of Physics at the Johannes Gutenberg University Mainz.
 The thesis is written in german language.
 
-Titel: **"Aufbau und Charakterisierung einer interferometrischen Frequenzstabilisierung für Diodenlaser"**
+Title: **"Aufbau und Charakterisierung einer interferometrischen Frequenzstabilisierung für Diodenlaser"**
 
 University: [Uni Mainz](https://uni-mainz.de/)
 
@@ -28,4 +28,4 @@ mkdir bin
 cd src
 pdflatex -output-directory=../bin main
 ```
-2. The resulting PDF ´main.pdf´ should be located in `[repo root]/bin`.
+2. The resulting PDF `main.pdf` should be located in `[repo root]/bin`.
